@@ -9,14 +9,13 @@
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |phone_number|integer|null: false, unique: true|
-|address|references|null: false, foreign_key: true|
 ### Association
 - has_many :items
 - has_many :comments
 - has_many :messages
 - has_many :goods
 - has_many :items, through: :goods
-- belongs_to :address
+- has_many :addresses
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -26,8 +25,9 @@
 |city|string|null: false|
 |block|integer|null: false|
 |building|string||
+|user|references|null: false, foreign_key: true|
 ### Association
-- has_many :users
+- belongs_to :user
 
 ## goodsテーブル
 |Column|Type|Options|
@@ -73,7 +73,7 @@
 |title|text|null: false, add_index|
 |explanation|text|null: false|
 |price|integer|null: false|
-|state|string|null: false|
+|state|integer|null: false|
 |postage|string|null: false|
 |user|references|null: false, foreign_key: true|
 |brand|references|null: false, foreign_key: true|
