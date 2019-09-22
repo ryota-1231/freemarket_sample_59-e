@@ -108,7 +108,7 @@
 
 ## salersテーブル
 |Column|Type|Options|
-——————|—————|——————
+|------|----|-------|
 |judge|references|null: false, foreign_key: true|
 ### Association
 - has_many :items
@@ -116,7 +116,7 @@
 
 ## buyersテーブル
 |Column|Type|Options|
-——————|—————|——————
+|------|----|-------|
 |judge|references|null: false, foreign_key: true|
 ### Association
 - has_many :items
@@ -124,7 +124,7 @@
 
 ## imagesテーブル
 |Column|Type|Options|
-——————|—————|——————
+|------|----|-------|
 |image|text|null: false|
 |item|references|null: false, foreign_key: true|
 ### Association
@@ -132,7 +132,7 @@
 
 ## optionsテーブル
 |Column|Type|Options|
-——————|—————|——————
+|------|----|-------|
 |option|text|null: false|
 ### Association
 - has_many :categories
