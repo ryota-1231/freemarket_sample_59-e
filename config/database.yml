@@ -50,7 +50,6 @@ test:
 production:
   <<: *default
   database: freemarke_sample_59期チームe_production
-  username: root
+  username: freemarke_sample_59期チームe
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
-
