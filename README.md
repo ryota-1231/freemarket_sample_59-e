@@ -5,14 +5,9 @@
 |------|----|-------|
 |nickname|string|null: false|
 |fullname|string|null: false|
-|kananame|string|null: false|
+|kana|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|postcode|integer|null: false|
-|prefecture|references|null: false, foreign_key: true|
-|city|string|null: false|
-|block|integer|null: false|
-|building|string||
 |phone_number|integer|null: false, unique: true|
 ### Association
 - has_many :items
@@ -20,6 +15,19 @@
 - has_many :messages
 - has_many :goods
 - has_many :items, through: :goods
+- belongs_to :adress
+
+## adressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|postcode|integer|null: false|
+|prefecture|references|null: false, foreign_key: true|
+|city|string|null: false|
+|block|integer|null: false|
+|building|string||
+|adress|references|null: false, foreign_key: true|
+### Association
+- has_many :users
 
 ## goodsテーブル
 |Column|Type|Options|
@@ -65,10 +73,6 @@
 |title|text|null: false, add_index|
 |explanation|text|null: false|
 |price|integer|null: false|
-|delivery_fee|integer|null: false|
-|delivery_method|text|null: false|
-|delivery_source|string|null: false|
-|delivery_date|string|null: false|
 |state|string|null: false|
 |postage|string|null: false|
 |user|references|null: false, foreign_key: true|
@@ -87,7 +91,18 @@
 - belongs_to :category
 - belongs_to :saler
 - belongs_to :buyer
+- belongs_to :delivery
 
+## deliveriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|delivery_fee|integer|null: false|
+|delivery_method|text|null: false|
+|delivery_source|string|null: false|
+|delivery_date|string|null: false|
+|delivery|references|null: false, foreign_key: true|
+### Association
+- has_many :items
 
 ## brandsテーブル
 |Column|Type|Options|
