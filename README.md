@@ -15,9 +15,9 @@
 - has_many :messages
 - has_many :goods
 - has_many :items, through: :goods
-- belongs_to :adress
+- belongs_to :address
 
-## adressesテーブル
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |postcode|integer|null: false|
@@ -25,7 +25,7 @@
 |city|string|null: false|
 |block|integer|null: false|
 |building|string||
-|adress|references|null: false, foreign_key: true|
+|address|references|null: false, foreign_key: true|
 ### Association
 - has_many :users
 
