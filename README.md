@@ -9,6 +9,7 @@
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |phone_number|integer|null: false, unique: true|
+|address|references|null: false, foreign_key: true|
 ### Association
 - has_many :items
 - has_many :comments
@@ -25,7 +26,6 @@
 |city|string|null: false|
 |block|integer|null: false|
 |building|string||
-|address|references|null: false, foreign_key: true|
 ### Association
 - has_many :users
 
@@ -80,6 +80,7 @@
 |category|references|null: false, foreign_key: true|
 |saler|references|null: false, foreign_key: true|
 |buyer|references|null: false, foreign_key: true|
+|delivery|references|null: false, foreign_key: true|
 ### Association
 - has_many :comments
 - has_many :messages
@@ -100,7 +101,6 @@
 |delivery_method|text|null: false|
 |delivery_source|string|null: false|
 |delivery_date|string|null: false|
-|delivery|references|null: false, foreign_key: true|
 ### Association
 - has_many :items
 
@@ -118,7 +118,7 @@
 |option|references|null: false, foreign_key: true|
 ### Association
 - has_many :items
-- belongs_to :option
+- belongs_to :detail
 - has_ancestry
 
 ## salersテーブル
@@ -145,10 +145,10 @@
 ### Association
 - belongs_to :item
 
-## optionsテーブル
+## detailsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|option|text|null: false|
+|detail|text|null: false|
 ### Association
 - has_many :categories
 - has_ancestry
