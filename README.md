@@ -2,7 +2,7 @@
 
 ## usersテーブル
 |Column|Type|Options|
-|——————|—————|——————|
+——————|—————|——————
 |nickname|string|null: false|
 |fullname|string|null: false|
 |kananame|string|null: false|
@@ -23,7 +23,7 @@
 
 ## goodsテーブル
 |Column|Type|Options|
-|——————|—————|——————|
+——————|—————|——————
 |item|references|null: false, foreign_key: true|
 |user|references|null: false, foreign_key: true|
 ### Association
@@ -32,7 +32,7 @@
 
 ## judgesテーブル
 |Column|Type|Options|
-|——————|—————|——————|
+——————|—————|——————
 |judge|integer|null: false|
 |judge_comment|text|null: false|
 ### Association
@@ -41,7 +41,7 @@
 
 ## commentsテーブル
 |Column|Type|Options|
-|——————|—————|——————|
+——————|—————|——————
 |comment|text|null: false|
 |user|references|null: false, foreign_key: true|
 |item|references|null: false, foreign_key: true|
@@ -51,7 +51,7 @@
 
 ## messagesテーブル
 |Column|Type|Options|
-|——————|—————|——————|
+——————|—————|——————
 |message|text|null: false|
 |user|references|null: false, foreign_key: true|
 |item|references|null: false, foreign_key: true|
@@ -61,7 +61,7 @@
 
 ## itemsテーブル
 |Column|Type|Options|
-|——————|—————|——————|
+——————|—————|——————
 |title|text|null: false, add_index|
 |explanation|text|null: false|
 |price|integer|null: false|
@@ -91,14 +91,14 @@
 
 ## brandsテーブル
 |Column|Type|Options|
-|——————|—————|——————|
+——————|—————|——————
 |name|text|null: false, unique: true|
 ### Association
 - has_many :items
 
 ## categoriesテーブル
 |Column|Type|Options|
-|——————|—————|——————|
+——————|—————|——————
 |name|text|null: false, unique: true|
 |option|references|null: false, foreign_key: true|
 ### Association
@@ -108,7 +108,7 @@
 
 ## salersテーブル
 |Column|Type|Options|
-|——————|—————|——————|
+——————|—————|——————
 |judge|references|null: false, foreign_key: true|
 ### Association
 - has_many :items
@@ -116,7 +116,7 @@
 
 ## buyersテーブル
 |Column|Type|Options|
-|——————|—————|——————|
+——————|—————|——————
 |judge|references|null: false, foreign_key: true|
 ### Association
 - has_many :items
@@ -124,7 +124,7 @@
 
 ## imagesテーブル
 |Column|Type|Options|
-|——————|—————|——————|
+——————|—————|——————
 |image|text|null: false|
 |item|references|null: false, foreign_key: true|
 ### Association
@@ -132,7 +132,7 @@
 
 ## optionsテーブル
 |Column|Type|Options|
-|——————|—————|——————|
+——————|—————|——————
 |option|text|null: false|
 ### Association
 - has_many :categories
