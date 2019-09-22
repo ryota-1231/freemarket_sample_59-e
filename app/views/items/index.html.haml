@@ -1,0 +1,44 @@
+!!!
+%html{:lang => "ja"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "UTF-8"}/
+    %title CSS
+    :css
+    %link{:href => "style.scss", :rel => "stylesheet"}/
+
+
+.wrapper
+  .header
+    .header_box
+      .header_box_upper
+        .header_box_upper_left
+          = link_to "mercari","#"
+        .header_box_upper_right
+          = form_tag('#', method: :get, class: 'search-form') do
+          %input.search-form__input{name: "keyword", placeholder: "何かお探しですか？", type: "text", value: ""}
+          %button.btn-search{title: "検索", type: "submit"}
+            = fa_icon "search",class: "search-form__icon"
+      .header_box_downer
+        .header_box_downer_left
+          .header_box_downer_left_search_category
+            カテゴリーから探す
+          .header_box_downer_left_search_brand
+            ブランドから探す  
+        .header_box_downer_right
+
+  .content
+    .content_all
+    -# 縦長のハコ
+      .content_all_scrol
+      .content_all_popular_category
+        .content_all_popular_category_title
+        .content_all_popular_category_links
+          %ul
+      .content_all_category_list
+      .content_all_popular_brand
+      .content_all_brand_list
+
+  .post
+  .footer1
+  .footer2          
