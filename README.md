@@ -118,7 +118,7 @@
 |option|references|null: false, foreign_key: true|
 ### Association
 - has_many :items
-- belongs_to :detail
+- belongs_to :size
 - has_ancestry
 
 ## salersテーブル
@@ -145,10 +145,10 @@
 ### Association
 - belongs_to :item
 
-## detailsテーブル
+## sizesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|detail|text|null: false|
+|size|text|null: false|
 ### Association
 - has_many :categories
 - has_ancestry
