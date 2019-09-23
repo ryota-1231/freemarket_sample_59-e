@@ -1,0 +1,214 @@
+
+.edit{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: scroll;
+    background-color: rgb(245, 245, 245);
+    
+    .edit__link{
+      height: 1250px;
+      width: 280px;
+      background-color: red;
+      float: left;
+      position: absolute;
+      top: 200px;
+      left: 200px;
+      ul.edit__link__top{
+        margin: 0px;
+        height: 700px;
+        width: 280px;
+        background-color: blue;
+        list-style: none;
+        padding-left: 0px;
+        
+          li{
+            height: 50px;
+            width: 280px;
+            background-color: white;
+            border-bottom: solid thin #DDDDDD;
+            position: relative;
+            .edit__link__top--box{
+              height: 25px;
+              width: 270px;
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              margin: auto;
+              float: left;
+              color: black;
+              i{
+                float:right;
+                font-size: 25px;
+                color: #DDDDDD;
+                transition: all 0.5s;
+                margin-right: 5px;
+              }
+              
+            }
+            }
+            li:hover{
+              background-color: rgb(245, 245, 245);
+              i {
+                font-weight: bolder;
+                color: black;
+                transform: translate(3px,0px);
+            }
+            }
+        }
+
+        
+
+      .edit__link__merpay{
+            
+            height: 50px;
+            width: 280px;
+            background-color: rgb(245, 245, 245);
+            font-weight: bold;
+            line-height: 75px;
+      }
+      ul.edit__link__merpaylist{
+        margin: 0px;
+        height: 100px;
+        width: 280px;
+        background-color: white;
+        list-style: none;
+        padding-left: 0px;
+          li{
+            height: 50px;
+            width: 280px;
+            background-color: white;
+            border-bottom: solid thin #DDDDDD;
+            position: relative;
+            .edit__link__top--box{
+              height: 25px;
+              width: 270px;
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              margin: auto;
+              color: black;
+              i{
+                float:right;
+                height: 25px;
+                width: 25px;
+                color: black;
+                font-size: 25px;
+                color: #DDDDDD;
+              }
+            }
+          }
+      }
+      .edit__link__edit{
+            height: 50px;
+            width: 280px;
+            background-color: rgb(245, 245, 245);
+            line-height: 75px;
+            font-weight: bold;
+      }
+      ul.edit__link__editlist{
+        margin: 0px;
+        height: 100px;
+        width: 280px;
+        background-color: white;
+        list-style: none;
+        padding-left: 0px;
+          li{
+            height: 50px;
+            width: 280px;
+            background-color: white;
+            border-bottom: solid thin #DDDDDD;
+            position: relative;
+            .edit__link__top--box{
+              height: 25px;
+              width: 270px;
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              margin: auto;
+              color: black;
+              i{
+                float:right;
+                height: 25px;
+                width: 25px;
+                color: black;
+                font-size: 25px;
+                color: #DDDDDD;
+              }
+            }
+          }
+      }
+    
+  }
+  
+  .edit__profile{
+    height: 600px;
+    width: 700px;
+    background-color: white;
+    float: right;
+    position: absolute;
+    top: 200px;
+    right: 200px;
+    .edit__profile--profile{
+      text-align: center;
+      font-size: 25px;
+      height: 50px;
+      width: 700px;
+      font-weight: bold;
+    }
+    .edit__profile--user{
+      height: 150px;
+      width: 700px;
+      background-color: red;
+      .edit__profile--user--box{
+        height: 60px;
+        width: 700px;
+        padding: 45px 0px;
+        .edit__profile--user--box--image{
+            height: 60px;
+            width: 60px;
+            float:left;
+            margin-left: 200px;
+            background-color: white;
+            border-radius: 50%;
+          }
+        .edit__profile--user--box--nickname{
+            height: 40px;
+            width: 250px;
+            float:left;
+            background-color: white;
+            margin: 5px 0px 5px 30px;
+            font-size: 15px;
+            border-radius: 0.2em; 
+            border:none;
+          }
+    }
+    }
+  }
+    .edit__profile--text{
+      height: 225px;
+      width: 680px;
+      margin-top: 50px;
+      margin-left: 10px;
+      background-color: white;
+      font-size: 15px;
+    }
+    .edit__profile--submit{
+      height: 50px;
+      width: 680px;
+      margin-top: 10px;
+      margin-left: 10px;
+      background-color: red;
+      color: white;
+      font-size: 15px;
+      outline: none;
+    }
+  }
+
+  
