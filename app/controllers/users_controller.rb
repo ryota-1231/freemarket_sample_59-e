@@ -20,5 +20,8 @@ class UsersController < ApplicationController
   
   def destroy
   end  
+
+  def log_out
+  end
   
 end
