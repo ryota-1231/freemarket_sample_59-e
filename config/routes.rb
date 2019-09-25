@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   root "items#index"
   resources :items
 
-  resources :users
+  resources :users do
+    collection do
+      get 'log_out'
+    end
+  end
 end
