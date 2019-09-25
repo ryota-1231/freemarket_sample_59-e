@@ -1,0 +1,132 @@
+.contents
+  .header
+    .header__logo
+      = link_to image_tag(src= "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3296506464", class: "mercari-logo-user", height:49, width:185), "#"
+    .order-sign
+      %ol
+        %li.member-red
+          会員情報
+          .order-radius__red
+        %li.phone-number
+          電話番号認証
+          .order-radius
+        %li.address
+          お届け先住所入力
+          .order-radius
+        %li.pay-method
+          支払い方法
+          .order-radius
+        %li.complete
+          完了
+          .order-radius__last
+
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .signup
+      .signup-title
+        会員情報入力
+      .signup__box
+        .signup__box-input
+          .field
+            .field-info__nickname
+              %label{for: "nickname", class:"position"} ニックネーム
+              %span.form-require 必須
+              %br
+            .field-input
+            = f.email_field :email, class: "input-default", autocomplete: "email", placeholder: "例）メルカリ太郎"
+          .field
+            .field-info__email
+              %label{for: "email"} メールアドレス
+              %span.form-require 必須
+              %br
+            .field-input
+            = f.password_field :email, class: "input-default", autocomplete: "current-password", placeholder: "PC・携帯どちらでも可"
+          .field
+            .field-info__password
+              %label{for: "password"} パスワード
+              %span.form-require 必須
+              %br
+            .field-input
+            = f.email_field :password, class: "input-default", autocomplete: "email", placeholder: "7文字以上"
+          .field
+            .field-info__password-comfirm
+              %label{for: "password"} パスワード（確認）
+              %span.form-require 必須
+              %br
+            .field-input
+            = f.password_field :password, class: "input-default", autocomplete: "current-password", placeholder: "7文字以上"
+            %h3 本人確認
+          .login__info
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません
+
+          .field  
+            .field-info__fullname
+              %label{for: "family_name_kanji"} お名前（全角）
+              %span.form-require 必須
+              %br
+            .field-input
+            = f.email_field :email, class: "input-default-half", autocomplete: "email", placeholder: "例）山田"
+            = f.password_field :password, class: "input-default-half", autocomplete: "current-password", placeholder: "例）彩"
+          .field
+            .field-info__kana
+              %label{for: "family-name-katakana"} お名前カナ（全角）
+              %span.form-require 必須
+              %br
+            .field-input
+            = f.email_field :email, class: "input-default-half", autocomplete: "email", placeholder: "例）ヤマダ"
+            = f.password_field :password, class: "input-default-half", autocomplete: "current-password", placeholder: "例）アヤ"
+          .field
+            .field-info__birth
+              %label{for: "birthday"} 生年月日
+              %span.form-require 必須
+            .birthday-select-wrap
+              .select-wrap
+              .select-wrap__month
+              .select-wrap__
+            .field-input
+            = f.password_field :password, class: "input-default", autocomplete: "current-password", placeholder: ""
+          .form__info
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+          .g-recaptcha{class: "g-recaptcha", "data-sitekey" => "6LdFBroUAAAAAE5mCF3yc3ssUdAT5OnAD0r5LYsn"}
+
+          .terms-of-service
+            「次へ進む」のボタンを押すことにより、
+            = link_to '利用規約', '#'
+            に同意したものとみなします
+
+          .next__btn
+            = link_to '次へ進む', '#', class:"next-btn"
+          .about__user-information
+            = link_to '本人情報の登録について 〉', '#'
+  .footer
+    %ul
+      %li= link_to 'プライバシーポリシー', '#'
+      %li= link_to 'メルカリ利用規約', '#'
+      %li= link_to '特定商取引に関する表記', '#'
+    .footer__link
+      = link_to image_tag(src= "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464", class: "mercari-graylogo", height: 80, width: 60), "#"
+      %p © 2019 Mercari
+    
+
+-# %h2 Sign up
+-# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     - if @minimum_password_length
+-#       %em
+-#         (#{@minimum_password_length} characters minimum)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#   .field
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .actions
+-#     = f.submit "Sign up"
+-# = render "devise/shared/links"
+
