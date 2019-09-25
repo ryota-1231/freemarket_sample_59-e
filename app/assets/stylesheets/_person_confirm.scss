@@ -22,7 +22,7 @@ p {
       float:right;
       top: 200px;
       right: 200px;
-      .person__head{
+      &__head{
         height: 50px;
         width: 700px;
         text-align: center;
@@ -32,12 +32,12 @@ p {
         font-weight: bold;
         line-height: 50px;
       }
-      .person__bottom{
+      &__bottom{
         height: 1150px;
         width: 700px;
         background-color: white;
         position: relative;
-        .person__bottom__box{
+        &__box{
           height: 1020px;
           width: 580px;
           top: 0px;
@@ -47,14 +47,14 @@ p {
           margin: auto;
           position: absolute;
           background-color: white;
-            .person__bottom__box--message{
+            &--message{
               height: 42px;
               width: 580px;
               background-color: white;
               font-size: 13px;
               
             }
-            .person__bottom__box--link1{
+            &--link1{
               height: 21px;
               width: 580px;
               background-color: white;
@@ -68,19 +68,19 @@ p {
                 
               }
             }
-            .person__bottom__box--kanji{
+            &--kanji{
               height: 43px;
               width: 580px;
               background-color: white;
               margin-top: 40px;
-              .person__bottom__box--kanji--first{
+              &--first{
                 height: 16px;
                 width: 50px;
                 background-color: white;
                 font-size: 14px;
                 font-weight: bold;
               }
-              .person__bottom__box--kanji--user{
+              &--user{
                 height: 21px;
                 width: 500px;
                 background-color: white;
@@ -88,19 +88,19 @@ p {
                 margin-top: 6px;
               }
             }
-            .person__bottom__box--kana{
+            &--kana{
               height: 43px;
               width: 580px;
               background-color: white;
               margin-top: 40px;
-              .person__bottom__box--kana--first{
+              &--first{
                 height: 16px;
                 width: 80px;
                 background-color: white;
                 font-weight: bold;
                 font-size: 14px;
               }
-              .person__bottom__box--kana--user{
+              &--user{
                 height: 21px;
                 width: 500px;
                 background-color: white;
@@ -109,19 +109,19 @@ p {
                 margin-top: 6px;
               }
             }
-            .person__bottom__box--date{
+            &--date{
               height: 43px;
               width: 580px;
               background-color: white;
               margin-top: 40px;
-              .person__bottom__box--date--first{
+              &--first{
                 height: 16px;
                 width: 80px;
                 background-color: white;
                 font-size: 14px;
                 font-weight: bold;
               }
-              .person__bottom__box--date--user{
+              &--user{
                 height: 21px;
                 width: 500px;
                 background-color: white;
@@ -132,17 +132,17 @@ p {
             
             
             
-            .person__bottom__box--address{
+            &--address{
               height: 70px;
               width: 580px;
               background-color: white;
               margin-top: 40px;
-              .person__bottom__box--address--box{
+              &--box{
                   height: 20px;
                   width: 100px;
                   background-color: white;
               
-                  .person__bottom__box--address--box--first{
+                  &--first{
                     height: 16px;
                     width: 60px;
                     background-color: white;
@@ -150,7 +150,7 @@ p {
                     float: left;
                     font-weight: bold;
                   }
-                  .person__bottom__box--address--box--any{
+                  &--any{
                     height: 20px;
                     width: 30px;
                     
@@ -164,7 +164,7 @@ p {
                   }
                   
               }
-              .person__bottom__box--address--text{
+              &--text{
                 height: 40px;
                 width: 580px;
                 background-color: white;
@@ -179,17 +179,17 @@ p {
             }
 
             
-            .person__bottom__box--prefecture{
+            &--prefecture{
               height: 70px;
               width: 580px;
               background-color: white;
               margin-top: 40px;
-              .person__bottom__box--prefecture--box{
+              &--box{
                 height: 20px;
                   width: 100px;
                   background-color: white;
               
-              .person__bottom__box--prefecture--box--first{
+              &--first{
                 height: 16px;
                 width: 60px;
                 background-color: white;
@@ -197,7 +197,7 @@ p {
                 font-size: 14px;
                 font-weight: bold;
               }
-              .person__bottom__box--prefecture--box--any{
+              &--any{
                 height: 20px;
                     width: 30px;
                     font-size: 14px;
@@ -211,13 +211,13 @@ p {
             }
             
             
-            }
-            .person__bottom__box--prefecture--text{
+            
+            &--text{
                 height: 80px;
                 width: 580px;
                 
               position: relative;
-              .person__bottom__box--prefecture--text--select{
+              &--select{
                 height: 40px;
                 width: 580px;
                 background-color: white;
@@ -236,28 +236,29 @@ p {
                 
               
             }
-            .person__bottom__box--prefecture--text--icon{
-              position: absolute;
-              right: 10px;
-              bottom: 17px;
-              color: gray;
-            }
+              &--icon{
+                position: absolute;
+                right: 10px;
+                bottom: 17px;
+                color: gray;
+              }
           }
+        }
             
             
 
             
-            .person__bottom__box--city{
+            &--city{
               height: 70px;
               width: 580px;
               background-color: white;
               margin-top: 40px;
-              .person__bottom__box--city--box{
+              &--box{
                 height: 20px;
                   width: 100px;
                   background-color: white;
               
-              .person__bottom__box--city--box--first{
+              &--first{
                 height: 16px;
                 width: 60px;
                 background-color: white;
@@ -265,7 +266,7 @@ p {
                 font-size: 14px;
                 font-weight: bold;
               }
-              .person__bottom__box--city--box--any{
+              &--any{
                     height: 20px;
                     width: 30px;
                     background-color: gray;
@@ -277,7 +278,7 @@ p {
                 text-align: center;
               }
             }
-              .person__bottom__box--city--text{
+              &--text{
                 height: 40px;
                 width: 580px;
                 background-color: white;
@@ -291,7 +292,7 @@ p {
         }
 
               
-            .person__bottom__box--number{
+            &--number{
               height: 70px;
               width: 580px;
               background-color: white;
@@ -301,7 +302,7 @@ p {
                   width: 100px;
                   background-color: white;
               
-              .person__bottom__box--number--box--first{
+              &--first{
                 height: 16px;
                 width: 30px;
                 background-color: white;
@@ -309,7 +310,7 @@ p {
                 font-size: 14px;
                 font-weight: bold;
               }
-              .person__bottom__box--number--box--any{
+              &--any{
                 height: 20px;
                 width: 30px;
                 background-color: gray;
@@ -321,7 +322,7 @@ p {
                 text-align: center;
               }
             }
-              .person__bottom__box--number--text{
+              &--text{
                 height: 40px;
                 width: 580px;
                 background-color: white;
@@ -334,17 +335,17 @@ p {
             }
 
               
-            .person__bottom__box--building{
+            &--building{
               height: 70px;
               width: 580px;
               background-color: white;
               margin-top: 40px;
-              .person__bottom__box--building--box{
+              &--box{
                 height: 20px;
                   width: 100px;
                   background-color: white;
               
-              .person__bottom__box--building--box--first{
+              &--first{
                 height: 16px;
                 width: 30px;
                 background-color: white;
@@ -352,7 +353,7 @@ p {
                 font-size: 14px;
                 font-weight: bold;
               }
-              .person__bottom__box--building--box--any{
+              &--any{
                 height: 20px;
                 width: 30px;
                 background-color: gray;
@@ -364,7 +365,7 @@ p {
                 text-align: center;
               }
             }
-              .person__bottom__box--building--text{
+              &--text{
                 height: 40px;
                 width: 580px;
                 background-color: white;
@@ -375,7 +376,7 @@ p {
                 font-size: 15px;
               }
         }
-            .person__bottom__box--btn{
+            &--btn{
               height: 50px;
               width: 580px;
               background-color: red;
@@ -384,7 +385,7 @@ p {
               color: white;
               outline: none;
             }
-            .person__bottom__box--link2{
+            &--link2{
               height: 21px;
               width: 580px;
               background-color: white;
