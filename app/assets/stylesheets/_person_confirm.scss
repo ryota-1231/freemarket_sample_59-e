@@ -1,0 +1,406 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+
+.back{
+  height: 1600px;
+  background-color: rgb(245, 245, 245);
+  position: rerative;
+  overflow: scroll;
+    .person{
+      height: 1200px;
+      width: 700px;
+      background-color: red;
+      position: absolute;
+      float:right;
+      top: 200px;
+      right: 200px;
+      .person__head{
+        height: 50px;
+        width: 700px;
+        text-align: center;
+        background-color: white;
+        border-bottom: solid medium #DDDDDD;
+        font-size: 25px;
+        font-weight: bold;
+        line-height: 50px;
+      }
+      .person__bottom{
+        height: 1150px;
+        width: 700px;
+        background-color: white;
+        position: relative;
+        .person__bottom__box{
+          height: 1020px;
+          width: 580px;
+          top: 0px;
+          right: 0px;
+          left: 0px;
+          bottom: 0px;
+          margin: auto;
+          position: absolute;
+          background-color: white;
+            .person__bottom__box--message{
+              height: 42px;
+              width: 580px;
+              background-color: white;
+              font-size: 13px;
+              // margin-top: 8px;
+              
+              // white-space: pre;
+            }
+            .person__bottom__box--link1{
+              height: 21px;
+              width: 580px;
+              background-color: white;
+              margin-top: 16px;
+              text-align: right;
+              font-size: 13px;
+              
+              a{
+                color: blue;
+                text-decoration: none;
+                
+              }
+            }
+            .person__bottom__box--kanji{
+              height: 43px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              .person__bottom__box--kanji--first{
+                height: 16px;
+                width: 50px;
+                background-color: white;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              .person__bottom__box--kanji--user{
+                height: 21px;
+                width: 500px;
+                background-color: white;
+                font-size: 14px;
+                margin-top: 6px;
+              }
+            }
+            .person__bottom__box--kana{
+              height: 43px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              .person__bottom__box--kana--first{
+                height: 16px;
+                width: 80px;
+                background-color: white;
+                font-weight: bold;
+                font-size: 14px;
+              }
+              .person__bottom__box--kana--user{
+                height: 21px;
+                width: 500px;
+                background-color: white;
+                
+                font-size: 14px;
+                margin-top: 6px;
+              }
+            }
+            .person__bottom__box--date{
+              height: 43px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              .person__bottom__box--date--first{
+                height: 16px;
+                width: 80px;
+                background-color: white;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              .person__bottom__box--date--user{
+                height: 21px;
+                width: 500px;
+                background-color: white;
+                margin-top: 6px;
+                font-size: 14px;
+              }
+            }
+            
+            
+            // 郵便番号
+            .person__bottom__box--address{
+              height: 70px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              .person__bottom__box--address--box{
+                  height: 20px;
+                  width: 100px;
+                  background-color: white;
+              
+                  .person__bottom__box--address--box--first{
+                    height: 16px;
+                    width: 60px;
+                    background-color: white;
+                    font-size: 14px;
+                    float: left;
+                    font-weight: bold;
+                  }
+                  .person__bottom__box--address--box--any{
+                    height: 20px;
+                    width: 30px;
+                    
+                    font-size: 14px;
+                    float: left;
+                    margin-left: 10px;
+                    border-radius: 0.2em;
+                    text-align: center;
+                    background-color: gray;
+                    color: white;
+                  }
+                  
+              }
+              .person__bottom__box--address--text{
+                height: 40px;
+                width: 580px;
+                background-color: white;
+                margin-top: 10px;
+                clear: both;
+                border-radius: 0.2em;
+                border: 1px solid #ccc;
+                font-size: 15px;
+                position: relative;
+                
+              }
+            }
+
+            
+            .person__bottom__box--prefecture{
+              height: 70px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              .person__bottom__box--prefecture--box{
+                height: 20px;
+                  width: 100px;
+                  background-color: white;
+              
+              .person__bottom__box--prefecture--box--first{
+                height: 16px;
+                width: 60px;
+                background-color: white;
+                float: left;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              .person__bottom__box--prefecture--box--any{
+                height: 20px;
+                    width: 30px;
+                    font-size: 14px;
+                    float: left;
+                    margin-left: 10px;
+                    border-radius: 0.2em;
+                    text-align: center;
+                    background-color: gray;
+                    color: white;
+              }
+            }
+            
+            
+            }
+            .person__bottom__box--prefecture--text{
+                height: 80px;
+                width: 580px;
+                
+              position: relative;
+              .person__bottom__box--prefecture--text--select{
+                height: 40px;
+                width: 580px;
+                background-color: white;
+                margin-top: 10px;
+                border-radius: 0.2em;
+                border: 1px solid #ccc;
+                padding: 7px 30px 7px 10px;
+
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                
+                background-repeat: no-repeat;
+                background-size: 12px 10px;
+                background-position: right 10px center;
+                
+              
+            }
+            .person__bottom__box--prefecture--text--icon{
+              position: absolute;
+              right: 10px;
+              bottom: 17px;
+              color: gray;
+            }
+          }
+            
+            
+
+            
+            .person__bottom__box--city{
+              height: 70px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              .person__bottom__box--city--box{
+                height: 20px;
+                  width: 100px;
+                  background-color: white;
+              
+              .person__bottom__box--city--box--first{
+                height: 16px;
+                width: 60px;
+                background-color: white;
+                float: left;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              .person__bottom__box--city--box--any{
+                    height: 20px;
+                    width: 30px;
+                    background-color: gray;
+                    color: white;
+                    font-size: 14px;
+                    float: left;
+                    margin-left: 10px;
+                    border-radius: 0.2em;
+                text-align: center;
+              }
+            }
+              .person__bottom__box--city--text{
+                height: 40px;
+                width: 580px;
+                background-color: white;
+                clear: both;
+                margin-top: 10px;
+                border-radius: 0.2em;
+                border: 1px solid #ccc;
+                font-size: 15px;
+              }
+              
+        }
+
+              
+            .person__bottom__box--number{
+              height: 70px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              .person__bottom__box--number--box{
+                height: 20px;
+                  width: 100px;
+                  background-color: white;
+              
+              .person__bottom__box--number--box--first{
+                height: 16px;
+                width: 30px;
+                background-color: white;
+                float: left;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              .person__bottom__box--number--box--any{
+                height: 20px;
+                width: 30px;
+                background-color: gray;
+                color: white;
+                float: left;
+                margin-left: 10px;
+                font-size: 14px;
+                border-radius: 0.2em;
+                text-align: center;
+              }
+            }
+              .person__bottom__box--number--text{
+                height: 40px;
+                width: 580px;
+                background-color: white;
+                clear: both;
+                margin-top: 10px;
+                border-radius: 0.2em;
+                border: 1px solid #ccc;
+                font-size: 15px;
+              }
+            }
+
+              
+            .person__bottom__box--building{
+              height: 70px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              .person__bottom__box--building--box{
+                height: 20px;
+                  width: 100px;
+                  background-color: white;
+              
+              .person__bottom__box--building--box--first{
+                height: 16px;
+                width: 30px;
+                background-color: white;
+                float: left;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              .person__bottom__box--building--box--any{
+                height: 20px;
+                width: 30px;
+                background-color: gray;
+                color: white;
+                float: left;
+                margin-left: 10px;
+                font-size: 13px;
+                border-radius: 0.2em;
+                text-align: center;
+              }
+            }
+              .person__bottom__box--building--text{
+                height: 40px;
+                width: 580px;
+                background-color: white;
+                clear: both;
+                margin-top: 10px;
+                border-radius: 0.2em;
+                border: 1px solid #ccc;
+                font-size: 15px;
+              }
+        }
+            .person__bottom__box--btn{
+              height: 50px;
+              width: 580px;
+              background-color: red;
+              margin-top: 40px;
+              font-size: 15px;
+              color: white;
+              outline: none;
+            }
+            .person__bottom__box--link2{
+              height: 21px;
+              width: 580px;
+              background-color: white;
+              margin-top: 31px;
+              text-align: right;
+              text-decoration: none;
+              font-size: 13px;
+              a{
+                color: blue;
+                text-decoration: none;
+                
+              }
+        }
+      }
+    }
+}
+}
