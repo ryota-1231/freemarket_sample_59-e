@@ -10,9 +10,19 @@ Rails.application.routes.draw do
     resources :images, only: [:index, :create]
   end
 
-  resources :users do
+  resources :users, only: [:new, :edit, :show] do
     collection do
       get 'log_out'
+      get 'sign_in'
+    end
+  end
+  resources :signup, only:[:new] do
+    collection do
+      get 'member'
+      get 'phonenumber'
+      get 'address'
+      get 'paymethod' 
+      get 'done' 
     end
   end
 end
