@@ -12,7 +12,6 @@ $(function(){
 $(function(){
   
   $(".menu").hover(function(){
-    console.log('ok1');
     $(".menu2").stop().slideToggle(100);
   });
 });
@@ -20,7 +19,6 @@ $(function(){
 $(function(){
   
   $(".menu2").hover(function(){
-    console.log('ok2');
     $(".menu2").stop().slideToggle(100);
   });
 });
@@ -28,7 +26,6 @@ $(function(){
 $(function(){
   
   $(".menu2").hover(function(){
-    console.log('ok2');
     $(".menu3").stop().slideToggle(100);
   });
 });
@@ -36,7 +33,6 @@ $(function(){
 $(function(){
   
   $(".menu3").hover(function(){
-    console.log('ok2');
     $(".menu3").stop().slideToggle(100);
   });
 });
@@ -44,7 +40,6 @@ $(function(){
 $(function(){
   
   $(".menu3").hover(function(){
-    console.log('ok2');
     $(".menu2").stop().slideToggle(100);
   });
 });
@@ -54,7 +49,6 @@ $(function(){
 $(function(){
   
   $(".header__box__bottom__left__search__brand").hover(function(){
-    console.log('ok3');
     $(".brand").stop().slideToggle(100);
   });
 });
@@ -64,7 +58,6 @@ $(function(){
 $(function(){
   
   $(".header__box__bottom__right__news").hover(function(){
-    console.log('ok199');
     $(".news").stop().slideToggle(100);
   });
 });
@@ -72,7 +65,6 @@ $(function(){
 $(function(){
   
   $(".header__box__bottom__right__todo").hover(function(){
-    console.log('ok199');
     $(".header__box__bottom__right__todo__hidden1").stop().slideToggle(100);
   });
 });
