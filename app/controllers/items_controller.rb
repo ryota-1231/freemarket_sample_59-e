@@ -21,4 +21,7 @@ class ItemsController < ApplicationController
   def destroy
   end  
 
+  def exhibit
+  end
+
 end
