@@ -4,41 +4,386 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:charset => "UTF-8"}/
     %title CSS
+    
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
+    -# %script{:src => "items.js"}
     :css
-    %link{:href => "style.scss", :rel => "stylesheet"}/
+    %link{:href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :rel => "stylesheet"}/
+    -# %link{:href => "style.scss", :rel => "stylesheet"}/
+
+    
 
 
-.wrapper
-  .header
-    .header_box
-      .header_box_upper
-        .header_box_upper_left
-          = link_to "mercari","#"
-        .header_box_upper_right
-          = form_tag('#', method: :get, class: 'search-form') do
-          %input.search-form__input{name: "keyword", placeholder: "何かお探しですか？", type: "text", value: ""}
-          %button.btn-search{title: "検索", type: "submit"}
-            = fa_icon "search",class: "search-form__icon"
-      .header_box_downer
-        .header_box_downer_left
-          .header_box_downer_left_search_category
-            カテゴリーから探す
-          .header_box_downer_left_search_brand
-            ブランドから探す  
-        .header_box_downer_right
 
-  .content
-    .content_all
-    -# 縦長のハコ
-      .content_all_scrol
-      .content_all_popular_category
-        .content_all_popular_category_title
-        .content_all_popular_category_links
-          %ul
-      .content_all_category_list
-      .content_all_popular_brand
-      .content_all_brand_list
+.header
+  .header__box
+    .header__box__top
+      .header__box__top__left
+        -# = link_to "mercari"
+        = image_tag "logo-acdd90ac4f472d5a6f7a330d33ab1225.svg",class: "merukari"
+      .header__box__top__right
+        .header__box__top__right__content 
+          -# %i.fas.fa-search
+          = form_tag("#",:method => 'get',class:"hogeho") do
+            = text_field_tag :search ,"",class:"search_form",placeholder: "何かお探しですか？",style: "border-right: none"
+            %button{:type => "submit",class: "search_button"}
+              %i.fas.fa-search
+              
 
-  .post
-  .footer1
-  .footer2          
+    .header__box__bottom
+      .header__box__bottom__left
+        .header__box__bottom__left__search__category
+          = link_to "#", :method => :get do
+            %i.fas.fa-align-justify
+          = link_to "カテゴリーから探す",(),class: "category"
+          .header__box__bottom__left__search__category__hidden
+            %ul.header__box__bottom__left__search__category__hidden__1
+              = link_to "" do
+                %li.menu
+                  1
+              = link_to "" do
+                %li.menu
+                  1
+              = link_to "" do
+                %li.menu
+                  1
+              = link_to "" do
+                %li.menu
+                  1    
+
+            %ul.header__box__bottom__left__search__category__hidden__2
+              = link_to "" do
+                %li.menu2
+                  2
+              = link_to "" do
+                %li.menu2
+                  2
+              = link_to "" do
+                %li.menu2
+                  2
+              = link_to "" do
+                %li.menu2
+                  2    
+
+            %ul.header__box__bottom__left__search__category__hidden__3
+              = link_to "" do
+                %li.menu3
+                  3
+              = link_to "" do
+                %li.menu3
+                  3
+              = link_to "" do
+                %li.menu3
+                  3
+              = link_to "" do
+                %li.menu3
+                  3 
+  
+            
+
+
+
+
+
+
+        .header__box__bottom__left__search__brand 
+          = link_to "#", :method => :get do
+            %i.fas.fa-comment-dollar
+            = link_to "ブランドから探す"
+            .header__box__bottom__left__search__brand__hidden      
+              = link_to "" do
+                %li.brand
+                  ホビー
+              = link_to "" do
+                %li.brand
+                  ホビー
+              = link_to "" do
+                %li.brand
+                  ホビー
+              = link_to "" do
+                %li.brand
+                  ホビー    
+
+            
+    
+
+      .header__box__bottom__right
+        .header__box__bottom__right__good
+          = link_to "#", :method => :get do
+            %i.far.fa-heart
+            いいね！一覧
+
+        .header__box__bottom__right__news
+          = link_to "#", :method => :get do
+            %i.far.fa-bell
+            お知らせ
+            .header__box__bottom__right__news__hidden
+              = link_to "" do
+                %li.news
+                  1
+              = link_to "" do
+                %li.news
+                  2
+              = link_to "" do
+                %li.news
+                  3
+              = link_to "" do
+                %li.news
+                  4   
+
+        .header__box__bottom__right__todo
+          = link_to "#", :method => :get do
+            %i.fas.fa-check
+            やることリスト
+            .header__box__bottom__right__todo__hidden
+              .header__box__bottom__right__todo__hidden1
+
+        .header__box__bottom__right__mypage
+          = link_to "#", :method => :get do
+            %i.far.fa-smile
+            マイページ
+
+          
+
+.content
+  .content__all
+    .content__all__scrol
+      -# = image_tag "himawari04.jpg", {class: "scroll"}
+      -# = link_to "scroll bar"
+      .content__all__scrol__bar
+        .content__all__scrol__bar__slider
+          = image_tag "himawari04.jpg", class: "scroll1"
+          = image_tag "download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg", class: "scroll2"
+          = image_tag "download_app_pc-a4418175e8be071827ac88d073f40e4a.png", class: "scroll3"
+        .content__all__scrol__bar__left
+          <
+        .content__all__scrol__bar__right
+          >
+        -# .content__all__scrol__bar__bottom
+        -#   oo
+    .content__all__popular__category
+      .content__all__popular__category__title
+        人気のカテゴリー
+      .content__all__popular__category__links
+
+
+        = link_to "レディース",(),class:"lists"
+
+        = link_to "メンズ",(),class: "lists"
+
+        = link_to "家電・スマホ・カメラ",(),class: "lists"
+
+        = link_to "オモチャ・ホビー・グッズ",(),class: "lists"
+    .content__all__category__list 
+      .content__all__category__list__rady
+        .content__all__category__list__rady__new
+          .content__all__category__list__rady__new__left
+            レディース新着アイテム
+          .content__all__category__list__rady__new__right
+            = link_to "もっと見る >","#"
+        .content__all__category__list__rady__items
+          
+          .content__all__category__list__rady__items__1
+            - for num in 1..10 do 
+              .content__all__category__list__rady__items__1__ima
+                = image_tag "himawari04.jpg",class:"rady"
+                -# .content__all__category__list__rady__items__1__image
+                  .content__all__category__list__rady__items__1__text
+                レディース
+          -# eachでいっぱいだす所
+      .content__all__category__list__men
+        .content__all__category__list__men__new
+          .content__all__category__list__men__new__left
+            メンズ新着アイテム
+          .content__all__category__list__men__new__right
+            = link_to "もっと見る >","#"
+        .content__all__category__list__men__items
+          .content__all__category__list__men__items__1
+            - for num in 1..10 do 
+              .content__all__category__list__men__items__1__ima
+                = image_tag "himawari04.jpg",class:"rady"
+                -# .content__all__category__list__men__items__1__image
+                  .content__all__category__list__men__items__1__text
+                メンズ  
+            -# .content__all__category__list__men__items__1__image
+
+            -# .content__all__category__list__men__items__1__text
+            -#   メンズ
+          -# eachでいっぱいだす所
+      .content__all__category__list__mecha
+        .content__all__category__list__mecha__new
+          .content__all__category__list__mecha__new__left
+            家電・スマホ・カメラ新着アイテム
+          .content__all__category__list__mecha__new__right
+            = link_to "もっと見る >","#"
+        .contnet__all__category__list__mecha__items
+          .content__all__category__list__mecha__items__1
+            - for num in 1..10 do 
+              .content__all__category__list__mecha__items__1__ima
+                = image_tag "himawari04.jpg",class:"rady"
+                -# .content__all__category__list__men__items__1__image
+                  .content__all__category__list__mecha__items__1__text
+                メンズ  
+          -# eachでいっぱいだす所  
+      .content__all__category__list__hobby
+        .content__all__category__list__hobby__new
+          .content__all__category__list__hobby__new__left
+            オモチャ・ホビー・グッズ新着アイテム
+          .content__all__category__list__hobby__new__right
+            = link_to "もっと見る >","#"
+        .content__all__category__list__hobby__items
+          .content__all__category__list__mecha__items__1
+            - for num in 1..10 do 
+              .content__all__category__list__hobby__items__1__ima
+                = image_tag "himawari04.jpg",class:"rady"
+                -# .content__all__category__list__men__items__1__image
+                  .content__all__category__list__hobby__items__1__text
+                メンズ  
+
+    .content__all__popular__brand
+      .content__all__popular__brand__title
+        人気のブランド
+      .content__all__popular__brand__links
+        
+        = link_to "シャネル",(),class:"lists"
+        = link_to "ルイ・ヴィトン",(),class:"lists"
+        = link_to "シュプリーム",(),class:"lists"
+        = link_to "ナイキ",(),class:"lists"
+    .content__all__brand__list
+      .content__all__brand__list__chanel
+        .content__all__brand__list__chanel__new
+          .content__all__brand__list__chanel__new__left
+            シャネル新着アイテム
+          .content__all__brand__list__chanel__new__right
+            = link_to "もっと見る >","#"
+        .content__all__brand__list__chanel__items 
+          .content__all__brand__list__chanel__items__1 
+            - for num in 1..10 do 
+              .content__all__brand__list__chanel__items__1__ima
+                = image_tag "himawari04.jpg",class:"rady"
+                -# .content__all__category__list__men__items__1__image
+                  .content__all__brand__list__chanel__items__1__text
+                メンズ  
+
+
+      -# .content__all__brand__list__viton
+      -#   .content__all__brand__list__viton_new
+      -#     .content__all__brand__list__viton__new__left
+      -#       ルイヴィトン新着アイテム
+      -#     .content__all__brand__list__viton__new__right
+      -#       = link_to "もっと見る >","#"
+      -#   .content__all__brand__list__viton__items 
+      -#     .content__all__brand__list__viton__items__1  
+      -#       - for num in 1..10 do
+      -#         .content__all__brand__list__viton__items__1__ima
+      -#           = image_tag "himawari04.jpg",class:"rady"
+      -#           -# .content__all__category__list__men__items__1__image
+      -#             .content__all__brand__list__viton__items__1__text
+      -#           メンズ
+      .content__all__brand__list__viton
+        .content__all__brand__list__viton__new
+          .content__all__brand__list__viton__new__left
+            シュプリーム新着アイテム
+          .content__all__brand__list__viton__new__right
+            = link_to "もっと見る >","#"
+        .content__all__brand__list__viton__items  
+          .content__all__brand__list__viton__items__1  
+            - for num in 1..10 do 
+              .content__all__brand__list__viton__items__1__ima
+                = image_tag "himawari04.jpg",class:"rady"
+                -# .content__all__category__list__men__items__1__image
+                  .content__all__brand__list__viton__items__1__text
+                メンズ            
+  
+      .content__all__brand__list__supreme
+        .content__all__brand__list__supreme__new
+          .content__all__brand__list__supreme__new__left
+            シュプリーム新着アイテム
+          .content__all__brand__list__supreme__new__right
+            = link_to "もっと見る >","#"
+        .content__all__brand__list__supreme__items  
+          .content__all__brand__list__supreme__items__1  
+            - for num in 1..10 do 
+              .content__all__brand__list__supreme__items__1__ima
+                = image_tag "himawari04.jpg",class:"rady"
+                -# .content__all__category__list__men__items__1__image
+                  .content__all__brand__list__supreme__items__1__text
+                メンズ  
+
+      .content__all__brand__list__nike
+        .content__all__brand__list__nike__new
+          .content__all__brand__list__nike__new__left
+            ナイキ新着アイテム
+          .content__all__brand__list__nike__new__right
+            = link_to "もっと見る >","#"
+        .content__all__brand__list__nike__items
+          .content__all__brand__list__nike__items__1 
+            - for num in 1..10 do 
+              .content__all__brand__list__chanel__items__1__ima
+                = image_tag "himawari04.jpg",class:"rady"
+                -# .content__all__category__list__men__items__1__image
+                  .content__all__brand__list__chanel__items__1__text
+                メンズ  
+
+
+
+-# .post
+-#   = link_to "a","#"
+-#   .post__title
+-#   .post__icon
+-#     カメラマーク
+.footer
+  
+  .footer__downroad
+    -# = image_tag "download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg",{class: "daily"}
+    .footer__downroad__left
+      .footer__downroad__left__top
+        スマホでかんたんフリマアプリ
+      .footer__downroad__left__middle
+        今すぐ無料ダウンロード!
+      .footer__downroad__left__bottom
+        = link_to image_tag "mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png"
+        = link_to image_tag "app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"
+        = link_to image_tag "google-play-495575abb895b405aa6336b2a4304958.svg" 
+    .footer__downroad__right
+      -# = image_tag "スマホ画像"
+      = image_tag "download_app_pc-a4418175e8be071827ac88d073f40e4a.png",{class: "z"}
+
+  .footer__guide
+    .footer__guide__top
+      .footer__guide__top__about
+        %p メルカリについて
+        %h6 会社概要（運営会社）
+        %h6 採用情報
+        %h6 プレスリリース
+        %h6 公式ブログ
+        %h6 メルカリロゴ利用ガイドライン
+        %i.fab.fa-twitter.fa-2x
+        %i.fab.fa-facebook-square.fa-2x
+      .footer__guide__top__help
+        %p ヘルプ＆ガイド
+        %h6 メルカリガイド
+        %h6 らくらくメルカリ便
+        %h6 ゆうゆうメルカリ便
+        %h6 大型メルカリ便
+        %h6 車体取引ガイド
+        %h6 メルカリ安心安全宣言！
+      .footer__guide__top__privacy__1
+        %p プライバシーと利用規約
+        %h6 プライバシーポリシー
+        %h6 メルカリ利用規約
+        %h6 あんしんスマホサポート制度に関する利用特約
+        %h6 コンプライアンスポリシー
+      .footer__guide__top__privacy__2  
+        %h6 個人データの安全管理に係る基本方針
+        %h6 特定商取引に関する表記
+        %h6 資金決済法に基づく表示
+        %h6 法令順守と犯罪抑止のために
+      .footer__guide__top__country
+        %p 国
+        %h6 日本
+        %h6 UnitedStates
+    .footer__guide__bottom
+      -# = image_tag "logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"
+      = image_tag "logo-white-1a0696cf557ee1ed6f3c3444661d21ad.svg",{class: "q"}
+      %div © 2019 Mercari 
