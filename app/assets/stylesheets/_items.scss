@@ -227,6 +227,7 @@ h6{
   height: 100px;
   top: 0;
   background-color: white;
+  padding-left: 330px;
   &__box{
     width: 1020px;
     height: 100px;
@@ -237,6 +238,7 @@ h6{
         width: 134px;
         height: 36px;
         float: left;
+        padding-top: 5px;
       }
       &__right{
         width: 841px;
@@ -443,7 +445,6 @@ h6{
             &__image{
               height: 188px;
               width: 188px;
-              background-color: blue;
             }
             &__text{
               height: 64px;
@@ -512,7 +513,6 @@ h6{
           height: 524px;
           &__1{
             background-color: white;
-            // margin-top: 20px;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 20px 20px;
@@ -778,8 +778,3 @@ h6{
     }
   }
 }
-
-// .daily{
-//   z-index: 3;
-//   width: 100vw;
-// }

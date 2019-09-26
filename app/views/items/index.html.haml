@@ -6,10 +6,8 @@
     %title CSS
     
     %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
-    -# %script{:src => "items.js"}
     :css
     %link{:href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :rel => "stylesheet"}/
-    -# %link{:href => "style.scss", :rel => "stylesheet"}/
 
     
 
@@ -19,11 +17,9 @@
   .header__box
     .header__box__top
       .header__box__top__left
-        -# = link_to "mercari"
         = image_tag "logo-acdd90ac4f472d5a6f7a330d33ab1225.svg",class: "merukari"
       .header__box__top__right
         .header__box__top__right__content 
-          -# %i.fas.fa-search
           = form_tag("#",:method => 'get',class:"hogeho") do
             = text_field_tag :search ,"",class:"search_form",placeholder: "何かお探しですか？",style: "border-right: none"
             %button{:type => "submit",class: "search_button"}
@@ -148,8 +144,6 @@
 .content
   .content__all
     .content__all__scrol
-      -# = image_tag "himawari04.jpg", {class: "scroll"}
-      -# = link_to "scroll bar"
       .content__all__scrol__bar
         .content__all__scrol__bar__slider
           = image_tag "himawari04.jpg", class: "scroll1"
@@ -159,8 +153,8 @@
           <
         .content__all__scrol__bar__right
           >
-        -# .content__all__scrol__bar__bottom
-        -#   oo
+        .content__all__scrol__bar__bottom
+          oo
     .content__all__popular__category
       .content__all__popular__category__title
         人気のカテゴリー
@@ -190,7 +184,6 @@
                 -# .content__all__category__list__rady__items__1__image
                   .content__all__category__list__rady__items__1__text
                 レディース
-          -# eachでいっぱいだす所
       .content__all__category__list__men
         .content__all__category__list__men__new
           .content__all__category__list__men__new__left
@@ -205,11 +198,7 @@
                 -# .content__all__category__list__men__items__1__image
                   .content__all__category__list__men__items__1__text
                 メンズ  
-            -# .content__all__category__list__men__items__1__image
 
-            -# .content__all__category__list__men__items__1__text
-            -#   メンズ
-          -# eachでいっぱいだす所
       .content__all__category__list__mecha
         .content__all__category__list__mecha__new
           .content__all__category__list__mecha__new__left
@@ -224,7 +213,7 @@
                 -# .content__all__category__list__men__items__1__image
                   .content__all__category__list__mecha__items__1__text
                 メンズ  
-          -# eachでいっぱいだす所  
+
       .content__all__category__list__hobby
         .content__all__category__list__hobby__new
           .content__all__category__list__hobby__new__left
@@ -266,20 +255,7 @@
                 メンズ  
 
 
-      -# .content__all__brand__list__viton
-      -#   .content__all__brand__list__viton_new
-      -#     .content__all__brand__list__viton__new__left
-      -#       ルイヴィトン新着アイテム
-      -#     .content__all__brand__list__viton__new__right
-      -#       = link_to "もっと見る >","#"
-      -#   .content__all__brand__list__viton__items 
-      -#     .content__all__brand__list__viton__items__1  
-      -#       - for num in 1..10 do
-      -#         .content__all__brand__list__viton__items__1__ima
-      -#           = image_tag "himawari04.jpg",class:"rady"
-      -#           -# .content__all__category__list__men__items__1__image
-      -#             .content__all__brand__list__viton__items__1__text
-      -#           メンズ
+      
       .content__all__brand__list__viton
         .content__all__brand__list__viton__new
           .content__all__brand__list__viton__new__left
@@ -325,17 +301,9 @@
                   .content__all__brand__list__chanel__items__1__text
                 メンズ  
 
-
-
--# .post
--#   = link_to "a","#"
--#   .post__title
--#   .post__icon
--#     カメラマーク
 .footer
   
   .footer__downroad
-    -# = image_tag "download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg",{class: "daily"}
     .footer__downroad__left
       .footer__downroad__left__top
         スマホでかんたんフリマアプリ
@@ -346,7 +314,6 @@
         = link_to image_tag "app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"
         = link_to image_tag "google-play-495575abb895b405aa6336b2a4304958.svg" 
     .footer__downroad__right
-      -# = image_tag "スマホ画像"
       = image_tag "download_app_pc-a4418175e8be071827ac88d073f40e4a.png",{class: "z"}
 
   .footer__guide
@@ -384,6 +351,5 @@
         %h6 日本
         %h6 UnitedStates
     .footer__guide__bottom
-      -# = image_tag "logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"
       = image_tag "logo-white-1a0696cf557ee1ed6f3c3444661d21ad.svg",{class: "q"}
       %div © 2019 Mercari 
