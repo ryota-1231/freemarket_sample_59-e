@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 *{
-  // box-sizing: border-box;
+  box-sizing: border-box;
   text-decoration: none;
   list-style: none;
 }
@@ -22,7 +22,7 @@
 
 .search_form{
   width: 780px;
-  height: 36px;
+  height: 40px;
   // border-radius: 0.30em;
   background-color: rgb(245, 245, 245);
   border: 1px solid #ccc;
@@ -257,7 +257,8 @@ h6{
       height: 40px;
       display: flex;
       position: relative;
-      padding-top: 0;
+      padding-top: 20px;
+
       &__left{
         width: 308px;
         height: 40px;
