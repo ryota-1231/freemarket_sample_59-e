@@ -81,3 +81,5 @@ gem 'fog-aws'
 gem 'haml-rails'
 gem "erb2haml"
 gem "font-awesome-rails"
+gem 'active_hash'
+gem 'dropzonejs-rails'

@@ -10,6 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+
+ *= require dropzone/basic
+ *= require dropzone/dropzone
  *= require_tree .
  *= require_self
  */
@@ -21,3 +24,5 @@
   @import 'show';
   @import 'side-ber';
   @import 'item__exhibit';
+  @import 'edit';
+  @import 'images';
