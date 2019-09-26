@@ -1,0 +1,405 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+
+.back{
+  height: 1600px;
+  background-color: rgb(245, 245, 245);
+  position: rerative;
+  overflow: scroll;
+    .person{
+      height: 1200px;
+      width: 700px;
+      background-color: red;
+      position: absolute;
+      float:right;
+      top: 200px;
+      right: 200px;
+      &__head{
+        height: 50px;
+        width: 700px;
+        text-align: center;
+        background-color: white;
+        border-bottom: solid medium #DDDDDD;
+        font-size: 25px;
+        font-weight: bold;
+        line-height: 50px;
+      }
+      &__bottom{
+        height: 1150px;
+        width: 700px;
+        background-color: white;
+        position: relative;
+        &__box{
+          height: 1020px;
+          width: 580px;
+          top: 0px;
+          right: 0px;
+          left: 0px;
+          bottom: 0px;
+          margin: auto;
+          position: absolute;
+          background-color: white;
+            &--message{
+              height: 42px;
+              width: 580px;
+              background-color: white;
+              font-size: 13px;
+              
+            }
+            &--link1{
+              height: 21px;
+              width: 580px;
+              background-color: white;
+              margin-top: 16px;
+              text-align: right;
+              font-size: 13px;
+              
+              a{
+                color: blue;
+                text-decoration: none;
+                
+              }
+            }
+            &--kanji{
+              height: 43px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              &--first{
+                height: 16px;
+                width: 50px;
+                background-color: white;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              &--user{
+                height: 21px;
+                width: 500px;
+                background-color: white;
+                font-size: 14px;
+                margin-top: 6px;
+              }
+            }
+            &--kana{
+              height: 43px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              &--first{
+                height: 16px;
+                width: 80px;
+                background-color: white;
+                font-weight: bold;
+                font-size: 14px;
+              }
+              &--user{
+                height: 21px;
+                width: 500px;
+                background-color: white;
+                
+                font-size: 14px;
+                margin-top: 6px;
+              }
+            }
+            &--date{
+              height: 43px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              &--first{
+                height: 16px;
+                width: 80px;
+                background-color: white;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              &--user{
+                height: 21px;
+                width: 500px;
+                background-color: white;
+                margin-top: 6px;
+                font-size: 14px;
+              }
+            }
+            
+            
+            
+            &--address{
+              height: 70px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              &--box{
+                  height: 20px;
+                  width: 100px;
+                  background-color: white;
+              
+                  &--first{
+                    height: 16px;
+                    width: 60px;
+                    background-color: white;
+                    font-size: 14px;
+                    float: left;
+                    font-weight: bold;
+                  }
+                  &--any{
+                    height: 20px;
+                    width: 30px;
+                    
+                    font-size: 14px;
+                    float: left;
+                    margin-left: 10px;
+                    border-radius: 0.2em;
+                    text-align: center;
+                    background-color: gray;
+                    color: white;
+                  }
+                  
+              }
+              &--text{
+                height: 40px;
+                width: 580px;
+                background-color: white;
+                margin-top: 10px;
+                clear: both;
+                border-radius: 0.2em;
+                border: 1px solid #ccc;
+                font-size: 15px;
+                position: relative;
+                
+              }
+            }
+
+            
+            &--prefecture{
+              height: 70px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              &--box{
+                height: 20px;
+                  width: 100px;
+                  background-color: white;
+              
+              &--first{
+                height: 16px;
+                width: 60px;
+                background-color: white;
+                float: left;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              &--any{
+                height: 20px;
+                    width: 30px;
+                    font-size: 14px;
+                    float: left;
+                    margin-left: 10px;
+                    border-radius: 0.2em;
+                    text-align: center;
+                    background-color: gray;
+                    color: white;
+              }
+            }
+            
+            
+            
+            &--text{
+                height: 80px;
+                width: 580px;
+                
+              position: relative;
+              &--select{
+                height: 40px;
+                width: 580px;
+                background-color: white;
+                margin-top: 10px;
+                border-radius: 0.2em;
+                border: 1px solid #ccc;
+                padding: 7px 30px 7px 10px;
+
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                
+                background-repeat: no-repeat;
+                background-size: 12px 10px;
+                background-position: right 10px center;
+                
+              
+            }
+              &--icon{
+                position: absolute;
+                right: 10px;
+                bottom: 17px;
+                color: gray;
+              }
+          }
+        }
+            
+            
+
+            
+            &--city{
+              height: 70px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              &--box{
+                height: 20px;
+                  width: 100px;
+                  background-color: white;
+              
+              &--first{
+                height: 16px;
+                width: 60px;
+                background-color: white;
+                float: left;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              &--any{
+                    height: 20px;
+                    width: 30px;
+                    background-color: gray;
+                    color: white;
+                    font-size: 14px;
+                    float: left;
+                    margin-left: 10px;
+                    border-radius: 0.2em;
+                text-align: center;
+              }
+            }
+              &--text{
+                height: 40px;
+                width: 580px;
+                background-color: white;
+                clear: both;
+                margin-top: 10px;
+                border-radius: 0.2em;
+                border: 1px solid #ccc;
+                font-size: 15px;
+              }
+              
+        }
+
+              
+            &--number{
+              height: 70px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              .person__bottom__box--number--box{
+                height: 20px;
+                  width: 100px;
+                  background-color: white;
+              
+              &--first{
+                height: 16px;
+                width: 30px;
+                background-color: white;
+                float: left;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              &--any{
+                height: 20px;
+                width: 30px;
+                background-color: gray;
+                color: white;
+                float: left;
+                margin-left: 10px;
+                font-size: 14px;
+                border-radius: 0.2em;
+                text-align: center;
+              }
+            }
+              &--text{
+                height: 40px;
+                width: 580px;
+                background-color: white;
+                clear: both;
+                margin-top: 10px;
+                border-radius: 0.2em;
+                border: 1px solid #ccc;
+                font-size: 15px;
+              }
+            }
+
+              
+            &--building{
+              height: 70px;
+              width: 580px;
+              background-color: white;
+              margin-top: 40px;
+              &--box{
+                height: 20px;
+                  width: 100px;
+                  background-color: white;
+              
+              &--first{
+                height: 16px;
+                width: 30px;
+                background-color: white;
+                float: left;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              &--any{
+                height: 20px;
+                width: 30px;
+                background-color: gray;
+                color: white;
+                float: left;
+                margin-left: 10px;
+                font-size: 13px;
+                border-radius: 0.2em;
+                text-align: center;
+              }
+            }
+              &--text{
+                height: 40px;
+                width: 580px;
+                background-color: white;
+                clear: both;
+                margin-top: 10px;
+                border-radius: 0.2em;
+                border: 1px solid #ccc;
+                font-size: 15px;
+              }
+        }
+            &--btn{
+              height: 50px;
+              width: 580px;
+              background-color: red;
+              margin-top: 40px;
+              font-size: 15px;
+              color: white;
+              outline: none;
+            }
+            &--link2{
+              height: 21px;
+              width: 580px;
+              background-color: white;
+              margin-top: 31px;
+              text-align: right;
+              text-decoration: none;
+              font-size: 13px;
+              a{
+                color: blue;
+                text-decoration: none;
+                
+              }
+        }
+      }
+    }
+}
+}
