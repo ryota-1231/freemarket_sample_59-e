@@ -13,6 +13,10 @@
       text-align: center;
       margin: 0 8px 0 0;
       padding-top: 39px;
+      &-default {
+        margin: 0 auto;
+        padding-top: 38px;
+      }
     }
   }
   .login {
@@ -85,6 +89,7 @@
         padding-top: 20px;
         padding-bottom: 20px;
         .email-input { 
+          padding: 10px 16px 8px 16px;
           display: block;
           margin: 0 auto;
           font-size: 14px;
@@ -100,6 +105,7 @@
           color: #333;
         }
         .password-input {
+          padding: 10px 16px 8px 16px;
           display: block;
           margin: 0 auto;
           font-size: 14px;
