@@ -1,0 +1,509 @@
+table{
+  border: 1px solid rgb(245, 245, 245);
+}
+th{
+  background-color:  #fafafa;
+  border: 1px solid rgb(245, 245, 245);
+  font-size: 13px;
+  
+}
+td{
+  background-color:  #FFFFFF;
+  border: 1px solid rgb(245, 245, 245);
+  font-size: 13px;
+}
+a{
+  color: #75A9FF;
+}
+a:hover{
+  border-bottom: solid 1px #8EB8FF;
+  color: #8EB8FF;
+}
+li{
+  list-style: none;
+}
+
+
+
+
+.background{
+  
+background-color: rgb(245, 245, 245);
+height: 3000px;
+  .header{
+    height: 100px;
+    width: 100vw;
+    background-color: black;
+  }
+  .main{
+    height: auto;
+    width: 700px;
+    margin: 100px auto;
+  
+    &__box{
+      height: auto;
+      width: 700px;
+      background-color: white;
+      padding: 20px 40px;
+      margin: 0 auto;
+      
+
+      &__title{
+        height: 33px;
+        width: 620px;
+        background-color: white;
+        text-align: center;
+        line-height: 33px;
+        font-size: 24px;
+      }
+      &__items{
+        height: 420px;
+        width: 620px;
+        margin-top: 10px;
+        &__photo{
+          height: 420px;
+          width: 300px;
+          background-color: rgb(245, 245, 245);
+          float: left;
+          &__big{
+            height: 300px;
+            width: 300px;
+            &--in{
+              height: 300px;
+              width: 300px;
+            }
+          }
+          &__mini1{
+            height: 60px;
+            width: 60px;
+            background-color: purple;
+            
+            &--in{
+              height: 60px;
+              width: 60px;
+            }
+          }
+        }
+        &__detail{
+          height: 420px;
+          width: 300px;
+          background-color: white;
+          float: right;
+          &__exhibitor{
+            height: 70px;
+            width: 300px;
+            
+            
+            &--right{
+              height: 70px;
+              width: 120px;
+              color: #333;
+              
+            }
+            &--left{
+              height: 70px;
+              width: 180px;
+              color: #0099e8;
+            }
+          }
+          &__category{
+            height: 74px;
+            width: 300px;
+            &--right{
+              height: 74px;
+              width: 120px;
+            }
+            &--left{
+              height: 74px;
+              width: 180px;
+              color: #0099e8;
+              word-wrap: break-word;
+            }
+          }
+          &__brand{
+            height: 46px;
+            width: 300px;
+            
+            &--right{
+              height: 46px;
+              width: 120px;
+            }
+            &--left{
+              height: 46px;
+              width: 180px;
+            }
+          }
+          &__status{
+            height: 46px;
+            width: 300px;
+            &--right{
+              height: 46px;
+              width: 120px;
+              color: #333;
+            }
+            &--left{
+              height: 46px;
+              width: 180px;
+            }
+          }
+          &__postage{
+            height: 46px;
+            width: 300px;
+            &--right{
+              height: 46px;
+              width: 120px;
+              color: #333;
+            }
+            &--left{
+              height: 46px;
+              width: 180px;
+            }
+          }
+          &__method{
+            height: 46px;
+            width: 300px;
+            &--right{
+              height: 46px;
+              width: 120px;
+              color: #333;
+            }
+            &--left{
+              height: 46px;
+              width: 180px;
+            }
+          }
+          &__area{
+            height: 46px;
+            width: 300px;
+            &--right{
+              height: 46px;
+              width: 120px;
+              color: #333;
+            }
+            &--left{
+              height: 46px;
+              width: 180px;
+              
+            }
+          }
+          &__date{
+            height: 46px;
+            width: 300px;
+            &--right{
+              height: 46px;
+              width: 120px;
+              color: #333;
+            }
+            &--left{
+              height: 46px;
+              width: 180px;
+              
+            }
+          }
+        }
+      }
+      &__price{
+        height: 50px;
+        background-color: white;
+        margin-top: 24px;
+        position: relative;
+        &__box{
+          height: 50px;
+          position: absolute;
+          top: 0px;
+          bottom: 0px;
+          left: 0px;
+          right: 0px;
+          margin: auto;
+
+        &__price{
+          font-size: 40px;
+          font-weight: bold;
+          color: black;
+          margin-right: 8px;
+          margin-left: 200px;
+
+        }
+        &__tax{
+          font-size: 10px;
+          color: black;
+
+        }
+        &__fostage{
+          font-size: 15px;
+          color: black;
+        }
+      }
+      }
+      &__money{
+        height: auto;
+        width: 620px;
+        
+
+      }
+      &__btn{
+        height: 60px;
+        width: 620px;
+        background-color: red;
+        margin-top: 16px;
+        color: white;
+        line-height: 60px;
+        text-align: center;
+        font-size: 27px;
+        outline: none;
+        
+      }
+      &__explanation{
+        width: 620px;
+        word-wrap: break-word;
+        background-color: white;
+        margin-top: 32px;
+      }
+      &__icon{
+        height: 33px;
+        width: 620px;
+        background-color: white;
+        margin-top: 16px;
+        &--good{
+          height: 33px;
+          min-width: 100px;
+          background-color: rgb(245, 245, 245);
+          float: left;
+          margin-right: 8px;
+          border-radius: 1em;
+          text-align: center;
+          line-height: 33px;
+          font-size: 13px;
+        }
+        &--warning{
+          height: 33px;
+          width: 180px;
+          background-color: rgb(245, 245, 245);
+          float: left;
+          margin-right: 100px;
+          border-radius: 1em;
+          text-align: center;
+          line-height: 33px;
+          font-size: 13px;
+        }
+        &--safety{
+          height: 33px;
+          width: 220px;
+          color: #0099e8;
+          float: left;
+          text-align: center;
+          line-height: 33px;
+          font-size: 13px;
+        }
+      }
+    }
+    &__comment{
+      width: 700px;
+      height: auto;
+      background-color: white;
+      margin-top:  10px;
+      padding: 10px 40px;
+      &--warning{
+        width: 620px;
+        height: 44px;
+        background-color:#fff6de;
+        margin-bottom: 5px;
+      }
+      &--text{
+        width: 620px;
+        height: 100px;
+        outline: none;
+      }
+      &--btn{
+        width: 620px;
+        height: 50px;
+        background-color: gray;
+      }
+    }
+    &__link{
+      height: 24px;
+      width: 700px;
+      margin-top:  10px;
+      &--left{
+        font-size: 14px;
+        float: left;
+      }
+      &--right{
+        font-size: 14px;
+        float: right;
+      }
+    }
+    &__icon{
+      height: 130px;
+      width: 700px;
+      background-color: white;
+      margin-top:  10px;
+      padding: 30px 0px;
+      position: relative;
+    
+      &__box{
+        height: 50px;
+        width: 700px;
+        background-color: white;
+        position: absolute;
+        top: 60px;
+        &--facebook{
+          height: 44px;
+          width: 44px;
+          background-color: #385185;
+          float:left;
+          border-radius: 0.3em;
+          margin-left: 270px;
+          i{
+            font-size: 33px; 
+            padding: 7px;
+            color: white;
+          }
+        }
+          &--twitter{
+            height: 44px;
+          width: 44px;
+          background-color: #0099e8;
+          float:left;
+          border-radius: 0.3em;
+          margin-left: 10px;
+          i{
+            font-size: 33px; 
+            padding: 7px;
+            color: white;
+          }
+          }
+          &--pinterest{
+            height: 44px;
+          width: 44px;
+          background-color: red;
+          float:left;
+          border-radius: 0.3em;
+          margin-left: 10px;
+          i{
+            font-size: 33px; 
+            padding: 7px;
+            color: white;
+          }
+          }
+        }
+      }
+    
+    &__otheritems{
+      height: 740px;
+      width: 700px;
+      margin-top:  10px;
+      &__head{
+        height: 30px;
+      width: 700px;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 10px;
+      }
+    &__mass{
+      height: 700px;
+      width: 700px;
+      background-color: rgb(245, 245, 245);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      &__one{
+        height: 330px;
+        width: 220px;
+        background-color: pink;
+        margin: 5px 0px 0px 5px;
+        &--photo{
+          height: 220px;
+          width: 220px;
+          background-color: black;
+          &--in{
+            height: 220px;
+            width: 220px;
+          }
+        }
+        &--explanation{
+          height: 110px;
+          width: 220px;
+          background-color: white;
+          position: relative;
+        &--name{
+          height: 58px;
+            width: 188px;
+            background-color: white;
+            top: 16px;
+            left: 16px;
+            position: absolute;
+        }
+        &--price{
+          height: 20px;
+          width: 188px;
+          background-color: white;
+          position: absolute;
+          top: 74px;
+          left: 16px;
+        }
+        }
+      }
+    }
+
+    }
+    &__samecategory{
+      height: 740px;
+      width: 700px;
+      margin-top:  10px;
+      &__head{
+        height: 30px;
+        width: 700px;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      &__mass{
+        height: 700px;
+      width: 700px;
+      background-color: rgb(245, 245, 245);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      
+      &__one{
+        height: 330px;
+        width: 220px;
+        background-color: pink;
+        margin: 5px 0px 0px 5px;
+        &--photo{
+          height: 220px;
+          width: 220px;
+          background-color: black;
+          &--in{
+            height: 220px;
+            width: 220px;
+          }
+        }
+        &--explanation{
+          height: 110px;
+          width: 220px;
+          background-color: white;
+          position: relative;
+          &--name{
+            height: 58px;
+            width: 188px;
+            background-color: white;
+            top: 16px;
+            left: 16px;
+            position: absolute;
+          }
+          &--price{
+            height: 20px;
+            width: 188px;
+            background-color: white;
+            top: 74px;
+            left: 16px;
+            position: absolute;
+          }
+        }
+      }
+      }
+    }
+}
+}
+  
+  
