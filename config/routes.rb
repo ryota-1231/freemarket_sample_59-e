@@ -5,16 +5,18 @@ Rails.application.routes.draw do
   root "items#index"
   resources :items
 
-  resources :users
-
+　resources :users do
+　  collection do
+ 　   get 'log_out'
+ 　 end
+　end
   resources :signup do
     collection do
       get 'step1'
       get 'step2'
       get 'step3'
-      get 'step4' # ここで、入力の全てが終了する
-      get 'done' # 登録完了後のページ
+      get 'step4' 
+      get 'done' 
     end
   end
-  
 end

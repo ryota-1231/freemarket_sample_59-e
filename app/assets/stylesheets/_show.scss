@@ -1,0 +1,196 @@
+
+body {
+  flex-shrink: 0;
+  background-color:#f5f5f5;
+  position: relative;
+}
+
+// render予定
+.header {
+  background-color:#fff;
+  height: 149px;
+  flex-shrink: 0;
+}
+
+.wrapper {
+  .main{
+    margin: 40px 210px 0;
+    padding-bottom: 40px;
+    display: flex;
+    .contents {
+      .top--content{
+        width: 700px;
+        background-color: #fff;
+        .user__image{
+          height: 200px;
+          background-image: url("https://cdn.pixabay.com/photo/2017/10/05/10/59/background-2819026__480.jpg");
+          position: relative;
+          a {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translate(0, -50%);
+            .user__image__name{
+              font-weight: bold;
+            }
+            .user__image__judges{
+              margin-top: 8px;
+              height: 16px;
+              text-align: center;
+              display: flex;
+              justify-content: center;
+              flex-wrap: wrap;
+              &__judge{
+                font-size: 14px;
+              }
+              &__num{
+                margin-left: 8px;
+                font-size: 14px;
+              }
+              &__count{
+                font-size: 14px;
+                margin-left: 16px;
+              }
+            }
+          }
+        }
+        .message{
+          .mypage__tabs{
+            display: flex;
+            li{
+              width: 350px;
+              height: 72px;
+              text-align: center;
+              line-height: 72px;
+              background-color: rgb(216, 216, 216);
+              &:hover{
+                opacity: 0.5;
+              }
+              }
+              .tag__changed{
+                border-top: 2px solid red;
+                background-color:#fff;
+              }
+            }
+          &__content{
+            &__tab{
+              display: none;
+              li{
+                border-bottom: 1px solid #eee; 
+                a{
+                  display: inline-block;
+                  padding: 16px;
+                  display: flex;
+                  &:hover{
+                    background-color: #ebe8e8;
+                  }
+                  .message__tab__body{
+                    margin: 0 40px 0 68px;
+                    width: 560px;
+                    font-size:14px;
+                    &__time{
+                      color: #888;
+                      &__icon{
+                        font-size:14px;
+                        .fa-clock-o:before{
+                          margin-right: 8px;
+                          font-size: 16px;
+                        }
+                      }
+                    }
+                  }
+                  .message__tab__icon{
+                    line-height: 48px;
+                  }
+                }
+              }
+              
+              .message__tab__index{
+                padding: 16px;
+                text-align: center;
+                a{
+                display: inline-block;
+                width: 668px;
+                height: 56px;
+                padding:0;
+                background-color: #EEE;
+                line-height: 56px;
+                font-size: 14px;
+                &:hover{
+                  background-color: #e9e8e8;
+                }
+                }
+              }
+            }
+            .active{
+              display: block;
+            }
+          }
+        }
+      }
+      .bottom--content{
+        width: 700px;
+        height: 382px;
+        background-color: #fff;
+        margin-top:40px;
+        &__header{
+          width: 668px;
+          height: 72px;
+          padding: 0 16px;
+          line-height: 72px;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        .bottom__mypage__tabs{
+          display: flex;
+          li{
+            width: 350px;
+            height: 72px;
+            text-align: center;
+            line-height: 72px;
+            background-color: rgb(216, 216, 216);
+            &:hover{
+              opacity: 0.5;
+            }
+            }
+            .tag__changed{
+              border-top: 2px solid red;
+              background-color:#fff;
+            }
+          }
+        &__tab {
+          height: 310px;
+          &__item {
+            display: none;
+          }
+          .active{
+            display: block;
+            padding:160px 0 60px;
+            li{
+            text-align: center;
+              a {
+                color: #ccc;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+.aside {
+  widows: 100%;
+  height: 260px;
+  background-color:rgb(182, 150, 150);
+}
+
+.footer{
+  background-color:rgb(29, 25, 25);
+  height: 381px;
+  padding: 0 20px 10px; 
+}
+}
