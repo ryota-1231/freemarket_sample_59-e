@@ -1,11 +1,3 @@
-!!!
-%html{:lang => "ja"}
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:charset => "UTF-8"}/
-    %title CSS
-    
-    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
 
 
 .header
@@ -15,16 +7,16 @@
         = image_tag "logo-acdd90ac4f472d5a6f7a330d33ab1225.svg",class: "merukari"
       .header__box__top__right
         .header__box__top__right__content 
-          = form_tag("#",:method => 'get',class:"hogeho") do
+          = form_tag("#",class:"hogeho") do
             = text_field_tag :search ,"",class:"search_form",placeholder: "何かお探しですか？",style: "border-right: none"
-            %button{:type => "submit",class: "search_button"}
+            %button{type: "submit",class: "search_button"}
               %i.fas.fa-search
               
 
     .header__box__bottom
       .header__box__bottom__left
         .header__box__bottom__left__search__category
-          = link_to "#", :method => :get do
+          = link_to "#" do
             %i.fas.fa-align-justify
           = link_to "カテゴリーから探す",(),class: "category"
           .header__box__bottom__left__search__category__hidden
@@ -71,7 +63,7 @@
                   3
 
         .header__box__bottom__left__search__brand 
-          = link_to "#", :method => :get do
+          = link_to "#" do
             %i.fas.fa-comment-dollar
             = link_to "ブランドから探す"
             .header__box__bottom__left__search__brand__hidden      
@@ -93,12 +85,12 @@
 
       .header__box__bottom__right
         .header__box__bottom__right__good
-          = link_to "#", :method => :get do
+          = link_to "#" do
             %i.far.fa-heart
             いいね！一覧
 
         .header__box__bottom__right__news
-          = link_to "#", :method => :get do
+          = link_to "#" do
             %i.far.fa-bell
             お知らせ
             .header__box__bottom__right__news__hidden
@@ -116,14 +108,14 @@
                   4   
 
         .header__box__bottom__right__todo
-          = link_to "#", :method => :get do
+          = link_to "#" do
             %i.fas.fa-check
             やることリスト
             .header__box__bottom__right__todo__hidden
               .header__box__bottom__right__todo__hidden1
 
         .header__box__bottom__right__mypage
-          = link_to "#", :method => :get do
+          = link_to "#" do
             %i.far.fa-smile
             マイページ
 
