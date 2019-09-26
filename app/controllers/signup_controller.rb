@@ -1,9 +1,9 @@
 class SignupController < ApplicationController
 
-  def create
+  def new
   end
-
-  def signup
+  
+  def create
   end
   
 end

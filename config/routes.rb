@@ -5,13 +5,13 @@ Rails.application.routes.draw do
   root "items#index"
   resources :items
 
-  resources :users do
+  resources :users, only: [:new, :edit, :show] do
     collection do
       get 'log_out'
       get 'sign_in'
     end
   end
-  resources :signup do
+  resources :signup, only:[:new] do
     collection do
       get 'member'
       get 'phonenumber'
