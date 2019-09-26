@@ -5,17 +5,18 @@ Rails.application.routes.draw do
   root "items#index"
   resources :items
 
-　resources :users do
-　  collection do
- 　   get 'log_out'
- 　 end
-　end
+  resources :users do
+    collection do
+      get 'log_out'
+      get 'sign_in'
+    end
+  end
   resources :signup do
     collection do
-      get 'step1'
-      get 'step2'
-      get 'step3'
-      get 'step4' 
+      get 'member'
+      get 'phonenumber'
+      get 'address'
+      get 'paymethod' 
       get 'done' 
     end
   end
