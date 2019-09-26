@@ -1,0 +1,15 @@
+.edit
+  .main
+    = render 'sideber'
+    .edit__profile
+      .edit__profile--profile
+        プロフィール
+        .edit__profile--user
+          .edit__profile--user--box
+            .edit__profile--user--box--image
+              = image_tag ""
+            %input.edit__profile--user--box--nickname{ placeholder: "名前を入力" }
+        %textarea.edit__profile--text{ placeholder: "プロフィールを入力してください"}
+        %input.edit__profile--submit{type: 'submit', value: '変更する'}
+        
+  = render 'item__exhibit'

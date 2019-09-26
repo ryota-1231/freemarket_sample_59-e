@@ -1,0 +1,119 @@
+.header
+
+.wrapper
+  .main
+    = render 'sideber'
+    .contents
+      .top--content
+        .user__image
+          =link_to do
+            %img{src:'https://image.flaticon.com/icons/png/512/97/97895.png', height:"60",width:"60"}
+            .user__image__name チームE
+            .user__image__judges
+              .user__image__judges__judge 評価
+              %span.user__image__judges__num 0
+              .user__image__judges__count 出品数
+              %span.user__image__judges__num 0
+            
+        .message
+          %ul.mypage__tabs
+            %li.tag__changed お知らせ
+            %li やることリスト
+          .message__content
+            %ul.message__content__tab.active
+              %li
+                =link_to do
+                  %img{src:'https://static.mercdn.net/images/mercari_profile.png', height:"48",width:"48"}
+                  .message__tab__body
+                    .message__tab__body__text お知らせだよお知らせだよお知らせだよ
+                    .message__tab__body__time
+                      .message__tab__body__time__icon
+                        %i.fa.fa-clock-o
+                        %span １時間前
+                  .message__tab__icon
+                    %i.fa.fa-chevron-right
+              %li
+                =link_to do
+                  %img{src:'https://static.mercdn.net/images/mercari_profile.png', height:"48",width:"48"}
+                  .message__tab__body
+                    .message__tab__body__text お知らせだよお知らせだよお知らせだよ
+                    .message__tab__body__time
+                      .message__tab__body__time__icon
+                        %i.fa.fa-clock-o
+                        %span １時間前
+                  .message__tab__icon
+                    %i.fa.fa-chevron-right
+              %li
+                =link_to do
+                  %img{src:'https://static.mercdn.net/images/mercari_profile.png', height:"48",width:"48"}
+                  .message__tab__body
+                    .message__tab__body__text お知らせだよお知らせだよお知らせだよ
+                    .message__tab__body__time
+                      .message__tab__body__time__icon
+                        %i.fa.fa-clock-o
+                        %span １時間前
+                  .message__tab__icon
+                    %i.fa.fa-chevron-right
+              
+              %li.message__tab__index
+                -# サーバーサイドでき次第form_withに変更
+                = link_to '一覧を見る', 'http://google.co.jp'
+            
+            %ul.message__content__tab
+              %li
+                =link_to do
+                  %img{src:'https://static.mercdn.net/images/mercari_profile.png', height:"48",width:"48"}
+                  .message__tab__body
+                    .message__tab__body__text やることだよやることだよやることだよやることだよやることだよやることだよやることだよやることだよやることだよ
+                    .message__tab__body__time
+                      .message__tab__body__time__icon
+                        %i.fa.fa-clock-o
+                        %span １時間前
+                  .message__tab__icon
+                    %i.fa.fa-chevron-right
+              %li
+                =link_to do
+                  %img{src:'https://static.mercdn.net/images/mercari_profile.png', height:"48",width:"48"}
+                  .message__tab__body
+                    .message__tab__body__text やることだよやることだよやることだよやることだよやることだよやることだよやることだよやることだよやることだよ
+                    .message__tab__body__time
+                      .message__tab__body__time__icon
+                        %i.fa.fa-clock-o
+                        %span １時間前
+                  .message__tab__icon
+                    %i.fa.fa-chevron-right
+              %li
+                =link_to do
+                  %img{src:'https://static.mercdn.net/images/mercari_profile.png', height:"48",width:"48"}
+                  .message__tab__body
+                    .message__tab__body__text やることだよやることだよやることだよやることだよやることだよやることだよやることだよやることだよやることだよ
+                    .message__tab__body__time
+                      .message__tab__body__time__icon
+                        %i.fa.fa-clock-o
+                        %span １時間前
+                  .message__tab__icon
+                    %i.fa.fa-chevron-right
+              %li.message__tab__index
+                -# サーバーサイドでき次第form_withに変更
+                = link_to '一覧を見る', 'http://google.co.jp'
+
+
+      .bottom--content
+        %h3.bottom--content__header 購入した商品
+        %ul.bottom__mypage__tabs
+          %li.tag__changed
+            = link_to '取引中'
+          %li 
+            = link_to '過去の取引'
+        .bottom--content__tab
+          %ul.bottom--content__tab__item.active
+            %li
+              = link_to '取引中の商品がありません'
+          %ul.bottom--content__tab__item
+            %li
+              = link_to '過去に取引した商品がありません'
+
+  = render 'item__exhibit'
+
+  .aside
+  .footer
