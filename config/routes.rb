@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get 'log_out'
+      get 'register'
     end
   end
 end
