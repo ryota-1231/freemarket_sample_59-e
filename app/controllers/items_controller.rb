@@ -24,4 +24,7 @@ class ItemsController < ApplicationController
   def exhibit
   end
 
+  def confirm
+  end
+
 end
