@@ -10,18 +10,18 @@ p {
 
 
 .back{
-  height: 1600px;
   background-color: rgb(245, 245, 245);
-  position: rerative;
   overflow: scroll;
+  .main{
+    margin: 40px 210px 0;
+    padding-bottom: 40px;
+    display: flex;
     .person{
       height: 1200px;
       width: 700px;
       background-color: red;
-      position: absolute;
       float:right;
-      top: 200px;
-      right: 200px;
+      margin-left: 40px;
       &__head{
         height: 50px;
         width: 700px;
@@ -401,5 +401,6 @@ p {
         }
       }
     }
+}
 }
 }
