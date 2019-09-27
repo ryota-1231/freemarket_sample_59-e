@@ -4,6 +4,7 @@
   background-color: gray;
 }  
   .right__box{
+    height: 358px;
     width: 700px;
     background-color: white;
     float: right;
@@ -35,12 +36,13 @@
             text-align: center;
             padding: 15px;
             color: white;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
             margin: auto;
             .card{
               color: white;
               font-size: 14px;
               line-height: 15px;
+              padding: 20px 40px;
             }
           }
         }
