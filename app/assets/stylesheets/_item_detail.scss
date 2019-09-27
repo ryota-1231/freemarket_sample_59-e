@@ -29,12 +29,7 @@ li{
 .background{
   
 background-color: rgb(245, 245, 245);
-height: 3000px;
-  .header{
-    height: 100px;
-    width: 100vw;
-    background-color: black;
-  }
+height: auto;
   .main{
     height: auto;
     width: 700px;
@@ -387,7 +382,7 @@ height: 3000px;
           }
           }
         }
-      }
+    }
     
     &__otheritems{
       height: 740px;
@@ -444,8 +439,8 @@ height: 3000px;
         }
       }
     }
-
     }
+    
     &__samecategory{
       height: 740px;
       width: 700px;
@@ -502,8 +497,8 @@ height: 3000px;
         }
       }
       }
-    }
+    
 }
 }
-  
-  
+
+}

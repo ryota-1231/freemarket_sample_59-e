@@ -1,5 +1,5 @@
 .background
-  .header
+  = render 'header'
   .main
     .main__box
       .main__box__title
@@ -115,17 +115,19 @@
                 東京喰種
               .main__otheritems__mass__one--explanation--price
                 ¥400円
-      .main__samecategory
-        .main__samecategory__head
-          = link_to "バッジ （おもちゃ・ホビー・グッズ） その他の商品"
-        .main__samecategory__mass
-          - for num in 1..6 do
-            .main__samecategory__mass__one
-              .main__samecategory__mass__one--photo
-                = image_tag "https://images-na.ssl-images-amazon.com/images/I/41D7VAfRQ%2BL._SX356_BO1,204,203,200_.jpg", class: "main__samecategory__mass__one--photo--in"
-              .main__samecategory__mass__one--explanation
-                .main__samecategory__mass__one--explanation--name
-                  僕らはみんな河合荘
-                .main__samecategory__mass__one--explanation--price
-                  ¥400
+    .main__samecategory
+      .main__samecategory__head
+        = link_to "バッジ （おもちゃ・ホビー・グッズ） その他の商品"
+      .main__samecategory__mass
+        - for num in 1..6 do
+          .main__samecategory__mass__one
+            .main__samecategory__mass__one--photo
+              = image_tag "https://images-na.ssl-images-amazon.com/images/I/41D7VAfRQ%2BL._SX356_BO1,204,203,200_.jpg", class: "main__samecategory__mass__one--photo--in"
+            .main__samecategory__mass__one--explanation
+              .main__samecategory__mass__one--explanation--name
+                僕らはみんな河合荘
+              .main__samecategory__mass__one--explanation--price
+                ¥400
+  = render 'users/item__exhibit'
+  = render 'footer'
 

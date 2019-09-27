@@ -1,4 +1,5 @@
 .edit
+  = render 'items/header'
   .main
     = render 'sideber'
     .edit__profile
@@ -11,5 +12,5 @@
             %input.edit__profile--user--box--nickname{ placeholder: "名前を入力" }
         %textarea.edit__profile--text{ placeholder: "プロフィールを入力してください"}
         %input.edit__profile--submit{type: 'submit', value: '変更する'}
-        
   = render 'item__exhibit'
+  = render 'items/footer'
