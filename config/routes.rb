@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :edit, :show] do
     collection do
       get 'log_out'
+      get 'register'  
       get 'sign_in'
     end
   end
