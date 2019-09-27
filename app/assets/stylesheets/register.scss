@@ -1,15 +1,17 @@
 .wrapper{
-  height: 100vh;
+  height: auto;
   width: 100%;
   background-color: gray;
 }  
+.main{
+  margin: 40px 210px 0;
+  padding-bottom: 40px;
+  display: flex;
   .right__box{
     height: 358px;
     width: 700px;
     background-color: white;
-    float: right;
-    margin-top: 190px;
-    margin-right: 330px;
+    margin-left: 40px;
     &__header{
       height: 50px;
       border-bottom: 2px solid #f5f5f5;
@@ -62,6 +64,7 @@
     }
   }
 
+
   p.card{
     margin-left: 125px;
   }
@@ -71,3 +74,4 @@
     text-align: center;
     font-size: 24px;
   }
+}
