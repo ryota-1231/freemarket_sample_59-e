@@ -145,7 +145,7 @@
 ### Association
 - belongs_to :item
 
-## sizesテーブル
+## sizeTypesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |size|text|null: false|
