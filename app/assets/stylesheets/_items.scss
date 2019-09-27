@@ -196,6 +196,28 @@ h4{
 .fas.fa-comment-dollar{
   color: red;
 }
+.far.fa-heart{
+  font-size: 18px;
+}
+.far.fa-bell{
+  font-size: 18px;
+}
+.fas.fa-check{
+  font-size: 18px;
+}
+.far.fa-smile{
+  font-size: 18px;
+}
+.fas.fa-search{
+  font-size: 15px;
+}
+
+.fab.fa-twitter.fa-2x{
+  padding-top: 30px;
+  padding-right: 20px;
+}
+
+
 
 
 
@@ -413,9 +435,6 @@ h4{
         &__items{
           height: 584px;
           &__1{
-            width: 188px;
-            height: 252px;
-            background-color: white;
             margin-top: 20px;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -452,9 +471,6 @@ h4{
         &__items{
           height: 524px;
           &__1{
-            width: 188px;
-            height: 252px;
-            background-color: white;
             margin-top: 20px;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -491,9 +507,6 @@ h4{
           height: 524px;
           
           &__1{
-            width: 188px;
-            height: 252px;
-            background-color: white;
             margin-top: 20px;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -529,7 +542,6 @@ h4{
         &__items{
           height: 524px;
           &__1{
-            background-color: white;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 20px 20px;
@@ -593,9 +605,6 @@ h4{
           height: 524px;
           // margin: 20px;
           &__1{
-            width: 188px;
-            height: 252px;
-            background-color: white;
             margin-top: 20px;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -630,9 +639,6 @@ h4{
         &__items{
           height: 524px;
           &__1{
-            width: 188px;
-            height: 252px;
-            background-color: white;
             margin-top: 20px;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -668,9 +674,6 @@ h4{
         &__items{
           height: 524px;
           &__1{
-            width: 188px;
-            height: 252px;
-            background-color: white;
             margin-top: 20px;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -706,9 +709,6 @@ h4{
         &__items{
           height: 524px;
           &__1{
-            width: 188px;
-            height: 252px;
-            background-color: white;
             margin-top: 20px;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
