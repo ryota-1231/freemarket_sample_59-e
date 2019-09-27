@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+.contents {
+  text-align: center;
+  background-color: rgb(245, 245, 245);
+  height: 100%;
+  .header {
+    width: 100%;
+    height: 128px;
+    &__logo {
+      text-align: center;
+      margin: 0 8px 0 0;
+      padding-top: 39px;
+      &-default {
+        margin: 0 auto;
+        padding-top: 38px;
+      }
+    }
+  }
+  .login {
+    width: 100%;
+    height: 731px;
+    &__box {
+      width: 456px;
+      margin: 0 auto;
+      background-color: #fff;
+      &__upper {
+        border-bottom: 1px solid rgb(245, 245, 245);
+        &-words {
+          color: #333;
+          font-size: 14px;
+          padding-top: 34px;
+        }
+        &-newuser {
+          display: block;
+          margin: 0 auto;
+          font-size: 14px;
+          color: #fff;
+          text-decoration: none;
+          line-height: 42px;
+          background-color: #0099e8;
+          height: 42px;
+          width: 328px;
+          margin-top: 6px;
+          margin-bottom: 40px;
+          text-align: center;
+        }
+      }
+      &__center {
+        margin-top: 40px;
+        &--icon {
+          float: left;
+          padding: 10px 0 0 16px;
+          font-size: 28px;
+        }
+        &-facebook {
+          display: block;
+          margin: 0 auto;
+          font-size: 14px;
+          color: #fff;
+          text-decoration: none;
+          line-height: 50px;
+          background-color: #385185;
+          height: 50px;
+          width: 328px;
+          margin-top: 6px;
+          margin-bottom: 20px;
+          text-align: center;
+        }
+        &-google {
+          display: block;
+          margin: 0 auto;
+          font-size: 14px;
+          text-decoration: none;
+          line-height: 50px;
+          background-color: #fff;
+          height: 50px;
+          width: 328px;
+          margin-top: 6px;
+          margin-bottom: 36px;
+          text-align: center;
+          border: 1px solid rgb(151, 151, 151);
+          color: #333;
+        }
+      }
+      &__bottom {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        .email-input { 
+          padding: 10px 16px 8px 16px;
+          display: block;
+          margin: 0 auto;
+          font-size: 14px;
+          text-decoration: none;
+          line-height: 46px;
+          border-radius: 4px;
+          height: 46px;
+          width: 328px;
+          margin-top: 6px;
+          margin-bottom: 20px;
+          text-align: left;
+          border: 1px solid rgb(151, 151, 151);
+          color: #333;
+        }
+        .password-input {
+          padding: 10px 16px 8px 16px;
+          display: block;
+          margin: 0 auto;
+          font-size: 14px;
+          text-decoration: none;
+          line-height: 46px;
+          border-radius: 4px;
+          height: 46px;
+          width: 328px;
+          margin-top: 6px;
+          margin-bottom: 20px;
+          text-align: left;
+          border: 1px solid rgb(151, 151, 151);
+          color: #333;
+        }
+        .g-recaptcha {
+          margin-right:auto;
+          margin-left:auto;
+          width:328px;
+          margin-top:20px;
+          transform:scale(0.99);
+          transform-origin:0 0;
+        }
+        .login-btn {
+          display: block;
+          margin: 0 auto;
+          font-size: 14px;
+          text-decoration: none;
+          line-height: 50px;
+          background-color: #ea352d;
+          height: 50px;
+          width: 328px;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          text-align: center;
+          color: #fff;
+        }
+        .forget-password {
+          font-size: 14px;
+          float: left;
+          padding-left: 34px;
+          & a:link {
+            color: #0099e8;
+          }
+          & a:visited {
+            color: #0099e8;
+          }
+          & a:hover {
+            text-decoration: underline;
+            color: #71c1e9;
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    background-color: rgb(245, 245, 245);
+    text-align: center;
+    color: #333;
+    display: inline-block;
+    ul {
+      font-size: 13px;
+      li {
+        float: left;
+        margin-right: 22px;
+        padding-top: 42px;
+        padding-bottom: 26px;
+        color: #333;
+        & a:link {
+          color: #333;
+        }
+        & a:visited {
+          color: #333;
+        }
+        & a:hover {
+          text-decoration: underline;
+          color: gray;
+        }
+      }
+    }
+  }
+}
+
+p {
+  font-size: 12px;
+}

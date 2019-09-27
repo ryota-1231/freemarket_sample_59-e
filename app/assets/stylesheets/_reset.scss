@@ -9,24 +9,16 @@
     TODO with the prefix, should I group by selector or property for weight savings?
 */
 html{
-  color:#000;
-  background:#FFF;
+    color:#000;
+    background:#FFF;
 }
 /*
-  TODO remove settings on BODY since we can't namespace it.
+    TODO remove settings on BODY since we can't namespace it.
 */
 /*
-  TODO test putting a class on HEAD.
-      - Fails on FF.
+    TODO test putting a class on HEAD.
+        - Fails on FF.
 */
-*{
-  box-sizing: border-box;
-}
-
-a{
-  text-decoration: none;
-  color: black;
-}
 
 body,
 div,
@@ -53,19 +45,19 @@ p,
 blockquote,
 th,
 td {
-  margin:0;
-  padding:0;
+    margin:0;
+    padding:0;
 }
 table {
-  border-collapse:collapse;
-  border-spacing:0;
+    border-collapse:collapse;
+    border-spacing:0;
 }
 fieldset,
 img {
-  border:0;
+    border:0;
 }
 /*
-  TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
+    TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
 */
 address,
 caption,
@@ -76,13 +68,13 @@ em,
 strong,
 th,
 var {
-  font-style:normal;
-  font-weight:normal;
+    font-style:normal;
+    font-weight:normal;
 }
 
 ol,
 ul {
-  list-style:none;
+    list-style:none;
 }
 
 caption,
@@ -95,6 +87,7 @@ h3,
 h4,
 h5,
 h6 {
+
   font-size:100%;
   font-weight:normal;
 }
