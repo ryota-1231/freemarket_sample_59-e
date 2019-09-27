@@ -7,10 +7,10 @@
   text-align: center;
   background-color: rgb(245, 245, 245);
   height: 100%;
-  .header {
+  .header-user {
     width: 100%;
     height: 128px;
-    &__logo {
+    &__logo-default {
       text-align: center;
       margin: 0 8px 0 0;
       padding-top: 39px;
@@ -78,10 +78,12 @@
       }
     }
   }
-  .footer {
+  .footer-user {
     text-align: center;
     color: #333;
+    display: inline-block;
     background-color: rgb(245, 245, 245);
+    padding-bottom: 30px;
     ul {
       font-size: 13px;
       li {
@@ -108,4 +110,5 @@
 p {
   font-size: 12px;
   padding-bottom: 90px;
+  color: #333;
 }

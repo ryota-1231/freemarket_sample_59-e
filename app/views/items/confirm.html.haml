@@ -1,6 +1,6 @@
 .contents
-  .header
-    .header__logo-default
+  .header-user
+    .header-user__logo-default
       = link_to image_tag(src= "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3296506464", class: "mercari-logo", height:49, width:185), "#"
 
   .confirm-box
@@ -47,11 +47,11 @@
       .confirm-box__paymethod__alter
       = link_to '変更する 》', '#', class: "paymethod-alter"
 
-  .footer
+  .footer-user
     %ul
       %li= link_to 'プライバシーポリシー', '#'
       %li= link_to 'メルカリ利用規約', '#'
       %li= link_to '特定商取引に関する表記', '#'
-    .footer__link
+    .footer-user__link
       = link_to image_tag(src= "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464", class: "mercari-graylogo", height: 80, width: 60), "#"
       %p © 2019 Mercari
