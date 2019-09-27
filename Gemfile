@@ -83,3 +83,5 @@ gem "erb2haml"
 gem "font-awesome-rails"
 gem 'active_hash'
 gem 'dropzonejs-rails'
+gem 'mechanize'
+gem 'ancestry'
