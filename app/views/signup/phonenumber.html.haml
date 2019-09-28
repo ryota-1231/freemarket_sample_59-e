@@ -20,7 +20,7 @@
           完了
           .order-radius
 
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  = form_for(resource, as: resource_name, url: '/signup/address', method: :get ) do |f|
     .signup__phonepage
       .signup__phonepage-title
         電話番号の確認
@@ -32,11 +32,11 @@
               %span.form-require 必須
               %br
             .field-input
-            = f.email_field :email, class: "input-default", autocomplete: "email", placeholder: "携帯電話の番号を入力"
+            = f.number_field :password, class: "input-default", autocomplete: "email", placeholder: "携帯電話の番号を入力"
           .login__info
             本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
           .next__btn
-            = link_to 'SMSを送信する', '#', class:"next-btn" 
+            = f.submit 'SMSを送信する', class:"next-btn" 
           .attention
             ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
           .about__user-information

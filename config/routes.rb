@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       get 'sign_in'
     end
   end
-  resources :signup, only:[:new] do
+  resources :signup, only:[:new, :create] do
     collection do
       get 'member'
       get 'phonenumber'

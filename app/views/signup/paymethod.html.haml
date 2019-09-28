@@ -20,7 +20,7 @@
           完了
           .order-radius
 
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  = form_for(resource, as: resource_name, url:'/signup', method: :post ) do |f|
     .signup__payment
       .signup__payment-title
         支払い方法
@@ -32,7 +32,7 @@
               %span.form-require 必須
               %br
             .field-input
-            = f.email_field :email, class: "input-default", autocomplete: "email", placeholder: "半角数字のみ"
+            = f.number_field :email, class: "input-default", autocomplete: "email", placeholder: "半角数字のみ"
             .card-box
             = image_tag(src= "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYwAAAB/CAMAAADLlgV7AAAB8lBMVEX////rABr3nhwaH3H3tgD/XwAAAAAAAGr//vvy8vKeoL32gSH3twCho76urK3s9vlhk7RnmbiWbltuncPqAABql7jl8PTgWnAbSXzxhCuQLjkiKmGYLTu/v7/GI0GVk5RWrUQNUIU7mUZ6e5aNs9CBLzgAX5gAWI4AhUUAfkXSGD0lQHNTqUYAY6JhHyXP4di7qaoAbTNwLzW4Jz8jjkUqN2qgKzu/JUBCnUYWikXh4eEAR4D3mQC0tLSCgoKhoaHOzs7HcCRnZ2cOFW14eHgAC2uQq8I3frHX19dUVFQvLC3X2OX77t0YbqnCw9YhISFHR0crMHoWFhY5PYKwZm5eXl6OkLNqbJzKy9z8dw56fKbh4uw7OToAW6H53r4AgTFlEBv5kBb84+b3srlKqTSjy6v/8NL6zp/nnWDmkEdjgqRMYIjbwMKztcz1sVfzi5T5tXq3dEBysonMbnu6RlcAYRn5RQtKTouiACaADyCrACX35ObntIjsITWEwHwJiTHuoT5QoWeugIOiwtXbbH3//+P3x42iz5rydX9st1ntOUvsFC3j8d/3uWwKGFn7TwlvER3ynFf5xsz2pawATJSSQEmgNg65NgDZUBThnoLhuKvEg3WwWUGfZ2zvT11uqIt9TVEhcZvkbhrNe1vUZBnAkJQT+9+VAAAOMklEQVR4nO2ci38TVRaAL43czG1tCttSrTgMSAGtZBEUZQcyMztJzCRpSRoILTStlIKVlYcrroAVqVZY5LWIruv62pXV/3PPuZOkyWTyaBPWLr/z/WgzM5mZtvebc869dyYwRhAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRDE/wZlVQes+Kj/IxZOAZ5tijIKPMl/9erpbZtu/xM/vHj7zrqBdevWXfvp4sPSxtH5C4tdh4CuxXszj1HI0qaNK2TTxiUFLpTSCUS7rOrXDgTbJe73g+duD6AIycDAwO053Pj2PdRQBJbmG+gQ6TKDxS0LCzLSlqNN2QPcdVk+Elo0sdS3cpYSFVkqGWoPTV2NjPFAuwRrZZy6XTZREnL7lHJv2UTRR9dMnd9q8t3N+w8i08AwbtF/vHr16pUrH3300cjItWeknPffeuut69evH9h9GlhuR4VtTPucUnG/lPoXQHrT8rLWvOUaoq8ZGV8NeF2AjXWzHhVSx03fX6r7/ssvP7tt265du3bu3BlGGece7Hjuuedff/3VV9/YsmUEZex56cUX//Daay+8cODA7t1bt1YenlhlJa4IjSdGxsVaFcDf1s/Wyug6dM+n2c7f3++R4Zzc4ZEhXqorY7AfGtXntOn+xM8/j40l+pcG/dtiU1958beR0fmaUc/F+jo2an4lcX+/V8a/93ll/GtvIxleQE16LIES+tL9kPk2DPrZ+s1l9Ha3TfUJ5+q6qGOjJlOdX5ax05Xh/H7fvmoZyt6GkVHLcHjKXVDYYAJ0LPns85vL6DQLfirWfShdrD/uI6PrkLeKb9/slfFKjYw9K5QxXKoH8nv/dNjPxhMn45ZvYKwv4hcaXYueU1TI2FWWsaMtGUth1CBjYwp9JMLh6drC0YqMCqWNOglrQsYpXxcflmSsbyU0fCOjPRljaWi54a8FNOD0JsxU4XA4UdOaT5qMxoHRWmj4RkZbaSoNnV02PB1GGWPT+DYmqprQaFWG/GrceV4TMhpVjPpVY7TqHJ2vGf1QIAanw66M8DSkqzTIGPbu1oKMypBQGgh5rDJEOj3VwnzLwwZdqZbzVKdrhsISUwoGRhj/gjFpoW8a85SHFRRwKaJBcLQlYyIQjOIIrre4Gg1EJ9j5YCAwjqu9R+SI4rI7zXACR3qHfU/zVZMs1VLvtvMFPAyt3B8uyZAWYG3Mu1uVDN0wDE2FI1TDYk4sGbNgs2Nks4YOfcbvf/jh+++UKUNKs4yQBXsbptDwGKZp7UbG5AQ0fTTo9jiCsrmPBQPxCVgbd0UFglLG4SAuHvM9if+Ar1JGj19oXKg6SVkGsAsaTcp48Nzfjx49eumDD7aMjEgZOOjDuSl00VTGoJQxvRIZDkeyDjN4SM/xFOc6C8GWHA+x7775x7fAP0WKW7BznodM3LmgZ/DFMNuW4baye8UfiweiEBKXo4FgNxMBUBHHyAjI3S6jGYgbP3zr90ClDN+isVh1kpKMg2/K2dQEyDj52blSkhSn5nDQV5qqVsTdMy2kKejdrjBNOTypWzYvCI1HNG5g81o8ZwphRka/QRXfrv9lXuMxCBeeYiY3dF0XqZRQcznRiZoxHg3E5RWPlz4kLGj14CTGRyB6LJ0+fEwKwKhBfM/wU2dlyFWQoeruOwsL2JxCThRWcHdrswJebP6ijEGppkkBd3geXpM8JGUkHVixuSnrxPcyLh49enR2NJcREDoayNCYYCKVYSwFIdQBGSfi7hWPIRIXLO2+XI5WxQHsFBgHS1N+Z3hMMlx+ff7KlSuvXnpYlKFgzTgj3/mkiYxBzEhL066Mr3Hs7Tvq85ER4YYGaaoACUtlqZwuZfxQdNHTMxqDpIWbTUhfPAkyzBjPsk7IkNWAyfIdPwFlOxiIHmHsCATIePkOgQA1lyGNBc/7naHDaUqulmQcvSoL+JaRNypkXJc9miYy8G4TQxvY2DtxEXu2/TXdIV8ZMZDBhJnlXE1ldDnAABmPjoOKnq5RiydD3GYgIxuzNZDBuY1h3L4MWbeF+5KWMYBOMBQCwRPFnA09rGAvWIv7VvBmYz7/Au6ZufWXce5qqTc1UpSB95Y+lUtNR+CDMgz6cGpdNjhU8bG+mr18ZNiYpkK4xeCGjUsg4z8QFcd7hmZnF0dZMieLuAkZDK7UVMHmsoPVgXEGBIFbJKKXi2tw/csCDhW8u7yLmCruUYP/lO0qu7bVMj7z3FxiDO+5woty95NmNQOjAm3IsYHC+iBJhX3uaXhlCN3gKSjgITOGlcFUeUYVQrW++wWiYnZ2tuumAh2sXJIxt2YIKOCQ0SKsIzIw/fTi/SYpoRggbOqIrNlBiBI26WpAO34n8J+aWuWgr1rGjzUyiogzXzSXATbK07RLUC8Sg83uZzg8A93ZlMVARp6nsti1NaD7WoDw+HgIXczeu4HBIAPH5KlCIa9DAVd5zmFKB2RA+omemCxWDnyNutt7A/HiMGPCjRZ88bvRzK75yVjldEiTyFA+Bd53a8bprRXH+8pgfZvC/UuDg+nhsa+nw353M7yDvrxt2yYk51BSFUYhlbRgs5qHBYeNztxbXLxw84bcs4AJPAJ752PChvKh5bWORIbA6x4bGgsCDjbKuQgLB5QJLCfx84cP4z69fmdoNurzzVLVY75lGW6TjdWrGbKAy+6U0oIM0LHUn9iwYUP/cPky0qteGk6HlIc5Qia7G6Nv36g/G6IoVgfmpo64Q+049lsnopVVelzKOCYjJIgjcqzttSx0YAr9/GZ5D/zgNtk2faXxwGeyNwUuPi8V8LIM9sXWiuOlDCtmaIYFl6xZ2lzVdiHDNCyzIJdVXtzY6kRhg83upO7b7/25AzJkYxeHFePuePyYvI4m47KQVDyH4F/Bm4RGK4GBP237u89u+5NbYofLg7NzR59//YNLcwusKON9wHXhFxkxsGDHmNCZD0kssrbIumup4tZ27/QVZ3FH588O/bEDMibdUj3Jiv3cKchcwfGJictyPkrOHEbjSFSOB/3wrRoDrVcMD8NybuqVqm3eEbjvOANlMOh1wrhY5iEcQsOCjsuqtCD0sgzX2OplVMymK/NfDg31dEKGkPNOR3CxOGUry3g0inOIh3EwXsxcE1FXWS3+s+gf1k9S894z9PZOutP1fek3x8Jy1vbkvl/PCfx7xcKpOUxTYk+Ju3fP7PbrTUkZhmFrFteMFLOdrJ6xuWma0Ey229Z61uFMy7CcmZRa2ooMOaeuKDNf9iCdkMEu47M3cnB9ApYgXXXHg3GQEQweSUOugjfd6tcN79Z5yLb+4yGtPRzCtt/fvHk/TtoePLhteQr9gVvA8YlCnLX9y969L5aeKPSdKCzKiGgsx1hGzYdiVgz6qTEsxTFD7giRgXNJmKagC9uWjJKKd4Z6Oidjsru3t1telud74QqF13TviYmJiW50MInPObv7TcF+/rc06tto0UWpN/Ws537GDu/9jJca3s9w05QTkjJSJq7ZDg6krVLJ1itkyLsVbaQp+Q0SVE9PB2V0hIfrfB7vvHah9vHOQ7U5inXqgYSYJr9MjUHL5xwudAdkmCyCUZGH8YAs4JxZKdwBR9HtpSks266IoTUlg4lbnqdtBwZuMTbf5X3w+YJv7e7InT5L00wT6jLUCM2yNCuSNXXNFJZ7b46pMVPTI5pu5i3o4mqmTAZtRMbMe+WgWGORATx8ZmCgKARfb8lPaIze7Co/iH7o0KELdZ5BfxwPsbVEYxnVQ4yKm+DK6MzZahVrTAZjp+Zu/XTtzp07t5+5+HChtFGZuXlhEV0s3puv26PtSGToquUwx1IB+KbDiFi3cJJC6DpuUIUechisqoJZzFEFDjxallH5WIgMCq+LtSajPkqjZ1xYh2SIlOAq0xwN/pmq4E6ScRPaOBZzBBdWRrdZLGInYQtUc6jktmgiw/f5HLi4zno9tCFDaZ/V/NhGeGUs1cj4vEbGFxXHuzKyIpJzQlAzmAnDipyhslBWjTANyzljBQ3iJBnRYrBH3tFl/W4ko/qvVNxmm/m4Jj21J+Ppp55uk6ea2oAE0QDb+3t7asb0VE3NmKuR8deK410ZBchA3JURESKlaSwEozsrAj8OfBRg/GEZIWZnmWbGRFKOwRvJqF5QoE685x8T7cloG68MUZzjdL/BdzO7vFrxVdwzFfIcXy0DH+KojoyREeGVcbriM33F3pQNIwwngs8waYYWsnUb+rQiYsA/J6/rttBMTcR0poVUeCtmYs3Y2NpEoTI6Ol/sPA11OjI6LCOT4vkkLwhR4IWM0DjPRzjnqpPjSWameMTkHDr4PJMRsRR3DHivgQywgbfoPDKga1Yt43RlYLC+DatpCGBDX5OPkSnLIXG8p6e2bK85GdwU3BCZUCzPTC64psNIKylYxtAzIa0gHK4Kx4CEzvFOjMp1vZ4MOQLftROH/pUyMElVy/C4kJ/pWw19Fcf5FHBFRkSj3LQGZTisoLJ8qACBz0Ukw20okUzgbUlTizELZyKSJr6Xh95NFj/l6/mVtkfvb97sftp155syc7xy8uSDq+6nXd+4JPvJODflTk1dP/DJ3erjlalE7cMGzelLVNwW98jAgPj4nbNDLbNWZFgspUILaynIQcLUIQRCKUvPxnRTaDbTuWmpWs7SpAyLq5GayCh/Ir6vZotYLqQNOnNgY8PKSVQ+CWZrVRi/WynWamR0nKzObItBTzLG7aSI5TIh6GZCbkrypICaytQCN5gBdUUYEDtmLpt/HOOjVXwoHw+j/0WDIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIIgG/Bd7eLRppK0oiAAAAABJRU5ErkJggg==", class: "card-logo", height: 80, width: 240)
 
@@ -42,10 +42,10 @@
               %span.form-require 必須
               %br
             .field-input__select
-            = f.password_field :email, class: "input-default-quarter", autocomplete: "current-password", placeholder: ""
+            = f.number_field :email, class: "input-default-quarter", autocomplete: "current-password", placeholder: ""
             %p2 月
             %br
-            = f.email_field :password, class: "input-default-quarter", autocomplete: "email", placeholder: ""
+            = f.number_field :password, class: "input-default-quarter", autocomplete: "email", placeholder: ""
             %p2 年
           .field
             .field-info__securitycode
@@ -59,7 +59,7 @@
             = link_to 'カード裏面の番号とは？', '#'
 
           .next__btn
-            = link_to '次へ進む', '#', class:"next-btn"
+            = f.submit '次へ進む', class:"next-btn"
   .footer-user
     %ul
       %li= link_to 'プライバシーポリシー', '#'
