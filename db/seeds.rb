@@ -37,18 +37,26 @@ require 'mechanize'
 
 
 
-  
-    current_page = agent.get("https://www.mercari.com/jp/brand/?brand_group_id=#{1}")
-    brands = current_page.search('.brand-list-box')
-    
-    brand_title = brands.at('h3').inner_text
-    brand_groups = brands.search('p')
+  for i in 1..17 do
+    if i==9 
+      next
+    else
+      current_page = agent.get("https://www.mercari.com/jp/brand/?brand_group_id=#{i}")
+      brands = current_page.search('.brand-list-box')
+      
+      brand_title = brands.at('h3').inner_text.strip
+      brand_groups = brands.search('p')
 
-    # parent = Brand.create(name: brand_title) 
-    brand_groups.each do |brand_name|
-      puts parent
-      # child = parent.children.create(name: brand_name)
+     
+
+      parent = Brand.create(name: brand_title) 
+      brand_groups.each do |brand_name|
+        posts= brand_name.inner_text.strip
+        child = parent.children.create(name: posts)
+      end
+
+      
+      
     end
+  end
 
-
-  
