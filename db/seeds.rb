@@ -38,17 +38,38 @@ require 'mechanize'
 
 
   
-    current_page = agent.get("https://www.mercari.com/jp/brand/?brand_group_id=#{1}")
-    brands = current_page.search('.brand-list-box')
+    # current_page = agent.get("https://www.mercari.com/jp/brand/?brand_group_id=#{1}")
+    # brands = current_page.search('.brand-list-box')
     
-    brand_title = brands.at('h3').inner_text
-    brand_groups = brands.search('p')
+    # brand_title = brands.at('h3').inner_text
+    # brand_groups = brands.search('p')
 
-    # parent = Brand.create(name: brand_title) 
-    brand_groups.each do |brand_name|
-      puts parent
-      # child = parent.children.create(name: brand_name)
-    end
+    # # parent = Brand.create(name: brand_title) 
+    # brand_groups.each do |brand_name|
+    #   puts parent
+    #   # child = parent.children.create(name: brand_name)
+    # end
 
 
   
+
+
+  size_group = {}
+  current_page = agent.get("http://localhost:3000/users/test")
+  groups = current_page.search('.group')
+  
+  groups.each do |group|
+    size_category = group.at('h3').inner_text
+    size_group[size_category] = []
+    group.search('p').each do |child|
+      size_child = child.inner_text
+      size_group[size_category] << size_child
+    end
+  end
+  
+  size_group.keys.each do |size_category|
+    parent = Sizetype.create(sizetype: size_category) 
+    size_group[size_category].each do |children_name|
+      parent.children.create(sizetype: children_name)
+    end
+  end

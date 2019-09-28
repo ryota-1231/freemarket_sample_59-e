@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'log_out'
       get 'register'  
       get 'sign_in'
+      get 'test'
     end
   end
   resources :signup, only:[:new] do
