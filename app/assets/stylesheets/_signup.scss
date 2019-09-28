@@ -63,7 +63,7 @@
 
   .order-sign {
     border: 0;
-    padding: 40px 0 0 44px;
+    padding: 40px 60px 0 44px;
     font-size: 12px;
     ol {
       display: inline-flex;
@@ -528,5 +528,14 @@ margin-top: 30px;
 
 .mobile-sample {
   padding-bottom: 8px;
+}
+
+.mercari-logo-user {
+  display: inline-block;
+  border: 0;
+  text-decoration: none;
+  & a:hover {
+    text-decoration-line: none;
+  }
 }
 
