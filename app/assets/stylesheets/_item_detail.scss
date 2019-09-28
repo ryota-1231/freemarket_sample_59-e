@@ -30,7 +30,7 @@ li{
   
 background-color: rgb(245, 245, 245);
 height: auto;
-  .main{
+  .detail{
     height: auto;
     width: 700px;
     margin: 100px auto;
@@ -66,12 +66,14 @@ height: auto;
             &--in{
               height: 300px;
               width: 300px;
+
             }
           }
           &__mini1{
             height: 60px;
             width: 60px;
             background-color: purple;
+            
             
             &--in{
               height: 60px;

@@ -1,20 +1,20 @@
 .background
   = render 'header'
-  .main
-    .main__box
-      .main__box__title
+  .detail
+    .detail__box
+      .detail__box__title
         東京喰種
-      .main__box__items
-        .main__box__items__photo
-          .main__box__items__photo__big
-            = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "main__box__items__photo__big--in"
-          .main__box__items__photo__mini1
-            = image_tag "https://rockinon.com/images/entry/width:750/184346/1", class: "main__box__items__photo__mini1--in"
-        %table.main__box__items__detail
-          %tr.main__box__items__detail__exhibitor
-            %th.main__box__items__detail__exhibitor--right
+      .detail__box__items
+        .detail__box__items__photo
+          .detail__box__items__photo__big
+            = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "detail__box__items__photo__big--in"
+          .detail__box__items__photo__mini1
+            = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "detail__box__items__photo__mini1--in"
+        %table.detail__box__items__detail
+          %tr.detail__box__items__detail__exhibitor
+            %th.detail__box__items__detail__exhibitor--right
               出品者
-            %td.main__box__items__detail__exhibitor--left
+            %td.detail__box__items__detail__exhibitor--left
               %li
                 = link_to "遠島"
               %li
@@ -24,10 +24,10 @@
                 0
                 = fa_icon "cog"
                 0
-          %tr.main__box__items__detail__category
-            %th.main__box__items__detail__category--right
+          %tr.detail__box__items__detail__category
+            %th.detail__box__items__detail__category--right
               カテゴリー
-            %td.main__box__items__detail__category--left
+            %td.detail__box__items__detail__category--left
               %li
                 = link_to "本・音楽・ゲーム"
               %li
@@ -35,98 +35,98 @@
               %li
                 = link_to "＞青年漫画"
               
-          %tr.main__box__items__detail__brand
-            %th.main__box__items__detail__brand--right
+          %tr.detail__box__items__detail__brand
+            %th.detail__box__items__detail__brand--right
               ブランド
-            %td.main__box__items__detail__brand--left
-          %tr.main__box__items__detail__status
-            %th.main__box__items__detail__status--right 商品の状態
-            %td.main__box__items__detail__status--left やや傷や汚れあり
-          %tr.main__box__items__detail__postage
-            %th.main__box__items__detail__postage--right
+            %td.detail__box__items__detail__brand--left
+          %tr.detail__box__items__detail__status
+            %th.detail__box__items__detail__status--right 商品の状態
+            %td.detail__box__items__detail__status--left やや傷や汚れあり
+          %tr.detail__box__items__detail__postage
+            %th.detail__box__items__detail__postage--right
               配送料の負担
-            %td.main__box__items__detail__postage--left
+            %td.detail__box__items__detail__postage--left
               送料込み(出品者負担)
-          %tr.main__box__items__detail__method
-            %th.main__box__items__detail__method--right
+          %tr.detail__box__items__detail__method
+            %th.detail__box__items__detail__method--right
               配送の方法
-            %td.main__box__items__detail__method--left
+            %td.detail__box__items__detail__method--left
               ゆうゆうメルカリ便
-          %tr.main__box__items__detail__area
-            %th.main__box__items__detail__area--right
+          %tr.detail__box__items__detail__area
+            %th.detail__box__items__detail__area--right
               配送元の地域
-            %td.main__box__items__detail__area--left
+            %td.detail__box__items__detail__area--left
               = link_to "岐阜県"
-          %tr.main__box__items__detail__date
-            %th.main__box__items__detail__date--right
+          %tr.detail__box__items__detail__date
+            %th.detail__box__items__detail__date--right
               配送日の目安
-            %td.main__box__items__detail__date--left
+            %td.detail__box__items__detail__date--left
               1~2日で発送
-      .main__box__price
-        .main__box__price__box
-          %span.main__box__price__box__price
+      .detail__box__price
+        .detail__box__price__box
+          %span.detail__box__price__box__price
             ¥7,500
-          %span.main__box__price__box__tax
+          %span.detail__box__price__box__tax
             (税込)
-          %span.main__box__price__box__postage
+          %span.detail__box__price__box__postage
             送料込み
-      .main__box__money
-      %input.main__box__btn{type: 'submit', value: '購入画面に進む'}
-      .main__box__explanation
+      .detail__box__money
+      %input.detail__box__btn{type: 'submit', value: '購入画面に進む'}
+      .detail__box__explanation
         kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-      .main__box__icon
-        .main__box__icon--good
+      .detail__box__icon
+        .detail__box__icon--good
           = fa_icon "heart"
           いいね! 0
-        .main__box__icon--warning
+        .detail__box__icon--warning
           = fa_icon "flag"
           不適切な商品の報告
-        .main__box__icon--safety
+        .detail__box__icon--safety
           = fa_icon "lock"
           あんしん・あんぜんへの取り組み
-    .main__comment
-      .main__comment--warning
+    .detail__comment
+      .detail__comment--warning
         相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %textarea.main__comment--text
-      %input.main__comment--btn{type: 'submit', value: 'コメントする'}
-    .main__link
-      .main__link--left
+      %textarea.detail__comment--text
+      %input.detail__comment--btn{type: 'submit', value: 'コメントする'}
+    .detail__link
+      .detail__link--left
         = link_to "＜未使用☆Cartier カルティエ 二つ折り 財布"
-      .main__link--right
+      .detail__link--right
         = link_to "マイワリサ mywarisa 35 21.9 バレエシューズ＞"
-    .main__icon
-      .main__icon__box
-        .main__icon__box--facebook
+    .detail__icon
+      .detail__icon__box
+        .detail__icon__box--facebook
           = fa_icon "facebook-square"
-        .main__icon__box--twitter
+        .detail__icon__box--twitter
           = fa_icon "twitter"
-        .main__icon__box--pinterest
+        .detail__icon__box--pinterest
           = fa_icon "pinterest"
-    .main__otheritems
-      .main__otheritems__head
+    .detail__otheritems
+      .detail__otheritems__head
         = link_to "へっくしゅんさんのその他の出品"
-      .main__otheritems__mass
+      .detail__otheritems__mass
         - for num in 1..6 do
-          .main__otheritems__mass__one
-            .main__otheritems__mass__one--photo
-              = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "main__otheritems__mass__one--photo--in"
-            .main__otheritems__mass__one--explanation
-              .main__otheritems__mass__one--explanation--name
+          .detail__otheritems__mass__one
+            .detail__otheritems__mass__one--photo
+              = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "detail__otheritems__mass__one--photo--in"
+            .detail__otheritems__mass__one--explanation
+              .detail__otheritems__mass__one--explanation--name
                 東京喰種
-              .main__otheritems__mass__one--explanation--price
+              .detail__otheritems__mass__one--explanation--price
                 ¥400円
-    .main__samecategory
-      .main__samecategory__head
+    .detail__samecategory
+      .detail__samecategory__head
         = link_to "バッジ （おもちゃ・ホビー・グッズ） その他の商品"
-      .main__samecategory__mass
+      .detail__samecategory__mass
         - for num in 1..6 do
-          .main__samecategory__mass__one
-            .main__samecategory__mass__one--photo
-              = image_tag "https://images-na.ssl-images-amazon.com/images/I/41D7VAfRQ%2BL._SX356_BO1,204,203,200_.jpg", class: "main__samecategory__mass__one--photo--in"
-            .main__samecategory__mass__one--explanation
-              .main__samecategory__mass__one--explanation--name
+          .detail__samecategory__mass__one
+            .detail__samecategory__mass__one--photo
+              = image_tag "https://images-na.ssl-images-amazon.com/images/I/41D7VAfRQ%2BL._SX356_BO1,204,203,200_.jpg", class: "detail__samecategory__mass__one--photo--in"
+            .detail__samecategory__mass__one--explanation
+              .detail__samecategory__mass__one--explanation--name
                 僕らはみんな河合荘
-              .main__samecategory__mass__one--explanation--price
+              .detail__samecategory__mass__one--explanation--price
                 ¥400
   = render 'users/item__exhibit'
   = render 'footer'
