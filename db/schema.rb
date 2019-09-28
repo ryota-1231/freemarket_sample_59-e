@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_26_222645) do
+ActiveRecord::Schema.define(version: 2019_09_28_055807) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "postcode", null: false
@@ -42,6 +42,21 @@ ActiveRecord::Schema.define(version: 2019_09_26_222645) do
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "explanation", null: false
+    t.integer "price"
+    t.integer "state", null: false
+    t.string "postage", null: false
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["title"], name: "index_items_on_title"
+    t.index ["user_id"], name: "fk_rails_d4b6334db2"
+  end
+
   create_table "sizetypes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "sizetype", null: false
     t.datetime "created_at", null: false
@@ -51,11 +66,7 @@ ActiveRecord::Schema.define(version: 2019_09_26_222645) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", null: false
-    t.string "fullname", null: false
-    t.string "kana", null: false
-    t.string "email", null: false
-    t.integer "phone_number", null: false
+    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -68,4 +79,6 @@ ActiveRecord::Schema.define(version: 2019_09_26_222645) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "categories", "sizetypes"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "users"
 end
