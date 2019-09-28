@@ -42,6 +42,21 @@ ActiveRecord::Schema.define(version: 2019_09_28_063059) do
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "explanation", null: false
+    t.integer "price"
+    t.integer "state", null: false
+    t.string "postage", null: false
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["title"], name: "index_items_on_title"
+    t.index ["user_id"], name: "fk_rails_d4b6334db2"
+  end
+
   create_table "sizetypes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "sizetype", null: false
     t.datetime "created_at", null: false
@@ -64,4 +79,6 @@ ActiveRecord::Schema.define(version: 2019_09_28_063059) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "categories", "sizetypes"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "users"
 end
