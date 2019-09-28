@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_28_063059) do
+ActiveRecord::Schema.define(version: 2019_09_26_222645) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "postcode", null: false
@@ -29,9 +29,8 @@ ActiveRecord::Schema.define(version: 2019_09_28_063059) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ancestry"
-    t.bigint "sizetype_id"
+    t.integer "sizetype_id"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
-    t.index ["sizetype_id"], name: "index_categories_on_sizetype_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -51,7 +50,11 @@ ActiveRecord::Schema.define(version: 2019_09_28_063059) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", default: "", null: false
+    t.string "nickname", null: false
+    t.string "fullname", null: false
+    t.string "kana", null: false
+    t.string "email", null: false
+    t.integer "phone_number", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -63,5 +66,4 @@ ActiveRecord::Schema.define(version: 2019_09_28_063059) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "categories", "sizetypes"
 end
