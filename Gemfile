@@ -85,3 +85,4 @@ gem 'active_hash'
 gem 'dropzonejs-rails'
 gem 'mechanize'
 gem 'ancestry'
+gem "gretel"

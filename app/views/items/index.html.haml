@@ -18,7 +18,6 @@
         人気のカテゴリー
       .content__all__popular__category__links
 
-
         = link_to "レディース",(),class:"lists"
 
         = link_to "メンズ",(),class: "lists"
@@ -34,11 +33,11 @@
           .content__all__category__list__rady__new__right
             = link_to "もっと見る >","#"
         .content__all__category__list__rady__items
-          
           .content__all__category__list__rady__items__1
             - for num in 1..10 do 
               .content__all__category__list__rady__items__1__ima
                 = image_tag "himawari04.jpg",class:"rady"
+                %p ああああ
                 -# .content__all__category__list__rady__items__1__image
                   .content__all__category__list__rady__items__1__text
                 レディース
@@ -52,7 +51,8 @@
           .content__all__category__list__men__items__1
             - for num in 1..10 do 
               .content__all__category__list__men__items__1__ima
-                = image_tag "himawari04.jpg",class:"rady"
+                = image_tag "5e831a68c9a03a27.jpg",class:"rady"
+                %p ああああ
                 -# .content__all__category__list__men__items__1__image
                   .content__all__category__list__men__items__1__text
                 メンズ
@@ -68,6 +68,7 @@
             - for num in 1..10 do 
               .content__all__category__list__mecha__items__1__ima
                 = image_tag "himawari04.jpg",class:"rady"
+                %p ああああ
                 -# .content__all__category__list__men__items__1__image
                   .content__all__category__list__mecha__items__1__text
                 家電新着アイテム 
@@ -79,10 +80,11 @@
           .content__all__category__list__hobby__new__right
             = link_to "もっと見る >","#"
         .content__all__category__list__hobby__items
-          .content__all__category__list__mecha__items__1
+          .content__all__category__list__hobby__items__1
             - for num in 1..10 do 
               .content__all__category__list__hobby__items__1__ima
-                = image_tag "himawari04.jpg",class:"rady"
+                = image_tag "5e831a68c9a03a27.jpg",class:"rady"
+                %p ああああ
                 -# .content__all__category__list__men__items__1__image
                   .content__all__category__list__hobby__items__1__text
                 オモチャ・ホビー・グッズ新着アイテム  
@@ -108,6 +110,7 @@
             - for num in 1..10 do 
               .content__all__brand__list__chanel__items__1__ima
                 = image_tag "himawari04.jpg",class:"rady"
+                %p ああああ
                 -# .content__all__category__list__men__items__1__image
                   .content__all__brand__list__chanel__items__1__text
                 シャネル
@@ -124,7 +127,8 @@
           .content__all__brand__list__viton__items__1  
             - for num in 1..10 do 
               .content__all__brand__list__viton__items__1__ima
-                = image_tag "himawari04.jpg",class:"rady"
+                = image_tag "5e831a68c9a03a27.jpg",class:"rady"
+                %p ああああ
                 -# .content__all__category__list__men__items__1__image
                   .content__all__brand__list__viton__items__1__text
                 ヴィトン         
@@ -140,6 +144,7 @@
             - for num in 1..10 do 
               .content__all__brand__list__supreme__items__1__ima
                 = image_tag "himawari04.jpg",class:"rady"
+                %p ああああ
                 -# .content__all__category__list__men__items__1__image
                   .content__all__brand__list__supreme__items__1__text
                 シュプリーム
@@ -153,10 +158,12 @@
         .content__all__brand__list__nike__items
           .content__all__brand__list__nike__items__1 
             - for num in 1..10 do 
-              .content__all__brand__list__chanel__items__1__ima
-                = image_tag "himawari04.jpg",class:"rady"
+              .content__all__brand__list__nike__items__1__ima
+                = image_tag "5e831a68c9a03a27.jpg",class:"rady"
+                %p ああああああ
                 -# .content__all__category__list__men__items__1__image
-                  .content__all__brand__list__chanel__items__1__text
+                  .content__all__brand__list__nike__items__1__text
+                ナイキ  
 
 = render 'footer'
 
