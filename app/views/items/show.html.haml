@@ -1,5 +1,7 @@
 .back 
   = render "header"
+  - breadcrumb :user_registe
+  = breadcrumbs separator: " &rsaquo; "
   .main
     = render "users/sideber"
     .person
