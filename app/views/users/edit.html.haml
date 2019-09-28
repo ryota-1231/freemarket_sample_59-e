@@ -1,5 +1,7 @@
 .edit
   = render 'items/header'
+  - breadcrumb :profile
+  = breadcrumbs separator: " &rsaquo; "
   .main
     = render 'sideber'
     .edit__profile

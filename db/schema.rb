@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_28_055807) do
+
+ActiveRecord::Schema.define(version: 2019_09_28_080835) do
+
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "postcode", null: false
@@ -24,12 +26,19 @@ ActiveRecord::Schema.define(version: 2019_09_28_055807) do
     t.index ["user_id"], name: "fk_rails_48c9e0c5a2"
   end
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "name", null: false
-    t.bigint "sizetype_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ancestry"
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.bigint "sizetype_id"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["sizetype_id"], name: "index_categories_on_sizetype_id"
   end

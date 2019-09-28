@@ -394,7 +394,6 @@ h4{
     &__popular__category{
       height: 170px;
       margin: auto;
-      border-bottom: solid black;
       background-color: white;
       &__title{
         font-size: 28px;
@@ -439,10 +438,16 @@ h4{
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 20px 20px;
-            &__image{
-              height: 188px;
-              width: 188px;
-              background-color: pink;
+            &__ima{
+              position: relative;
+            }
+            p{
+              position: absolute;
+              bottom: 35px;
+              font-size: 17px;
+              color: white;
+              background-color: rgba(0,0,0,.4);
+              border-radius: 0.67em;
             }
             &__text{
               height: 64px;
@@ -475,9 +480,16 @@ h4{
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 20px 20px;
-            &__image{
-              height: 188px;
-              width: 188px;
+            &__ima{
+              position: relative;
+            }
+            p{
+              position: absolute;
+              bottom: 35px;
+              font-size: 17px;
+              color: white;
+              background-color: rgba(0,0,0,.4);
+              border-radius: 0.67em;
             }
             &__text{
               height: 64px;
@@ -511,9 +523,16 @@ h4{
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 20px 20px;
-            &__image{
-              // height: 188px;
-              // width: 188px;
+            &__ima{
+              position: relative;
+            }
+            p{
+              position: absolute;
+              bottom: 35px;
+              font-size: 17px;
+              color: white;
+              background-color: rgba(0,0,0,.4);
+              border-radius: 0.67em;
             }
             &__text{
               height: 64px;
@@ -525,7 +544,6 @@ h4{
       &__hobby{
         height: 573px;
         padding-top: 42px;
-        
         font-weight: bold;
         &__new{
           height: 33px;
@@ -540,17 +558,22 @@ h4{
           }
         }
         &__items{
-          height: 524px;
+          height: 584px;
           &__1{
+            margin-top: 20px;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 20px 20px;
-            margin: 0px;
-            padding: 0px;
-            border-width: 0px;
-            &__image{
-              height: 188px;
-              width: 188px;
+            &__ima{
+              position: relative;
+            }
+            p{
+              position: absolute;
+              bottom: 60px;
+              font-size: 17px;
+              color: white;
+              background-color: rgba(0,0,0,.4);
+              border-radius: 0.67em;
             }
             &__text{
               height: 64px;
@@ -609,9 +632,16 @@ h4{
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 20px 20px;
-            &__image{
-              height: 188px;
-              width: 188px;
+            &__ima{
+              position: relative;
+            }
+            p{
+              position: absolute;
+              bottom: 35px;
+              font-size: 17px;
+              color: white;
+              background-color: rgba(0,0,0,.4);
+              border-radius: 0.67em;
             }
             &__text{
               height: 64px;
@@ -643,9 +673,16 @@ h4{
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 20px 20px;
-            &__image{
-              height: 188px;
-              width: 188px;
+            &__ima{
+              position: relative;
+            }
+            p{
+              position: absolute;
+              bottom: 35px;
+              font-size: 17px;
+              color: white;
+              background-color: rgba(0,0,0,.4);
+              border-radius: 0.67em;
             }
             &__text{
               height: 64px;
@@ -678,9 +715,16 @@ h4{
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 20px 20px;
-            &__image{
-              height: 188px;
-              width: 188px;
+            &__ima{
+              position: relative;
+            }
+            p{
+              position: absolute;
+              bottom: 35px;
+              font-size: 17px;
+              color: white;
+              background-color: rgba(0,0,0,.4);
+              border-radius: 0.67em;
             }
             &__text{
               height: 64px;
@@ -713,9 +757,16 @@ h4{
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 20px 20px;
-            &__image{
-              height: 188px;
-              width: 188px;
+            &__ima{
+              position: relative;
+            }
+            p{
+              position: absolute;
+              bottom: 35px;
+              font-size: 17px;
+              color: white;
+              background-color: rgba(0,0,0,.4);
+              border-radius: 0.67em;
             }
             &__text{
               height: 64px;
