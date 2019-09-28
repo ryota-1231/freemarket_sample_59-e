@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_28_080835) do
+ActiveRecord::Schema.define(version: 2019_09_28_104515) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "postcode", null: false
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 2019_09_28_080835) do
     t.string "ancestry"
   end
 
+  create_table "buyers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "judge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["judge_id"], name: "index_buyers_on_judge_id"
+  end
+
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "name", null: false
     t.datetime "created_at", null: false
@@ -39,6 +46,34 @@ ActiveRecord::Schema.define(version: 2019_09_28_080835) do
     t.bigint "sizetype_id"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["sizetype_id"], name: "index_categories_on_sizetype_id"
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "comment", null: false
+    t.bigint "item_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_comments_on_item_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "deliveries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "delivery_fee", null: false
+    t.text "delivery_method", null: false
+    t.string "delivery_source", null: false
+    t.string "delivery_date", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_goods_on_item_id"
+    t.index ["user_id"], name: "index_goods_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -62,6 +97,30 @@ ActiveRecord::Schema.define(version: 2019_09_28_080835) do
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["title"], name: "index_items_on_title"
     t.index ["user_id"], name: "fk_rails_d4b6334db2"
+  end
+
+  create_table "judges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "judge", null: false
+    t.text "judge_comment", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "message", null: false
+    t.bigint "item_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_messages_on_item_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "judge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["judge_id"], name: "index_sellers_on_judge_id"
   end
 
   create_table "sizetypes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,7 +148,15 @@ ActiveRecord::Schema.define(version: 2019_09_28_080835) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "buyers", "judges"
   add_foreign_key "categories", "sizetypes"
+  add_foreign_key "comments", "items"
+  add_foreign_key "comments", "users"
+  add_foreign_key "goods", "items"
+  add_foreign_key "goods", "users"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
+  add_foreign_key "messages", "items"
+  add_foreign_key "messages", "users"
+  add_foreign_key "sellers", "judges"
 end
