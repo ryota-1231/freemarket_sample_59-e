@@ -4,7 +4,8 @@
   .header__box
     .header__box__top
       .header__box__top__left
-        = image_tag "logo-acdd90ac4f472d5a6f7a330d33ab1225.svg",class: "merukari"
+        = link_to "/" do
+          = image_tag "logo-acdd90ac4f472d5a6f7a330d33ab1225.svg",class: "merukari"
       .header__box__top__right
         .header__box__top__right__content 
           = form_tag("#",class:"hogeho") do
@@ -115,7 +116,7 @@
               .header__box__bottom__right__todo__hidden1
 
         .header__box__bottom__right__mypage
-          = link_to "#" do
+          = link_to "/users/:id" do
             %i.far.fa-smile
             マイページ
 
