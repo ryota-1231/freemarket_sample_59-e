@@ -1,0 +1,12 @@
+.background
+  = render 'header'
+  .detail
+    = render 'items_detail'
+    .edittt
+      %input.edittt__red-btn{type: 'submit', value: '商品の編集'}
+      .edittt__or
+        or
+      %input.edittt__stop-btn{type: 'submit', value: '出品を一旦停止する'}
+      %input.edittt__delete-btn{type: 'submit', value: 'この商品を削除する'}
+    = render 'comment'
+  = render 'footer'
