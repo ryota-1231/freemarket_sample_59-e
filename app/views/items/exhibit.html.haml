@@ -1,8 +1,8 @@
 .item-wrapper
-  .mmain
+  .main_exhibit
     .title
       %h2 商品商品の情報を入力
-    = form_for '' do |f|
+    = form_for [@items, @address] do |f|
       .item-image
         .item-image__sub-title
           .item-image__sub-title__caution
@@ -18,12 +18,12 @@
           .item-title__name__caution
             %h3 商品名
             %span 必須
-          = f.text_field "price", placeholder: "商品名（必須 40文字まで）", class:'item-title__name__area' 
+          = f.text_field "title", placeholder: "商品名（必須 40文字まで）", class:'item-title__name__area' 
         .item-title__explanation
           .item-title__explanation__caution
             %h3 商品の説明
             %span 必須
-          = f.text_area "item-name", placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', class:'item-title__explanation__area' 
+          = f.text_area "explanation", placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', class:'item-title__explanation__area' 
           
       .item-category
         %h3 商品の詳細

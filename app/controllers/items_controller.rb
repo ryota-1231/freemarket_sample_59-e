@@ -1,12 +1,14 @@
 class ItemsController < ApplicationController
 
   def index
+    @items = Item.new
   end
   
   def new
   end
 
   def create
+    @items = Item.create(items_params)
   end
   
   def show
@@ -29,9 +31,17 @@ class ItemsController < ApplicationController
   end  
 
   def exhibit
+    @items = Item.new
+
+
   end
 
   def confirm
+  end
+
+  private
+  def items_params
+
   end
 
 end
