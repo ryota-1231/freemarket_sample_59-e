@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_29_043334) do
+ActiveRecord::Schema.define(version: 2019_09_29_054336) do
+
+
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "postcode", null: false
@@ -93,7 +95,15 @@ ActiveRecord::Schema.define(version: 2019_09_29_043334) do
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "brand_id"
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.bigint "delivery_id"
+    t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["delivery_id"], name: "index_items_on_delivery_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
     t.index ["title"], name: "index_items_on_title"
     t.index ["user_id"], name: "fk_rails_d4b6334db2"
   end
@@ -149,11 +159,18 @@ ActiveRecord::Schema.define(version: 2019_09_29_043334) do
   add_foreign_key "addresses", "users"
   add_foreign_key "buyers", "judges"
   add_foreign_key "categories", "sizetypes"
+
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
   add_foreign_key "goods", "items"
   add_foreign_key "goods", "users"
+
+  add_foreign_key "items", "brands"
+  add_foreign_key "items", "buyers"
+
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "deliveries"
+  add_foreign_key "items", "sellers"
   add_foreign_key "items", "users"
   add_foreign_key "messages", "items"
   add_foreign_key "messages", "users"
