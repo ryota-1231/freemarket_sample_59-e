@@ -86,3 +86,5 @@ gem 'dropzonejs-rails'
 gem 'mechanize'
 gem 'ancestry'
 gem "gretel"
+gem 'faker'
+gem 'pry-rails'
