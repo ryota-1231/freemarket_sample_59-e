@@ -10,13 +10,19 @@ class ItemsController < ApplicationController
   end
   
   def show
-    # @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
   
   def edit
+    # @item = Item.find(params[:id])
   end
 
   def update
+    # item = Item.find(params[:id])
+    # if item.buyer_id == current_user.id
+    #   items.update()
+    #   render 
+    # end
   end
   
   def destroy
