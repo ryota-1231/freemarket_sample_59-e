@@ -11,4 +11,9 @@ class Item < ApplicationRecord
   belongs_to :saler
   belongs_to :buyer
   belongs_to :delivery
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :state
+
+
 end
