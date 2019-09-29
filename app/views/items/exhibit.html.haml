@@ -1,5 +1,5 @@
 .item-wrapper
-  .main
+  .mmain
     .title
       %h2 商品商品の情報を入力
     = form_for '' do |f|
@@ -124,6 +124,7 @@
             .item-price__choice__profit-area -
 
       .item-post
+        -# 出品商品編集時・消す
         .item-post__caution
           %p
           =link_to '禁止されている出品'
@@ -139,5 +140,7 @@
           に同意したことになります。
         .item-post__exhibit.btn
           =link_to '出品する'
+          -# 出品商品編集時・変更する
         .item-post__return.btn
           =link_to 'もどる'
+          -# 出品商品編集時・キャンセル

@@ -29,7 +29,13 @@ ActiveRecord::Schema.define(version: 2019_09_29_054336) do
     t.text "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry"
+  end
+
+  create_table "buyers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "judge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["judge_id"], name: "index_buyers_on_judge_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -40,6 +46,34 @@ ActiveRecord::Schema.define(version: 2019_09_29_054336) do
     t.bigint "sizetype_id"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["sizetype_id"], name: "index_categories_on_sizetype_id"
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "comment", null: false
+    t.bigint "item_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_comments_on_item_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "deliveries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "delivery_fee", null: false
+    t.text "delivery_method", null: false
+    t.string "delivery_source", null: false
+    t.string "delivery_date", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_goods_on_item_id"
+    t.index ["user_id"], name: "index_goods_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -73,6 +107,30 @@ ActiveRecord::Schema.define(version: 2019_09_29_054336) do
     t.index ["user_id"], name: "fk_rails_d4b6334db2"
   end
 
+  create_table "judges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "judge", null: false
+    t.text "judge_comment", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "message", null: false
+    t.bigint "item_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_messages_on_item_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "judge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["judge_id"], name: "index_sellers_on_judge_id"
+  end
+
   create_table "sizetypes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "sizetype", null: false
     t.datetime "created_at", null: false
@@ -82,7 +140,11 @@ ActiveRecord::Schema.define(version: 2019_09_29_054336) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", default: "", null: false
+    t.string "nickname", null: false
+    t.string "fullname", null: false
+    t.string "kana", null: false
+    t.string "email", null: false
+    t.integer "phone_number", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -94,18 +156,22 @@ ActiveRecord::Schema.define(version: 2019_09_29_054336) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "buyers", "judges"
   add_foreign_key "categories", "sizetypes"
-<<<<<<< Updated upstream
-=======
+
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
   add_foreign_key "goods", "items"
   add_foreign_key "goods", "users"
+
   add_foreign_key "items", "brands"
   add_foreign_key "items", "buyers"
->>>>>>> Stashed changes
+
   add_foreign_key "items", "categories"
   add_foreign_key "items", "deliveries"
   add_foreign_key "items", "sellers"
   add_foreign_key "items", "users"
+  add_foreign_key "messages", "items"
+  add_foreign_key "messages", "users"
+  add_foreign_key "sellers", "judges"
 end
