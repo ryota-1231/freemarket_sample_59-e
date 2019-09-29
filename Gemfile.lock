@@ -95,6 +95,7 @@ GEM
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -121,6 +122,8 @@ GEM
     erubis (2.7.0)
     excon (0.67.0)
     execjs (2.7.0)
+    faker (2.4.0)
+      i18n (~> 1.6.0)
     ffi (1.11.1)
     fog-aws (3.5.2)
       fog-core (~> 2.1)
@@ -223,6 +226,11 @@ GEM
     parallel (1.17.0)
     parser (2.6.4.1)
       ast (~> 2.4.0)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     public_suffix (4.0.1)
     puma (3.12.1)
     rack (2.0.7)
@@ -359,6 +367,7 @@ DEPENDENCIES
   devise
   dropzonejs-rails
   erb2haml
+  faker
   fog-aws
   font-awesome-rails
   gretel
@@ -369,6 +378,7 @@ DEPENDENCIES
   mechanize
   mini_magick
   mysql2 (>= 0.4.4, < 0.6.0)
+  pry-rails
   puma (~> 3.11)
   rails (~> 5.2.3)
   recaptcha
