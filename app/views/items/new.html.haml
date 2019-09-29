@@ -4,6 +4,7 @@
     = render 'items_detail'
     .edittt
       %input.edittt__red-btn{type: 'submit', value: '商品の編集'}
+      -# = link_to "編集", "/items/#{item.id}/edit", method: :get, class: "edittt__red-btn"
       .edittt__or
         or
       %input.edittt__stop-btn{type: 'submit', value: '出品を一旦停止する'}

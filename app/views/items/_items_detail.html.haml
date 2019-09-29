@@ -1,10 +1,10 @@
 .detail__box
   .detail__box__title
-    東京喰種
+    = @item.title
   .detail__box__items
     .detail__box__items__photo
       .detail__box__items__photo__big
-        = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "detail__box__items__photo__big--in"
+        = image_tag @item.image, class: "detail__box__items__photo__big--in"
       .detail__box__items__photo__mini1
         = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "detail__box__items__photo__mini1--in"
     %table.detail__box__items__detail
@@ -13,7 +13,7 @@
           出品者
         %td.detail__box__items__detail__exhibitor--left
           %li
-            = link_to "遠島"
+            = link_to @item.user.nickname
           %li
             = fa_icon "cog"
             0
@@ -26,7 +26,7 @@
           カテゴリー
         %td.detail__box__items__detail__category--left
           %li
-            = link_to "本・音楽・ゲーム"
+            = link_to 
           %li
             = link_to "＞漫画"
           %li
@@ -62,7 +62,8 @@
   .detail__box__price
     .detail__box__price__box
       %span.detail__box__price__box__price
-        ¥7,500
+        ¥
+        = @item.price
       %span.detail__box__price__box__tax
         (税込)
       %span.detail__box__price__box__postage
@@ -70,7 +71,7 @@
   .detail__box__money
   %input.detail__box__btn{type: 'submit', value: '購入画面に進む'}
   .detail__box__explanation
-    kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+    = @item.explanation
   .detail__box__icon
     .detail__box__icon--good
       = fa_icon "heart"
