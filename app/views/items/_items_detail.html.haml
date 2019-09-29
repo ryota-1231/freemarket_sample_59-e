@@ -4,7 +4,7 @@
   .detail__box__items
     .detail__box__items__photo
       .detail__box__items__photo__big
-        = image_tag @item.image, class: "detail__box__items__photo__big--in"
+        = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "detail__box__items__photo__big--in"
       .detail__box__items__photo__mini1
         = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "detail__box__items__photo__mini1--in"
     %table.detail__box__items__detail
@@ -26,7 +26,7 @@
           カテゴリー
         %td.detail__box__items__detail__category--left
           %li
-            = link_to 
+            = link_to @item.category.name
           %li
             = link_to "＞漫画"
           %li
@@ -37,8 +37,10 @@
           ブランド
         %td.detail__box__items__detail__brand--left
       %tr.detail__box__items__detail__status
-        %th.detail__box__items__detail__status--right 商品の状態
-        %td.detail__box__items__detail__status--left やや傷や汚れあり
+        %th.detail__box__items__detail__status--right
+          商品の状態
+        %td.detail__box__items__detail__status--left 
+          やや傷や汚れあり
       %tr.detail__box__items__detail__postage
         %th.detail__box__items__detail__postage--right
           配送料の負担
@@ -73,12 +75,15 @@
   .detail__box__explanation
     = @item.explanation
   .detail__box__icon
-    .detail__box__icon--good
-      = fa_icon "heart"
-      いいね! 0
-    .detail__box__icon--warning
-      = fa_icon "flag"
-      不適切な商品の報告
-    .detail__box__icon--safety
-      = fa_icon "lock"
-      あんしん・あんぜんへの取り組み
+    = link_to "" do
+      .detail__box__icon--good
+        = fa_icon "heart"
+        いいね! 0
+    = link_to "" do
+      .detail__box__icon--warning
+        = fa_icon "flag"
+        不適切な商品の報告
+    = link_to "" do
+      .detail__box__icon--safety
+        = fa_icon "lock"
+        あんしん・あんぜんへの取り組み
