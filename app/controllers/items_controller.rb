@@ -8,6 +8,10 @@ class ItemsController < ApplicationController
   end
 
   def create
+    @item = Item.new(items_params)
+    if @item.save
+    redirect_to root_path
+    end
   end
   
   def show
@@ -30,9 +34,20 @@ class ItemsController < ApplicationController
   end  
 
   def exhibit
+    @item = Item.new
+    @category = Category.new
+    @item.build_delivery
+    @item.build_category
+
   end
 
   def confirm
+  end
+
+  private
+  def items_params
+    params.require(:item).permit(:title, :explanation, :status, :price, :category_id,delivery_attributes:[:delivery_fee,:delivery_source,:delivery_method,:delivery_date])
+
   end
 
 end
