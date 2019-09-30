@@ -34,13 +34,14 @@
             = link_to "もっと見る >","#"
         .content__all__category__list__rady__items
           .content__all__category__list__rady__items__1
-            - for num in 1..10 do 
+            - @items.each do |item|
               .content__all__category__list__rady__items__1__ima
-                = image_tag "himawari04.jpg",class:"rady"
-                %p ああああ
-                -# .content__all__category__list__rady__items__1__image
+                = image_tag "item.image"
+                -# = image_tag item.image.url
+                -# %p ああああ
                   .content__all__category__list__rady__items__1__text
-                aaaa
+                = item.title
+
       .content__all__category__list__men
         .content__all__category__list__men__new
           .content__all__category__list__men__new__left
@@ -49,13 +50,12 @@
             = link_to "もっと見る >","#"
         .content__all__category__list__men__items
           .content__all__category__list__men__items__1
-            - for num in 1..10 do 
+            - @items.each do |item|
               .content__all__category__list__men__items__1__ima
                 = image_tag "5e831a68c9a03a27.jpg",class:"rady"
-                %p ああああ
-                -# .content__all__category__list__men__items__1__image
+                -# %p ああああ
                   .content__all__category__list__men__items__1__text
-                メンズ
+                = item.title
 
       .content__all__category__list__mecha
         .content__all__category__list__mecha__new
@@ -65,13 +65,12 @@
             = link_to "もっと見る >","#"
         .contnet__all__category__list__mecha__items
           .content__all__category__list__mecha__items__1
-            - for num in 1..10 do 
+            - @items.each do |item|
               .content__all__category__list__mecha__items__1__ima
-                = image_tag "himawari04.jpg",class:"rady"
-                %p ああああ
-                -# .content__all__category__list__men__items__1__image
+                = image_tag "5e831a68c9a03a27.jpg",class:"rady"
+                -# %p ああああ
                   .content__all__category__list__mecha__items__1__text
-                家電新着アイテム 
+                = item.title
 
       .content__all__category__list__hobby
         .content__all__category__list__hobby__new
@@ -81,13 +80,12 @@
             = link_to "もっと見る >","#"
         .content__all__category__list__hobby__items
           .content__all__category__list__hobby__items__1
-            - for num in 1..10 do 
+            - @items.each do |item|
               .content__all__category__list__hobby__items__1__ima
                 = image_tag "5e831a68c9a03a27.jpg",class:"rady"
-                %p ああああ
-                -# .content__all__category__list__men__items__1__image
+                -# %p ああああ
                   .content__all__category__list__hobby__items__1__text
-                オモチャ・ホビー・グッズ新着アイテム  
+                = item.title
 
     .content__all__popular__brand
       .content__all__popular__brand__title
@@ -107,15 +105,12 @@
             = link_to "もっと見る >","#"
         .content__all__brand__list__chanel__items 
           .content__all__brand__list__chanel__items__1 
-            - for num in 1..10 do 
+            - @items.each do |item|
               .content__all__brand__list__chanel__items__1__ima
-                = image_tag "himawari04.jpg",class:"rady"
-                %p ああああ
-                -# .content__all__category__list__men__items__1__image
+                = image_tag "5e831a68c9a03a27.jpg",class:"rady"
+                -# %p ああああ
                   .content__all__brand__list__chanel__items__1__text
-                シャネル
-
-
+                = item.title 
       
       .content__all__brand__list__viton
         .content__all__brand__list__viton__new
@@ -125,13 +120,12 @@
             = link_to "もっと見る >","#"
         .content__all__brand__list__viton__items  
           .content__all__brand__list__viton__items__1  
-            - for num in 1..10 do 
+            - @items.each do |item|
               .content__all__brand__list__viton__items__1__ima
                 = image_tag "5e831a68c9a03a27.jpg",class:"rady"
-                %p ああああ
-                -# .content__all__category__list__men__items__1__image
+                -# %p ああああ
                   .content__all__brand__list__viton__items__1__text
-                ヴィトン         
+                = item.title        
   
       .content__all__brand__list__supreme
         .content__all__brand__list__supreme__new
@@ -141,13 +135,12 @@
             = link_to "もっと見る >","#"
         .content__all__brand__list__supreme__items  
           .content__all__brand__list__supreme__items__1  
-            - for num in 1..10 do 
+            - @items.each do |item|
               .content__all__brand__list__supreme__items__1__ima
-                = image_tag "himawari04.jpg",class:"rady"
-                %p ああああ
-                -# .content__all__category__list__men__items__1__image
+                = image_tag "5e831a68c9a03a27.jpg",class:"rady"
+                -# %p ああああ
                   .content__all__brand__list__supreme__items__1__text
-                シュプリーム
+                = item.title  
 
       .content__all__brand__list__nike
         .content__all__brand__list__nike__new
@@ -157,13 +150,12 @@
             = link_to "もっと見る >","#"
         .content__all__brand__list__nike__items
           .content__all__brand__list__nike__items__1 
-            - for num in 1..10 do 
+            - @items.each do |item|
               .content__all__brand__list__nike__items__1__ima
                 = image_tag "5e831a68c9a03a27.jpg",class:"rady"
-                %p ああああああ
-                -# .content__all__category__list__men__items__1__image
+                -# %p ああああ
                   .content__all__brand__list__nike__items__1__text
-                ナイキ  
+                = item.title 
 
 = render 'footer'
 

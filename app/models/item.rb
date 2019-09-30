@@ -14,8 +14,8 @@ class Item < ApplicationRecord
   belongs_to :delivery, optional: true
 
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :state
+  # extend ActiveHash::Associations::ActiveRecordExtensions
+  # belongs_to_active_hash :state
 
 
 

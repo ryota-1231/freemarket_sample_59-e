@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_09_29_054336) do
 
-
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "postcode", null: false
     t.string "city", null: false
@@ -158,15 +157,12 @@ ActiveRecord::Schema.define(version: 2019_09_29_054336) do
   add_foreign_key "addresses", "users"
   add_foreign_key "buyers", "judges"
   add_foreign_key "categories", "sizetypes"
-
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
   add_foreign_key "goods", "items"
   add_foreign_key "goods", "users"
-
   add_foreign_key "items", "brands"
   add_foreign_key "items", "buyers"
-
   add_foreign_key "items", "categories"
   add_foreign_key "items", "deliveries"
   add_foreign_key "items", "sellers"
