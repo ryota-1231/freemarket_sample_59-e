@@ -1,5 +1,6 @@
 
 
+
 100.times do
   item = Item.new(
     title: Faker::Food.fruits,
@@ -12,6 +13,8 @@
   )
   item.save!
 end
+
+
 
 
 require "csv"
@@ -43,3 +46,4 @@ CSV.foreach('db/categories.csv', headers: true) do |row|
     sizetype_id: row['sizetype_id']
   )
 end
+
