@@ -16,6 +16,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :delivery
   accepts_nested_attributes_for :category
 
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :state
   
