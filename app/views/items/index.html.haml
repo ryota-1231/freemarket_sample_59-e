@@ -6,7 +6,7 @@
         .content__all__scrol__bar__slider
           = image_tag "himawari04.jpg", class: "scroll1"
           = image_tag "download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg", class: "scroll2"
-          = image_tag "download_app_pc-a4418175e8be071827ac88d073f40e4a.png", class: "scroll3"
+          = image_tag "index_keyvisual.png", class: "scroll3"
         .content__all__scrol__bar__left
           <
         .content__all__scrol__bar__right
@@ -36,11 +36,11 @@
           .content__all__category__list__rady__items__1
             - @items.each do |item|
               .content__all__category__list__rady__items__1__ima
-                = image_tag "item.image"
-                -# = image_tag item.image.url
-                -# %p ああああ
-                  .content__all__category__list__rady__items__1__text
-                = item.title
+                = image_tag "#{item.images.first.image}", :size =>'185x180'
+                %p
+                  = item.price
+                .content__all__category__list__rady__items__1__text
+                  = item.title
 
       .content__all__category__list__men
         .content__all__category__list__men__new
@@ -52,10 +52,11 @@
           .content__all__category__list__men__items__1
             - @items.each do |item|
               .content__all__category__list__men__items__1__ima
-                = image_tag "5e831a68c9a03a27.jpg",class:"rady"
-                -# %p ああああ
-                  .content__all__category__list__men__items__1__text
-                = item.title
+                = image_tag "#{item.images.first.image}", :size =>'185x180'
+                %p 
+                  = item.price
+                .content__all__category__list__men__items__1__text
+                  = item.title
 
       .content__all__category__list__mecha
         .content__all__category__list__mecha__new
@@ -67,10 +68,11 @@
           .content__all__category__list__mecha__items__1
             - @items.each do |item|
               .content__all__category__list__mecha__items__1__ima
-                = image_tag "5e831a68c9a03a27.jpg",class:"rady"
-                -# %p ああああ
-                  .content__all__category__list__mecha__items__1__text
-                = item.title
+                = image_tag "#{item.images.first.image}", :size =>'185x180'
+                %p
+                  = item.price
+                .content__all__category__list__mecha__items__1__text
+                  = item.title
 
       .content__all__category__list__hobby
         .content__all__category__list__hobby__new
@@ -82,10 +84,11 @@
           .content__all__category__list__hobby__items__1
             - @items.each do |item|
               .content__all__category__list__hobby__items__1__ima
-                = image_tag "5e831a68c9a03a27.jpg",class:"rady"
-                -# %p ああああ
-                  .content__all__category__list__hobby__items__1__text
-                = item.title
+                = image_tag "#{item.images.first.image}", :size =>'185x180'
+                %p
+                  = item.price
+                .content__all__category__list__hobby__items__1__text
+                  = item.title
 
     .content__all__popular__brand
       .content__all__popular__brand__title
@@ -107,10 +110,11 @@
           .content__all__brand__list__chanel__items__1 
             - @items.each do |item|
               .content__all__brand__list__chanel__items__1__ima
-                = image_tag "5e831a68c9a03a27.jpg",class:"rady"
-                -# %p ああああ
-                  .content__all__brand__list__chanel__items__1__text
-                = item.title 
+                = image_tag "#{item.images.first.image}", :size =>'185x180'
+                %p
+                  = item.price
+                .content__all__brand__list__chanel__items__1__text
+                  = item.title 
       
       .content__all__brand__list__viton
         .content__all__brand__list__viton__new
@@ -122,10 +126,11 @@
           .content__all__brand__list__viton__items__1  
             - @items.each do |item|
               .content__all__brand__list__viton__items__1__ima
-                = image_tag "5e831a68c9a03a27.jpg",class:"rady"
-                -# %p ああああ
-                  .content__all__brand__list__viton__items__1__text
-                = item.title        
+                = image_tag "#{item.images.first.image}", :size =>'185x180'
+                %p
+                  = item.price
+                .content__all__brand__list__viton__items__1__text
+                  = item.title        
   
       .content__all__brand__list__supreme
         .content__all__brand__list__supreme__new
@@ -137,10 +142,11 @@
           .content__all__brand__list__supreme__items__1  
             - @items.each do |item|
               .content__all__brand__list__supreme__items__1__ima
-                = image_tag "5e831a68c9a03a27.jpg",class:"rady"
-                -# %p ああああ
-                  .content__all__brand__list__supreme__items__1__text
-                = item.title  
+                = image_tag "#{item.images.first.image}", :size =>'185x180'
+                %p
+                  = item.price
+                .content__all__brand__list__supreme__items__1__text
+                  = item.title  
 
       .content__all__brand__list__nike
         .content__all__brand__list__nike__new
@@ -152,10 +158,11 @@
           .content__all__brand__list__nike__items__1 
             - @items.each do |item|
               .content__all__brand__list__nike__items__1__ima
-                = image_tag "5e831a68c9a03a27.jpg",class:"rady"
-                -# %p ああああ
-                  .content__all__brand__list__nike__items__1__text
-                = item.title 
+                = image_tag "#{item.images.first.image}", :size =>'185x180'
+                %p
+                  = item.price
+                .content__all__brand__list__chanel__items__1__text
+                  = item.title 
 
 = render 'footer'
 
