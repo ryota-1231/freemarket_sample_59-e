@@ -1,7 +1,7 @@
 
-require 'mechanize'
+# require 'mechanize'
 
-  agent = Mechanize.new
+#   agent = Mechanize.new
   # current_page = agent.get("https://www.mercari.com/jp/category/")
   # parents = current_page.search('.category-list-individual-box')
   # categories = {}
@@ -39,17 +39,17 @@ require 'mechanize'
 
 
   
-    current_page = agent.get("https://www.mercari.com/jp/brand/?brand_group_id=#{1}")
-    brands = current_page.search('.brand-list-box')
+    # current_page = agent.get("https://www.mercari.com/jp/brand/?brand_group_id=#{1}")
+    # brands = current_page.search('.brand-list-box')
     
-    brand_title = brands.at('h3').inner_text
-    brand_groups = brands.search('p')
+    # brand_title = brands.at('h3').inner_text
+    # brand_groups = brands.search('p')
 
-    # parent = Brand.create(name: brand_title) 
-    brand_groups.each do |brand_name|
-      puts parent
-      # child = parent.children.create(name: brand_name)
-    end
+    # # parent = Brand.create(name: brand_title) 
+    # brand_groups.each do |brand_name|
+    #   puts parent
+    #   # child = parent.children.create(name: brand_name)
+    # end
 
 
 # require 'mechanize'
@@ -127,33 +127,4 @@ require 'mechanize'
   )
 
   item.save!
-end
-require "csv"
-
-CSV.foreach('db/sizetypes.csv', headers: true) do |row|
-  Sizetype.create(
-    sizetype: row['sizetype'],
-    created_at: row['created_at'],
-    updated_at: row['updated_at'],
-    ancestry: row['ancestry']
-  )
-end
-
-CSV.foreach('db/brands.csv', headers: true) do |row|
-  Brand.create(
-    name: row['name'],
-    created_at: row['created_at'],
-    updated_at: row['updated_at'],
-    )
-end
-
-CSV.foreach('db/categories.csv', headers: true) do |row|
-  Category.create(
-    id: row['id'],
-    name: row['name'],
-    created_at: row['created_at'],
-    updated_at: row['updated_at'],
-    ancestry: row['ancestry'],
-    sizetype_id: row['sizetype_id']
-  )
 end
