@@ -36,11 +36,13 @@
           .content__all__category__list__rady__items__1
             - @items.each do |item|
               .content__all__category__list__rady__items__1__ima
+
                 = image_tag "#{item.images.first.image}", :size =>'185x180'
                 %p
                   = item.price
                 .content__all__category__list__rady__items__1__text
                   = item.title
+
 
       .content__all__category__list__men
         .content__all__category__list__men__new
@@ -158,6 +160,7 @@
           .content__all__brand__list__nike__items__1 
             - @items.each do |item|
               .content__all__brand__list__nike__items__1__ima
+
                 = image_tag "#{item.images.first.image}", :size =>'185x180'
                 %p
                   = item.price
