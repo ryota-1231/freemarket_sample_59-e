@@ -88,3 +88,4 @@ gem 'ancestry'
 gem "gretel"
 gem 'faker'
 gem 'pry-rails'
+gem 'rspec-rails'
