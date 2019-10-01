@@ -10,19 +10,19 @@ p {
 
 
 .back{
-  height: 1600px;
   background-color: rgb(245, 245, 245);
-  position: rerative;
   overflow: scroll;
+  .main{
+    margin: 40px 210px 0;
+    padding-bottom: 40px;
+    display: flex;
     .person{
       height: 1200px;
       width: 700px;
-      background-color: red;
-      position: absolute;
+      background-color: white;
       float:right;
-      top: 200px;
-      right: 200px;
-      &__head{
+      margin-left: 40px;
+      &__header{
         height: 50px;
         width: 700px;
         text-align: center;
@@ -36,16 +36,10 @@ p {
         height: 1150px;
         width: 700px;
         background-color: white;
-        position: relative;
         &__box{
           height: 1020px;
           width: 580px;
-          top: 0px;
-          right: 0px;
-          left: 0px;
-          bottom: 0px;
-          margin: auto;
-          position: absolute;
+          margin: 60px 0px 0px 60px;
           background-color: white;
             &--message{
               height: 42px;
@@ -401,5 +395,6 @@ p {
         }
       }
     }
+}
 }
 }

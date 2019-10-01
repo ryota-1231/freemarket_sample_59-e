@@ -1,16 +1,22 @@
 .wrapper
-  .right__box
-    .right__box__header
-      %p.pay 支払い方法
-    .right__box__footer
-      .right__box__footer__inner
-
-        .right__box__footer__innner__top
-          %p.card クレジットカード一覧
-        .right__box__footer__inner__middle
-          .right__box__footer__inner__middle__border
-            %i.far.fa-credit-card
-            = link_to "クレジットカードを追加する",(),class:"card"
-        .right__box__footer__inner__bottom
-          = link_to "支払方法について",(),class: "pay"
-          %i.fas.fa-chevron-right
+  = render 'items/header'
+  - breadcrumb :card
+  = breadcrumbs separator: " &rsaquo; "
+  .main
+    = render 'users/sideber'
+    .right__box
+      .right__box__header
+        %p.pay 支払い方法
+      .right__box__footer
+        .right__box__footer__inner
+          .right__box__footer__innner__top
+            %p.card クレジットカード一覧
+          .right__box__footer__inner__middle
+            .right__box__footer__inner__middle__border
+              %i.far.fa-credit-card
+              = link_to "クレジットカードを追加する",(),class:"card"
+          .right__box__footer__inner__bottom
+            = link_to "支払方法について",(),class: "pay"
+            %i.fas.fa-chevron-right
+  = render 'item__exhibit'
+  = render 'items/footer'

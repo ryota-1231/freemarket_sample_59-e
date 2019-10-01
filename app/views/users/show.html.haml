@@ -1,5 +1,6 @@
-.header
-
+= render 'items/header'
+- breadcrumb :mypage
+= breadcrumbs separator: " &rsaquo; "
 .wrapper
   .main
     = render 'sideber'
@@ -114,6 +115,4 @@
               = link_to '過去に取引した商品がありません'
 
   = render 'item__exhibit'
-
-  .aside
-  .footer
+  = render 'items/footer'

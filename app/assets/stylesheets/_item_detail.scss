@@ -29,13 +29,8 @@ li{
 .background{
   
 background-color: rgb(245, 245, 245);
-height: 3000px;
-  .header{
-    height: 100px;
-    width: 100vw;
-    background-color: black;
-  }
-  .main{
+height: auto;
+  .detail{
     height: auto;
     width: 700px;
     margin: 100px auto;
@@ -71,12 +66,14 @@ height: 3000px;
             &--in{
               height: 300px;
               width: 300px;
+
             }
           }
           &__mini1{
             height: 60px;
             width: 60px;
             background-color: purple;
+            
             
             &--in{
               height: 60px;
@@ -387,7 +384,7 @@ height: 3000px;
           }
           }
         }
-      }
+    }
     
     &__otheritems{
       height: 740px;
@@ -444,8 +441,8 @@ height: 3000px;
         }
       }
     }
-
     }
+    
     &__samecategory{
       height: 740px;
       width: 700px;
@@ -502,8 +499,8 @@ height: 3000px;
         }
       }
       }
-    }
+    
 }
 }
-  
-  
+
+}

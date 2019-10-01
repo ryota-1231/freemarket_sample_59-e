@@ -70,7 +70,7 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|title|text|null: false, add_index|
+|title|string|null: false, add_index|
 |explanation|text|null: false|
 |price|integer|null: false|
 |state|integer|null: false|
@@ -78,7 +78,7 @@
 |user|references|null: false, foreign_key: true|
 |brand|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
-|saler|references|null: false, foreign_key: true|
+|seller|references|null: false, foreign_key: true|
 |buyer|references|null: false, foreign_key: true|
 |delivery|references|null: false, foreign_key: true|
 ### Association
@@ -145,7 +145,7 @@
 ### Association
 - belongs_to :item
 
-## sizesテーブル
+## sizeTypesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |size|text|null: false|

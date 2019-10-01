@@ -1,8 +1,8 @@
 .item-wrapper
-  .main
+  .main_exhibit
     .title
       %h2 商品商品の情報を入力
-    = form_for '' do |f|
+    = form_for (@item) do |f|
       .item-image
         .item-image__sub-title
           .item-image__sub-title__caution
@@ -12,18 +12,17 @@
         .item-image__sub-title__area  
           ドラッグアンドドロップまたはクリックしてファイルをアップロード
             
-
       .item-title
         .item-title__name
           .item-title__name__caution
             %h3 商品名
             %span 必須
-          = f.text_field "price", placeholder: "商品名（必須　40文字まで）", class:'item-title__name__area' 
+          = f.text_field "title", placeholder: "商品名（必須 40文字まで）", class:'item-title__name__area' 
         .item-title__explanation
           .item-title__explanation__caution
             %h3 商品の説明
             %span 必須
-          = f.text_area "item-name", placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', class:'item-title__explanation__area' 
+          = f.text_area "explanation", placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', class:'item-title__explanation__area' 
           
       .item-category
         %h3 商品の詳細
@@ -32,70 +31,62 @@
             .item-category__choice__main-title
               %h3 カテゴリー
               %span 必須
-            .item-category__choice__main-area
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
-            .item-category__choice__main-area
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
-            .item-category__choice__main-area
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
+            = f.collection_select :category_id, Category.where(ancestry: nil ), :id, :name, prompt: "---"
               
+
           .item-category__choice__size
             .item-category__choice__size-title
               %h3 サイズ
               %span 必須
             .item-category__choice__size-area
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
           
           .item-category__choice__brand
             .item-category__choice__brand-title
               %h3 ブランド
               %span 任意
             .item-category__choice__brand-area
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
+              
 
-          
           .item-category__choice__status
             .item-category__choice__status-title
               %h3 商品の状態
               %span 必須
-            .item-category__choice__status-area
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
+            = f.collection_select :status, State.all, :id, :name, prompt: "---"
 
       .item-delivery
         .item-delivery--title
-          %h3 配送先について
+          %h3 配送について
           =link_to '' do
             %i.fa.fa-question-circle
-            
         .item-delivery__choice
-          .item-delivery__choice__payer
-            .item-delivery__choice__payer-title
-              %h3 配送料の負担
-              %span 必須
-            .item-delivery__choice__payer-area
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
+          = f.fields_for :delivery do |d|
+            .item-delivery__choice__payer
+              .item-delivery__choice__payer-title
+                %h3 配送料の負担
+                %span 必須
+              .item-delivery__choice__payer-area
+                = d.collection_select :delivery_fee, Deliveryfee.all, :id, :name, prompt: "---"
 
-          .item-delivery__choice__method
-            .item-delivery__choice__method-title
-              %h3 配送の方法
-              %span 必須
-            .item-delivery__choice__method-area
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
-        
-          .item-delivery__choice__region
-            .item-delivery__choice__region-title
-              %h3 発送元の地域
-              %span 必須
-            .item-delivery__choice__region-area
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
-          .item-delivery__choice__date
-            .item-delivery__choice__date-title
-              %h3 発送までの日数
-              %span 必須
-            .item-delivery__choice__date-area
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
+            .item-delivery__choice__region
+              .item-delivery__choice__region-title
+                %h3 発送元の地域
+                %span 必須
+              .item-delivery__choice__region-area
+                = d.collection_select :delivery_source, Prefecture.all, :id, :name, prompt: "---"
             
+            .item-delivery__choice__method
+              .item-delivery__choice__method-title
+                %h3 配送の方法
+                %span 必須
+              .item-delivery__choice__method-area
+                = d.collection_select :delivery_method, Deliverymethod.all, :id, :name, prompt: "---"
 
+            .item-delivery__choice__date
+              .item-delivery__choice__date-title
+                %h3 発送までの日数
+                %span 必須
+              .item-delivery__choice__date-area
+                = d.collection_select :delivery_date, Deliverydate.all, :id, :name, prompt: "---"
       
       .item-price
         .item-price--title
@@ -137,7 +128,8 @@
           また、出品をもちまして
           =link_to '加盟店規約'
           に同意したことになります。
-        .item-post__exhibit.btn
-          =link_to '出品する'
+        = f.submit '出品する', class: 'item-post__exhibit .btn'
         .item-post__return.btn
-          =link_to 'もどる'
+          =link_to 'もどる', '/users/1'
+
+          -# #{current_user.id}

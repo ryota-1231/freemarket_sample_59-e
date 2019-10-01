@@ -1,4 +1,6 @@
-.header
+= render 'items/header'
+- breadcrumb :log_out
+= breadcrumbs separator: " &rsaquo; "
 
 -# サーバー実装次第form_for(deleteメソッド)
 .wrapper
@@ -10,6 +12,4 @@
           .log-out__button.button ログアウト
         
   = render 'item__exhibit'
-
-  .aside
-  .footer
+  = render 'items/footer'

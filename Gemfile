@@ -44,6 +44,8 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -83,3 +85,9 @@ gem "erb2haml"
 gem "font-awesome-rails"
 gem 'active_hash'
 gem 'dropzonejs-rails'
+gem 'mechanize'
+gem 'ancestry'
+gem "gretel"
+gem 'faker'
+gem 'pry-rails'
+gem 'rspec-rails'

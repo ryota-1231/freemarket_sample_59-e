@@ -1,0 +1,123 @@
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+.header
+  .header__box
+    .header__box__top
+      .header__box__top__left
+        = link_to "/" do
+          = image_tag "logo-acdd90ac4f472d5a6f7a330d33ab1225.svg",class: "merukari"
+      .header__box__top__right
+        .header__box__top__right__content 
+          = form_tag("#",class:"hogeho") do
+            = text_field_tag :search ,"",class:"search_form",placeholder: "何かお探しですか？",style: "border-right: none"
+            %button{type: "submit",class: "search_button"}
+              %i.fas.fa-search
+              
+
+    .header__box__bottom
+      .header__box__bottom__left
+        .header__box__bottom__left__search__category
+          = link_to "#" do
+            %i.fas.fa-align-justify
+          = link_to "カテゴリーから探す",(),class: "category"
+          .header__box__bottom__left__search__category__hidden
+            %ul.header__box__bottom__left__search__category__hidden__1
+              = link_to "" do
+                %li.menu
+                  1
+              = link_to "" do
+                %li.menu
+                  1
+              = link_to "" do
+                %li.menu
+                  1
+              = link_to "" do
+                %li.menu
+                  1    
+
+            %ul.header__box__bottom__left__search__category__hidden__2
+              = link_to "" do
+                %li.menu2
+                  2
+              = link_to "" do
+                %li.menu2
+                  2
+              = link_to "" do
+                %li.menu2
+                  2
+              = link_to "" do
+                %li.menu2
+                  2    
+
+            %ul.header__box__bottom__left__search__category__hidden__3
+              = link_to "" do
+                %li.menu3
+                  3
+              = link_to "" do
+                %li.menu3
+                  3
+              = link_to "" do
+                %li.menu3
+                  3
+              = link_to "" do
+                %li.menu3
+                  3
+
+        .header__box__bottom__left__search__brand 
+          = link_to "#" do
+            %i.fas.fa-comment-dollar
+            = link_to "ブランドから探す"
+            .header__box__bottom__left__search__brand__hidden      
+              = link_to "" do
+                %li.brand
+                  ホビー
+              = link_to "" do
+                %li.brand
+                  ホビー
+              = link_to "" do
+                %li.brand
+                  ホビー
+              = link_to "" do
+                %li.brand
+                  ホビー    
+
+            
+    
+
+      .header__box__bottom__right
+        .header__box__bottom__right__good
+          = link_to "#" do
+            %i.far.fa-heart
+            いいね！一覧
+
+        .header__box__bottom__right__news
+          = link_to "#" do
+            %i.far.fa-bell
+            お知らせ
+            .header__box__bottom__right__news__hidden
+              = link_to "" do
+                %li.news
+                  1
+              = link_to "" do
+                %li.news
+                  2
+              = link_to "" do
+                %li.news
+                  3
+              = link_to "" do
+                %li.news
+                  4   
+
+        .header__box__bottom__right__todo
+          = link_to "#" do
+            %i.fas.fa-check
+            やることリスト
+            .header__box__bottom__right__todo__hidden
+              .header__box__bottom__right__todo__hidden1
+
+        .header__box__bottom__right__mypage
+          = link_to "/users/:id" do
+            %i.far.fa-smile
+            マイページ
+
+= render "users/item__exhibit"
