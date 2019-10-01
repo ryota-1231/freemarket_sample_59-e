@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_28_104515) do
+
+
+ActiveRecord::Schema.define(version: 2019_09_29_154535) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postcode", null: false
@@ -28,7 +30,6 @@ ActiveRecord::Schema.define(version: 2019_09_28_104515) do
     t.text "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry"
   end
 
   create_table "buyers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -85,16 +86,24 @@ ActiveRecord::Schema.define(version: 2019_09_28_104515) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "title", default: ""
     t.text "explanation", null: false
     t.integer "price"
-    t.integer "state", null: false
-    t.string "postage", null: false
-    t.bigint "user_id", null: false
-    t.bigint "category_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "status"
+    t.string "postage", default: ""
+    t.bigint "user_id"
+    t.bigint "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.bigint "brand_id"
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.bigint "delivery_id"
+    t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["delivery_id"], name: "index_items_on_delivery_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
     t.index ["title"], name: "index_items_on_title"
     t.index ["user_id"], name: "fk_rails_d4b6334db2"
   end
@@ -167,7 +176,11 @@ ActiveRecord::Schema.define(version: 2019_09_28_104515) do
   add_foreign_key "comments", "users"
   add_foreign_key "goods", "items"
   add_foreign_key "goods", "users"
+  add_foreign_key "items", "brands"
+  add_foreign_key "items", "buyers"
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "deliveries"
+  add_foreign_key "items", "sellers"
   add_foreign_key "items", "users"
   add_foreign_key "messages", "items"
   add_foreign_key "messages", "users"

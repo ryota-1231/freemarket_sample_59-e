@@ -258,7 +258,6 @@ h4{
   list-style-type:none;
 }
 
-
 .header{
   width: 100%;
   height: 100px;
@@ -361,7 +360,7 @@ h4{
     &__scrol{
       height: 390px;
       width: 1664px;
-      background-image:　url("himawari04.jpg");
+      background-image: url("himawari04.jpg");
       &__bar{
         position: relative;
         overflow: hidden;
@@ -419,6 +418,7 @@ h4{
         height: 573px;
         padding-top: 42px;
         font-weight: bold;
+        margin-bottom: 60px;
         &__new{
           height: 33px;
           &__left{
@@ -443,7 +443,7 @@ h4{
             }
             p{
               position: absolute;
-              bottom: 35px;
+              bottom: 80px;
               font-size: 17px;
               color: white;
               background-color: rgba(0,0,0,.4);
@@ -451,7 +451,10 @@ h4{
             }
             &__text{
               height: 64px;
-              width: 188px;
+              width: 189px;
+              background-color: white;
+              margin-top: 0;
+              line-height: 64px;
             }
           }
         }
@@ -459,7 +462,7 @@ h4{
       &__men{
         height: 573px;
         padding-top: 42px;
-        
+        margin-bottom: 60px;
         font-weight: bold;
         &__new{
           height: 33px;
@@ -485,7 +488,7 @@ h4{
             }
             p{
               position: absolute;
-              bottom: 35px;
+              bottom: 80px;
               font-size: 17px;
               color: white;
               background-color: rgba(0,0,0,.4);
@@ -493,7 +496,10 @@ h4{
             }
             &__text{
               height: 64px;
-              width: 188px;
+              width: 189px;
+              background-color: white;
+              margin-top: 0;
+              line-height: 64px;
             }
           }
         }
@@ -501,7 +507,7 @@ h4{
       &__mecha{
         height: 573px;
         padding-top: 42px;
-        
+        margin-bottom: 60px;
         font-weight: bold;
         &__new{
           height: 33px;
@@ -528,7 +534,7 @@ h4{
             }
             p{
               position: absolute;
-              bottom: 35px;
+              bottom: 80px;
               font-size: 17px;
               color: white;
               background-color: rgba(0,0,0,.4);
@@ -536,7 +542,10 @@ h4{
             }
             &__text{
               height: 64px;
-              width: 188px;
+              width: 189px;
+              background-color: white;
+              margin-top: 0;
+              line-height: 64px;
             }
           }
         }
@@ -545,6 +554,7 @@ h4{
         height: 573px;
         padding-top: 42px;
         font-weight: bold;
+        margin-bottom: 60px;
         &__new{
           height: 33px;
           &__left{
@@ -569,7 +579,7 @@ h4{
             }
             p{
               position: absolute;
-              bottom: 60px;
+              bottom: 80px;
               font-size: 17px;
               color: white;
               background-color: rgba(0,0,0,.4);
@@ -577,7 +587,10 @@ h4{
             }
             &__text{
               height: 64px;
-              width: 188px;
+              width: 189px;
+              background-color: white;
+              margin-top: 0;
+              line-height: 64px;
             }
           }
         }
@@ -612,6 +625,7 @@ h4{
         height: 573px;
         padding-top: 42px;
         font-weight: bold;
+        margin-bottom: 60px;
         &__new{
           height: 33px;
           &__left{
@@ -637,7 +651,7 @@ h4{
             }
             p{
               position: absolute;
-              bottom: 35px;
+              bottom: 80px;
               font-size: 17px;
               color: white;
               background-color: rgba(0,0,0,.4);
@@ -645,7 +659,10 @@ h4{
             }
             &__text{
               height: 64px;
-              width: 188px;
+              width: 189px;
+              background-color: white;
+              margin-top: 0;
+              line-height: 64px;
             }
           }
         }
@@ -654,6 +671,7 @@ h4{
         height: 573px;
         padding-top: 42px;
         font-weight: bold;
+        margin-bottom: 60px;
         &__new{
           height: 33px;
           &__left{
@@ -678,7 +696,7 @@ h4{
             }
             p{
               position: absolute;
-              bottom: 35px;
+              bottom: 80px;
               font-size: 17px;
               color: white;
               background-color: rgba(0,0,0,.4);
@@ -686,7 +704,10 @@ h4{
             }
             &__text{
               height: 64px;
-              width: 188px;
+              width: 189px;
+              background-color: white;
+              margin-top: 0;
+              line-height: 64px;
             }
           }
         }
@@ -694,7 +715,7 @@ h4{
       &__supreme{
         height: 573px;
         padding-top: 42px;
-        
+        margin-bottom: 60px;
         font-weight: bold;
         &__new{
           height: 33px;
@@ -720,7 +741,7 @@ h4{
             }
             p{
               position: absolute;
-              bottom: 35px;
+              bottom: 80px;
               font-size: 17px;
               color: white;
               background-color: rgba(0,0,0,.4);
@@ -728,7 +749,10 @@ h4{
             }
             &__text{
               height: 64px;
-              width: 188px;
+              width: 189px;
+              background-color: white;
+              margin-top: 0;
+              line-height: 64px;
             }
           }
         }
@@ -736,7 +760,7 @@ h4{
       &__nike{
         height: 573px;
         padding-top: 42px;
-        
+        margin-bottom: 60px;
         font-weight: bold;
         &__new{
           height: 33px;
@@ -762,7 +786,7 @@ h4{
             }
             p{
               position: absolute;
-              bottom: 35px;
+              bottom: 80px;
               font-size: 17px;
               color: white;
               background-color: rgba(0,0,0,.4);
@@ -770,7 +794,10 @@ h4{
             }
             &__text{
               height: 64px;
-              width: 188px;
+              width: 189px;
+              background-color: white;
+              margin-top: 0;
+              line-height: 64px;
             }
           }
         }
