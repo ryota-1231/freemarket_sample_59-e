@@ -3,6 +3,7 @@
     .title
       %h2 商品商品の情報を入力
     = form_for (@item) do |f|
+      = render 'layouts/error_messages', model: f.object
       .item-image
         .item-image__sub-title
           .item-image__sub-title__caution
@@ -10,7 +11,16 @@
             %span 必須
           %p 最大10枚までアップロードできます
         .item-image__sub-title__area  
-          ドラッグアンドドロップまたはクリックしてファイルをアップロード
+
+          -# #image-box
+          -#   %ul.item-images
+            
+          -#   .image-box__container
+          -#     %label
+          -#       %input{type:"file", class:"sell-upload-drop-file", id:"image", name:"image1", style:"display: none;"}
+          -#         ドラッグアンドドロップ
+          -#         %br 
+          -#         またはクリックしてファイルをアップロード
             
       .item-title
         .item-title__name
@@ -32,21 +42,28 @@
               %h3 カテゴリー
               %span 必須
             = f.collection_select :category_id, Category.where(ancestry: nil ), :id, :name, prompt: "---"
+
+            %select.category_children
+            %select.category_g_children{name:"item[category_id]"}
+            
               
 
           .item-category__choice__size
             .item-category__choice__size-title
               %h3 サイズ
               %span 必須
-            .item-category__choice__size-area
+            %select.item-category__choice__size-area
           
           .item-category__choice__brand
             .item-category__choice__brand-title
               %h3 ブランド
               %span 任意
-            .item-category__choice__brand-area
+            %input{name:"item[brand_id]", value:"",type:"hidden", class:"brand_choice"}
+            %input{placeholder: "例) シャネル", value:"",class:'item-category__choice__brand-area'}
               
-
+            %div.brands_area
+              %ul.brand_area
+                  
           .item-category__choice__status
             .item-category__choice__status-title
               %h3 商品の状態
@@ -132,4 +149,6 @@
         .item-post__return.btn
           =link_to 'もどる', '/users/1'
 
-          -# #{current_user.id}
+       
+       
+

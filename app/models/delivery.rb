@@ -1,6 +1,13 @@
 class Delivery < ApplicationRecord
 
   has_many :items
+
+  validates :delivery_fee, presence:true, numericality: true
+  validates :delivery_source, presence: true, numericality: true
+  validates :delivery_method, presence: true, numericality: true
+  validates :delivery_date,presence: true,
+  numericality: true
+ 
   
 
   

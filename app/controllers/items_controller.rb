@@ -9,8 +9,13 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(items_params)
+  
+  
+
     if @item.save
-    redirect_to root_path
+      redirect_to root_path
+    else
+      render 'items/exhibit'
     end
   end
   
@@ -35,7 +40,6 @@ class ItemsController < ApplicationController
 
   def exhibit
     @item = Item.new
-    @category = Category.new
     @item.build_delivery
     @item.build_category
 
@@ -46,7 +50,7 @@ class ItemsController < ApplicationController
 
   private
   def items_params
-    params.require(:item).permit(:title, :explanation, :status, :price, :category_id,delivery_attributes:[:delivery_fee,:delivery_source,:delivery_method,:delivery_date])
+    params.require(:item).permit(:title, :explanation, :status, :price, :category_id, :brand_id, delivery_attributes:[:delivery_fee,:delivery_source,:delivery_method,:delivery_date])
 
   end
 
