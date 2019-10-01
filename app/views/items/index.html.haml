@@ -38,9 +38,11 @@
               = link_to "#" do
                 .content__all__category__list__rady__items__1__ima
 
+
                   = image_tag "#{item.images.first.image}", :size =>'185x180'
                   %p
                     = "¥#{item.price}"
+
                   .content__all__category__list__rady__items__1__text
                     = item.title
 
@@ -54,10 +56,12 @@
         .content__all__category__list__men__items
           .content__all__category__list__men__items__1
             - @items.each do |item|
+
               = link_to "#" do
                 .content__all__category__list__men__items__1__ima
                   = image_tag "#{item.images.first.image}", :size =>'185x180'
                   %p 
+
                     = "¥#{item.price}"
                   .content__all__category__list__men__items__1__text
                     = item.title
@@ -76,7 +80,9 @@
                 .content__all__category__list__mecha__items__1__ima
                   = image_tag "#{item.images.first.image}", :size =>'185x180'
                   %p
+
                     = "¥#{item.price}"
+
                   .content__all__category__list__mecha__items__1__text
                     = item.title
 
@@ -90,13 +96,16 @@
         .content__all__category__list__hobby__items
           .content__all__category__list__hobby__items__1
             - @items.each do |item|
+
               = link_to "#" do
                 .content__all__category__list__hobby__items__1__ima
                   = image_tag "#{item.images.first.image}", :size =>'185x180'
                   %p
+
                     = "¥#{item.price}"
                   .content__all__category__list__hobby__items__1__text
                     = item.title
+
 
     .content__all__popular__brand
       .content__all__popular__brand__title
@@ -117,13 +126,16 @@
         .content__all__brand__list__chanel__items 
           .content__all__brand__list__chanel__items__1 
             - @items.each do |item|
+
               = link_to "#" do
                 .content__all__brand__list__chanel__items__1__ima
                   = image_tag "#{item.images.first.image}", :size =>'185x180'
                   %p
+
                     = "¥#{item.price}"
                   .content__all__brand__list__chanel__items__1__text
                     = item.title 
+
       
       .content__all__brand__list__viton
         .content__all__brand__list__viton__new
@@ -141,6 +153,7 @@
                     = "¥#{item.price}"
                   .content__all__brand__list__viton__items__1__text
                     = item.title        
+
   
       .content__all__brand__list__supreme
         .content__all__brand__list__supreme__new
@@ -151,11 +164,13 @@
         .content__all__brand__list__supreme__items  
           .content__all__brand__list__supreme__items__1  
             - @items.each do |item|
+
               = link_to "#" do
                 .content__all__brand__list__supreme__items__1__ima
                   = image_tag "#{item.images.first.image}", :size =>'185x180'
                   %p
                     = "¥#{item.price}"
+
                   .content__all__brand__list__supreme__items__1__text
                     = item.title  
 
@@ -168,12 +183,14 @@
         .content__all__brand__list__nike__items
           .content__all__brand__list__nike__items__1 
             - @items.each do |item|
+
               = link_to "#" do
                 .content__all__brand__list__nike__items__1__ima
 
                   = image_tag "#{item.images.first.image}", :size =>'185x180'
                   %p
                     = "¥#{item.price}"
+
                   .content__all__brand__list__chanel__items__1__text
                     = item.title 
 
