@@ -8,7 +8,7 @@
         新規会員登録
       .main-user__box__btns
         .main-user__box__btn
-        =link_to "/signup/member", class: "main__box__btn main__box__btn--email" do
+        =link_to member_signup_index_path, class: "main__box__btn main__box__btn--email" do
           = fa_icon 'envelope', class: "main__box__btn--icon"
           メールアドレスで登録する
         .main-user__box__btn

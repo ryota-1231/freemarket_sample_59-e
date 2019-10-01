@@ -1,4 +1,4 @@
-(function($){
+$(function($){
   function formSetDay(){
     var lastday = formSetLastDay($('#user_birthdate_year').val(), $('#user_birthdate_month').val());
     var option = '';
