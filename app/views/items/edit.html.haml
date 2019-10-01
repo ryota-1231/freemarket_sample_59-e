@@ -1,133 +1,122 @@
-.background
-  = render 'header'
-  .detail
-    .detail__box
-      .detail__box__title
-        東京喰種
-      .detail__box__items
-        .detail__box__items__photo
-          .detail__box__items__photo__big
-            = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "detail__box__items__photo__big--in"
-          .detail__box__items__photo__mini1
-            = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "detail__box__items__photo__mini1--in"
-        %table.detail__box__items__detail
-          %tr.detail__box__items__detail__exhibitor
-            %th.detail__box__items__detail__exhibitor--right
-              出品者
-            %td.detail__box__items__detail__exhibitor--left
-              %li
-                = link_to "遠島"
-              %li
-                = fa_icon "cog"
-                0
-                = fa_icon "cog"
-                0
-                = fa_icon "cog"
-                0
-          %tr.detail__box__items__detail__category
-            %th.detail__box__items__detail__category--right
-              カテゴリー
-            %td.detail__box__items__detail__category--left
-              %li
-                = link_to "本・音楽・ゲーム"
-              %li
-                = link_to "＞漫画"
-              %li
-                = link_to "＞青年漫画"
-              
-          %tr.detail__box__items__detail__brand
-            %th.detail__box__items__detail__brand--right
-              ブランド
-            %td.detail__box__items__detail__brand--left
-          %tr.detail__box__items__detail__status
-            %th.detail__box__items__detail__status--right 商品の状態
-            %td.detail__box__items__detail__status--left やや傷や汚れあり
-          %tr.detail__box__items__detail__postage
-            %th.detail__box__items__detail__postage--right
-              配送料の負担
-            %td.detail__box__items__detail__postage--left
-              送料込み(出品者負担)
-          %tr.detail__box__items__detail__method
-            %th.detail__box__items__detail__method--right
-              配送の方法
-            %td.detail__box__items__detail__method--left
-              ゆうゆうメルカリ便
-          %tr.detail__box__items__detail__area
-            %th.detail__box__items__detail__area--right
-              配送元の地域
-            %td.detail__box__items__detail__area--left
-              = link_to "岐阜県"
-          %tr.detail__box__items__detail__date
-            %th.detail__box__items__detail__date--right
-              配送日の目安
-            %td.detail__box__items__detail__date--left
-              1~2日で発送
-      .detail__box__price
-        .detail__box__price__box
-          %span.detail__box__price__box__price
-            ¥7,500
-          %span.detail__box__price__box__tax
-            (税込)
-          %span.detail__box__price__box__postage
-            送料込み
-      .detail__box__money
-      %input.detail__box__btn{type: 'submit', value: '購入画面に進む'}
-      .detail__box__explanation
-        kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-      .detail__box__icon
-        .detail__box__icon--good
-          = fa_icon "heart"
-          いいね! 0
-        .detail__box__icon--warning
-          = fa_icon "flag"
-          不適切な商品の報告
-        .detail__box__icon--safety
-          = fa_icon "lock"
-          あんしん・あんぜんへの取り組み
-    .detail__comment
-      .detail__comment--warning
-        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %textarea.detail__comment--text
-      %input.detail__comment--btn{type: 'submit', value: 'コメントする'}
-    .detail__link
-      .detail__link--left
-        = link_to "＜未使用☆Cartier カルティエ 二つ折り 財布"
-      .detail__link--right
-        = link_to "マイワリサ mywarisa 35 21.9 バレエシューズ＞"
-    .detail__icon
-      .detail__icon__box
-        .detail__icon__box--facebook
-          = fa_icon "facebook-square"
-        .detail__icon__box--twitter
-          = fa_icon "twitter"
-        .detail__icon__box--pinterest
-          = fa_icon "pinterest"
-    .detail__otheritems
-      .detail__otheritems__head
-        = link_to "へっくしゅんさんのその他の出品"
-      .detail__otheritems__mass
-        - for num in 1..6 do
-          .detail__otheritems__mass__one
-            .detail__otheritems__mass__one--photo
-              = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "detail__otheritems__mass__one--photo--in"
-            .detail__otheritems__mass__one--explanation
-              .detail__otheritems__mass__one--explanation--name
-                東京喰種
-              .detail__otheritems__mass__one--explanation--price
-                ¥400円
-    .detail__samecategory
-      .detail__samecategory__head
-        = link_to "バッジ （おもちゃ・ホビー・グッズ） その他の商品"
-      .detail__samecategory__mass
-        - for num in 1..6 do
-          .detail__samecategory__mass__one
-            .detail__samecategory__mass__one--photo
-              = image_tag "https://images-na.ssl-images-amazon.com/images/I/41D7VAfRQ%2BL._SX356_BO1,204,203,200_.jpg", class: "detail__samecategory__mass__one--photo--in"
-            .detail__samecategory__mass__one--explanation
-              .detail__samecategory__mass__one--explanation--name
-                僕らはみんな河合荘
-              .detail__samecategory__mass__one--explanation--price
-                ¥400
+.back 
+  = render "header"
+  - breadcrumb :user_registe
+  = breadcrumbs separator: " &rsaquo; "
+  .main
+    = render "users/sideber"
+    .person
+      .person__header
+        本人の情報登録
+      .person__main
+        .person__bottom__box
+          .person__bottom__box--message 
+            %p お客さまの本人情報をご登録ください。
+            %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          .person__bottom__box--link1
+            = link_to "本人確認書類のアップロードについて＞", class: "link11"
+          .person__bottom__box--kanji
+            .person__bottom__box--kanji--first
+              お名前
+            .person__bottom__box--kanji--user
+              遠島 大輝
+          .person__bottom__box--kana
+            .person__bottom__box--kana--first
+              お名前カナ
+            .person__bottom__box--kana--user
+              トオシマ ダイキ
+          .person__bottom__box--date
+            .person__bottom__box--date--first
+              生年月日
+            .person__bottom__box--date--user
+              2019/9/24
+          .person__bottom__box--address
+            .person__bottom__box--address--box
+              .person__bottom__box--address--box--first
+                郵便番号
+              .person__bottom__box--address--box--any
+                任意
+            %input.person__bottom__box--address--text{ placeholder: "例)1234567"}
+          .person__bottom__box--prefecture
+            .person__bottom__box--prefecture--box
+              .person__bottom__box--prefecture--box--first
+                都道府県
+              .person__bottom__box--prefecture--box--any
+                任意
+              .person__bottom__box--prefecture--text
+                %select.person__bottom__box--prefecture--text--select
+                  %option{:value => "1"} ---
+                  %option{:value => "2"} 北海道
+                  %option{:value => "3"} 青森
+                  %option{:value => "4"} 岩手
+                  %option{:value => "5"} 宮城
+                  %option{:value => "6"} 秋田
+                  %option{:value => "7"} 山形
+                  %option{:value => "8"} 福島県
+                  %option{:value => "9"} 東京都
+                  %option{:value => "10"} 神奈川県
+                  %option{:value => "11"} 埼玉県
+                  %option{:value => "12"} squirrel
+                  %option{:value => "13"} cat
+                  %option{:value => "14"} dog
+                  %option{:value => "15"} rabbit
+                  %option{:value => "16"} squirrel
+                  %option{:value => "17"} cat
+                  %option{:value => "18"} dog
+                  %option{:value => "19"} rabbit
+                  %option{:value => "20"} squirrel
+                  %option{:value => "21"} cat
+                  %option{:value => "22"} dog
+                  %option{:value => "23"} rabbit
+                  %option{:value => "24"} squirrel
+                  %option{:value => "25"} cat
+                  %option{:value => "26"} dog
+                  %option{:value => "27"} rabbit
+                  %option{:value => "28"} squirrel
+                  %option{:value => "29"} cat
+                  %option{:value => "30"} dog
+                  %option{:value => "31"} rabbit
+                  %option{:value => "32"} squirrel
+                  %option{:value => "33"} rabbit
+                  %option{:value => "34"} squirrel
+                  %option{:value => "35"} cat
+                  %option{:value => "36"} dog
+                  %option{:value => "37"} rabbit
+                  %option{:value => "38"} squirrel
+                  %option{:value => "39"} cat
+                  %option{:value => "40"} dog
+                  %option{:value => "41"} cat
+                  %option{:value => "42"} dog
+                  %option{:value => "43"} rabbit
+                  %option{:value => "44"} squirrel
+                  %option{:value => "45"} cat
+                  %option{:value => "46"} dog
+                  %option{:value => "47"} rabbit
+                  %option{:value => "48"} squirrel
+                %i.person__bottom__box--prefecture--text--icon
+                  = fa_icon "chevron-down"
+          .person__bottom__box--city
+            .person__bottom__box--city--box
+              .person__bottom__box--city--box--first
+                市区町村
+              .person__bottom__box--city--box--any
+                任意
+            %input.person__bottom__box--city--text{ placeholder: "例)千代田区"}
+          .person__bottom__box--number
+            .person__bottom__box--number--box
+              .person__bottom__box--number--box--first
+                番地
+              .person__bottom__box--number--box--any
+                任意
+            %input.person__bottom__box--number--text{ placeholder: "例)青山1-1-1"}
+          .person__bottom__box--building
+            .person__bottom__box--building--box
+              .person__bottom__box--building--box--first
+                建物
+              .person__bottom__box--building--box--any
+                任意
+            %input.person__bottom__box--building--text{ placeholder: "例)河合荘"}
+          %input.person__bottom__box--btn{type: 'submit', value: '登録する'}
+          .person__bottom__box--link2
+            = link_to '本人情報の登録について＞', class: "link22"
   = render 'users/item__exhibit'
-  = render 'footer'
-
+  = render "footer"

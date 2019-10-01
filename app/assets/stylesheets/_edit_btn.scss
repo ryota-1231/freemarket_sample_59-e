@@ -1,0 +1,38 @@
+.edittt{
+  margin: 15px auto;;
+  height: auto;
+  width: 700px;
+  background-color: white;
+  padding: 10px;
+  .edittt__red-btn{
+    height: 50px;
+    width: 620px;
+    background-color: red;
+    margin: 10px 30px;
+    text-align: center;
+    color: white;
+    outline: none;
+  }
+  .edittt__or{
+    text-align: center;
+    // width: 620px;
+  }
+  .edittt__stop-btn{
+    height: 50px;
+    width: 620px;
+    background-color: gray;
+    margin: 10px 30px;
+    text-align: center;
+    color: white;
+    outline: none;
+  }
+  .edittt__delete-btn{
+    height: 50px;
+    width: 620px;
+    background-color: gray;
+    margin: 10px 30px;
+    text-align: center;
+    color: white;
+    outline: none;
+  }
+}
