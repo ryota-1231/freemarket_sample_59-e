@@ -86,3 +86,6 @@ gem 'dropzonejs-rails'
 gem 'mechanize'
 gem 'ancestry'
 gem "gretel"
+gem 'pry-rails'
+gem 'rspec-rails'
+gem 'factory_bot_rails'

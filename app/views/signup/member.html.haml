@@ -28,32 +28,32 @@
         .signup__box-input
           .field
             .field-info__nickname
-              %label{for: "nickname", class:"position"} ニックネーム
+              %label{for: "nickname" } ニックネーム
               %span.form-require 必須
               %br
             .field-input
-            = f.text_field :email, class: "input-default", autocomplete: "email", placeholder: "例）メルカリ太郎"
+            = f.text_field :nickname, class: "input-default", autocomplete: "nickname", placeholder: "例）メルカリ太郎"
           .field
             .field-info__email
               %label{for: "email"} メールアドレス
               %span.form-require 必須
               %br
             .field-input
-            = f.email_field :email, class: "input-default", autocomplete: "current-password", placeholder: "PC・携帯どちらでも可"
+            = f.email_field :email, class: "input-default", autocomplete: "email", placeholder: "PC・携帯どちらでも可"
           .field
             .field-info__password
               %label{for: "password"} パスワード
               %span.form-require 必須
               %br
             .field-input
-            = f.password_field :password, class: "input-default", autocomplete: "email", placeholder: "7文字以上"
+            = f.password_field :password, class: "input-default", autocomplete: "password", placeholder: "7文字以上"
           .field
             .field-info__password-comfirm
               %label{for: "password"} パスワード（確認）
               %span.form-require 必須
               %br
             .field-input
-            = f.password_field :password, class: "input-default", autocomplete: "current-password", placeholder: "7文字以上"
+            = f.password_field :password_confirmation, class: "input-default", autocomplete: "off", placeholder: "7文字以上"
             %h3 本人確認
           .login__info
             安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません
@@ -64,26 +64,27 @@
               %span.form-require 必須
               %br
             .field-input
-            = f.text_field :email, class: "input-default-half", autocomplete: "email", placeholder: "例）山田"
-            = f.text_field :password, class: "input-default-half", autocomplete: "current-password", placeholder: "例）彩"
+            = f.text_field :last_name, class: "input-default-half", autocomplete: "last_name", placeholder: "例）山田"
+            = f.text_field :first_name, class: "input-default-half", autocomplete: "first_name", placeholder: "例）彩"
           .field
             .field-info__kana
               %label{for: "family-name-katakana"} お名前カナ（全角）
               %span.form-require 必須
               %br
             .field-input
-            = f.text_field :email, class: "input-default-half", autocomplete: "email", placeholder: "例）ヤマダ"
-            = f.text_field :password, class: "input-default-half", autocomplete: "current-password", placeholder: "例）アヤ"
+            = f.text_field :last_name_kana, class: "input-default-half", autocomplete: "last_name_kana", placeholder: "例）ヤマダ"
+            = f.text_field :first_name_kana, class: "input-default-half", autocomplete: "first_name_kana", placeholder: "例）アヤ"
           .field
             .field-info__birth
               %label{for: "birthday"} 生年月日
               %span.form-require 必須
-            .birthday-select-wrap
-              .select-wrap
-              .select-wrap
-              .select-wrap
             .field-input
-            = f.text_field :password, class: "input-default", autocomplete: "current-password", placeholder: ""
+            = f.collection_select :birthdate_year, Year.all, :id, :name, class: "birthdate_year"
+            年
+            = f.collection_select :birthdate_month, Month.all, :id, :name, class: "birthdate_month"
+            月
+            = f.collection_select :birthdate_day, Day.all, :id, :name, class: "birthdate_day"
+            日
           .form__info
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
@@ -106,5 +107,34 @@
     .footer-user__link
       = link_to image_tag(src= "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464", class: "mercari-graylogo", height: 80, width: 60), "#"
       %p © 2019 Mercari
+
+:javascript
+  (function($){
+    function formSetDay(){
+      var lastday = formSetLastDay($('#user_birthdate_year').val(), $('#user_birthdate_month').val());
+      var option = '';
+      for (var i = 1; i <= lastday; i++) {
+        if (i === $('#user_birthdate_day').val()){
+          option += '<option value="' + i + '"selected="selected">' + i + '</option>\n';
+        }else{
+          option += '<option value="' + i + '">' + i + '</option>\n';
+        }
+      }
+      $('#user_birthdate_day').html(option);
+    }
+
+    function formSetLastDay(year, month){
+      var lastday = new Array('', 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+      if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0){
+        lastday[2] = 29;
+      }
+      return lastday[month];
+    }
+
+    $('#user_birthdate_year, #user_birthdate_month').change(function(){
+      formSetDay();
+    });
+  })(jQuery);
+
     
 

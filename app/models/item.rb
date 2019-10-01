@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   belongs_to :user
   belongs_to :brand
   belongs_to :category
-  belongs_to :saler
+  belongs_to :seller
   belongs_to :buyer
   belongs_to :delivery
 end

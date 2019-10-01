@@ -274,13 +274,15 @@
           margin-bottom: 12px;
         }
         .next-btn {
-          margin-top: 24px auto 0;
+          margin: 0 auto;
           font-size: 14px;
           height: 50px;
           width: 343px;
           color: #fff;
           background-color: #ea352d;
           padding: 18px 144px;
+          padding-left: 1px;
+          padding-left: 120px;
         }
         .about__user-information {
           margin-top: 38px;
@@ -317,32 +319,7 @@
             &__kana-name {
               margin-right: 220px;
             }
-            &__postcode {
-              margin-right: 230px;
-            }
-            &__prefecture {
-              margin-right: 230px;
-            }
-            &__city {
-              margin-right: 230px;
-            }
-            &__block {
-              margin-right: 258px;
-            }
-            &__phone-number {
-              margin-right: 258px;
-            }
           }
-        }
-
-        .next-btn {
-          margin-top: 24px auto 0;
-          font-size: 14px;
-          height: 50px;
-          width: 343px;
-          color: #fff;
-          background-color: #ea352d;
-          padding: 18px 144px;
         }
       }
     }
@@ -469,6 +446,15 @@
     border: 1px solid #ccc;
     margin-left: 36px;
   }
+  &-birth {
+    height: 48px;
+    width: 86px;
+    padding: 10px 16px 8px 16px;
+    margin-top: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-left: 8px;
+  }
   &__last {
     height: 48px;
     width: 343px;
@@ -539,3 +525,112 @@ margin-top: 30px;
   }
 }
 
+#user_birthdate_year_1i {
+  height: 48px;
+  width: 98px;
+  padding: 10px 16px 8px 16px;
+  margin-top: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+#user_birthdate_year_2i {
+  height: 48px;
+  width: 98px;
+  padding: 10px 16px 8px 16px;
+  margin-top: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-left: 16px;
+  background-color: #fff;
+}
+
+#user_birthdate_year_3i {
+  height: 48px;
+  width: 98px;
+  padding: 10px 16px 8px 16px;
+  margin-top: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-left: 16px;
+  background-color: #fff;
+}
+
+.field {
+  font-size: 14px;
+  margin-top: 22px;
+  &-info {
+    &__postcode {
+      margin-right: 230px;
+    }
+    &__prefecture {
+      margin-right: 230px;
+    }
+    &__city {
+      margin-right: 230px;
+    }
+    &__block {
+      margin-right: 258px;
+    }
+    &__phone-number {
+      margin-right: 258px;
+    }
+    &__name {
+      margin-right: 250px;
+    }
+  }
+}
+
+.next-btn {
+  margin-top: 24px auto 0;
+  font-size: 14px;
+  height: 50px;
+  width: 343px;
+  color: #fff;
+  background-color: #ea352d;
+  padding: 18px 144px;
+}
+
+#user_addresses_attributes_0_prefecture_id {
+  height: 48px;
+  width: 343px;
+  padding: 10px 16px 8px 16px;
+  margin-top: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+#user_birthdate_year {
+  height: 48px;
+  width: 86px;
+  padding: 10px 16px 8px 16px;
+  margin-top: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-left: 8px;
+  background-color: #fff;
+}
+
+#user_birthdate_month {
+  height: 48px;
+  width: 86px;
+  padding: 10px 16px 8px 16px;
+  margin-top: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-left: 8px;
+  background-color: #fff;
+}
+
+#user_birthdate_day {
+  height: 48px;
+  width: 86px;
+  padding: 10px 16px 8px 16px;
+  margin-top: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-left: 8px;
+  background-color: #fff;
+}
