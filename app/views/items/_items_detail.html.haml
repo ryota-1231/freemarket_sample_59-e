@@ -40,17 +40,17 @@
         %th.detail__box__items__detail__status--right
           商品の状態
         %td.detail__box__items__detail__status--left 
-          やや傷や汚れあり
+          -# = @item.state
       %tr.detail__box__items__detail__postage
         %th.detail__box__items__detail__postage--right
           配送料の負担
         %td.detail__box__items__detail__postage--left
-          送料込み(出品者負担)
+          
       %tr.detail__box__items__detail__method
         %th.detail__box__items__detail__method--right
           配送の方法
         %td.detail__box__items__detail__method--left
-          ゆうゆうメルカリ便
+          
       %tr.detail__box__items__detail__area
         %th.detail__box__items__detail__area--right
           配送元の地域
@@ -60,7 +60,7 @@
         %th.detail__box__items__detail__date--right
           配送日の目安
         %td.detail__box__items__detail__date--left
-          1~2日で発送
+          = @item.delivery.delivery_date
   .detail__box__price
     .detail__box__price__box
       %span.detail__box__price__box__price

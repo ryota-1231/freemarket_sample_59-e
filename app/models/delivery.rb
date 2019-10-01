@@ -8,10 +8,6 @@ class Delivery < ApplicationRecord
   validates :delivery_date,presence: true,
   numericality: true
  
-  
-
-  
-
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :deliveryfee
     belongs_to_active_hash :deliverydate
