@@ -157,7 +157,6 @@ $(function(){
      $(document).on("click", ".brand_chose", function (e) {
        chosen_text = $(this).text()
        choice_id = $(this).attr('id')
-       console.log(chosen_text)
        
        $('.brand_choice').val(choice_id)
        $('.item-category__choice__brand-area').val(chosen_text)
