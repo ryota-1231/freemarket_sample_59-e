@@ -19,16 +19,16 @@ class ItemsController < ApplicationController
   end
   
   def edit
-    # @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def update
-    # item = Item.find(params[:id])
-    # if item.buyer_id == current_user.id
-    #   items.update()
-    #   render 
-    # end
-  end
+    item = Item.find(params[:id])
+    # if item.user_id == current_user.id
+      item.update(items_params)
+      redirect_to action: :show
+    end
+  # end
   
   def destroy
   end  
@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
 
   private
   def items_params
-    params.require(:item).permit(:title, :explanation, :status, :price, :category_id,delivery_attributes:[:delivery_fee,:delivery_source,:delivery_method,:delivery_date])
+    params.require(:item).permit(:title, :explanation, :status, :price, :category_id,delivery_attributes:[:deliveryfee_id,:deliverysource_id,:deliverymethod_id,:deliverydate_id])
 
   end
 

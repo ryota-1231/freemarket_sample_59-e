@@ -1,122 +1,134 @@
-.back 
-  = render "header"
-  - breadcrumb :user_registe
-  = breadcrumbs separator: " &rsaquo; "
-  .main
-    = render "users/sideber"
-    .person
-      .person__header
-        本人の情報登録
-      .person__main
-        .person__bottom__box
-          .person__bottom__box--message 
-            %p お客さまの本人情報をご登録ください。
-            %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-          .person__bottom__box--link1
-            = link_to "本人確認書類のアップロードについて＞", class: "link11"
-          .person__bottom__box--kanji
-            .person__bottom__box--kanji--first
-              お名前
-            .person__bottom__box--kanji--user
-              遠島 大輝
-          .person__bottom__box--kana
-            .person__bottom__box--kana--first
-              お名前カナ
-            .person__bottom__box--kana--user
-              トオシマ ダイキ
-          .person__bottom__box--date
-            .person__bottom__box--date--first
-              生年月日
-            .person__bottom__box--date--user
-              2019/9/24
-          .person__bottom__box--address
-            .person__bottom__box--address--box
-              .person__bottom__box--address--box--first
-                郵便番号
-              .person__bottom__box--address--box--any
-                任意
-            %input.person__bottom__box--address--text{ placeholder: "例)1234567"}
-          .person__bottom__box--prefecture
-            .person__bottom__box--prefecture--box
-              .person__bottom__box--prefecture--box--first
-                都道府県
-              .person__bottom__box--prefecture--box--any
-                任意
-              .person__bottom__box--prefecture--text
-                %select.person__bottom__box--prefecture--text--select
-                  %option{:value => "1"} ---
-                  %option{:value => "2"} 北海道
-                  %option{:value => "3"} 青森
-                  %option{:value => "4"} 岩手
-                  %option{:value => "5"} 宮城
-                  %option{:value => "6"} 秋田
-                  %option{:value => "7"} 山形
-                  %option{:value => "8"} 福島県
-                  %option{:value => "9"} 東京都
-                  %option{:value => "10"} 神奈川県
-                  %option{:value => "11"} 埼玉県
-                  %option{:value => "12"} squirrel
-                  %option{:value => "13"} cat
-                  %option{:value => "14"} dog
-                  %option{:value => "15"} rabbit
-                  %option{:value => "16"} squirrel
-                  %option{:value => "17"} cat
-                  %option{:value => "18"} dog
-                  %option{:value => "19"} rabbit
-                  %option{:value => "20"} squirrel
-                  %option{:value => "21"} cat
-                  %option{:value => "22"} dog
-                  %option{:value => "23"} rabbit
-                  %option{:value => "24"} squirrel
-                  %option{:value => "25"} cat
-                  %option{:value => "26"} dog
-                  %option{:value => "27"} rabbit
-                  %option{:value => "28"} squirrel
-                  %option{:value => "29"} cat
-                  %option{:value => "30"} dog
-                  %option{:value => "31"} rabbit
-                  %option{:value => "32"} squirrel
-                  %option{:value => "33"} rabbit
-                  %option{:value => "34"} squirrel
-                  %option{:value => "35"} cat
-                  %option{:value => "36"} dog
-                  %option{:value => "37"} rabbit
-                  %option{:value => "38"} squirrel
-                  %option{:value => "39"} cat
-                  %option{:value => "40"} dog
-                  %option{:value => "41"} cat
-                  %option{:value => "42"} dog
-                  %option{:value => "43"} rabbit
-                  %option{:value => "44"} squirrel
-                  %option{:value => "45"} cat
-                  %option{:value => "46"} dog
-                  %option{:value => "47"} rabbit
-                  %option{:value => "48"} squirrel
-                %i.person__bottom__box--prefecture--text--icon
-                  = fa_icon "chevron-down"
-          .person__bottom__box--city
-            .person__bottom__box--city--box
-              .person__bottom__box--city--box--first
-                市区町村
-              .person__bottom__box--city--box--any
-                任意
-            %input.person__bottom__box--city--text{ placeholder: "例)千代田区"}
-          .person__bottom__box--number
-            .person__bottom__box--number--box
-              .person__bottom__box--number--box--first
-                番地
-              .person__bottom__box--number--box--any
-                任意
-            %input.person__bottom__box--number--text{ placeholder: "例)青山1-1-1"}
-          .person__bottom__box--building
-            .person__bottom__box--building--box
-              .person__bottom__box--building--box--first
-                建物
-              .person__bottom__box--building--box--any
-                任意
-            %input.person__bottom__box--building--text{ placeholder: "例)河合荘"}
-          %input.person__bottom__box--btn{type: 'submit', value: '登録する'}
-          .person__bottom__box--link2
-            = link_to '本人情報の登録について＞', class: "link22"
-  = render 'users/item__exhibit'
-  = render "footer"
+.item-wrapper
+  .main_exhibit
+    .title
+      %h2 商品商品の情報を入力
+    = form_with model: @item, local: true do |f|
+      .item-image
+        .item-image__sub-title
+          .item-image__sub-title__caution
+            %h3 出品画像
+            %span 必須
+          %p 最大10枚までアップロードできます
+        .item-image__sub-title__area  
+          ドラッグアンドドロップまたはクリックしてファイルをアップロード
+            
+      .item-title
+        .item-title__name
+          .item-title__name__caution
+            %h3 商品名
+            %span 必須
+          = f.text_field "title", placeholder: "商品名（必須 40文字まで）", class:'item-title__name__area' 
+        .item-title__explanation
+          .item-title__explanation__caution
+            %h3 商品の説明
+            %span 必須
+          = f.text_area "explanation", placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', class:'item-title__explanation__area' 
+          
+      .item-category
+        %h3 商品の詳細
+        .item-category__choice
+          .item-category__choice__main
+            .item-category__choice__main-title
+              %h3 カテゴリー
+              %span 必須
+            = f.collection_select :category_id, Category.where(ancestry: nil ), :id, :name, prompt: "---"
+              
+
+          .item-category__choice__size
+            .item-category__choice__size-title
+              %h3 サイズ
+              %span 必須
+            .item-category__choice__size-area
+          
+          .item-category__choice__brand
+            .item-category__choice__brand-title
+              %h3 ブランド
+              %span 任意
+            .item-category__choice__brand-area
+              
+
+          .item-category__choice__status
+            .item-category__choice__status-title
+              %h3 商品の状態
+              %span 必須
+            = f.collection_select :status, State.all, :id, :name, prompt: "---"
+
+      .item-delivery
+        .item-delivery--title
+          %h3 配送について
+          =link_to '' do
+            %i.fa.fa-question-circle
+        .item-delivery__choice
+          = f.fields_for :delivery do |d|
+            .item-delivery__choice__payer
+              .item-delivery__choice__payer-title
+                %h3 配送料の負担
+                %span 必須
+              .item-delivery__choice__payer-area
+                = d.collection_select :deliveryfee_id, Deliveryfee.all, :id, :name, prompt: "---"
+
+            .item-delivery__choice__region
+              .item-delivery__choice__region-title
+                %h3 発送元の地域
+                %span 必須
+              .item-delivery__choice__region-area
+                = d.collection_select :deliverysource_id, Prefecture.all, :id, :name, prompt: "---"
+            
+            .item-delivery__choice__method
+              .item-delivery__choice__method-title
+                %h3 配送の方法
+                %span 必須
+              .item-delivery__choice__method-area
+                = d.collection_select :deliverymethod_id, Deliverymethod.all, :id, :name, prompt: "---"
+
+            .item-delivery__choice__date
+              .item-delivery__choice__date-title
+                %h3 発送までの日数
+                %span 必須
+              .item-delivery__choice__date-area
+                = d.collection_select :deliverydate_id, Deliverydate.all, :id, :name, prompt: "---"
+      
+      .item-price
+        .item-price--title
+          %h3 販売価格(300〜9,999,999)
+          =link_to '' do
+            %i.fa.fa-question-circle
+            
+        .item-price__choice
+          .item-price__choice__input
+            .item-price__choice__input-title
+              %h3 価格
+              %span 必須
+            .item-price__choice__input-area
+              %label ¥
+              = f.text_field "price", placeholder: "例） 300"
+              
+          
+          .item-price__choice__fee
+            .item-price__choice__fee-title
+              %h3 販売手数料 (10%)
+            .item-price__choice__fee-area -
+          
+          .item-price__choice__profit
+            .item-price__choice__profit-title
+              %h3 販売利益
+            .item-price__choice__profit-area -
+
+      .item-post
+        .item-post__caution
+          %p
+          =link_to '禁止されている出品'
+          、
+          =link_to '行為'
+          を必ずご確認ください。
+          %br
+          またブランド品でシリアルナンバー等がある場合はご記載ください。
+          =link_to '偽ブランドの販売'
+          は犯罪であり処罰される可能性があります。
+          また、出品をもちまして
+          =link_to '加盟店規約'
+          に同意したことになります。
+        = f.submit '変更する', class: 'item-post__exhibit .btn'
+        .item-post__return.btn
+          =link_to 'キャンセル', '/users/1'
+  
