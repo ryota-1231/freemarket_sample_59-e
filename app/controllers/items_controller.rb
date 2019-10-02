@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_action :set_item, only: [:show, :edit, :update]
+
   def index
     @items = Item.all
   end
@@ -15,15 +17,13 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find(params[:id])
   end
   
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    item = Item.find(params[:id])
+    #ログイン機能実装前なのでコメントアウトしてあります
     # if item.user_id == current_user.id
       item.update(items_params)
       redirect_to action: :show
@@ -32,6 +32,9 @@ class ItemsController < ApplicationController
   
   def destroy
   end  
+
+  def set_item
+
 
   def exhibit
     @item = Item.new
@@ -47,7 +50,10 @@ class ItemsController < ApplicationController
   private
   def items_params
     params.require(:item).permit(:title, :explanation, :status, :price, :category_id, :brand_id, delivery_attributes:[:deliveryfee_id,:deliverysource_id,:deliverymethod_id,:deliverydate_id])
+  end
 
+  def set_item
+    item = Item.find(params[:id])
   end
 
 end
