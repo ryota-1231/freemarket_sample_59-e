@@ -28,8 +28,9 @@ class ItemsController < ApplicationController
       @item.update(items_params)
     begin
       redirect_to action: :show
-    rescue
-      puts "エラー"
+    rescue ActiveRecord::RecordNotFound => e
+      render 'errors/error_404', status: :not_found
+      
     end
   
   end
@@ -39,8 +40,8 @@ def destroy
   @item.destroy
   begin
     redirect_to root_path
-  rescue
-    puts "エラー"
+  rescue ActiveRecord::RecordNotFound => e
+    render 'errors/error_404', status: :not_found
 end
 end
 
