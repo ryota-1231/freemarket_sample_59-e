@@ -2,6 +2,15 @@
   = render 'header'
   .detail
     = render 'items_detail'
+    -# - if user_signed_in? && item.user_id == current_user.id
+    .edittt
+      = link_to "/items/#{@item.id}/edit" do
+        .edittt__red-btn
+          編集
+      .edittt__or
+        or
+      %input.edittt__stop-btn{type: 'submit', value: '出品を一旦停止する'}
+      %input.edittt__delete-btn{type: 'submit', value: 'この商品を削除する'}
     = render 'comment'
     .detail__link
       .detail__link--left
