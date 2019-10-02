@@ -25,24 +25,24 @@ class ItemsController < ApplicationController
   def update
     #ログイン機能実装前なのでコメントアウトしてあります
     # if @item.user_id == current_user.id
-      @item.update(items_params)
-    begin
-      redirect_to action: :show
-    rescue ActiveRecord::RecordNotFound => e
-      render 'errors/error_404', status: :not_found
-      
-    end
+      if @item.update(items_params)
+        redirect_to action: :show
+      else
+        redirect_to action: :error
+      end
   
   end
   
 def destroy
   # if @item.user_id == current_user.id
-  @item.destroy
-  begin
+  if @item.destroy
     redirect_to root_path
-  rescue ActiveRecord::RecordNotFound => e
-    render 'errors/error_404', status: :not_found
+  else
+    redirect_to action: :error
+  end
+
 end
+def error
 end
 
 
