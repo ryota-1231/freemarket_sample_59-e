@@ -44,7 +44,6 @@ def destroy
 end
 end
 
-  
 
 
   def exhibit
