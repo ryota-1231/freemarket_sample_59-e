@@ -1,5 +1,4 @@
 
-
 # require 'mechanize'
 
 #   agent = Mechanize.new
@@ -184,6 +183,14 @@
   item.save!
 end
 
+# image_a = Dir.glob("/Users/tooshimadaiki/Documents/GitHub/freemarket_sample_59-e/app/assets/images/*")
+# 100.times do |i|
+#   image = Image.new(
+#     image: File.open(image_a.sample),
+#     item_id: i + 1,
+#     )
+#   image.save!
+# end
 
 
 
@@ -216,4 +223,6 @@ end
 #     sizetype_id: row['sizetype_id']
 #   )
 # end
+
+
 

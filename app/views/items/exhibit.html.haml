@@ -82,28 +82,28 @@
                 %h3 配送料の負担
                 %span 必須
               .item-delivery__choice__payer-area
-                = d.collection_select :delivery_fee, Deliveryfee.all, :id, :name, prompt: "---"
+                = d.collection_select :deliveryfee_id, Deliveryfee.all, :id, :name, prompt: "---"
 
             .item-delivery__choice__region
               .item-delivery__choice__region-title
                 %h3 発送元の地域
                 %span 必須
               .item-delivery__choice__region-area
-                = d.collection_select :delivery_source, Prefecture.all, :id, :name, prompt: "---"
+                = d.collection_select :deliverysource_id, Prefecture.all, :id, :name, prompt: "---"
             
             .item-delivery__choice__method
               .item-delivery__choice__method-title
                 %h3 配送の方法
                 %span 必須
               .item-delivery__choice__method-area
-                = d.collection_select :delivery_method, Deliverymethod.all, :id, :name, prompt: "---"
+                = d.collection_select :deliverymethod_id, Deliverymethod.all, :id, :name, prompt: "---"
 
             .item-delivery__choice__date
               .item-delivery__choice__date-title
                 %h3 発送までの日数
                 %span 必須
               .item-delivery__choice__date-area
-                = d.collection_select :delivery_date, Deliverydate.all, :id, :name, prompt: "---"
+                = d.collection_select :deliverydate_id, Deliverydate.all, :id, :name, prompt: "---"
       
       .item-price
         .item-price--title

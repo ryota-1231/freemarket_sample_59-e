@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
 
+  before_action :set_item, only: [:show, :edit, :update]
+
   def index
-    @items = Item.all.limit(10)
+    @items = Item.all
   end
   
   def new
@@ -9,36 +11,34 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(items_params)
-  
-
     if @item.save
-      redirect_to root_path
-    else
-      render 'items/exhibit'
+    redirect_to root_path
     end
   end
   
   def show
-    @item = Item.find(params[:id])
   end
   
   def edit
-    # @item = Item.find(params[:id])
   end
 
   def update
-    # item = Item.find(params[:id])
-    # if item.buyer_id == current_user.id
-    #   items.update()
-    #   render 
-    # end
-  end
+    #ログイン機能実装前なのでコメントアウトしてあります
+    # if item.user_id == current_user.id
+      item.update(items_params)
+      redirect_to action: :show
+    end
+ # end
   
   def destroy
   end  
 
+  def set_item
+
+
   def exhibit
     @item = Item.new
+    @category = Category.new
     @item.build_delivery
     @item.build_category
 
@@ -49,8 +49,11 @@ class ItemsController < ApplicationController
 
   private
   def items_params
-    params.require(:item).permit(:title, :explanation, :status, :price, :category_id, :brand_id, delivery_attributes:[:delivery_fee,:delivery_source,:delivery_method,:delivery_date])
+    params.require(:item).permit(:title, :explanation, :status, :price, :category_id, :brand_id, delivery_attributes:[:deliveryfee_id,:deliverysource_id,:deliverymethod_id,:deliverydate_id])
+  end
 
+  def set_item
+    item = Item.find(params[:id])
   end
 
 end

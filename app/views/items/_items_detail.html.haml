@@ -4,9 +4,11 @@
   .detail__box__items
     .detail__box__items__photo
       .detail__box__items__photo__big
-        = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "detail__box__items__photo__big--in"
-      .detail__box__items__photo__mini1
-        = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "detail__box__items__photo__mini1--in"
+        = image_tag "#{@item.images.first.image}", class: "detail__box__items__photo__big--in"
+      .detail__box__items__photo__mini
+        - @item.images.each do |item|
+          .detail__box__items__photo__mini--1
+            = image_tag "#{item.image}", class: "detail__box__items__photo__mini--1--in"
     %table.detail__box__items__detail
       %tr.detail__box__items__detail__exhibitor
         %th.detail__box__items__detail__exhibitor--right
@@ -40,36 +42,38 @@
         %th.detail__box__items__detail__status--right
           商品の状態
         %td.detail__box__items__detail__status--left 
-          -# = @item.state
       %tr.detail__box__items__detail__postage
         %th.detail__box__items__detail__postage--right
-          配送料の負担
+          配送料の負担 
         %td.detail__box__items__detail__postage--left
-          
+          = @item.delivery.deliveryfee.name
       %tr.detail__box__items__detail__method
         %th.detail__box__items__detail__method--right
           配送の方法
         %td.detail__box__items__detail__method--left
-          
+          = @item.delivery.deliverymethod.name
       %tr.detail__box__items__detail__area
         %th.detail__box__items__detail__area--right
           配送元の地域
         %td.detail__box__items__detail__area--left
-          = link_to "岐阜県"
+          = link_to @item.delivery.deliverysource.name
       %tr.detail__box__items__detail__date
         %th.detail__box__items__detail__date--right
           配送日の目安
         %td.detail__box__items__detail__date--left
-          = @item.delivery.delivery_date
+          = @item.delivery.deliverydate.name
   .detail__box__price
     .detail__box__price__box
       %span.detail__box__price__box__price
         ¥
-        = @item.price
+        = @item.price.to_s(:delimited)
       %span.detail__box__price__box__tax
         (税込)
       %span.detail__box__price__box__postage
-        送料込み
+        - if @item.delivery.deliveryfee_id == 1
+          送料込み
+        - if @item.delivery.deliveryfee_id == 2
+          着払い
   .detail__box__money
   %input.detail__box__btn{type: 'submit', value: '購入画面に進む'}
   .detail__box__explanation

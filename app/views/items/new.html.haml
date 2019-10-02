@@ -1,13 +1,122 @@
-.background
-  = render 'header'
-  .detail
-    = render 'items_detail'
-    .edittt
-      %input.edittt__red-btn{type: 'submit', value: '商品の編集'}
-      -# = link_to "編集", "/items/#{item.id}/edit", method: :get, class: "edittt__red-btn"
-      .edittt__or
-        or
-      %input.edittt__stop-btn{type: 'submit', value: '出品を一旦停止する'}
-      %input.edittt__delete-btn{type: 'submit', value: 'この商品を削除する'}
-    = render 'comment'
-  = render 'footer'
+.back 
+  = render "header"
+  - breadcrumb :user_registe
+  = breadcrumbs separator: " &rsaquo; "
+  .main
+    = render "users/sideber"
+    .person
+      .person__header
+        本人の情報登録
+      .person__main
+        .person__bottom__box
+          .person__bottom__box--message 
+            %p お客さまの本人情報をご登録ください。
+            %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          .person__bottom__box--link1
+            = link_to "本人確認書類のアップロードについて＞", class: "link11"
+          .person__bottom__box--kanji
+            .person__bottom__box--kanji--first
+              お名前
+            .person__bottom__box--kanji--user
+              遠島 大輝
+          .person__bottom__box--kana
+            .person__bottom__box--kana--first
+              お名前カナ
+            .person__bottom__box--kana--user
+              トオシマ ダイキ
+          .person__bottom__box--date
+            .person__bottom__box--date--first
+              生年月日
+            .person__bottom__box--date--user
+              2019/9/24
+          .person__bottom__box--address
+            .person__bottom__box--address--box
+              .person__bottom__box--address--box--first
+                郵便番号
+              .person__bottom__box--address--box--any
+                任意
+            %input.person__bottom__box--address--text{ placeholder: "例)1234567"}
+          .person__bottom__box--prefecture
+            .person__bottom__box--prefecture--box
+              .person__bottom__box--prefecture--box--first
+                都道府県
+              .person__bottom__box--prefecture--box--any
+                任意
+              .person__bottom__box--prefecture--text
+                %select.person__bottom__box--prefecture--text--select
+                  %option{:value => "1"} ---
+                  %option{:value => "2"} 北海道
+                  %option{:value => "3"} 青森
+                  %option{:value => "4"} 岩手
+                  %option{:value => "5"} 宮城
+                  %option{:value => "6"} 秋田
+                  %option{:value => "7"} 山形
+                  %option{:value => "8"} 福島県
+                  %option{:value => "9"} 東京都
+                  %option{:value => "10"} 神奈川県
+                  %option{:value => "11"} 埼玉県
+                  %option{:value => "12"} squirrel
+                  %option{:value => "13"} cat
+                  %option{:value => "14"} dog
+                  %option{:value => "15"} rabbit
+                  %option{:value => "16"} squirrel
+                  %option{:value => "17"} cat
+                  %option{:value => "18"} dog
+                  %option{:value => "19"} rabbit
+                  %option{:value => "20"} squirrel
+                  %option{:value => "21"} cat
+                  %option{:value => "22"} dog
+                  %option{:value => "23"} rabbit
+                  %option{:value => "24"} squirrel
+                  %option{:value => "25"} cat
+                  %option{:value => "26"} dog
+                  %option{:value => "27"} rabbit
+                  %option{:value => "28"} squirrel
+                  %option{:value => "29"} cat
+                  %option{:value => "30"} dog
+                  %option{:value => "31"} rabbit
+                  %option{:value => "32"} squirrel
+                  %option{:value => "33"} rabbit
+                  %option{:value => "34"} squirrel
+                  %option{:value => "35"} cat
+                  %option{:value => "36"} dog
+                  %option{:value => "37"} rabbit
+                  %option{:value => "38"} squirrel
+                  %option{:value => "39"} cat
+                  %option{:value => "40"} dog
+                  %option{:value => "41"} cat
+                  %option{:value => "42"} dog
+                  %option{:value => "43"} rabbit
+                  %option{:value => "44"} squirrel
+                  %option{:value => "45"} cat
+                  %option{:value => "46"} dog
+                  %option{:value => "47"} rabbit
+                  %option{:value => "48"} squirrel
+                %i.person__bottom__box--prefecture--text--icon
+                  = fa_icon "chevron-down"
+          .person__bottom__box--city
+            .person__bottom__box--city--box
+              .person__bottom__box--city--box--first
+                市区町村
+              .person__bottom__box--city--box--any
+                任意
+            %input.person__bottom__box--city--text{ placeholder: "例)千代田区"}
+          .person__bottom__box--number
+            .person__bottom__box--number--box
+              .person__bottom__box--number--box--first
+                番地
+              .person__bottom__box--number--box--any
+                任意
+            %input.person__bottom__box--number--text{ placeholder: "例)青山1-1-1"}
+          .person__bottom__box--building
+            .person__bottom__box--building--box
+              .person__bottom__box--building--box--first
+                建物
+              .person__bottom__box--building--box--any
+                任意
+            %input.person__bottom__box--building--text{ placeholder: "例)河合荘"}
+          %input.person__bottom__box--btn{type: 'submit', value: '登録する'}
+          .person__bottom__box--link2
+            = link_to '本人情報の登録について＞', class: "link22"
+  = render 'users/item__exhibit'
+  = render "footer"
