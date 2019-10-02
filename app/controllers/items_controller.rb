@@ -33,7 +33,6 @@ class ItemsController < ApplicationController
   def destroy
   end  
 
-  def set_item
 
 
   def exhibit
