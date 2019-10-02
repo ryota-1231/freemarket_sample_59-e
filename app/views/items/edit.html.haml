@@ -51,7 +51,7 @@
             .item-category__choice__status-title
               %h3 商品の状態
               %span 必須
-            = f.collection_select :status, State.all, :id, :name, prompt: "---"
+            = f.collection_select :status, Status.all, :id, :name, prompt: "---"
 
       .item-delivery
         .item-delivery--title

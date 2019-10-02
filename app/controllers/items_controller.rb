@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.all
@@ -24,16 +24,20 @@ class ItemsController < ApplicationController
 
   def update
     #ログイン機能実装前なのでコメントアウトしてあります
-    # if item.user_id == current_user.id
-      item.update(items_params)
+    # if @item.user_id == current_user.id
+      @item.update(items_params)
       redirect_to action: :show
     end
  # end
   
-  def destroy
-  end  
+def destroy
+  # if @item.user_id == current_user.id
+  @item.destroy
+  redirect_to root_path
+  # end
+end
 
-  def set_item
+  
 
 
   def exhibit
@@ -49,11 +53,11 @@ class ItemsController < ApplicationController
 
   private
   def items_params
-    params.require(:item).permit(:title, :explanation, :status, :price, :category_id, :brand_id, delivery_attributes:[:deliveryfee_id,:deliverysource_id,:deliverymethod_id,:deliverydate_id])
+    params.require(:item).permit(:title, :explanation, :status_id, :price, :category_id, :brand_id, delivery_attributes:[:deliveryfee_id,:deliverysource_id,:deliverymethod_id,:deliverydate_id])
   end
 
   def set_item
-    item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
 end
