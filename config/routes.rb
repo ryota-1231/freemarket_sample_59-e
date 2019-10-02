@@ -11,6 +11,16 @@ Rails.application.routes.draw do
     resources :images, only: [:index, :create]
   end
 
+  namespace :api do
+      resources :categories, only: :index, defaults: { format: 'json' }
+    end
+  namespace :api do
+    resources :sizetypes, only: :index, defaults: { format: 'json' }
+  end
+  namespace :api do
+    resources :brands, only: :index, defaults: { format: 'json' }
+  end
+
   resources :users, only: [:new, :edit, :show] do
     collection do
       get 'log_out'
@@ -27,4 +37,5 @@ Rails.application.routes.draw do
       get 'done' 
     end
   end
+
 end

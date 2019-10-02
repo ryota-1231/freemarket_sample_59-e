@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 describe ItemsController, type: :controller do
   describe "GET #index" do
     describe 'GET #index' do
@@ -10,3 +11,4 @@ describe ItemsController, type: :controller do
     end
   end
 end  
+
