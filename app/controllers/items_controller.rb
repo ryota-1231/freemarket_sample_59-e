@@ -26,15 +26,22 @@ class ItemsController < ApplicationController
     #ログイン機能実装前なのでコメントアウトしてあります
     # if @item.user_id == current_user.id
       @item.update(items_params)
+    begin
       redirect_to action: :show
+    rescue
+      puts "エラー"
     end
- # end
+  
+  end
   
 def destroy
   # if @item.user_id == current_user.id
   @item.destroy
-  redirect_to root_path
-  # end
+  begin
+    redirect_to root_path
+  rescue
+    puts "エラー"
+end
 end
 
   
@@ -53,7 +60,7 @@ end
 
   private
   def items_params
-    params.require(:item).permit(:title, :explanation, :status_id, :price, :category_id, :brand_id, delivery_attributes:[:deliveryfee_id,:deliverysource_id,:deliverymethod_id,:deliverydate_id])
+    params.require(:item).permit(:title, :explanation, :status_id, :price, :category_id, :brand_id, delivery_attributes:[:id, :deliveryfee_id,:deliverysource_id,:deliverymethod_id,:deliverydate_id])
   end
 
   def set_item

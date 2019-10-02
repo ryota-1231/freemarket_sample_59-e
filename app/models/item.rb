@@ -24,6 +24,7 @@ class Item < ApplicationRecord
   belongs_to :buyer, optional: true
   belongs_to :delivery, optional: true
 
+
   accepts_nested_attributes_for :delivery
   accepts_nested_attributes_for :category
 

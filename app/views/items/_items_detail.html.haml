@@ -4,11 +4,10 @@
   .detail__box__items
     .detail__box__items__photo
       .detail__box__items__photo__big
-        = image_tag "#{@item.images.first.image}", class: "detail__box__items__photo__big--in"
+        = image_tag "https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg", class: "detail__box__items__photo__big--in"
       .detail__box__items__photo__mini
-        - @item.images.each do |item|
-          .detail__box__items__photo__mini--1
-            = image_tag "#{item.image}", class: "detail__box__items__photo__mini--1--in"
+        .detail__box__items__photo__mini--1
+          = image_tag "https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg", class: "detail__box__items__photo__mini--1--in"
     %table.detail__box__items__detail
       %tr.detail__box__items__detail__exhibitor
         %th.detail__box__items__detail__exhibitor--right
@@ -30,7 +29,7 @@
           %li
             = link_to @item.category.name
           %li
-            = link_to @item.category.sizetype.sizetype
+            = link_to ""
           %li
             = link_to ""
           

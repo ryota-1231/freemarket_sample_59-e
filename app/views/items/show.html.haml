@@ -4,7 +4,7 @@
     = render 'items_detail'
     -# - if user_signed_in? && item.user_id == current_user.id
     .edittt
-      = link_to "/items/#{@item.id}/edit" do
+      = link_to edit_item_path do
         .edittt__red-btn
           編集
       .edittt__or
