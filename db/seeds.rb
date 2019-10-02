@@ -1,4 +1,5 @@
 
+
 # require 'mechanize'
 
 #   agent = Mechanize.new
@@ -168,7 +169,6 @@
 #     sizetype_id: row['sizetype_id']
 #   )
 # end
-=======
 
 
 100.times do
