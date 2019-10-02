@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
       item.update(items_params)
       redirect_to action: :show
     end
-  # end
+ # end
   
   def destroy
   end  
@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
 
   private
   def items_params
-    params.require(:item).permit(:title, :explanation, :status, :price, :category_id,delivery_attributes:[:deliveryfee_id,:deliverysource_id,:deliverymethod_id,:deliverydate_id])
+    params.require(:item).permit(:title, :explanation, :status, :price, :category_id, :brand_id, delivery_attributes:[:deliveryfee_id,:deliverysource_id,:deliverymethod_id,:deliverydate_id])
 
   end
 

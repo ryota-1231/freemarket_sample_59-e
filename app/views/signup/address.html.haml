@@ -19,8 +19,8 @@
         %li.complete
           完了
           .order-radius
-
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  - @user = User.new unless @user
+  = form_for(@user, url: '/signup/paymethod', method: :get ) do |f|
     .signup__address
       .signup__address-title
         住所入力
@@ -32,56 +32,65 @@
               %span.form-require 必須
               %br
             .field-input
-            = f.email_field :email, class: "input-default", autocomplete: "email", placeholder: "例）山田"
+            = f.text_field :address_last_name, class: "input-default", autocomplete: "email", placeholder: "例）山田"
             %br
-            = f.email_field :email, class: "input-default", autocomplete: "email", placeholder: "例）彩"
+            = f.text_field :address_first_name, class: "input-default", autocomplete: "email", placeholder: "例）彩"
           .field
             .field-info__kana-name
               %label{for: "email"} お名前カナ
               %span.form-require 必須
               %br
             .field-input
-            = f.password_field :email, class: "input-default", autocomplete: "current-password", placeholder: "例）ヤマダ"
+            = f.text_field :address_last_name_kana, class: "input-default", autocomplete: "current-password", placeholder: "例）ヤマダ"
             %br
-            = f.password_field :email, class: "input-default", autocomplete: "current-password", placeholder: "例）アヤ"
+            = f.text_field :address_first_name_kana, class: "input-default", autocomplete: "current-password", placeholder: "例）アヤ"
+        = f.fields_for :addresses do |a|
           .field
-            .field-info__postcode
+            .field-info__postcode 
               %label{for: "password"} 郵便番号
               %span.form-require 必須
               %br
             .field-input
-            = f.email_field :password, class: "input-default", autocomplete: "email", placeholder: "例) 123-4567"
+            = a.text_field :postcode, class: "input-default", autocomplete: "", placeholder: "例) 123-4567"
           .field
             .field-info__prefecture
               %label{for: "password"} 都道府県
               %span.form-require 必須
               %br
             .field-input
-            = f.password_field :password, class: "input-default", autocomplete: "current-password", placeholder: ""
+            = a.collection_select :prefecture_id, Prefecture.all, :id, :name, class: "prefecture"
           .field  
             .field-info__city
               %label{for: "family_name_kanji"} 市区町村
               %span.form-require 必須
               %br
             .field-input
-            = f.email_field :email, class: "input-default", autocomplete: "email", placeholder: "例）横浜市緑区"
+            = a.text_field :city, class: "input-default", autocomplete: "", placeholder: "例）横浜市緑区"
           .field
             .field-info__block
               %label{for: "family-name-katakana"} 番地
+              %span.form-require 必須
+              %br
+            .field-input
+            = a.text_field :block, class: "input-default", autocomplete: "", placeholder: "例）青山1-1-1"
+          .field
+            .field-info__name
+              %label{for: "family-name-katakana"} 建物名
               %span.form-any 任意
               %br
             .field-input
-            = f.email_field :email, class: "input-default", autocomplete: "email", placeholder: "例）柳ビル103"
+            = a.text_field :building, class: "input-default", autocomplete: "", placeholder: "例）柳ビル103"
+
           .field
             .field-info__phone-number
               %label{for: "family-name-katakana"} 電話
               %span.form-any 任意
               %br
             .field-input
-            = f.email_field :email, class: "input-default__last", autocomplete: "email", placeholder: "例）09012345678"
+            = f.number_field :phone_number, class: "input-default__last", autocomplete: "", placeholder: "例）09012345678"
 
-          .next__btn
-          = link_to '次へ進む', '#', class:"next-btn"
+        .next__btn
+        = f.submit '次へ進む', class:"next-btn"
 
   .footer-user
     %ul
