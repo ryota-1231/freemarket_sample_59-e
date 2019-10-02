@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   numericality:{greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   # validates :sizetype, presence: true
   validates :category_id, presence: true, numericality: true
-  validates :delivery_id, presence: true, numericality: true
+  
   
   
   has_many :comments
