@@ -10,7 +10,7 @@
       .edittt__or
         or
       %input.edittt__stop-btn{type: 'submit', value: '出品を一旦停止する'}
-      = link_to "/items/#{@item.id}", method: :delete, data: { confirm: '確認削除すると二度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？' } do
+      = link_to item_path, method: :delete, data: { confirm: '確認削除すると二度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？' } do
         .edittt__delete-btn
           この商品を削除する
     = render 'comment'
