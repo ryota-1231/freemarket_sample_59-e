@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
       else
         redirect_to action: :error
       end
-  
+    
   end
   
 def destroy
