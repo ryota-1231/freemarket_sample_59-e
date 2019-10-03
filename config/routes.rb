@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     collection do
       get 'exhibit'
       get 'confirm'
+      get 'error'
     end
     resources :images, only: [:index, :create]
   end

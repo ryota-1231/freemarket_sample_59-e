@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   
   has_many :comments
   has_many :messages
-  has_many :images
+  has_many :images, dependent: :destroy
   has_many :goods
   has_many :users, through: :goods
 
@@ -24,12 +24,13 @@ class Item < ApplicationRecord
   belongs_to :buyer, optional: true
   belongs_to :delivery, optional: true
 
+
   accepts_nested_attributes_for :delivery
   accepts_nested_attributes_for :category
 
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :state
+  belongs_to_active_hash :status
   
 
 end

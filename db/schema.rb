@@ -10,17 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2019_09_29_154535) do
-
+ActiveRecord::Schema.define(version: 2019_10_02_093550) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "postcode", null: false
+    t.integer "postcode", null: false
     t.string "city", null: false
-    t.string "block", null: false
+    t.integer "block", null: false
     t.string "building"
     t.bigint "user_id"
-    t.string "prefecture_id"
+    t.integer "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "fk_rails_48c9e0c5a2"
@@ -89,7 +87,6 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
     t.string "title", null: false
     t.text "explanation", null: false
     t.integer "price"
-    t.integer "status", null: false
     t.string "postage"
     t.bigint "user_id"
     t.bigint "category_id", null: false
@@ -99,6 +96,8 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
     t.bigint "seller_id"
     t.bigint "buyer_id"
     t.bigint "delivery_id"
+    t.bigint "sizetype_id"
+    t.bigint "status_id", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
@@ -142,23 +141,10 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.string "address_last_name", null: false
-    t.string "address_first_name", null: false
-    t.string "address_last_name_kana", null: false
-    t.string "address_first_name_kana", null: false
+    t.string "fullname", null: false
+    t.string "kana", null: false
     t.string "email", null: false
-    t.string "phone_number"
-    t.string "cellphone_number", null: false
-    t.integer "birthdate_year", null: false
-    t.integer "birthdate_month", null: false
-    t.integer "birthdate_day", null: false
-    t.string "card_number", null: false
-    t.integer "expiration_year", null: false
-    t.integer "expiration_month", null: false
+    t.integer "phone_number", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

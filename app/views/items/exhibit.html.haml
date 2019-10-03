@@ -68,7 +68,7 @@
             .item-category__choice__status-title
               %h3 商品の状態
               %span 必須
-            = f.collection_select :status, State.all, :id, :name, prompt: "---"
+            = f.collection_select :status, Status.all, :id, :name, prompt: "---"
 
       .item-delivery
         .item-delivery--title
@@ -147,8 +147,6 @@
           に同意したことになります。
         = f.submit '出品する', class: 'item-post__exhibit .btn'
         .item-post__return.btn
-          =link_to 'もどる', '/users/1'
-
-       
-       
+          =link_to 'もどる', '/users/:id'
+          -# user_path(current_user)
 

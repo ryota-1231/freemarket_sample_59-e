@@ -4,11 +4,10 @@
   .detail__box__items
     .detail__box__items__photo
       .detail__box__items__photo__big
-        = image_tag "#{@item.images.first.image}", class: "detail__box__items__photo__big--in"
+        = image_tag "https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg", class: "detail__box__items__photo__big--in"
       .detail__box__items__photo__mini
-        - @item.images.each do |item|
-          .detail__box__items__photo__mini--1
-            = image_tag "#{item.image}", class: "detail__box__items__photo__mini--1--in"
+        .detail__box__items__photo__mini--1
+          = image_tag "https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg", class: "detail__box__items__photo__mini--1--in"
     %table.detail__box__items__detail
       %tr.detail__box__items__detail__exhibitor
         %th.detail__box__items__detail__exhibitor--right
@@ -30,18 +29,20 @@
           %li
             = link_to @item.category.name
           %li
-            = link_to "＞漫画"
+            = link_to ""
           %li
-            = link_to "＞青年漫画"
+            = link_to ""
           
       %tr.detail__box__items__detail__brand
         %th.detail__box__items__detail__brand--right
           ブランド
         %td.detail__box__items__detail__brand--left
+          = @item.brand.name
       %tr.detail__box__items__detail__status
         %th.detail__box__items__detail__status--right
           商品の状態
         %td.detail__box__items__detail__status--left 
+          = @item.status.name
       %tr.detail__box__items__detail__postage
         %th.detail__box__items__detail__postage--right
           配送料の負担 
@@ -74,20 +75,22 @@
           送料込み
         - if @item.delivery.deliveryfee_id == 2
           着払い
-  .detail__box__money
-  %input.detail__box__btn{type: 'submit', value: '購入画面に進む'}
+  - unless user_signed_in? && item.user_id == current_user.id then
+    .detail__box__money
+    %input.detail__box__btn{type: 'submit', value: '購入画面に進む'}
   .detail__box__explanation
     = @item.explanation
-  .detail__box__icon
-    = link_to "" do
-      .detail__box__icon--good
-        = fa_icon "heart"
-        いいね! 0
-    = link_to "" do
-      .detail__box__icon--warning
-        = fa_icon "flag"
-        不適切な商品の報告
-    = link_to "" do
-      .detail__box__icon--safety
-        = fa_icon "lock"
-        あんしん・あんぜんへの取り組み
+  - unless user_signed_in? && item.user_id == current_user.id then
+    .detail__box__icon
+      = link_to "" do
+        .detail__box__icon--good
+          = fa_icon "heart"
+          いいね! 0
+      = link_to "" do
+        .detail__box__icon--warning
+          = fa_icon "flag"
+          不適切な商品の報告
+      = link_to "" do
+        .detail__box__icon--safety
+          = fa_icon "lock"
+          あんしん・あんぜんへの取り組み
