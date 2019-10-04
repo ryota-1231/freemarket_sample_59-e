@@ -2,10 +2,10 @@ class Delivery < ApplicationRecord
 
   has_many :items
 
-  validates :delivery_fee, presence:true, numericality: true
-  validates :delivery_source, presence: true, numericality: true
-  validates :delivery_method, presence: true, numericality: true
-  validates :delivery_date,presence: true,
+  validates :deliveryfee_id, presence:true, numericality: true
+  validates :deliverysource_id, presence: true, numericality: true
+  validates :deliverymethod_id, presence: true, numericality: true
+  validates :deliverydate_id,presence: true,
   numericality: true
  
   extend ActiveHash::Associations::ActiveRecordExtensions

@@ -7,13 +7,13 @@ class Item < ApplicationRecord
   validates :price,
   numericality:{greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   # validates :sizetype, presence: true
-  validates :category_id, presence: true, numericality: true
+  # validates :category_id, presence: true, numericality: true
   
   
   
   has_many :comments
   has_many :messages
-  has_many :images
+  has_many :images, inverse_of: :item
   has_many :goods
   has_many :users, through: :goods
 
@@ -24,8 +24,9 @@ class Item < ApplicationRecord
   belongs_to :buyer, optional: true
   belongs_to :delivery, optional: true
 
+  accepts_nested_attributes_for :images
   accepts_nested_attributes_for :delivery
-  accepts_nested_attributes_for :category
+  
 
 
   extend ActiveHash::Associations::ActiveRecordExtensions
