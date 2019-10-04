@@ -6,8 +6,10 @@ class Item < ApplicationRecord
   validates :status_id, presence: true, numericality: true
   validates :price,
   numericality:{greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
+
   validates :category_id, presence: true, numericality: true
   validates :sizetype_id, numericality: true
+
   
   
   
@@ -26,9 +28,8 @@ class Item < ApplicationRecord
   belongs_to :sizetype,optional: true
 
 
+  accepts_nested_attributes_for :images
   accepts_nested_attributes_for :delivery
-  accepts_nested_attributes_for :category
-  # accepts_nested_attributes_for :sizetype
 
 
   extend ActiveHash::Associations::ActiveRecordExtensions

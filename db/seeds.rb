@@ -175,6 +175,7 @@
 #     title: Faker::Food.fruits,
 #     explanation: Faker::Food.dish,
 #     price: Faker::Number.within(range: 300..10000),
+
 #     status_id: Faker::Creature::Animal.name , 
 #     postage: Faker::Number.within(range: 300..800),
 #     user_id: 1, 

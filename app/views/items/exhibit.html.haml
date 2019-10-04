@@ -2,151 +2,148 @@
   .main_exhibit
     .title
       %h2 商品商品の情報を入力
-    = form_for (@item) do |f|
-      = render 'layouts/error_messages', model: f.object
-      .item-image
-        .item-image__sub-title
-          .item-image__sub-title__caution
-            %h3 出品画像
-            %span 必須
-          %p 最大10枚までアップロードできます
-        .item-image__sub-title__area  
-
-          -# #image-box
-          -#   %ul.item-images
-            
-          -#   .image-box__container
-          -#     %label
-          -#       %input{type:"file", class:"sell-upload-drop-file", id:"image", name:"image1", style:"display: none;"}
-          -#         ドラッグアンドドロップ
-          -#         %br 
-          -#         またはクリックしてファイルをアップロード
-            
-      .item-title
-        .item-title__name
-          .item-title__name__caution
-            %h3 商品名
-            %span 必須
-          = f.text_field "title", placeholder: "商品名（必須 40文字まで）", class:'item-title__name__area' 
-        .item-title__explanation
-          .item-title__explanation__caution
-            %h3 商品の説明
-            %span 必須
-          = f.text_area "explanation", placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', class:'item-title__explanation__area' 
-          
-      .item-category
-        %h3 商品の詳細
-        .item-category__choice
-          .item-category__choice__main
-            .item-category__choice__main-title
-              %h3 カテゴリー
+    #form
+      = form_for (@item) do |f|
+        = render 'layouts/error_messages', model: f.object
+        .item-img
+          .item-img__sub-title
+            .item-img__sub-title__caution
+              %h3 出品画像
               %span 必須
-            = f.collection_select :category_id, Category.where(ancestry: nil ), :id, :name, prompt: "---"
+            %p 最大10枚までアップロードできます
+          #image-box-1
+            %ul.item-images.active
+            .item-num-0#image-box__container
+              = f.fields_for :images do |i|
+                %label
+                  = i.file_field :image, multiple: true
+                  %p ドラッグアンドドロップ またはクリックしてファイルをアップロード
 
-            %select.category_children
-            %select.category_g_children{name:"item[category_id]"}
-            
               
-
-          .item-category__choice__size
-            .item-category__choice__size-title
-              %h3 サイズ
+        .item-title
+          .item-title__name
+            .item-title__name__caution
+              %h3 商品名
               %span 必須
-            %select.item-category__choice__size-area
-          
-          .item-category__choice__brand
-            .item-category__choice__brand-title
-              %h3 ブランド
-              %span 任意
-            %input{name:"item[brand_id]", value:"",type:"hidden", class:"brand_choice"}
-            %input{placeholder: "例) シャネル", value:"",class:'item-category__choice__brand-area'}
-              
-            %div.brands_area
-              %ul.brand_area
-                  
-          .item-category__choice__status
-            .item-category__choice__status-title
-              %h3 商品の状態
+            = f.text_field "title", placeholder: "商品名（必須 40文字まで）", class:'item-title__name__area' 
+          .item-title__explanation
+            .item-title__explanation__caution
+              %h3 商品の説明
               %span 必須
-            = f.collection_select :status, Status.all, :id, :name, prompt: "---"
-
-      .item-delivery
-        .item-delivery--title
-          %h3 配送について
-          =link_to '' do
-            %i.fa.fa-question-circle
-        .item-delivery__choice
-          = f.fields_for :delivery do |d|
-            .item-delivery__choice__payer
-              .item-delivery__choice__payer-title
-                %h3 配送料の負担
-                %span 必須
-              .item-delivery__choice__payer-area
-                = d.collection_select :deliveryfee_id, Deliveryfee.all, :id, :name, prompt: "---"
-
-            .item-delivery__choice__region
-              .item-delivery__choice__region-title
-                %h3 発送元の地域
-                %span 必須
-              .item-delivery__choice__region-area
-                = d.collection_select :deliverysource_id, Prefecture.all, :id, :name, prompt: "---"
+            = f.text_area "explanation", placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', class:'item-title__explanation__area' 
             
-            .item-delivery__choice__method
-              .item-delivery__choice__method-title
-                %h3 配送の方法
+        .item-category
+          %h3 商品の詳細
+          .item-category__choice
+            .item-category__choice__main
+              .item-category__choice__main-title
+                %h3 カテゴリー
                 %span 必須
-              .item-delivery__choice__method-area
-                = d.collection_select :deliverymethod_id, Deliverymethod.all, :id, :name, prompt: "---"
+              = f.collection_select :category_id, Category.where(ancestry: nil ), :id, :name, prompt: "---"
+              %select.category_children
+              %select.category_g_children{name:"item[category_id]"}
 
-            .item-delivery__choice__date
-              .item-delivery__choice__date-title
-                %h3 発送までの日数
+            .item-category__choice__size
+              .item-category__choice__size-title
+                %h3 サイズ
                 %span 必須
-              .item-delivery__choice__date-area
-                = d.collection_select :deliverydate_id, Deliverydate.all, :id, :name, prompt: "---"
-      
-      .item-price
-        .item-price--title
-          %h3 販売価格(300〜9,999,999)
-          =link_to '' do
-            %i.fa.fa-question-circle
+              %select.item-category__choice__size-area
             
-        .item-price__choice
-          .item-price__choice__input
-            .item-price__choice__input-title
-              %h3 価格
-              %span 必須
-            .item-price__choice__input-area
-              %label ¥
-              = f.text_field "price", placeholder: "例） 300"
-              
-          
-          .item-price__choice__fee
-            .item-price__choice__fee-title
-              %h3 販売手数料 (10%)
-            .item-price__choice__fee-area -
-          
-          .item-price__choice__profit
-            .item-price__choice__profit-title
-              %h3 販売利益
-            .item-price__choice__profit-area -
+            .item-category__choice__brand
+              .item-category__choice__brand-title
+                %h3 ブランド
+                %span 任意
+              %input{name:"item[brand_id]", value:"",type:"hidden", class:"brand_choice"}
+              %input{placeholder: "例) シャネル", value:"",class:'item-category__choice__brand-area'}
+                
+              %div.brands_area
+                %ul.brand_area
+                    
+            .item-category__choice__status
+              .item-category__choice__status-title
+                %h3 商品の状態
+                %span 必須
+              = f.collection_select :status, State.all, :id, :name, prompt: "---"
 
-      .item-post
-        .item-post__caution
-          %p
-          =link_to '禁止されている出品'
-          、
-          =link_to '行為'
-          を必ずご確認ください。
-          %br
-          またブランド品でシリアルナンバー等がある場合はご記載ください。
-          =link_to '偽ブランドの販売'
-          は犯罪であり処罰される可能性があります。
-          また、出品をもちまして
-          =link_to '加盟店規約'
-          に同意したことになります。
-        = f.submit '出品する', class: 'item-post__exhibit .btn'
-        .item-post__return.btn
-          =link_to 'もどる', '/users/:id'
-          -# user_path(current_user)
+        .item-delivery
+          .item-delivery--title
+            %h3 配送について
+            =link_to '' do
+              %i.fa.fa-question-circle
+          .item-delivery__choice
+            = f.fields_for :delivery do |d|
+              .item-delivery__choice__payer
+                .item-delivery__choice__payer-title
+                  %h3 配送料の負担
+                  %span 必須
+                .item-delivery__choice__payer-area
+                  = d.collection_select :deliveryfee_id, Deliveryfee.all, :id, :name, prompt: "---"
+
+              .item-delivery__choice__region
+                .item-delivery__choice__region-title
+                  %h3 発送元の地域
+                  %span 必須
+                .item-delivery__choice__region-area
+                  = d.collection_select :deliverysource_id, Prefecture.all, :id, :name, prompt: "---"
+              
+              .item-delivery__choice__method
+                .item-delivery__choice__method-title
+                  %h3 配送の方法
+                  %span 必須
+                .item-delivery__choice__method-area
+                  = d.collection_select :deliverymethod_id, Deliverymethod.all, :id, :name, prompt: "---"
+
+              .item-delivery__choice__date
+                .item-delivery__choice__date-title
+                  %h3 発送までの日数
+                  %span 必須
+                .item-delivery__choice__date-area
+                  = d.collection_select :deliverydate_id, Deliverydate.all, :id, :name, prompt: "---"
+        
+        .item-price
+          .item-price--title
+            %h3 販売価格(300〜9,999,999)
+            =link_to '' do
+              %i.fa.fa-question-circle
+              
+          .item-price__choice
+            .item-price__choice__input
+              .item-price__choice__input-title
+                %h3 価格
+                %span 必須
+              .item-price__choice__input-area
+                %label ¥
+                = f.text_field "price", placeholder: "例） 300"
+                
+            
+            .item-price__choice__fee
+              .item-price__choice__fee-title
+                %h3 販売手数料 (10%)
+              .item-price__choice__fee-area -
+            
+            .item-price__choice__profit
+              .item-price__choice__profit-title
+                %h3 販売利益
+              .item-price__choice__profit-area -
+
+        .item-post
+          .item-post__caution
+            %p
+            =link_to '禁止されている出品'
+            、
+            =link_to '行為'
+            を必ずご確認ください。
+            %br
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            =link_to '偽ブランドの販売'
+            は犯罪であり処罰される可能性があります。
+            また、出品をもちまして
+            =link_to '加盟店規約'
+            に同意したことになります。
+          = f.submit '出品する', class: 'item-post__exhibit .btn'
+          .item-post__return.btn
+            =link_to 'もどる', '/users/1'
+
+        
+       
 
