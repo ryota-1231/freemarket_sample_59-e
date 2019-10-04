@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
   end
   
   def show
+    # @item = Item.find(params[:id])
   end
   
   def edit
@@ -56,6 +57,17 @@ end
   end
 
   def confirm
+    @item = Item.find(7)
+  end
+
+  def pay
+    @item = Item.find(7)
+    Payjp.api_key = 'sk_test_be508ed036c9c40e55488d6a'
+    charge = Payjp::Charge.create(
+    :amount => @item.price,
+    :card => params['payjp-token'],
+    :currency => 'jpy',
+    )
   end
 
   private

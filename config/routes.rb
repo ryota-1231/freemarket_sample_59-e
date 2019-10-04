@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'exhibit'
       get 'confirm'
       get 'error'
+      post 'pay'
     end
     resources :images, only: [:index, :create]
   end
