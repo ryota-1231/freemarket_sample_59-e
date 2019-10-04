@@ -25,21 +25,21 @@ class ItemsController < ApplicationController
   def update
     #ログイン機能実装前なのでコメントアウトしてあります
     # if @item.user_id == current_user.id
-      if @item.update(items_params)
+        @item.update!(items_params)
         redirect_to action: :show
-      else
-        redirect_to action: :error
-      end
+      # else
+      #   redirect_to action: :error 
+      
     
   end
   
 def destroy
   # if @item.user_id == current_user.id
-  if @item.destroy
+    @item.destroy
     redirect_to root_path
-  else
-    redirect_to action: :error
-  end
+  # else
+  #   redirect_to action: :error
+  # end
 
 end
 def error
@@ -60,7 +60,7 @@ end
 
   private
   def items_params
-    params.require(:item).permit(:title, :explanation, :status_id, :price, :category_id, :brand_id, delivery_attributes:[:id, :deliveryfee_id,:deliverysource_id,:deliverymethod_id,:deliverydate_id])
+    params.require(:item).permit(:title, :explanation, :status_id, :price, :category_id, :brand_id, :sizetype_id, delivery_attributes:[:id, :deliveryfee_id,:deliverysource_id,:deliverymethod_id,:deliverydate_id])
   end
 
   def set_item
