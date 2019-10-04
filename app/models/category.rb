@@ -8,9 +8,9 @@ class Category < ApplicationRecord
 
   class<<self
     def take
-      Category.all
+    Category.all
+      end
     end
-  end
 
 
   
