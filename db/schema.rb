@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_071406) do
+
+ActiveRecord::Schema.define(version: 2019_10_02_093550) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postcode", null: false
@@ -97,11 +98,14 @@ ActiveRecord::Schema.define(version: 2019_10_02_071406) do
     t.bigint "seller_id"
     t.bigint "buyer_id"
     t.bigint "delivery_id"
+    t.bigint "status_id", null: false
+    t.bigint "sizetype_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["delivery_id"], name: "index_items_on_delivery_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
+    t.index ["sizetype_id"], name: "index_items_on_sizetype_id"
     t.index ["title"], name: "index_items_on_title"
     t.index ["user_id"], name: "fk_rails_d4b6334db2"
   end
@@ -179,6 +183,7 @@ ActiveRecord::Schema.define(version: 2019_10_02_071406) do
   add_foreign_key "items", "categories"
   add_foreign_key "items", "deliveries"
   add_foreign_key "items", "sellers"
+  add_foreign_key "items", "sizetypes"
   add_foreign_key "items", "users"
   add_foreign_key "messages", "items"
   add_foreign_key "messages", "users"

@@ -3,17 +3,19 @@ class Item < ApplicationRecord
   length:{ maximum:40 } 
   validates :explanation, presence: true, 
   length:{ maximum:1000 }
-  validates :status, presence: true, numericality: true
+  validates :status_id, presence: true, numericality: true
   validates :price,
   numericality:{greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
-  # validates :sizetype, presence: true
-  # validates :category_id, presence: true, numericality: true
+
+  validates :category_id, presence: true, numericality: true
+  validates :sizetype_id, numericality: true
+
   
   
   
   has_many :comments
   has_many :messages
-  has_many :images, inverse_of: :item
+  has_many :images, dependent: :destroy
   has_many :goods
   has_many :users, through: :goods
 
@@ -23,14 +25,14 @@ class Item < ApplicationRecord
   belongs_to :seller, optional: true
   belongs_to :buyer, optional: true
   belongs_to :delivery, optional: true
+  belongs_to :sizetype,optional: true
+
 
   accepts_nested_attributes_for :images
   accepts_nested_attributes_for :delivery
-  
 
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :state
-  
+  belongs_to_active_hash :status
 
 end

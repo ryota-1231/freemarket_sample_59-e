@@ -40,11 +40,8 @@
                 %h3 カテゴリー
                 %span 必須
               = f.collection_select :category_id, Category.where(ancestry: nil ), :id, :name, prompt: "---"
-
               %select.category_children
               %select.category_g_children{name:"item[category_id]"}
-              
-                
 
             .item-category__choice__size
               .item-category__choice__size-title
@@ -148,5 +145,5 @@
             =link_to 'もどる', '/users/1'
 
         
-        
+       
 

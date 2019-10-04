@@ -175,7 +175,8 @@
 #     title: Faker::Food.fruits,
 #     explanation: Faker::Food.dish,
 #     price: Faker::Number.within(range: 300..10000),
-#     state: Faker::Creature::Animal.name , 
+
+#     status_id: Faker::Creature::Animal.name , 
 #     postage: Faker::Number.within(range: 300..800),
 #     user_id: 1, 
 #     category_id: 1,
@@ -203,7 +204,7 @@ require "csv"
 #     updated_at: row['updated_at'],
 #     ancestry: row['ancestry']
 #   )
-# end
+#   end
 
 # CSV.foreach('db/brands.csv', headers: true) do |row|
 #   Brand.create(
