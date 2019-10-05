@@ -33,19 +33,25 @@
               %h3 カテゴリー
               %span 必須
             = f.collection_select :category_id, Category.where(ancestry: nil ), :id, :name, prompt: "---"
-              
+            
+            %select.category_children
+            %select.category_g_children{name:"item[category_id]"}
 
           .item-category__choice__size
             .item-category__choice__size-title
               %h3 サイズ
               %span 必須
-            .item-category__choice__size-area
+            %select.item-category__choice__size-area{name:"item[sizetype_id]"}
           
           .item-category__choice__brand
             .item-category__choice__brand-title
               %h3 ブランド
               %span 任意
-            .item-category__choice__brand-area
+            %input{name:"item[brand_id]", value:"",type:"hidden", class:"brand_choice"}
+            %input{placeholder: "例) シャネル", value:"",class:'item-category__choice__brand-area'}
+              
+            %div.brands_area
+              %ul.brand_area
               
 
           .item-category__choice__status
