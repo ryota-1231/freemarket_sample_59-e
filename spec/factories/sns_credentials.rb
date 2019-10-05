@@ -1,7 +1,8 @@
 FactoryBot.define do
+  
   factory :sns_credential do
-    provider { "MyString" }
-    uid { "MyString" }
+    provider { "1234567812345678" }
+    uid { "facebook" }
     user { nil }
   end
 end
