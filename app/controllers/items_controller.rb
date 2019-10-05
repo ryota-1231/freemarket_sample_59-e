@@ -12,9 +12,10 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(items_params)
     if @item.save
-      redirect_to root_path
+    redirect_to root_path
     else
-      redirect_to '/items/exhibit'
+    @item.images.build
+    render action: '/exhibit'
     end
   end
   
@@ -75,9 +76,7 @@ end
 
   private
   def items_params
-
-    params.require(:item).permit(:title, :explanation, :status, :price, :category_id, :brand_id, :sizetype_id, delivery_attributes:[:deliveryfee_id,:deliverysource_id,:deliverymethod_id,:deliverydate_id],  images_attributes: {image: []})
-
+    params.require(:item).permit(:title, :explanation, :status_id, :price, :category_id, :brand_id, :sizetype_id, delivery_attributes:[:deliveryfee_id,:deliverysource_id,:deliverymethod_id,:deliverydate_id],images_attributes:[:image])
   end
 
   def set_item

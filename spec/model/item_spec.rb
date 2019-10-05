@@ -63,37 +63,32 @@ describe Item do
     end
 
       it "is invalid with a price only numbers can " do
-        item = Item.new(title: "aaa", explanation: "aaa", category_id: 1,status:2, delivery_id:1, brand_id:"1",price: "eee")
+        item = Item.new(title: "aaa", explanation: "aaa", category_id: 1,status:2, delivery_id:1, brand_id:1,price: "eee")
         item.valid?
         expect(item.errors[:price]).to include("is not a number")
       end
 
       it "is invalid with a price that has more than 9999999 characters " do
-        item = Item.new(title: "aaa", explanation: "aaa", category_id: 1,status:2, delivery_id:1, brand_id:"1",price: 9999999)
+        item = Item.new(title: "aaa", explanation: "aaa", category_id: 1,status:2, delivery_id:1, brand_id:1,price: 9999999)
         item.valid?
         expect(item).to be_valid
       end
   
        it "is valid with a price that has less than 10000000 characters " do
-        item = Item.new(title: "aaa", explanation: "aaa", category_id: 1,status:2, delivery_id:1, brand_id:"1",price: 10000000)
+        item = Item.new(title: "aaa", explanation: "aaa", category_id: 1,status:2, delivery_id:1, brand_id:1,price: 10000000)
         item.valid?
         expect(item.errors[:price]).to include("must be less than or equal to 9999999")
       end
 
       it "is valid with a price that has more than 299 characters " do
-        item = Item.new(title: "aaa", explanation: "aaa", category_id: 1,status:2, delivery_id:1, brand_id:"1",price: 299)
+        item = Item.new(title: "aaa", explanation: "aaa", category_id: 1,status:2, delivery_id:1, brand_id:1,price: 299)
         item.valid?
         expect(item.errors[:price]).to include("must be greater than or equal to 300")
       end
   
-       it "is invalid with a price that has less than 10000000 characters " do
-        item = Item.new(title: "aaa", explanation: "aaa", category_id: 1,status:2, delivery_id:1, brand_id:"1",price: 300)
-        item.valid?
-        expect(item).to be_valid
-      end
 
       it "is invalid with a status only numbers can " do
-        item = Item.new(title: "aaa", explanation: "aaa", category_id: 1,status:"aaa", delivery_id:1, brand_id:"1",price: 300)
+        item = Item.new(title: "aaa", explanation: "aaa", category_id: 1,status:"aaa", delivery_id:1, brand_id:1,price: 300)
         item.valid?
         expect(item.errors[:status]).to include("is not a number")
       end

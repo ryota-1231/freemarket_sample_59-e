@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_04_010446) do
+ActiveRecord::Schema.define(version: 2019_10_04_114921) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postcode", null: false
@@ -77,9 +77,9 @@ ActiveRecord::Schema.define(version: 2019_10_04_010446) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image"
-    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "item_id"
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
@@ -93,11 +93,11 @@ ActiveRecord::Schema.define(version: 2019_10_04_010446) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "brand_id"
+    t.bigint "status_id", null: false
     t.bigint "seller_id"
     t.bigint "buyer_id"
-    t.bigint "delivery_id"
-    t.bigint "status_id", null: false
     t.bigint "sizetype_id"
+    t.bigint "delivery_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
@@ -176,6 +176,7 @@ ActiveRecord::Schema.define(version: 2019_10_04_010446) do
   add_foreign_key "comments", "users"
   add_foreign_key "goods", "items"
   add_foreign_key "goods", "users"
+  add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "buyers"
   add_foreign_key "items", "categories"
