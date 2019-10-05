@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_093550) do
-ActiveRecord::Schema.define(version: 2019_09_29_154535) do
+ActiveRecord::Schema.define(version: 2019_10_03_111151) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "postcode", null: false
+    t.string "postcode", null: false
     t.string "city", null: false
-    t.integer "block", null: false
+    t.string "block", null: false
     t.string "building"
     t.bigint "user_id"
-    t.integer "prefecture_id"
+    t.string "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "fk_rails_48c9e0c5a2"
@@ -88,7 +87,6 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
     t.string "title", null: false
     t.text "explanation", null: false
     t.integer "price"
-    t.integer "status", null: false
     t.string "postage"
     t.bigint "user_id"
     t.bigint "category_id", null: false
@@ -141,12 +139,34 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
     t.index ["ancestry"], name: "index_sizetypes_on_ancestry"
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
-    t.string "fullname", null: false
-    t.string "kana", null: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "address_last_name", null: false
+    t.string "address_first_name", null: false
+    t.string "address_last_name_kana", null: false
+    t.string "address_first_name_kana", null: false
     t.string "email", null: false
-    t.integer "phone_number", null: false
+    t.string "phone_number"
+    t.string "cellphone_number", null: false
+    t.integer "birthdate_year", null: false
+    t.integer "birthdate_month", null: false
+    t.integer "birthdate_day", null: false
+    t.string "card_number", null: false
+    t.integer "expiration_year", null: false
+    t.integer "expiration_month", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -173,4 +193,5 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
   add_foreign_key "messages", "items"
   add_foreign_key "messages", "users"
   add_foreign_key "sellers", "judges"
+  add_foreign_key "sns_credentials", "users"
 end

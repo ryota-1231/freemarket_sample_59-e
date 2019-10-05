@@ -3,6 +3,11 @@ class SignupController < ApplicationController
   def new
   end
 
+  def outsidemember
+    @user = User.new
+  end
+
+
   def member
     @user = User.new
   end

@@ -12,11 +12,11 @@
           = fa_icon 'envelope', class: "main__box__btn--icon"
           メールアドレスで登録する
         .main-user__box__btn
-        =link_to "#", class: "main__box__btn main__box__btn--facebook" do
+        =link_to user_facebook_omniauth_authorize_path, class: "main__box__btn main__box__btn--facebook" do
           = fa_icon 'facebook-square', class: "main__box__btn--icon"
           Facebookで登録する
         .main-user__box__btn
-        =link_to "#", class: "main__box__btn main__box__btn--google" do
+        =link_to user_google_oauth2_omniauth_authorize_path, class: "main__box__btn main__box__btn--google" do
           = fa_icon 'google', class: "main__box__btn--icon"
           Googleで登録する
   .footer-user
