@@ -1,23 +1,12 @@
 #image-box-1
-  %ul.item-images
-  .image-box__container
+  %ul.item-images.active
+  .item-num-0#image-box__container
     %label
-      %input{type:"file", class:"sell-upload-drop-file", id:"image", name:"image1", style:"display: none;"}
-        ドラッグアンドドロップ
-        %br 
-        またはクリックしてファイルをアップロード
+      %input{multiple:"multiple", name:"item[images_attributes][][image]", type:"file", value:"",style:"display: none;", id:"images"}
+      %p ドラッグアンドドロップ またはクリックしてファイルをアップロード
 
-#image-box-2
-  %ul.item-images
-  .image-box__container
-    %label
-      %input{type:"file", class:"sell-upload-drop-file", id:"image", name:"image1", style:"display: none;"}
-        ドラッグアンドドロップ
-        %br 
-        またはクリックしてファイルをアップロード
-  
-  
-
+  - @images.each do |image|
+    = image_tag "#{image}"
 
 
 
