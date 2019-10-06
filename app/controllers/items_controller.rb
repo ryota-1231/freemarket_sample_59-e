@@ -38,20 +38,18 @@ class ItemsController < ApplicationController
     
   end
 
-  
-def destroy
-  # if @item.user_id == current_user.id
-    @item.destroy
-    redirect_to root_path
-  # else
-  #   redirect_to action: :error
-  # end
+  def destroy
+    # if @item.user_id == current_user.id
+      @item.destroy
+      redirect_to root_path
+    # else
+    #   redirect_to action: :error
+    # end
 
-end
-def error
-end
+  end
 
-
+  def error
+  end
 
   def exhibit
     @item = Item.new
@@ -72,6 +70,10 @@ end
     :card => params['payjp-token'],
     :currency => 'jpy',
     )
+  end
+
+  def category
+    @categories = Category.where(ancestry: nil)
   end
 
   private
