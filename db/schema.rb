@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_093550) do
-ActiveRecord::Schema.define(version: 2019_09_29_154535) do
-
+ActiveRecord::Schema.define(version: 2019_10_04_010446) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postcode", null: false
@@ -43,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
     t.text "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry"
+    t.string "ancestry", default: ""
     t.bigint "sizetype_id"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["sizetype_id"], name: "index_categories_on_sizetype_id"
@@ -89,7 +87,6 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
     t.string "title", null: false
     t.text "explanation", null: false
     t.integer "price"
-    t.integer "status", null: false
     t.string "postage"
     t.bigint "user_id"
     t.bigint "category_id", null: false
@@ -143,6 +140,15 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
     t.index ["ancestry"], name: "index_sizetypes_on_ancestry"
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "last_name", null: false
@@ -189,4 +195,5 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
   add_foreign_key "messages", "items"
   add_foreign_key "messages", "users"
   add_foreign_key "sellers", "judges"
+  add_foreign_key "sns_credentials", "users"
 end

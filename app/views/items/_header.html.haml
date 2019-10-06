@@ -83,41 +83,49 @@
 
             
     
+      - if user_signed_in?
+        .header__box__bottom__right
+          .header__box__bottom__right__good
+            = link_to "#" do
+              %i.far.fa-heart
+              いいね！一覧
 
-      .header__box__bottom__right
-        .header__box__bottom__right__good
-          = link_to "#" do
-            %i.far.fa-heart
-            いいね！一覧
+          .header__box__bottom__right__news
+            = link_to "#" do
+              %i.far.fa-bell
+              お知らせ
+              .header__box__bottom__right__news__hidden
+                = link_to "" do
+                  %li.news
+                    1
+                = link_to "" do
+                  %li.news
+                    2
+                = link_to "" do
+                  %li.news
+                    3
+                = link_to "" do
+                  %li.news
+                    4   
 
-        .header__box__bottom__right__news
-          = link_to "#" do
-            %i.far.fa-bell
-            お知らせ
-            .header__box__bottom__right__news__hidden
-              = link_to "" do
-                %li.news
-                  1
-              = link_to "" do
-                %li.news
-                  2
-              = link_to "" do
-                %li.news
-                  3
-              = link_to "" do
-                %li.news
-                  4   
+          .header__box__bottom__right__todo
+            = link_to "#" do
+              %i.fas.fa-check
+              やることリスト
+              .header__box__bottom__right__todo__hidden
+                .header__box__bottom__right__todo__hidden1
 
-        .header__box__bottom__right__todo
-          = link_to "#" do
-            %i.fas.fa-check
-            やることリスト
-            .header__box__bottom__right__todo__hidden
-              .header__box__bottom__right__todo__hidden1
-
-        .header__box__bottom__right__mypage
-          = link_to "/users/:id" do
-            %i.far.fa-smile
-            マイページ
+          .header__box__bottom__right__mypage
+            = link_to "/users/:id" do
+              %i.far.fa-smile
+              マイページ
+      - else
+        .header__box__bottom__right
+          .header__box__bottom__right__good
+          =link_to new_user_path, method: :get, class: "newuser_register" do
+            新規登録
+          .header__box__bottom__right__news
+          =link_to new_user_session_path, method: :get, class: "user_login" do
+            ログイン
 
 = render "users/item__exhibit"

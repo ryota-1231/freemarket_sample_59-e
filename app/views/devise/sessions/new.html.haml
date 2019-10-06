@@ -13,11 +13,11 @@
           新規会員登録
       .login__box__center
         .login__box__center-facebooks
-        =link_to "#", class: "login__box__center-facebook" do
+        =link_to user_facebook_omniauth_authorize_path, class: "login__box__center-facebook" do
           = fa_icon 'facebook-square', class: "login__box__center--icon"
           Facabookでログイン
         .login__box__center-googles
-        =link_to "#", class: "login__box__center-google" do
+        =link_to user_google_oauth2_omniauth_authorize_path, class: "login__box__center-google" do
           = fa_icon 'google', class: "login__box__center--icon"
           Googleでログイン
       .login__box__bottom

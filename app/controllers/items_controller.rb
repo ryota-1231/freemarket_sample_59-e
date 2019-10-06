@@ -12,7 +12,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(items_params)
     if @item.save
-    redirect_to root_path
+      redirect_to root_path
+    else
+      redirect_to '/items/exhibit'
     end
   end
   
@@ -27,6 +29,7 @@ class ItemsController < ApplicationController
 
   def update
     #ログイン機能実装前なのでコメントアウトしてあります
+
     # if @item.user_id == current_user.id
       binding.pry
       if items_params[:sizetype_id]
@@ -36,6 +39,7 @@ class ItemsController < ApplicationController
       end
       redirect_to action: :show
   end
+
   
 def destroy
   # if @item.user_id == current_user.id
@@ -49,9 +53,11 @@ end
 
   def exhibit
     @item = Item.new
-    @category = Category.new
     @item.build_delivery
-    @item.build_category
+
+    @item.images.build
+
+
   end
 
   def confirm
@@ -70,7 +76,9 @@ end
 
   private
   def items_params
-    params.require(:item).permit(:title, :explanation, :status_id, :price, :category_id, :brand_id, :sizetype_id, delivery_attributes:[:id, :deliveryfee_id,:deliverysource_id,:deliverymethod_id,:deliverydate_id])
+
+    params.require(:item).permit(:title, :explanation, :status, :price, :category_id, :brand_id, :sizetype_id, delivery_attributes:[:deliveryfee_id,:deliverysource_id,:deliverymethod_id,:deliverydate_id],  images_attributes: {image: []})
+
   end
 
   def set_item
