@@ -19,7 +19,9 @@ class ItemsController < ApplicationController
   end
   
   def show
-    # @item = Item.find(params[:id])
+    @user = Item.where(user_id: @item.user_id).order("RAND()").limit(6)
+    @category = Item.where(category_id: @item.category_id).order("RAND()").limit(6)
+    @good = Good.new
   end
   
   def edit
@@ -29,12 +31,13 @@ class ItemsController < ApplicationController
     #ログイン機能実装前なのでコメントアウトしてあります
 
     # if @item.user_id == current_user.id
-        @item.update!(items_params)
-        redirect_to action: :show
-      # else
-      #   redirect_to action: :error 
-      
-    
+      binding.pry
+      if items_params[:sizetype_id]
+        @item.update(items_params)
+      else
+        @item.update(items_params.merge(sizetype_id: nil))
+      end
+      redirect_to action: :show
   end
 
   
@@ -42,11 +45,7 @@ def destroy
   # if @item.user_id == current_user.id
     @item.destroy
     redirect_to root_path
-  # else
-  #   redirect_to action: :error
-  # end
-
-end
+  end
 def error
 end
 
@@ -55,7 +54,9 @@ end
   def exhibit
     @item = Item.new
     @item.build_delivery
+
     @item.images.build
+
 
   end
 

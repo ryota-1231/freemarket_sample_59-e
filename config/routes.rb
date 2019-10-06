@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       post 'pay'
     end
     resources :images, only: [:index, :create]
+    resources :goods, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
 
   namespace :api do
