@@ -19,10 +19,12 @@ class ItemsController < ApplicationController
   end
   
   def edit
+    #あとで使います
     # @item = Item.find(params[:id])
   end
 
   def update
+    #あとで使います
     # item = Item.find(params[:id])
     # if item.buyer_id == current_user.id
     #   items.update()
@@ -48,10 +50,9 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    # @item = Item.find(7)
     Payjp.api_key = 'sk_test_be508ed036c9c40e55488d6a'
     Payjp::Charge.create(
-      amount: 1000, # 決済する値段
+      amount: 1000, 
       card: params['payjp-token'],
       currency: 'jpy'
     )
