@@ -1,3 +1,4 @@
+
 # require 'rails_helper'
 
 # describe Item do
@@ -97,6 +98,7 @@
 #         item.valid?
 #         expect(item.errors[:status]).to include("is not a number")
 #       end
+
 
       
 
