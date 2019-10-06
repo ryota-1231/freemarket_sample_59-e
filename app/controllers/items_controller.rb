@@ -26,7 +26,10 @@ class ItemsController < ApplicationController
   end
   
   def edit
+    #あとで使います
+    # @item = Item.find(params[:id])
   end
+
 
   def update
     #ログイン機能実装前なのでコメントアウトしてあります
@@ -57,6 +60,19 @@ class ItemsController < ApplicationController
   end
 
   def confirm
+    #id仮置きです
+    @user = User.find(1)
+    @item = Item.find(1)
+    @cards = Card.find(1)
+  end
+
+  def pay
+    Payjp.api_key = 'sk_test_be508ed036c9c40e55488d6a'
+    Payjp::Charge.create(
+      amount: 1000, # 決済する値段
+      card: params['payjp-token'],
+      currency: 'jpy'
+    )
     @item = Item.find(7)
   end
 
