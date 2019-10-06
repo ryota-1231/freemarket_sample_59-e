@@ -60,7 +60,7 @@ class User < ApplicationRecord
       end
       sns = snscredential
     else
-      user = User.where(email: auth.info.email).first
+      user = User.find_by(email: auth.info.email)
       if user.present?
         sns = SnsCredential.new(
           uid: uid,
