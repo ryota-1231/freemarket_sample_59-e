@@ -32,7 +32,6 @@ class ItemsController < ApplicationController
     #ログイン機能実装前なのでコメントアウトしてあります
 
     # if @item.user_id == current_user.id
-      binding.pry
       if items_params[:sizetype_id]
         @item.update(items_params)
       else

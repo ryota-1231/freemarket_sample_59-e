@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_10_04_114921) do
     t.text "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry", default: ""
+    t.string "ancestry"
     t.bigint "sizetype_id"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["sizetype_id"], name: "index_categories_on_sizetype_id"
