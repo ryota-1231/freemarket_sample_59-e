@@ -31,28 +31,30 @@
       .detail__otheritems__head
         = link_to "#{@item.user.nickname}さんのその他の出品"
       .detail__otheritems__mass
-        - for num in 1..6 do
+        - @user.each do |item|
           .detail__otheritems__mass__one
             .detail__otheritems__mass__one--photo
-              = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "detail__otheritems__mass__one--photo--in"
+              = image_tag "#{item.images.first.image}", class: "detail__otheritems__mass__one--photo--in"
             .detail__otheritems__mass__one--explanation
               .detail__otheritems__mass__one--explanation--name
-                東京喰種
+                = "#{item.title}"
               .detail__otheritems__mass__one--explanation--price
-                ¥400円
+                ¥
+                = "#{item.price}"
     .detail__samecategory
       .detail__samecategory__head
-        = link_to "#{@item.category.name} その他の商品"
+        = link_to "#{@item.category.name} (#{@item.category.parent.name}) その他の商品"
       .detail__samecategory__mass
-        - for num in 1..6 do
+        - @category.each do |category|
           .detail__samecategory__mass__one
             .detail__samecategory__mass__one--photo
-              = image_tag "https://images-na.ssl-images-amazon.com/images/I/41D7VAfRQ%2BL._SX356_BO1,204,203,200_.jpg", class: "detail__samecategory__mass__one--photo--in"
+              = image_tag "", class: "detail__samecategory__mass__one--photo--in"
             .detail__samecategory__mass__one--explanation
               .detail__samecategory__mass__one--explanation--name
-                僕らはみんな河合荘
+                = "#{category.title}"
               .detail__samecategory__mass__one--explanation--price
-                ¥400
+                ¥
+                = "#{category.price}"
   = render 'users/item__exhibit'
   = render 'footer'
 
