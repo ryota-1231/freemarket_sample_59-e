@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: "users/registrations", sessions: "users/sessions" }
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root "items#index"
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
       get 'category'
     end
     resources :images, only: [:index, :create]
+    resources :goods, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
 
   namespace :api do
@@ -33,6 +36,7 @@ Rails.application.routes.draw do
   end
   resources :signup, only:[:new, :create] do
     collection do
+      get 'outsidemember'
       get 'member'
       get 'phonenumber'
       get 'address'

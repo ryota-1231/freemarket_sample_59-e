@@ -28,17 +28,26 @@
           カテゴリー
         %td.detail__box__items__detail__category--left
           %li
-            = link_to ""
+            = link_to () do
+              = @item.category.root.name
           %li
-            = link_to ""
+            = link_to () do
+              = @item.category.parent.name
           %li
-            = link_to @item.category.name
+            = link_to () do
+              = @item.category.name
           
       %tr.detail__box__items__detail__brand
         %th.detail__box__items__detail__brand--right
           ブランド
         %td.detail__box__items__detail__brand--left
-          -# = @item.brand.name
+          = @item.brand.name if @item.brand_id.present?
+      - if @item.sizetype_id.present?
+        %tr.detail__box__items__detail__size
+          %th.detail__box__items__detail__size--right
+            サイズ
+          %td.detail__box__items__detail__size--left 
+            = @item.sizetype.sizetype if @item.sizetype_id.present?
       %tr.detail__box__items__detail__status
         %th.detail__box__items__detail__status--right
           商品の状態
@@ -83,10 +92,11 @@
     = @item.explanation
   - unless user_signed_in? && item.user_id == current_user.id then
     .detail__box__icon
-      = link_to "" do
+      =  link_to item_goods_path(@item) do
         .detail__box__icon--good
           = fa_icon "heart"
-          いいね! 0
+          いいね! 
+          = @item.goods.count
       = link_to "" do
         .detail__box__icon--warning
           = fa_icon "flag"
