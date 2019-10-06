@@ -1,21 +1,12 @@
-#image-box
-  %ul.item-images
-    -# %li.item-image
-    -#   .item-image__content
-    -#     .item-image__content--icon
-    -#   .item-image__operetion
-    -#     .item-image__operetion--edit
-    -#       =link_to '' '編集'
-    -#     .item-image__operetion--delete
-    -#       =link_to '' '削除'
-  .image-box__container
+#image-box-1
+  %ul.item-images.active
+  .item-num-0#image-box__container
     %label
-      %input{type:"file", class:"sell-upload-drop-file", id:"image", name:"image1", style:"display: none;"}
-        ドラッグアンドドロップ
-        %br 
-        またはクリックしてファイルをアップロード
-  
-  
+      %input{multiple:"multiple", name:"item[images_attributes][][image]", type:"file", value:"",style:"display: none;", id:"images"}
+      %p ドラッグアンドドロップ またはクリックしてファイルをアップロード
+
+  - @images.each do |image|
+    = image_tag "#{image}"
 
 
 
@@ -24,20 +15,3 @@
 
 
 
-
--#         %div
--#           %ul
--#             %li.sell-upload-item
--#               %figure
--#                 %img
--#               .sell-upload-button
--#                 =link_to '' '編集' class:sell-upload-edit
--#                 =link_to '' '削除' 
-
--#       <div class="sell-upload-drop-box have-item-1">
--#         <input type="file" class="sell-upload-drop-file" multiple="" name="image7" style="display: none;">
--#         <pre class="visible-pc">ドラッグアンドドロップ
--# またはクリックしてファイルをアップロード</pre>
--#         <i class="icon-camera"></i>
--#       </div>
--#     </div>

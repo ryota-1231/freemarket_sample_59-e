@@ -12,9 +12,9 @@
         font-weight: bold;
       }
     }
-    form{
+    #form{
       border-top: 1px solid rgb(238, 238, 238);
-      .item-image{
+      .item-img{
         padding: 40px;
         &__sub-title__caution{
           display: flex;
@@ -30,14 +30,6 @@
             padding: 2px 4px;
             margin-left: 8px;
           }
-        }
-        &__sub-title__area{
-          height: 162px;
-          background-color: rgb(211, 211, 211);
-          font-size:12px;
-          text-align: center;
-          line-height: 162px;
-          margin-top: 16px;
         }
       }
       .item-title{
@@ -131,9 +123,16 @@
               border-radius: 5px;
               margin-top: 8px;
               }
+              .category_children{
+                display: none;
+              }
+              .category_g_children{
+                display: none;
+              }
           }
           &__size{
             margin-top: 40px;
+            display: none;
             &-title{
               display: flex;
               h3{
@@ -151,6 +150,7 @@
               }
             }
               select{
+             
               height: 48px;
               width: 100%;
               padding: 0px 16px;
@@ -160,6 +160,7 @@
               }
           }
           &__brand{
+            display:none;
             margin-top: 40px;
             &-title{
               display: flex;
@@ -177,16 +178,36 @@
                 margin-left: 8px;
               }
             }
-            &-area {
-              select{
+            .item-category__choice__brand-area {
               height: 48px;
               width: 100%;
               padding: 0px 16px;
               border: 1px solid rgb(204, 204, 204);
               border-radius: 5px;
               margin-top: 8px;
+              
+            }
+            .brands_area{
+              position: relative;
+              ul{
+                max-height: 280px;
+                overflow: auto;
+                position: absolute;
+                top: 0px;
+                background-color: #fff;
+                .brand_chose{
+                  width: 376px;
+                  padding: 8px 19px;
+                  font-size:12px;
+                  &:hover{
+                    cursor: pointer;
+                    background-color: rgb(216, 214, 214)
+                  }
+                }
               }
             }
+              
+            
           }
           &__status{
             margin-top: 40px;
@@ -489,7 +510,11 @@
             color: #fff;
           }
         }
+       
       }
     }
   }
 }
+
+
+

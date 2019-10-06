@@ -875,3 +875,29 @@ h4{
     }
   }
 }
+
+.header__box__bottom__right__newuser{
+  display: inline-flex;
+  height: 34px;
+  margin-left: 390px;
+}
+
+.newuser_register{
+  background-color: rgb(234, 53, 45);
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  border: 1px solid rgb(234, 53, 45);
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin-right: 10px;
+}
+
+.user_login{
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 149, 238);
+  font-size: 14px;
+  border: 1px solid rgb(0, 149, 238);
+  border-radius: 4px;
+  padding: 8px 10px;
+  transition: all 0.3s ease-out 0s;
+}
