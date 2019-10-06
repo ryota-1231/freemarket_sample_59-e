@@ -3,7 +3,6 @@ class CardsController < ApplicationController
   before_action :set_card
 
   def index 
-    #id仮置きです
     @cards = Card.find(1)
   end
 
@@ -21,7 +20,6 @@ class CardsController < ApplicationController
 
 
   def new 
-    #id仮置きです
     card = Card.where(user_id: 2)
     redirect_to action: "index" if card.present?
   end
@@ -37,7 +35,6 @@ class CardsController < ApplicationController
         email: "ponkotu2019@gmail.com",
         card: params['payjp-token'] 
       )
-      #id仮置きです
       @card = Card.new(user_id: 1, buyer_id: 1, card_id: 1,card_number: 4242424242424242, month: 3, year: 22, secure: 111, token: params['payjp-token'])
       if @card.save
         
@@ -51,7 +48,6 @@ class CardsController < ApplicationController
   private
 
   def set_card
-    #id仮置きです
     @card = Card.where(user_id: 1).first if Card.where(user_id: 1).present?
   end
 end
