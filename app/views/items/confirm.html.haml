@@ -1,7 +1,7 @@
 .contents
   .header-user
     .header-user__logo-default
-      = link_to image_tag(src= "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3296506464", class: "mercari-logo", height:49, width:185), "#"
+      = link_to image_tag(src= "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3296506464", class: "mercari-logo", height:49, width:185), "/"
 
   .confirm-box
     .confirm-box__title
@@ -13,6 +13,7 @@
           = @item.title
       .confirm-box__detail__item-price
         = "¥#{@item.price}"
+
         .confirm-box__detail__item-price-included
           送料込み
       .confirm-box__detail__purchace-btn
@@ -29,6 +30,7 @@
             <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_c1ae18df0495c115e3701ec4"></script>
       - else
         = link_to '購入する', '#', class: "decision-btn"
+
     .comfirm-box__shipping-address
       .confirm-box__shipping-address__user
         %p4 配送先
@@ -61,5 +63,5 @@
       %li= link_to 'メルカリ利用規約', '#'
       %li= link_to '特定商取引に関する表記', '#'
     .footer-user__link
-      = link_to image_tag(src= "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464", class: "mercari-graylogo", height: 80, width: 60), "#"
+      = link_to image_tag(src= "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464", class: "mercari-graylogo", height: 80, width: 60), "/"
       %p © 2019 Mercari

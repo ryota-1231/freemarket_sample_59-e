@@ -56,7 +56,7 @@ height: auto;
         width: 620px;
         margin-top: 10px;
         &__photo{
-          height: 420px;
+          height: auto;
           width: 300px;
           background-color: rgb(245, 245, 245);
           float: left;
@@ -69,11 +69,16 @@ height: auto;
 
             }
           }
-          &__mini1{
+          &__mini{
+          height: auto;
+          width: 300px;
+          display: grid;
+            grid-template-columns: repeat(5, 1fr);
+          
+          &--1{
             height: 60px;
             width: 60px;
             background-color: purple;
-            
             
             &--in{
               height: 60px;
@@ -81,118 +86,133 @@ height: auto;
             }
           }
         }
+        }
         &__detail{
-          height: 420px;
+          height: auto;
           width: 300px;
           background-color: white;
           float: right;
           &__exhibitor{
-            height: 70px;
+            height: 60px;
             width: 300px;
             
             
             &--right{
-              height: 70px;
+              height: 60px;
               width: 120px;
               color: #333;
               
             }
             &--left{
-              height: 70px;
+              height: 60px;
               width: 180px;
               color: #0099e8;
             }
           }
           &__category{
-            height: 74px;
+            height: 60px;
             width: 300px;
             &--right{
-              height: 74px;
+              height: 60px;
               width: 120px;
             }
             &--left{
-              height: 74px;
+              height: 60px;
               width: 180px;
               color: #0099e8;
               word-wrap: break-word;
             }
           }
           &__brand{
-            height: 46px;
+            height: 40px;
             width: 300px;
             
             &--right{
-              height: 46px;
+              height: 40px;
               width: 120px;
             }
             &--left{
-              height: 46px;
+              height: 40px;
               width: 180px;
             }
           }
-          &__status{
-            height: 46px;
+            &__size{
+              height: 40px;
             width: 300px;
             &--right{
-              height: 46px;
+              height: 40px;
               width: 120px;
               color: #333;
             }
             &--left{
-              height: 46px;
+              height: 40px;
+              width: 180px;
+            }
+            }
+          
+          &__status{
+            height: 40px;
+            width: 300px;
+            &--right{
+              height: 40px;
+              width: 120px;
+              color: #333;
+            }
+            &--left{
+              height: 40px;
               width: 180px;
             }
           }
           &__postage{
-            height: 46px;
+            height: 40px;
             width: 300px;
             &--right{
-              height: 46px;
+              height: 40px;
               width: 120px;
               color: #333;
             }
             &--left{
-              height: 46px;
+              height: 40px;
               width: 180px;
             }
           }
           &__method{
-            height: 46px;
+            height: 40px;
             width: 300px;
             &--right{
-              height: 46px;
+              height: 40px;
               width: 120px;
               color: #333;
             }
             &--left{
-              height: 46px;
+              height: 40px;
               width: 180px;
             }
           }
           &__area{
-            height: 46px;
+            height: 40px;
             width: 300px;
             &--right{
-              height: 46px;
+              height: 40px;
               width: 120px;
               color: #333;
             }
             &--left{
-              height: 46px;
+              height: 40px;
               width: 180px;
               
             }
           }
           &__date{
-            height: 46px;
+            height: 40px;
             width: 300px;
             &--right{
-              height: 46px;
+              height: 40px;
               width: 120px;
               color: #333;
             }
             &--left{
-              height: 46px;
+              height: 40px;
               width: 180px;
               
             }
@@ -300,6 +320,31 @@ height: auto;
       background-color: white;
       margin-top:  10px;
       padding: 10px 40px;
+        &__space{
+          height: auto;
+          background-color: white;
+          &__you{
+            height: auto;
+            background-color: white;
+              &--icon{
+                height: 40px;
+                width: 40px;
+                
+              }
+              &--nickname{
+
+              }
+              &--comment{
+
+              }
+          }
+          &__i{
+            height: auto;
+            background-color: white;
+          }
+        }
+    
+      
       &--warning{
         width: 620px;
         height: 44px;

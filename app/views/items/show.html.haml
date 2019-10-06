@@ -2,6 +2,17 @@
   = render 'header'
   .detail
     = render 'items_detail'
+    -# - if user_signed_in? && item.user_id == current_user.id
+    .edittt
+      = link_to edit_item_path do
+        .edittt__red-btn
+          編集
+      .edittt__or
+        or
+      %input.edittt__stop-btn{type: 'submit', value: '出品を一旦停止する'}
+      = link_to item_path(@item), method: :delete, data: { confirm: '確認削除すると二度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？' } do
+        .edittt__delete-btn
+          この商品を削除する
     = render 'comment'
     .detail__link
       .detail__link--left
@@ -18,30 +29,32 @@
           = fa_icon "pinterest"
     .detail__otheritems
       .detail__otheritems__head
-        = link_to "へっくしゅんさんのその他の出品"
+        = link_to "#{@item.user.nickname}さんのその他の出品"
       .detail__otheritems__mass
-        - for num in 1..6 do
+        - @user.each do |item|
           .detail__otheritems__mass__one
             .detail__otheritems__mass__one--photo
-              = image_tag "https://collabo-cafe.com/wp-content/uploads/e2c3bbcff17c45596973bdb422cc44b1.jpg", class: "detail__otheritems__mass__one--photo--in"
+              = image_tag "#{item.images.first.image}", class: "detail__otheritems__mass__one--photo--in"
             .detail__otheritems__mass__one--explanation
               .detail__otheritems__mass__one--explanation--name
-                東京喰種
+                = "#{item.title}"
               .detail__otheritems__mass__one--explanation--price
-                ¥400円
+                ¥
+                = "#{item.price}"
     .detail__samecategory
       .detail__samecategory__head
-        = link_to "バッジ （おもちゃ・ホビー・グッズ） その他の商品"
+        = link_to "#{@item.category.name} (#{@item.category.parent.name}) その他の商品"
       .detail__samecategory__mass
-        - for num in 1..6 do
+        - @category.each do |category|
           .detail__samecategory__mass__one
             .detail__samecategory__mass__one--photo
-              = image_tag "https://images-na.ssl-images-amazon.com/images/I/41D7VAfRQ%2BL._SX356_BO1,204,203,200_.jpg", class: "detail__samecategory__mass__one--photo--in"
+              = image_tag "", class: "detail__samecategory__mass__one--photo--in"
             .detail__samecategory__mass__one--explanation
               .detail__samecategory__mass__one--explanation--name
-                僕らはみんな河合荘
+                = "#{category.title}"
               .detail__samecategory__mass__one--explanation--price
-                ¥400
+                ¥
+                = "#{category.price}"
   = render 'users/item__exhibit'
   = render 'footer'
 

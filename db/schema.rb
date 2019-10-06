@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_03_053004) do
+
+ActiveRecord::Schema.define(version: 2019_10_04_114921) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postcode", null: false
@@ -91,32 +92,34 @@ ActiveRecord::Schema.define(version: 2019_10_03_053004) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image"
-    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "item_id"
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", default: ""
-    t.text "explanation"
+
+    t.string "title", null: false
+    t.text "explanation", null: false
     t.integer "price"
     t.string "postage"
     t.bigint "user_id"
-    t.bigint "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "brand_id"
     t.bigint "seller_id"
     t.bigint "buyer_id"
     t.bigint "delivery_id"
+    t.bigint "status_id", null: false
     t.bigint "sizetype_id"
-    t.bigint "status_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["delivery_id"], name: "index_items_on_delivery_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
+    t.index ["sizetype_id"], name: "index_items_on_sizetype_id"
     t.index ["title"], name: "index_items_on_title"
     t.index ["user_id"], name: "fk_rails_d4b6334db2"
   end
@@ -151,6 +154,15 @@ ActiveRecord::Schema.define(version: 2019_10_03_053004) do
     t.datetime "updated_at", null: false
     t.string "ancestry"
     t.index ["ancestry"], name: "index_sizetypes_on_ancestry"
+  end
+
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -190,13 +202,16 @@ ActiveRecord::Schema.define(version: 2019_10_03_053004) do
   add_foreign_key "comments", "users"
   add_foreign_key "goods", "items"
   add_foreign_key "goods", "users"
+  add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "buyers"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "deliveries"
   add_foreign_key "items", "sellers"
+  add_foreign_key "items", "sizetypes"
   add_foreign_key "items", "users"
   add_foreign_key "messages", "items"
   add_foreign_key "messages", "users"
   add_foreign_key "sellers", "judges"
+  add_foreign_key "sns_credentials", "users"
 end
