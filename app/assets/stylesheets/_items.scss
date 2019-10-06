@@ -23,7 +23,6 @@
 .search_form{
   width: 780px;
   height: 40px;
-  // border-radius: 0.30em;
   background-color: rgb(245, 245, 245);
   border: 1px solid #ccc;
   padding-left: 10px;
@@ -263,7 +262,6 @@ h4{
   height: 100px;
   top: 0;
   background-color: white;
-  // padding-left: 330px;
   &__box{
     margin: auto;
     width: 1020px;
@@ -640,7 +638,6 @@ h4{
         }
         &__items{
           height: 524px;
-          // margin: 20px;
           &__1{
             margin-top: 20px;
             display: grid;
