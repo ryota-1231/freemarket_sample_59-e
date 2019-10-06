@@ -120,11 +120,10 @@
               %i.far.fa-smile
               マイページ
       - else
-        .header__box__bottom__right
+        .header__box__bottom__right__newuser
           .header__box__bottom__right__good
           =link_to new_user_path, method: :get, class: "newuser_register" do
-            新規登録
-          .header__box__bottom__right__news
+            新規会員登録
           =link_to new_user_session_path, method: :get, class: "user_login" do
             ログイン
 
