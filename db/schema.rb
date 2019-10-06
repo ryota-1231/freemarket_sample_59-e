@@ -10,17 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
-ActiveRecord::Schema.define(version: 2019_09_29_154535) do
+ActiveRecord::Schema.define(version: 2019_10_03_053004) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "postcode", null: false
+    t.string "postcode", null: false
     t.string "city", null: false
-    t.integer "block", null: false
+    t.string "block", null: false
     t.string "building"
     t.bigint "user_id"
-    t.integer "prefecture_id"
+    t.string "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "fk_rails_48c9e0c5a2"
@@ -33,10 +31,24 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
   end
 
   create_table "buyers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "judge_id", null: false
+    t.bigint "judge_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["judge_id"], name: "index_buyers_on_judge_id"
+  end
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "buyer_id", null: false
+    t.string "card_id", null: false
+    t.text "token", null: false
+    t.string "card_number", null: false
+    t.string "month", null: false
+    t.string "year", null: false
+    t.string "secure", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -60,12 +72,12 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
   end
 
   create_table "deliveries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "delivery_fee", null: false
-    t.text "delivery_method", null: false
-    t.string "delivery_source", null: false
-    t.string "delivery_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "deliveryfee_id", null: false
+    t.bigint "deliverymethod_id", null: false
+    t.bigint "deliverysource_id", null: false
+    t.bigint "deliverydate_id", null: false
   end
 
   create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -87,10 +99,9 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", default: ""
-    t.text "explanation", null: false
+    t.text "explanation"
     t.integer "price"
-    t.integer "status"
-    t.string "postage", default: ""
+    t.string "postage"
     t.bigint "user_id"
     t.bigint "category_id"
     t.datetime "created_at"
@@ -99,6 +110,8 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
     t.bigint "seller_id"
     t.bigint "buyer_id"
     t.bigint "delivery_id"
+    t.bigint "sizetype_id"
+    t.bigint "status_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
@@ -142,10 +155,23 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
-    t.string "fullname", null: false
-    t.string "kana", null: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "address_last_name", null: false
+    t.string "address_first_name", null: false
+    t.string "address_last_name_kana", null: false
+    t.string "address_first_name_kana", null: false
     t.string "email", null: false
-    t.integer "phone_number", null: false
+    t.string "phone_number"
+    t.string "cellphone_number", null: false
+    t.integer "birthdate_year", null: false
+    t.integer "birthdate_month", null: false
+    t.integer "birthdate_day", null: false
+    t.string "card_number", null: false
+    t.integer "expiration_year", null: false
+    t.integer "expiration_month", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -158,6 +184,7 @@ ActiveRecord::Schema.define(version: 2019_09_29_154535) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "buyers", "judges"
+  add_foreign_key "cards", "users"
   add_foreign_key "categories", "sizetypes"
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"

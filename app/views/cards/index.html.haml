@@ -1,0 +1,13 @@
+.content
+  .content__titlee
+    %h2 支払い方法
+  .content__credit-cards
+    %h3 クレジットカード一覧
+  .content__credit-logo
+    = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3761641567" ,class:"visa" 
+  .content__credit-number
+    = "**** **** **** " + @cards.card_number.last(4)
+  .content__credit-date
+    = @cards.month + "/" + @cards.year
+  .content__credit__btn 
+    = link_to "次に進む","items/confirm",class: "buy-box" 

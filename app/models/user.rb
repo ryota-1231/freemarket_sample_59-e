@@ -9,5 +9,6 @@ class User < ApplicationRecord
   has_many :goods
   has_many :items, through: :goods
   has_many :addresses
+  has_many :cards
 
 end

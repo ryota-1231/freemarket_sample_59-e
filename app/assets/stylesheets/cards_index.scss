@@ -1,0 +1,53 @@
+.content{
+  width: 705px;
+  height: 382px;
+  border: black 2px solid;
+}
+
+.content__titlee{
+  padding-left: 270px;
+  padding-top: 5px;
+  border-bottom: 1px solid #eee;
+  height: 50px;
+  h2{
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+.content__credit-cards{
+    padding-left: 150px;
+    margin-top: 50px;
+}
+
+.content__credit-logo{
+  .visa{
+    height: 15px;
+    padding-left: 150px;
+  }
+}
+
+.content__credit-number{
+  padding-left: 150px;
+}
+
+.content__credit-date{
+  padding-left: 150px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.content__credit__btn{
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.buy-box{
+  border-radius: 5px;
+  background-color: red;
+  padding: 20px 150px;
+  text-align: center;
+  color: white;
+  margin-top: 150px;
+  margin-left: 100px;
+}

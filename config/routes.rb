@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     collection do
       get 'exhibit'
       get 'confirm'
+      post 'pay'
     end
     resources :images, only: [:index, :create]
   end
@@ -27,4 +28,11 @@ Rails.application.routes.draw do
       get 'done' 
     end
   end
+
+  resources :cards do
+    collection do
+      post 'new'
+      post 'create'
+    end
+  end    
 end
