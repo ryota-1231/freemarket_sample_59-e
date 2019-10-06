@@ -1,0 +1,32 @@
+.categories-wrapper
+  .categories-container
+    #page-top.categories-button-group
+      %h2 カテゴリー一覧
+      .categories-button-group__box
+        - @categories.each do |category|
+          = link_to "##{category.id}" do
+            = category.name
+    .categories__main
+      - @categories.each do |category|
+        .categories__list
+          .category__name
+            %h3{ id: "#{category.id}" }=category.name 
+          .category__groups
+            .category__all
+              %P= link_to "すべて", ''
+            - category.children.each do |child|
+              .category__child-name
+                %h4=child.name
+                .category__groups__box
+                  .category__ground-children__groups
+                    - child.children.each do |ground_child|
+                      .category__groundchild-name
+                        %p
+                          = link_to '' do
+                            = ground_child.name
+  
+  .top-button
+    =link_to '#page-top' do
+      %i.fa.fa-angle-double-up
+      %p Page-Top
+          

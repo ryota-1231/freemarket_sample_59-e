@@ -1,0 +1,112 @@
+.categories-wrapper{
+  background-color: rgb(245, 245, 245);
+  .categories-container{
+    margin: 40px auto;
+    width: 700px;
+    .categories-button-group{
+      h2 {
+        font-size: 22px;
+        padding:8px 0;
+        font-weight: bold;
+      }
+      &__box{
+        a{
+          display: inline-block;
+          font-size: 16px;
+          height: 40px;
+          background-color: #fff;
+          margin: 5px;
+          padding: 0 30px;
+          line-height: 40px;
+          border-radius: 4px;
+          box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
+          &:hover{
+            background-color: #ea352d;
+            color: #fff;
+            text-decoration: none !important;
+          }
+        }
+      }
+    }
+    .categories__main{
+      margin: 30px 0;
+      .categories__list{
+        margin-bottom: 40px;
+        background-color: #fff;
+        border-radius: 4px;
+        .category__name{
+          padding: 7px 30px 0;
+          background-color: #ea352d;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+          h3 {
+            font-size: 22px;
+            color: #fff;
+            font-weight: bold;
+          }
+        }
+        .category__groups{
+          padding: 24px 30px 10px;
+          .category__all{
+            p{
+              margin:8px 0;
+              font-size: 16px;
+              height: 16px;
+              a{
+                color: #0099e8;
+              }
+            }
+          }
+          .category__child-name{
+            padding: 15px 0 5px;
+            h4{
+              background-color: #fff;
+              font-size: 14px;
+              font-weight: bold;
+            }
+          }
+          &__box{
+            padding: 0 20px 10px;
+            .category__ground-children__groups{
+              .category__groundchild-name{
+                display: inline-block;
+                width: 280px;
+                p{
+                  height: 16px;
+                  margin: 8px 0;
+                  font-size: 16px;
+                  a{
+                    color: #0099e8;
+                  }
+                }
+              }
+
+            }
+          }
+        }
+      }
+    }
+  }
+  .top-button{
+    font-size:100px;
+    position: fixed;
+    z-index: 10;
+    left: 7%;
+    top:75%;
+    a {
+      color :#000;
+      i {
+      display: block;
+      padding: 5px;
+      }
+      p {
+        padding: 5px;
+      }
+    }
+    &:hover{
+    opacity: 0.4;
+  }
+  }
+}
+
+
