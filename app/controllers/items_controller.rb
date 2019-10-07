@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
+ 
 
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    @items = Item.all.limit(10)
   end
   
   def new
@@ -28,7 +29,10 @@ class ItemsController < ApplicationController
   end
   
   def edit
+    #あとで使います
+    # @item = Item.find(params[:id])
   end
+
 
   def update
     if @item.user_id == current_user.id
@@ -52,13 +56,23 @@ class ItemsController < ApplicationController
   def exhibit
     @item = Item.new
     @item.build_delivery
-
     @item.images.build
-
-
   end
 
   def confirm
+    #id仮置きです
+    @user = User.find(1)
+    @item = Item.find(7)
+    @cards = Card.find(1)
+  end
+
+  def pay
+    Payjp.api_key = 'sk_test_be508ed036c9c40e55488d6a'
+    Payjp::Charge.create(
+      amount: 1000, # 決済する値段
+      card: params['payjp-token'],
+      currency: 'jpy'
+    )
     @item = Item.find(7)
   end
 
@@ -70,10 +84,6 @@ class ItemsController < ApplicationController
     :card => params['payjp-token'],
     :currency => 'jpy',
     )
-  end
-
-  def category
-    @categories = Category.where(ancestry: nil)
   end
 
   private

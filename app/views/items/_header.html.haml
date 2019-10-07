@@ -8,7 +8,7 @@
           = image_tag "logo-acdd90ac4f472d5a6f7a330d33ab1225.svg",class: "merukari"
       .header__box__top__right
         .header__box__top__right__content 
-          = form_tag("#",class:"hogeho") do
+          = form_tag(searches_path,method: :get ,class:"hogeho") do
             = text_field_tag :search ,"",class:"search_form",placeholder: "何かお探しですか？",style: "border-right: none"
             %button{type: "submit",class: "search_button"}
               %i.fas.fa-search
@@ -120,11 +120,10 @@
               %i.far.fa-smile
               マイページ
       - else
-        .header__box__bottom__right
+        .header__box__bottom__right__newuser
           .header__box__bottom__right__good
           =link_to new_user_path, method: :get, class: "newuser_register" do
-            新規登録
-          .header__box__bottom__right__news
+            新規会員登録
           =link_to new_user_session_path, method: :get, class: "user_login" do
             ログイン
 
