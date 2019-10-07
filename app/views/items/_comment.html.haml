@@ -1,12 +1,27 @@
 .detail__comment
-  .detail__comment__space
-    .detail__comment__space__you
-      .detail__comment__space__you--icon
-      .detail__comment__space__you--nickname
-      .detail__comment__space__you--comment
-    .detail__comment__space__i
-      .detail__comment__space__i--comment
-  .detail__comment--warning
-    相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-  %textarea.detail__comment--text
-  %input.detail__comment--btn{type: 'submit', value: 'コメントする'}
+  - if @comments
+    .detail__comment__space
+      - @comments.each do |comment|
+        - if comment.user != current_user
+          .detail__comment__space__you
+            .detail__comment__space__you__left
+              .detail__comment__space__you__left--icon
+            .detail__comment__space__you__right
+              .detail__comment__space__you__right--nickname
+                = comment.user.nickname
+              .detail__comment__space__you__right--comment
+                = comment.comment
+        - else
+          .detail__comment__space__i
+            .detail__comment__space__i__left
+              .detail__comment__space__i__left--nickname
+                = current_user.nickname
+              .detail__comment__space__i__left--comment
+                = comment.comment
+            .detail__comment__space__i__right
+              .detail__comment__space__i__right--icon
+    .detail__comment--warning
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+  = form_for [@item, @comment] do |f|
+    = f.text_area :comment, class: "detail__comment--text"
+    = f.submit "コメントを送る", class: "detail__comment--btn"

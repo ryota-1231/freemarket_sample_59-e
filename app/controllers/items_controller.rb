@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       @item.images.build
-    render action: '/exhibit'
+      render action: '/exhibit'
     end
   end
   
@@ -24,6 +24,8 @@ class ItemsController < ApplicationController
     @user = Item.where(user_id: @item.user_id).order("RAND()").limit(6)
     @category = Item.where(category_id: @item.category_id).order("RAND()").limit(6)
     @good = Good.new
+    @comments = @item.comments.includes(:user)
+    @comment = Comment.new
   end
   
   def edit
@@ -33,21 +35,21 @@ class ItemsController < ApplicationController
 
 
   def update
-    #ログイン機能実装前なのでコメントアウトしてあります
-
-    # if @item.user_id == current_user.id
+    if @item.user_id == current_user.id
       if items_params[:sizetype_id]
         @item.update(items_params)
       else
         @item.update(items_params.merge(sizetype_id: nil))
       end
       redirect_to action: :show
+    end
   end
   
   def destroy
-    # if @item.user_id == current_user.id
+    if @item.user_id == current_user.id
       @item.destroy
       redirect_to root_path
+    end
   end
 
 
