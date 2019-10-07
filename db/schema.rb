@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_10_06_161331) do
-
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postcode", null: false
@@ -33,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_10_06_161331) do
   end
 
   create_table "buyers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "judge_id"
+    t.bigint "judge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["judge_id"], name: "index_buyers_on_judge_id"
@@ -57,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_10_06_161331) do
     t.text "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry", default: ""
+    t.string "ancestry"
     t.bigint "sizetype_id"
     t.text "title"
     t.text "text"
@@ -97,12 +95,11 @@ ActiveRecord::Schema.define(version: 2019_10_06_161331) do
     t.text "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "item_id", null: false
+    t.bigint "item_id"
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-
     t.string "title", null: false
     t.text "explanation", null: false
     t.integer "price"
@@ -191,8 +188,8 @@ ActiveRecord::Schema.define(version: 2019_10_06_161331) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

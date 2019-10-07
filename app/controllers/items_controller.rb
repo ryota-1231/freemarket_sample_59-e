@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    @items = Item.all.limit(10)
   end
   
   def new
@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
   def confirm
     #id仮置きです
     @user = User.find(1)
-    @item = Item.find(1)
+    @item = Item.find(7)
     @cards = Card.find(1)
   end
 

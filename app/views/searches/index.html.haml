@@ -1,0 +1,27 @@
+.search
+  .search-container
+    .search-left
+      = render 'items/header'
+      .search-right
+        %section.items-box-container
+          -if @search.present?
+            %h2.search-result-head
+              =@search
+              %span.search-result-head-text
+                の検索結果
+            .search-result-number
+              ="1-#{@items.count}件表示"
+          -else
+            %h2.search-result-nil
+              新着商品
+          .items-box-contents
+          - @items.each do |item|
+            = link_to "#" do
+              .items-box-contenttt
+                = image_tag "#{item.images.first.image}", :size =>'185x180'
+                %p.searchhh 
+                  = "¥#{item.price}"
+
+              .items-box-content-text
+                = item.title
+        

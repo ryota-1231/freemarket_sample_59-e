@@ -24,7 +24,7 @@
         .confirm-box__detail__payment-price
           = "¥#{@item.price}"
       .confirm-box__detail__decision-btn
-      - if @cards.user_id == 2 then  #id仮置きです
+      - if @cards.user_id == 1 then  #id仮置きです
         = form_tag action: :pay, method: :post do
           :plain
             <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_c1ae18df0495c115e3701ec4"></script>
@@ -44,7 +44,7 @@
       = link_to '変更する 》', '#', class: "address-alter"
     .confirm-box__paymethod
       .confirm-box__paymethod__user
-      - if @cards.user_id == 2 then #id仮置きです
+      - if @cards.user_id == 1 then #id仮置きです
         = "/"
       - else  
         %p7 支払い方法
