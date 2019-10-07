@@ -40,7 +40,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :status
 
   def self.search(search)
-    return Item.all unless search
+    Item.all unless search
     Item.where(['title LIKE ?', "%#{search}%"])
   end
 
