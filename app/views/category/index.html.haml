@@ -13,16 +13,17 @@
             %h3{ id: "#{category.id}" }=category.name 
           .category__groups
             .category__all
-              %P= link_to "すべて", ''
+              %P= link_to "すべて", "/category/#{category.id}"
             - category.children.each do |child|
               .category__child-name
                 %h4=child.name
+                %P= link_to "すべて", "/category/#{child.id}"
                 .category__groups__box
                   .category__ground-children__groups
                     - child.children.each do |ground_child|
                       .category__groundchild-name
                         %p
-                          = link_to '' do
+                          = link_to "/category/#{ground_child.id}" do
                             = ground_child.name
   
   .top-button

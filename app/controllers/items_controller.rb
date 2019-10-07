@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+ 
 
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
@@ -50,10 +51,7 @@ class ItemsController < ApplicationController
   def exhibit
     @item = Item.new
     @item.build_delivery
-
     @item.images.build
-
-
   end
 
   def confirm
@@ -68,10 +66,6 @@ class ItemsController < ApplicationController
     :card => params['payjp-token'],
     :currency => 'jpy',
     )
-  end
-
-  def category
-    @categories = Category.where(ancestry: nil)
   end
 
   private

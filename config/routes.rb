@@ -10,11 +10,13 @@ Rails.application.routes.draw do
       get 'confirm'
       get 'error'
       post 'pay'
-      get 'category'
     end
     resources :images, only: [:index, :create]
     resources :goods, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
+  end
+
+  resources :category do
   end
 
   namespace :api do

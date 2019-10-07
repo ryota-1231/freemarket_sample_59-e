@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_04_114921) do
+ActiveRecord::Schema.define(version: 2019_10_06_161331) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postcode", null: false
@@ -41,8 +41,10 @@ ActiveRecord::Schema.define(version: 2019_10_04_114921) do
     t.text "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry"
+    t.string "ancestry", default: ""
     t.bigint "sizetype_id"
+    t.text "title"
+    t.text "text"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["sizetype_id"], name: "index_categories_on_sizetype_id"
   end
@@ -79,7 +81,7 @@ ActiveRecord::Schema.define(version: 2019_10_04_114921) do
     t.text "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "item_id"
+    t.bigint "item_id", null: false
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
@@ -151,24 +153,24 @@ ActiveRecord::Schema.define(version: 2019_10_04_114921) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.string "address_last_name", null: false
-    t.string "address_first_name", null: false
-    t.string "address_last_name_kana", null: false
-    t.string "address_first_name_kana", null: false
-    t.string "email", null: false
+    t.string "last_name", default: ""
+    t.string "first_name", default: ""
+    t.string "last_name_kana", default: ""
+    t.string "first_name_kana", default: ""
+    t.string "address_last_name", default: ""
+    t.string "address_first_name", default: ""
+    t.string "address_last_name_kana", default: ""
+    t.string "address_first_name_kana", default: ""
+    t.string "email", default: ""
     t.string "phone_number"
-    t.string "cellphone_number", null: false
-    t.integer "birthdate_year", null: false
-    t.integer "birthdate_month", null: false
-    t.integer "birthdate_day", null: false
-    t.string "card_number", null: false
-    t.integer "expiration_year", null: false
-    t.integer "expiration_month", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "cellphone_number", default: ""
+    t.integer "birthdate_year"
+    t.integer "birthdate_month"
+    t.integer "birthdate_day"
+    t.string "card_number", default: ""
+    t.integer "expiration_year"
+    t.integer "expiration_month"
+    t.string "encrypted_password", default: ""
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
