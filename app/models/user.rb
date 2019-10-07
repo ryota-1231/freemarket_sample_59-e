@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :goods
   has_many :items, through: :goods
   has_many :addresses
+  has_many :cards
   has_many :sns_credentials, dependent: :destroy
 
   accepts_nested_attributes_for :addresses

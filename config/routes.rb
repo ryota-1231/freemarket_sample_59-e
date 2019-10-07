@@ -47,4 +47,12 @@ Rails.application.routes.draw do
     end
   end
 
+
+  resources :cards do
+    collection do
+      post 'new'
+      post 'create'
+    end
+  end    
+
 end

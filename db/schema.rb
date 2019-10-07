@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_10_06_161331) do
+
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postcode", null: false
@@ -31,10 +33,24 @@ ActiveRecord::Schema.define(version: 2019_10_06_161331) do
   end
 
   create_table "buyers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "judge_id", null: false
+    t.bigint "judge_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["judge_id"], name: "index_buyers_on_judge_id"
+  end
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "buyer_id", null: false
+    t.string "card_id", null: false
+    t.text "token", null: false
+    t.string "card_number", null: false
+    t.string "month", null: false
+    t.string "year", null: false
+    t.string "secure", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -86,6 +102,7 @@ ActiveRecord::Schema.define(version: 2019_10_06_161331) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+
     t.string "title", null: false
     t.text "explanation", null: false
     t.integer "price"
@@ -95,11 +112,11 @@ ActiveRecord::Schema.define(version: 2019_10_06_161331) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "brand_id"
-    t.bigint "status_id", null: false
     t.bigint "seller_id"
     t.bigint "buyer_id"
-    t.bigint "sizetype_id"
     t.bigint "delivery_id"
+    t.bigint "status_id", null: false
+    t.bigint "sizetype_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
@@ -182,6 +199,7 @@ ActiveRecord::Schema.define(version: 2019_10_06_161331) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "buyers", "judges"
+  add_foreign_key "cards", "users"
   add_foreign_key "categories", "sizetypes"
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"

@@ -114,6 +114,7 @@
 # #     end
 # #   end
 
+
 # 100.times do
 #   item = Item.new(
 #     title: Faker::Food.fruits,
@@ -126,6 +127,7 @@
 #   )
 #   item.save!
 # end
+
 
 # image_a = Dir.glob("/Users/ryotaaoyagi/freemarket_sample_59期チームe/app/assets/images/image/*")
 # 100.times do |i|
@@ -166,6 +168,7 @@
 #     sizetype_id: row['sizetype_id'],
 #     title: row['title'],
 #     text: row['text']
+
 #     )
 # end
 
