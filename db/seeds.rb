@@ -116,17 +116,36 @@
 
 
 # 100.times do
-  
+
 #   item = Item.new(
 #     title: Faker::Food.fruits,
 #     explanation: Faker::Food.dish,
 #     price: Faker::Number.within(range: 300..10000),
+
 #     status_id: Faker::Number.within(range: 0..5),
 #     postage: Faker::Number.within(range: 300..800),
 #     user_id: 1, 
 #     category_id: 1,
 #   )
 #   item.save!
+=======
+#     status_id: Faker::Number.within(range: 1..6), 
+#     postage: Faker::Number.within(range: 300..800),
+#     user_id: 1,
+#     category_id: Faker::Number.within(range: 1..1325)
+#   )
+#   item.save!
+# end
+
+
+# image_a = Dir.glob("/Users/ryotaaoyagi/freemarket_sample_59期チームe/app/assets/images/image/*")
+# 100.times do |i|
+#   image = Image.new(
+#     image: File.open(image_a.sample),
+#     item_id: i+1,
+#     )
+#   image.save!
+
 # end
 
 image_a = Dir.glob("/Users/tooshimadaiki/Documents/GitHub/freemarket_sample_59-e/app/assets/images/*")
@@ -139,19 +158,20 @@ image_a = Dir.glob("/Users/tooshimadaiki/Documents/GitHub/freemarket_sample_59-e
 end
 
 
+
 # require "csv"
 
 # CSV.foreach('db/sizetypes.csv', headers: true) do |row|
-#   Sizetype.create(
+#     Sizetype.create(
 #     sizetype: row['sizetype'],
 #     created_at: row['created_at'],
 #     updated_at: row['updated_at'],
 #     ancestry: row['ancestry']
 #   )
-# end
+#   end
 
 # CSV.foreach('db/brands.csv', headers: true) do |row|
-#   Brand.create(
+#     Brand.create(
 #     name: row['name'],
 #     created_at: row['created_at'],
 #     updated_at: row['updated_at'],
@@ -159,55 +179,18 @@ end
 # end
 
 # CSV.foreach('db/categories.csv', headers: true) do |row|
-#   Category.create(
-#     id: row['id'],
+#     Category.create(
 #     name: row['name'],
 #     created_at: row['created_at'],
 #     updated_at: row['updated_at'],
 #     ancestry: row['ancestry'],
-#     sizetype_id: row['sizetype_id']
-#   )
-# end
+#     sizetype_id: row['sizetype_id'],
+#     title: row['title'],
+#     text: row['text']
 
-
-# 100.times do
-#   item = Item.new(
-#     title: Faker::Food.fruits,
-#     explanation: Faker::Food.dish,
-#     price: Faker::Number.within(range: 300..10000),
-#     state: Faker::Creature::Animal.name , 
-#     postage: Faker::Number.within(range: 300..800),
-#     user_id: 1, 
-#     category_id: 1,
-#   )
-#   item.save!
-# end
-
-
-
-
-# 100.times do
-#   item = Item.new(
-#     title: Faker::Food.fruits,
-#     explanation: Faker::Food.dish,
-#     price: Faker::Number.within(range: 300..10000),
-
-#     status_id: Faker::Creature::Animal.name , 
-#     postage: Faker::Number.within(range: 300..800),
-#     user_id: 1, 
-#     category_id: 1,
-#   )
-#   item.save!
-# end
-
-# image_a = Dir.glob("/Users/tooshimadaiki/Documents/GitHub/freemarket_sample_59-e/app/assets/images/*")
-# 100.times do |i|
-#   image = Image.new(
-#     image: File.open(image_a.sample),
-#     item_id: i + 1,
 #     )
-#   image.save!
 # end
+
 
 
 

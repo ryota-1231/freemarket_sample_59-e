@@ -1,0 +1,60 @@
+.category-details-wrapper
+  .category-details__box
+    .category-details__childeren
+      %ul.childeren-name
+        - @children.each do |child|
+          %li
+            =link_to "#{child.name}", category_path(child.id) 
+        
+    .category-details__container
+      .category-details__name
+        %h1=@category.name+"の商品一覧"
+      .category-details__main
+        - if @category.parent==nil
+          - @children.each do |child|
+            - child.children.each do |ground_children|
+              - ground_children.items.each do |item|
+                = link_to "/items/#{item.id}" do
+                  .item-box
+                    .item-box__image
+                      = image_tag "#{item.images.first.image}", :size =>'185x180'
+                    .item-box__title
+                      %h3=item.title
+                      .item-box__title__icon
+                      -# if いいねがあればいいねアイコン、数をだす
+                      .item-box__title__price
+                        ="¥"+item.price.to_s(:delimited)
+        - elsif @category.parent.present? && @category.children.present?
+          - @children.each do |ground_child|
+            - ground_child.items.each do |item|
+              = link_to "/items/#{item.id}" do
+                .item-box
+                  .item-box__image
+                    = image_tag "#{item.images.first.image}", :size =>'185x180'
+                  .item-box__title
+                    %h3=item.title
+                    .item-box__title__icon
+                    -# if いいねがあればいいねアイコン、数をだす
+                    .item-box__title__price
+                      ="¥"+item.price.to_s(:delimited)
+        - else 
+          - @category.items.each do |item|
+            = link_to "/items/#{item.id}" do
+              .item-box
+                .item-box__image
+                  = image_tag "#{item.images.first.image}", :size =>'185x180'
+                .item-box__title
+                  %h3=item.title
+                  .item-box__title__icon
+                  -# if いいねがあればいいねアイコン、数をだす
+                  .item-box__title__price
+                    ="¥"+item.price.to_s(:delimited)
+
+      .category-details__description
+        .category-details__description__name
+          %h3=@category.title
+        .category-details__description__text
+          =@category.text
+      
+
+
