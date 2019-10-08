@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
     @items_for_viton = Item.where(brand_id: 764)
     @items_for_supreme = Item.where(brand_id: 8412)
     @items_for_nike = Item.where(brand_id: 3812)
+
   end
   
   def new

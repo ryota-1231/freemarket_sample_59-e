@@ -27,10 +27,11 @@
           .field
           = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "password-input"
           .g-recaptcha{class: "g-recaptcha", "data-sitekey" => "6LdFBroUAAAAAE5mCF3yc3ssUdAT5OnAD0r5LYsn"}
+          = f.submit "ログイン", class: "login-btn"
         - if devise_mapping.rememberable?
           = render "devise/shared/links"
 
-  .footer-user
+  .footer-login
     %ul
       %li= link_to 'プライバシーポリシー', '#'
       %li= link_to 'メルカリ利用規約', '#'
