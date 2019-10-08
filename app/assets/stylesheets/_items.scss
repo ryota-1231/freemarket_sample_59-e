@@ -23,7 +23,6 @@
 .search_form{
   width: 780px;
   height: 40px;
-  // border-radius: 0.30em;
   background-color: rgb(245, 245, 245);
   border: 1px solid #ccc;
   padding-left: 10px;
@@ -263,7 +262,6 @@ h4{
   height: 100px;
   top: 0;
   background-color: white;
-  // padding-left: 330px;
   &__box{
     margin: auto;
     width: 1020px;
@@ -356,6 +354,8 @@ h4{
 .content{
   &__all{
     height: 6000px;
+    // width: 1664px;
+    width: 100vw;
     background-color: rgb(245, 245, 245);
     &__scrol{
       height: 390px;
@@ -440,6 +440,7 @@ h4{
             gap: 20px 20px;
             &__ima{
               position: relative;
+              vertical-align: bottom;
             }
             p{
               position: absolute;
@@ -640,7 +641,6 @@ h4{
         }
         &__items{
           height: 524px;
-          // margin: 20px;
           &__1{
             margin-top: 20px;
             display: grid;
@@ -808,14 +808,13 @@ h4{
 
 
 .footer{
-  // margin-top: 100px;
   height: 649px;
-  width: 100%;
+  margin-top: 5600px;
   &__downroad{
     height: 260px;
     width: 100%;
-    background: url(download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg);
-    background-color: lightblue;
+    background: url(https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg) !important;
+    
     display: flex;
     &__left{
       width: 417px;
@@ -840,6 +839,7 @@ h4{
       height: 260px;
     }
   }
+
   &__guide{
     height: 389px;
     background-color: rgb(34, 34, 34);
@@ -901,4 +901,17 @@ h4{
   border-radius: 4px;
   padding: 8px 10px;
   transition: all 0.3s ease-out 0s;
+}
+
+.item-box{
+  position: relative;
+}
+
+.item-box__title__price{
+  position: absolute;
+  top: 150px;
+  left:0;
+  background-color: lightgray;
+  border-radius: 12px;
+  padding-right: 10px;
 }

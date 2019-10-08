@@ -34,17 +34,30 @@
             = link_to "もっと見る >","#"
         .content__all__category__list__rady__items
           .content__all__category__list__rady__items__1
-            - @items.each do |item|
+            - @items_for_woman.each do |item|
               = link_to "#" do
-                .content__all__category__list__rady__items__1__ima
+                .item-box
+                  .item-box__image
+                    = image_tag "#{item.images.first.image}", :size =>'185x180'
+                  .item-box__title__price
+                    ="¥"+item.price.to_s(:delimited)
+                .item-box__title
+                  %h3=item.title
+                  .item-box__title__icon
+                    -# if いいねがあればいいねアイコン、数をだす
+                  
+                
+                
+                
+                -# .content__all__category__list__rady__items__1__ima
 
 
-                  = image_tag "#{item.images.first.image}", :size =>'185x180'
-                  %p
-                    = "¥#{item.price}"
+                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
+                -#   %p
+                -#     = "¥#{item.price}"
 
-                  .content__all__category__list__rady__items__1__text
-                    = item.title
+                -#   .content__all__category__list__rady__items__1__text
+                -#     = item.title
 
 
       .content__all__category__list__men
@@ -55,16 +68,25 @@
             = link_to "もっと見る >","#"
         .content__all__category__list__men__items
           .content__all__category__list__men__items__1
-            - @items.each do |item|
+            - @items_for_man.each do |item|
 
               = link_to "#" do
-                .content__all__category__list__men__items__1__ima
-                  = image_tag "#{item.images.first.image}", :size =>'185x180'
-                  %p 
+                .item-box
+                  .item-box__image
+                    = image_tag "#{item.images.first.image}", :size =>'186x180'
+                  .item-box__title
+                    %h3=item.title
+                    .item-box__title__icon
+                    -# if いいねがあればいいねアイコン、数をだす
+                    .item-box__title__price
+                      ="¥"+item.price.to_s(:delimited)
+                -# .content__all__category__list__men__items__1__ima
+                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
+                -#   %p 
 
-                    = "¥#{item.price}"
-                  .content__all__category__list__men__items__1__text
-                    = item.title
+                -#     = "¥#{item.price}"
+                -#   .content__all__category__list__men__items__1__text
+                -#     = item.title
 
       .content__all__category__list__mecha
         .content__all__category__list__mecha__new
@@ -74,17 +96,26 @@
             = link_to "もっと見る >","#"
         .contnet__all__category__list__mecha__items
           .content__all__category__list__mecha__items__1
-            - @items.each do |item|
+            - @items_for_mecha.each do |item|
 
               = link_to "#" do
-                .content__all__category__list__mecha__items__1__ima
-                  = image_tag "#{item.images.first.image}", :size =>'185x180'
-                  %p
+                .item-box
+                  .item-box__image
+                    = image_tag "#{item.images.first.image}", :size =>'185x180'
+                  .item-box__title
+                    %h3=item.title
+                    .item-box__title__icon
+                    -# if いいねがあればいいねアイコン、数をだす
+                    .item-box__title__price
+                      ="¥"+item.price.to_s(:delimited)
+                -# .content__all__category__list__mecha__items__1__ima
+                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
+                -#   %p
 
-                    = "¥#{item.price}"
+                -#     = "¥#{item.price}"
 
-                  .content__all__category__list__mecha__items__1__text
-                    = item.title
+                -#   .content__all__category__list__mecha__items__1__text
+                -#     = item.title
 
 
       .content__all__category__list__hobby
@@ -95,16 +126,26 @@
             = link_to "もっと見る >","#"
         .content__all__category__list__hobby__items
           .content__all__category__list__hobby__items__1
-            - @items.each do |item|
+            - @items_for_hobby.each do |item|
 
               = link_to "#" do
-                .content__all__category__list__hobby__items__1__ima
-                  = image_tag "#{item.images.first.image}", :size =>'185x180'
-                  %p
+                .item-box
+                  .item-box__image
+                    = image_tag "#{item.images.first.image}", :size =>'185x180'
+                  .item-box__title
+                    %h3=item.title
+                    .item-box__title__icon
+                    -# if いいねがあればいいねアイコン、数をだす
+                    .item-box__title__price
+                      ="¥"+item.price.to_s(:delimited)
+                
+                -# .content__all__category__list__hobby__items__1__ima
+                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
+                -#   %p
 
-                    = "¥#{item.price}"
-                  .content__all__category__list__hobby__items__1__text
-                    = item.title
+                -#     = "¥#{item.price}"
+                -#   .content__all__category__list__hobby__items__1__text
+                -#     = item.title
 
 
     .content__all__popular__brand
@@ -125,16 +166,25 @@
             = link_to "もっと見る >","#"
         .content__all__brand__list__chanel__items 
           .content__all__brand__list__chanel__items__1 
-            - @items.each do |item|
+            - @items_for_chanel.each do |item|
 
               = link_to "#" do
-                .content__all__brand__list__chanel__items__1__ima
-                  = image_tag "#{item.images.first.image}", :size =>'185x180'
-                  %p
+                .item-box
+                  .item-box__image
+                    = image_tag "#{item.images.first.image}", :size =>'185x180'
+                  .item-box__title
+                    %h3=item.title
+                    .item-box__title__icon
+                    -# if いいねがあればいいねアイコン、数をだす
+                    .item-box__title__price
+                      ="¥"+item.price.to_s(:delimited)
+                -# .content__all__brand__list__chanel__items__1__ima
+                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
+                -#   %p
 
-                    = "¥#{item.price}"
-                  .content__all__brand__list__chanel__items__1__text
-                    = item.title 
+                -#     = "¥#{item.price}"
+                -#   .content__all__brand__list__chanel__items__1__text
+                -#     = item.title 
 
       
       .content__all__brand__list__viton
@@ -145,14 +195,23 @@
             = link_to "もっと見る >","#"
         .content__all__brand__list__viton__items  
           .content__all__brand__list__viton__items__1  
-            - @items.each do |item|
+            - @items_for_viton.each do |item|
               = link_to "#" do
-                .content__all__brand__list__viton__items__1__ima
-                  = image_tag "#{item.images.first.image}", :size =>'185x180'
-                  %p
-                    = "¥#{item.price}"
-                  .content__all__brand__list__viton__items__1__text
-                    = item.title        
+                .item-box
+                  .item-box__image
+                    = image_tag "#{item.images.first.image}", :size =>'185x180'
+                  .item-box__title
+                    %h3=item.title
+                    .item-box__title__icon
+                    -# if いいねがあればいいねアイコン、数をだす
+                    .item-box__title__price
+                      ="¥"+item.price.to_s(:delimited)
+                -# .content__all__brand__list__viton__items__1__ima
+                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
+                -#   %p
+                -#     = "¥#{item.price}"
+                -#   .content__all__brand__list__viton__items__1__text
+                -#     = item.title        
 
   
       .content__all__brand__list__supreme
@@ -163,16 +222,25 @@
             = link_to "もっと見る >","#"
         .content__all__brand__list__supreme__items  
           .content__all__brand__list__supreme__items__1  
-            - @items.each do |item|
+            - @items_for_supreme.each do |item|
 
               = link_to "#" do
-                .content__all__brand__list__supreme__items__1__ima
-                  = image_tag "#{item.images.first.image}", :size =>'185x180'
-                  %p
-                    = "¥#{item.price}"
+                .item-box
+                  .item-box__image
+                    = image_tag "#{item.images.first.image}", :size =>'185x180'
+                  .item-box__title
+                    %h3=item.title
+                    .item-box__title__icon
+                    -# if いいねがあればいいねアイコン、数をだす
+                    .item-box__title__price
+                      ="¥"+item.price.to_s(:delimited)
+                -# .content__all__brand__list__supreme__items__1__ima
+                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
+                -#   %p
+                -#     = "¥#{item.price}"
 
-                  .content__all__brand__list__supreme__items__1__text
-                    = item.title  
+                -#   .content__all__brand__list__supreme__items__1__text
+                -#     = item.title  
 
       .content__all__brand__list__nike
         .content__all__brand__list__nike__new
@@ -182,17 +250,26 @@
             = link_to "もっと見る >","#"
         .content__all__brand__list__nike__items
           .content__all__brand__list__nike__items__1 
-            - @items.each do |item|
+            - @items_for_nike.each do |item|
 
               = link_to "#" do
-                .content__all__brand__list__nike__items__1__ima
+                .item-box
+                  .item-box__image
+                    = image_tag "#{item.images.first.image}", :size =>'185x180'
+                  .item-box__title
+                    %h3=item.title
+                    .item-box__title__icon
+                    -# if いいねがあればいいねアイコン、数をだす
+                    .item-box__title__price
+                      ="¥"+item.price.to_s(:delimited)
+                -# .content__all__brand__list__nike__items__1__ima
 
-                  = image_tag "#{item.images.first.image}", :size =>'185x180'
-                  %p
-                    = "¥#{item.price}"
+                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
+                -#   %p
+                -#     = "¥#{item.price}"
 
-                  .content__all__brand__list__chanel__items__1__text
-                    = item.title 
+                -#   .content__all__brand__list__chanel__items__1__text
+                -#     = item.title 
 
 = render 'footer'
 

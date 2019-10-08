@@ -10,11 +10,13 @@ Rails.application.routes.draw do
       get 'confirm'
       get 'error'
       post 'pay'
-      get 'category'
     end
     resources :images, only: [:index, :create]
     resources :goods, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy, :new]
+  end
+
+  resources :category do
   end
 
   namespace :api do
@@ -47,5 +49,15 @@ Rails.application.routes.draw do
       get 'done' 
     end
   end
+
+
+  resources :cards do
+    collection do
+      post 'new'
+      post 'create'
+    end
+  end    
+
+  resources :searches,only:[:index]
 
 end

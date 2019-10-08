@@ -1,0 +1,55 @@
+// Place all the styles related to the cards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.content__title{
+  height: 50px;
+  width: 700px;
+  background-color: white;
+  border-bottom: solid black 2px;
+  h2{
+    padding-left: 220px;
+    font-weight: bold;
+    padding-top: 5px;
+    font-size: 24px;
+  }
+}
+
+.content__credit-card{
+  height: 562px;
+  width: 700px;
+  background-color: white;
+  padding: 40px 40px 64px;
+  &__inner{
+    height: 407px;
+    width: 343px;
+    margin: 0 auto;
+    .cards-expire{
+      margin-top: 30px;
+      &__wrap{
+        display: inline-block;
+      }
+    }
+  }
+}
+
+#card_number{
+  width: 200px;
+}
+
+.input-number{
+  display: inline-block;
+  padding-left: 10px;
+  margin-left: 10px;
+  width: 50px;
+}
+
+#card_token{
+  margin-top: 20px;
+}
+
+.content-bottom--add-btn{
+  width: 343px;
+  height: 50px;
+  background-color: red;
+}
