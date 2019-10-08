@@ -354,6 +354,8 @@ h4{
 .content{
   &__all{
     height: 6000px;
+    // width: 1664px;
+    width: 100vw;
     background-color: rgb(245, 245, 245);
     &__scrol{
       height: 390px;
@@ -438,6 +440,7 @@ h4{
             gap: 20px 20px;
             &__ima{
               position: relative;
+              vertical-align: bottom;
             }
             p{
               position: absolute;
@@ -806,7 +809,7 @@ h4{
 
 .footer{
   height: 649px;
-
+  margin-top: 5600px;
   &__downroad{
     height: 260px;
     width: 100%;
@@ -898,4 +901,17 @@ h4{
   border-radius: 4px;
   padding: 8px 10px;
   transition: all 0.3s ease-out 0s;
+}
+
+.item-box{
+  position: relative;
+}
+
+.item-box__title__price{
+  position: absolute;
+  top: 150px;
+  left:0;
+  background-color: lightgray;
+  border-radius: 12px;
+  padding-right: 10px;
 }
