@@ -92,11 +92,8 @@
     = @item.explanation
   - unless user_signed_in? && @item.user_id == current_user.id then
     .detail__box__icon
-      = link_to item_goods_path(@item), method: :post do
-        .detail__box__icon--good
-          = fa_icon "heart"
-          いいね! 
-          = @item.goods.count
+      #good_good
+        = render partial: 'items/goods', locals: { item: @item}
       = link_to "" do
         .detail__box__icon--warning
           = fa_icon "flag"
