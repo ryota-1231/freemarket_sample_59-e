@@ -8,7 +8,7 @@
     = render 'sideber'
     .contents
       .top--content      
-        = link_to do  
+        = link_to destroy_user_session_path, method: :delete, class: "logout" do  
           .log-out__button.button ログアウト
         
   = render 'item__exhibit'
