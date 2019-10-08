@@ -1,5 +1,13 @@
+.search{
+  height: 100%;
+  background: #f5f5f5;
+}
+
+.jojo{
+  box-shadow: 2px 2px 4px;
+}
+
 .search-right{
-  background-color: white;
 }
 
 .search-result-head{
@@ -37,4 +45,16 @@ p.searchhh{
 .items-box-contenttt{
   position: relative;
   width: 180px;
+}
+
+.item-box__title{
+  width: 185px;
+  height: 50px;
+  background-color: white;
+  padding-top: 0;
+}
+
+.item-box__image{
+  height: 180px;
+  width: 185px;
 }
