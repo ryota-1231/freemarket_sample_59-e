@@ -44,12 +44,12 @@ class User < ApplicationRecord
   def self.find_oauth(auth)
     uid = auth.uid
     provider = auth.provider
-    snscredential = SnsCredential.find_by(uid: uid)
-    
+    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    generated_password = Devise.friendly_token[0, 20]
+
     if snscredential.present?
-      user = User.find(snscredential.user_id)
+      user = User.where(id: snscredential.user_id).first
       unless user.present?
-        generated_password = Devise.friendly_token[0, 20]
         user = User.new(
           nickname: auth.info.name,
           email: auth.info.email,
@@ -61,7 +61,7 @@ class User < ApplicationRecord
     else
       user = User.find_by(email: auth.info.email)
       if user.present?
-        sns = SnsCredential.new(
+        sns = SnsCredential.create(
           uid: uid,
           provider: provider,
           user_id: user.id
@@ -73,13 +73,13 @@ class User < ApplicationRecord
           password: generated_password,
           password_confirmation: generated_password
         )
-        sns = SnsCredential.create(
+        sns = SnsCredential.new(
           uid: uid,
           provider: provider,
           user_id: user.id
           )
       end
     end
-    return { user: user, sns_id: sns.id }
+    return { user: user, sns_id: sns }
   end
 end

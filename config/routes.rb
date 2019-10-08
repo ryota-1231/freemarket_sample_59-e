@@ -27,13 +27,16 @@ Rails.application.routes.draw do
     resources :brands, only: :index, defaults: { format: 'json' }
   end
 
-  resources :users, only: [:new, :edit, :show] do
+  resources :users, only: [:new, :edit, :show, :destroy] do
     collection do
       get 'log_out'
       get 'register'  
       get 'sign_in'
+      get 'sms_confirmation'
+      get 'address_alter'
     end
   end
+  
   resources :signup, only:[:new, :create] do
     collection do
       get 'outsidemember'

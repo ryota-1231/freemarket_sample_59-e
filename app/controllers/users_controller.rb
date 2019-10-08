@@ -4,15 +4,31 @@ class UsersController < ApplicationController
   end
   
   def show
+    @user = current_user.id
   end
   
   def edit
+    @user = current_user.id
+  end
+
+  def destroy
+    @user = current_user.id
   end
 
   def log_out
+    @user = current_user.id
   end
 
   def register
-  end  
+    @user = current_user.id
+  end 
+
+  def sms_confirmation
+    @user = current_user
+  end
+
+  def address_alter
+    @user = current_user
+  end
   
 end

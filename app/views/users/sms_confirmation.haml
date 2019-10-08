@@ -1,0 +1,35 @@
+= render 'items/header'
+- breadcrumb :log_out
+= breadcrumbs separator: " &rsaquo; "
+
+.wrapper
+  .main
+    = render 'sideber'
+    .contents
+      .top--content 
+        = form_for(@user, url: root_path, method: :get ) do |f|
+          .signup__phonepage-mypage
+            .signup__phonepage-mypage-title
+              電話番号の確認
+            .signup__phonepage-mypage__box
+              .signup__phonepage-mypage__box-input
+                .field
+                  .field-info__mypage-cellphone-number
+                    %label{for: "nickname", class:"position"} 携帯電話の番号
+                    %span.form-require 必須
+                    %br
+                  .field-input
+                  = f.number_field :cellphone_number, class: "input-default", autocomplete: "email", placeholder: "携帯電話の番号を入力"
+                .login__info
+                  本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+                .next__btn
+                  = f.submit 'SMSを送信する', class:"next-btn" 
+                .attention
+                  ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+                .about__user-information
+                  = link_to '電話番号の確認が必要な理由 〉', '#'
+        
+  = render 'item__exhibit'
+  = render 'items/footer'
+
+
