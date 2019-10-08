@@ -1,0 +1,5 @@
+= link_to item_goods_path(item), method: :post, remote: true do
+  .detail__box__icon--good
+    = fa_icon "heart"
+    いいね! 
+    = @item.goods.count
