@@ -16,7 +16,7 @@
               新着商品
           .items-box-contents
           - @items.each do |item|
-            = link_to "#" do
+            = link_to "items/#{item.id}" do
               .item-box.jojo
                 .item-box__image
                   = image_tag "#{item.images.first.image}", :size =>'185x180'

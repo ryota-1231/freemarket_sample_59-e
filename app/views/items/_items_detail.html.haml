@@ -87,7 +87,7 @@
           着払い
   - unless user_signed_in? && @item.user_id == current_user.id then
     .detail__box__money
-    %input.detail__box__btn{type: 'submit', value: '購入画面に進む'}
+    =link_to  '購入画面へ進む', confirm_items_path, id:"detail__box__btn"
   .detail__box__explanation
     = @item.explanation
   - unless user_signed_in? && @item.user_id == current_user.id then

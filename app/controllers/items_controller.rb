@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
     @items_for_viton = Item.where(brand_id: 764)
     @items_for_supreme = Item.where(brand_id: 8412)
     @items_for_nike = Item.where(brand_id: 3812)
+
   end
   
   def new
@@ -22,6 +23,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(items_params)
+    @item.user_id = current_user.id
     if @item.save
       redirect_to root_path
     else
@@ -71,9 +73,11 @@ class ItemsController < ApplicationController
 
   def confirm
     #id仮置きです
-    @user = User.find(1)
-    @item = Item.find(7)
+    @item = Item.find(10)
+    @user = @item.user
     @cards = Card.find(1)
+    @buyer = current_user
+
   end
 
   def pay

@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
-  
+
   def new
   end
   
   def show
-    @user = current_user.id
+    @user = User.find(current_user.id)
+    @nickname = @user.nickname
   end
   
   def edit
