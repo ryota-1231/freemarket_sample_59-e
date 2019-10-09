@@ -116,7 +116,7 @@
                 .header__box__bottom__right__todo__hidden1
 
           .header__box__bottom__right__mypage
-            = link_to "/users/:id" do
+            = link_to "/users/#{current_user.id}" do
               %i.far.fa-smile
               マイページ
       - else
