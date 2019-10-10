@@ -27,13 +27,15 @@ $(function(){
     return html;
   }
   // #q_category_id_eqに配列でvalueに保存する処理を追加する
-  $('#q_category_name_eq').change(function(e){
+  $('#q_category_id_in').change(function(e){
     e.preventDefault();
     $('.category_children').empty()
     $('.search-content__category__select').empty()
     $('.category_children').css('display','block')
 
     var parent_id= this.options[this.options.selectedIndex].value
+
+    
 
     $.ajax({
       type: 'get',
@@ -44,6 +46,7 @@ $(function(){
 
     .done(function(child_category){
       $('.category_children').append(`<option value="">---</option>`)
+      console.log(child_category)
       $.each(child_category, function(i, e) {
           var html = buildHTML(e);
           $('.category_children').append(html)

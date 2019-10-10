@@ -14,7 +14,7 @@
         .search-content__category
           %label
             %span カテゴリーを選択する
-          = f.collection_select :category_name_in, @category, :id, :name, prompt: "すべて"
+          = f.collection_select :category_id_in, @category, :id, :name, prompt: "すべて"
           
 
           %select.category_children
@@ -35,7 +35,7 @@
         .search-content__sizetype
           %label
             %span サイズを指定する
-          = f.collection_select :sizetype_id_eq, @sizetype, :id, :sizetype, prompt: "---"
+          = f.collection_select :sizetype_id_in, @sizetype, :id, :sizetype, prompt: "---"
           .search-content__sizetype__select
             -# = f.collection_check_boxes :sizetype_id_eq, @sizetype, :id, :sizetype, {name:"q[sizetype_id]"} do |b|
             -#   %div.sizetype-select
@@ -55,7 +55,7 @@
           %label
             %span 商品の状態
           .search-content__status__select
-            = f.collection_check_boxes :status_id_eq, @status, :id, :name, {name:"q[statu_id]"} do |b|
+            = f.collection_check_boxes :status_id_in, @status, :id, :name, {name:"q[statu_id]"} do |b|
               %div.status-select
                 = b.check_box
                 = b.label { b.text }
@@ -64,7 +64,7 @@
           %label
             %span 配送料の負担
           .search-content__delivery-fee__select
-            = f.collection_check_boxes :delivery_id, Deliveryfee.all, :id, :name, {name:"q[delivery_id]"} do |b|
+            = f.collection_check_boxes :delivery_id_in, Deliveryfee.all, :id, :name do |b|
               %div.delivery-select
                 = b.check_box
                 = b.label { b.text }
