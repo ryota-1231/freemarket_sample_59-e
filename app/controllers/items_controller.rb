@@ -1,6 +1,4 @@
 class ItemsController < ApplicationController
- 
-
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,15 +12,20 @@ class ItemsController < ApplicationController
     @items_for_viton = Item.where(brand_id: 764)
     @items_for_supreme = Item.where(brand_id: 8412)
     @items_for_nike = Item.where(brand_id: 3812)
+
   end
-  
+
   def new
     @user = current_user.id
   end
 
   def create
     @item = Item.new(items_params)
+
+
     @item.user_id = current_user.id
+
+
     if @item.save
       redirect_to root_path
     else
@@ -44,7 +47,6 @@ class ItemsController < ApplicationController
     # @item = Item.find(params[:id])
   end
 
-
   def update
     if @item.user_id == current_user.id
       if items_params[:sizetype_id]
@@ -63,7 +65,6 @@ class ItemsController < ApplicationController
     end
   end
 
-
   def exhibit
     @item = Item.new
     @item.build_delivery
@@ -73,9 +74,11 @@ class ItemsController < ApplicationController
 
   def confirm
     #id仮置きです
-    @user = User.find(1)
-    @item = Item.find(7)
+    @item = Item.find(10)
+    @user = @item.user
     @cards = Card.find(1)
+    @buyer = current_user
+
   end
 
   def pay
@@ -98,13 +101,35 @@ class ItemsController < ApplicationController
   #   )
   # end
 
+  def search_index
+    @q = Item.ransack(params[:q])
+    @category = Category.where(ancestry:nil)
+    @brands = Brand.all
+    @sizetype = Sizetype.where(ancestry:nil)
+    @status = Status.all
+    @delivery = Delivery.all
+    @items = @q.result(distinct: true)
+  end
+
+  def search
+    @q = Item.search(search_params)
+    @items = @q.result(distinct: true)
+    binding.pry
+  end
+
   private
   def items_params
     params.require(:item).permit(:title, :explanation, :status_id, :price, :category_id, :brand_id, :sizetype_id, delivery_attributes:[:deliveryfee_id, :deliverysource_id, :deliverymethod_id, :deliverydate_id], images_attributes:[:image])
+    binding.pry
+   
   end
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def search_params
+    params.require(:q).permit( {:category_id_in => []})
   end
 
 end

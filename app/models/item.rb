@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   numericality:{greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   validates :category_id, presence: true, numericality: true
 
-  # validates :sizetype_id, numericality: true
+  validates :sizetype_id, numericality: true
 
   
 
@@ -27,6 +27,7 @@ class Item < ApplicationRecord
   belongs_to :buyer, optional: true
   belongs_to :delivery, optional: true
   belongs_to :sizetype,optional: true
+  belongs_to :status, optional: true
 
   # def gooted? (good_user_id, good_item_id)
   #   likes.where(user_id: good_user_id, item_id: good_item_id).exists?
