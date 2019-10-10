@@ -1,0 +1,76 @@
+#search-side-ber
+  .search-side-box
+    = search_form_for(@q, url: search_items_path) do |f|
+      .search-sort
+        %select
+
+      .search-content
+        %h3 詳細検索
+        .search-content__keyword
+          %label 
+            %span キーワードを追加する
+          = f.search_field :title_cont
+
+        .search-content__category
+          %label
+            %span カテゴリーを選択する
+          = f.collection_select :category_name_in, @category, :id, :name, prompt: "すべて"
+          
+
+          %select.category_children
+          .search-content__category__select
+            -# = f.collection_check_boxes :category_id_eq, @category, :id, :name, {name:"q[category_id]"} do |b|
+            -#   %div.category-select
+            -#     = b.check_box
+            -#     = b.label { b.texte
+
+        .search-content__brand
+          %label
+            %span ブランド名から探す
+          %input{name:"q[brand_id_eq]", value:"",type:"hidden", class:"brand_choice"}
+          %input{placeholder: "例) シャネル", value:"",class:'search-content__brand-area'}
+          %div.brands_area
+            %ul.brand_area
+
+        .search-content__sizetype
+          %label
+            %span サイズを指定する
+          = f.collection_select :sizetype_id_eq, @sizetype, :id, :sizetype, prompt: "---"
+          .search-content__sizetype__select
+            -# = f.collection_check_boxes :sizetype_id_eq, @sizetype, :id, :sizetype, {name:"q[sizetype_id]"} do |b|
+            -#   %div.sizetype-select
+            -#     = b.check_box
+            -#     = b.label { b.text }
+
+        .search-content__price
+          %label
+            %span 価格
+          .search-content__price__select
+          .search-content__price__sub-select
+            = f.text_field 'price_gteq', placeholder: "MIN"
+            %span 〜
+            = f.text_field 'price_lteq', placeholder: "MAX"
+
+        .search-content__status
+          %label
+            %span 商品の状態
+          .search-content__status__select
+            = f.collection_check_boxes :status_id_eq, @status, :id, :name, {name:"q[statu_id]"} do |b|
+              %div.status-select
+                = b.check_box
+                = b.label { b.text }
+
+        .search-content__delivery-fee
+          %label
+            %span 配送料の負担
+          .search-content__delivery-fee__select
+            = f.collection_check_boxes :delivery_id, Deliveryfee.all, :id, :name, {name:"q[delivery_id]"} do |b|
+              %div.delivery-select
+                = b.check_box
+                = b.label { b.text }
+
+        .search-content__button
+          .clear__button クリア
+          
+          .submit__button
+            =f.submit '完了'
