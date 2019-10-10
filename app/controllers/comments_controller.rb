@@ -1,11 +1,14 @@
 class CommentsController < ApplicationController
+
   def create
-    comment = Comment.create(text: comment_params[:text], item_id: comment_params[:item_id], user_id: current_user.id)
-    redirect_to item_path(@item)   #コメントと結びつくツイートの詳細画面に遷移する
+    @item = Item.find(params[:item_id])
+    @comment = @item.comments.create(create_params)
+    redirect_to item_path(@item)
   end
 
   private
-  def comment_params
-    params.permit(:text, :item_id)
+  def create_params
+    params.require(:comment).permit(:comment).merge(item_id: params[:item_id], user_id: current_user.id)
   end
 end
+

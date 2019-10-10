@@ -41,11 +41,12 @@
         display: inline-flex;
         margin-left: 100px;
         margin-top: 20px;
-        .confirm-box__detail__item-title {
-          padding-top: 20px;
-          margin-right: 250px;
-          font-size: 18px;
-        }
+      }
+      &__item-title {
+        padding-top: 20px;
+        margin-left: 36px;
+        margin-right: 200px;
+        font-size: 18px;
       }
       .confirm-box__detail__item-price {
         font-weight: bold;

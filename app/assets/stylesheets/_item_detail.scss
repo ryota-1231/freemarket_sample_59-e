@@ -326,21 +326,67 @@ height: auto;
           &__you{
             height: auto;
             background-color: white;
+            margin: 20px 0px;
+            display: flex;
+            &__left{
               &--icon{
-                height: 40px;
-                width: 40px;
-                
+                height: 50px;
+                width: 50px;
+                background-color: red;
+                border-radius: 50%;
+                margin-top: 10px;
               }
+            }
+            &__right{
+              
+            
               &--nickname{
-
+                margin-left: 15px;
               }
               &--comment{
-
+                height: auto;
+                width: 550px;
+                background-color: red;
+                margin: 5px 0px 10px 15px;
+                border-radius: 0.5em;
+                padding:15px;
+                background-color: rgb(200, 200, 200);
               }
           }
+        }
+
           &__i{
             height: auto;
             background-color: white;
+            margin: 20px 0px;
+            display: flex;
+              &__left{
+              
+              &--nickname{
+                margin-left: 500px;
+              }
+              &--comment{
+                height: auto;
+                width: 550px;
+                background-color: red;
+                margin: 5px 0px 10px 0px;
+                border-radius: 0.5em;
+                padding:15px;
+                background-color: rgb(200, 200, 200);
+              }
+            }
+        
+      &__right{
+        &--icon{
+                height: 50px;
+                width: 50px;
+                background-color: red;
+                border-radius: 50%;
+                margin: 10px 0px 0px 15px;
+        }
+        
+      }
+        
           }
         }
     
@@ -543,9 +589,21 @@ height: auto;
           }
         }
       }
-      }
-    
+    }
+  }
 }
 }
 
+#detail__box__btn {
+  text-align: center;
+  padding: 20px 140px;
+  margin-top: 20px;
+  margin-left: 70px;
+  height: 60px;
+  width: 60px;
+  background-color: red;
+  color: white;
+  line-height: 60px;
+  font-size: 27px;
+  outline: none;
 }

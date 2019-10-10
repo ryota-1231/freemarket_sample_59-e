@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
     resources :images, only: [:index, :create]
     resources :goods, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy, :new]
   end
 
   resources :category do
@@ -34,13 +34,16 @@ Rails.application.routes.draw do
     resources :items, only: :index, defaults: { format: 'json' }
   end
 
-  resources :users, only: [:new, :edit, :show] do
+  resources :users, only: [:new, :edit, :show, :destroy] do
     collection do
       get 'log_out'
       get 'register'  
       get 'sign_in'
+      get 'sms_confirmation'
+      get 'address_alter'
     end
   end
+  
   resources :signup, only:[:new, :create] do
     collection do
       get 'outsidemember'
@@ -59,5 +62,7 @@ Rails.application.routes.draw do
       post 'create'
     end
   end
+
+  resources :searches,only:[:index]
 
 end

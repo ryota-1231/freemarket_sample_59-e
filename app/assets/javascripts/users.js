@@ -1,5 +1,4 @@
 $(function() {
-  console.log("ok")
   $('.mypage__tabs').children('li').click(function(){
     
     $('.mypage__tabs').children('.tag__changed').removeClass('tag__changed');

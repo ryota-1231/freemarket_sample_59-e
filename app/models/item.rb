@@ -40,4 +40,9 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :status
 
+  def self.search(search)
+    Item.all unless search
+    Item.where(['title LIKE ?', "%#{search}%"])
+  end
+
 end
