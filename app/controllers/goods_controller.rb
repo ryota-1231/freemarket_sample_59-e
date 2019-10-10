@@ -8,6 +8,6 @@ class GoodsController < ApplicationController
   def destroy
     @un_good = Good.find_by(item_id: params[:item_id], user_id: current_user.id)
     @un_good.destroy
-    # redirect_to "/items/#{params[:item_id]}"
+    redirect_to "/items/#{params[:item_id]}"
   end
 end

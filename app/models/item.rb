@@ -31,7 +31,6 @@ class Item < ApplicationRecord
   #   likes.where(user_id: good_user_id, item_id: good_item_id).exists?
   # end
 
-
   accepts_nested_attributes_for :images
   accepts_nested_attributes_for :delivery
 
