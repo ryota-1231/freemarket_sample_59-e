@@ -47,6 +47,7 @@ group :development, :test do
 
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem 'bullet'
 end
 
 group :development do
@@ -100,4 +101,4 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'kaminari'
-
+gem 'ransack'

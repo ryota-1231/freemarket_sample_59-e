@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       get 'confirm'
       get 'error'
       post 'pay'
+      get 'search_index'
+      get 'search'
     end
     resources :images, only: [:index, :create]
     resources :goods, only: [:create, :destroy]
@@ -28,6 +30,9 @@ Rails.application.routes.draw do
   namespace :api do
     resources :brands, only: :index, defaults: { format: 'json' }
   end
+  namespace :api do
+    resources :items, only: :index, defaults: { format: 'json' }
+  end
 
   resources :users, only: [:new, :edit, :show, :destroy] do
     collection do
@@ -37,6 +42,7 @@ Rails.application.routes.draw do
       get 'sms_confirmation'
       get 'address_alter'
     end
+    
   end
   
   resources :signup, only:[:new, :create] do
@@ -56,7 +62,7 @@ Rails.application.routes.draw do
       post 'new'
       post 'create'
     end
-  end    
+  end
 
   resources :searches,only:[:index]
 

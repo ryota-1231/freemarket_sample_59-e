@@ -9,16 +9,18 @@ class Item < ApplicationRecord
   numericality:{greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   validates :category_id, presence: true, numericality: true
 
-  # validates :sizetype_id, numericality: true
+  validates :sizetype_id, numericality: true
 
   
 
   has_many :comments
   has_many :messages
   has_many :images, dependent: :destroy
-  has_many :goods
-  has_many :users, through: :goods
+  has_many :goods, dependent: :destroy
+  # has_many :users, through: :goods
+  has_many :good_users, through: :goods, source: :user
   
+
   belongs_to :user, optional: true
   belongs_to :brand, optional: true
   belongs_to :category, optional: true
@@ -26,6 +28,7 @@ class Item < ApplicationRecord
   belongs_to :buyer, optional: true
   belongs_to :delivery, optional: true
   belongs_to :sizetype,optional: true
+  belongs_to :status, optional: true
 
   # def gooted? (good_user_id, good_item_id)
   #   likes.where(user_id: good_user_id, item_id: good_item_id).exists?
@@ -41,6 +44,10 @@ class Item < ApplicationRecord
   def self.search(search)
     Item.all unless search
     Item.where(['title LIKE ?', "%#{search}%"])
+  end
+
+  def good_user(user_id)
+    goods.find_by(user_id: user_id)
   end
 
 end

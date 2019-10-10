@@ -91,23 +91,23 @@
 
 
 
-# #   for i in 1..17 do
-# #     if i==9 
-# #       next
-# #     else
-# #       current_page = agent.get("https://www.mercari.com/jp/brand/?brand_group_id=#{i}")
-# #       brands = current_page.search('.brand-list-box')
+#   for i in 1..17 do
+#     if i==9 
+#       next
+#     else
+#       current_page = agent.get("https://www.mercari.com/jp/brand/?brand_group_id=#{i}")
+#       brands = current_page.search('.brand-list-box')
       
-# #       brand_title = brands.at('h3').inner_text.strip
-# #       brand_groups = brands.search('p')
+#       brand_title = brands.at('h3').inner_text.strip
+#       brand_groups = brands.search('p')
 
      
 
-# #       parent = Brand.create(name: brand_title) 
-# #       brand_groups.each do |brand_name|
-# #         posts= brand_name.inner_text.strip
-# #         child = parent.children.create(name: posts)
-# #       end
+#       parent = Brand.create(name: brand_title) 
+#       brand_groups.each do |brand_name|
+#         posts= brand_name.inner_text.strip
+#         child = parent.children.create(name: posts)
+#       end
 
       
       
@@ -138,6 +138,7 @@
 # end
 
 
+
 # image_a = Dir.glob("/Users/makun/Desktop/freemarket_sample_59-e/app/assets/images/image/*")
 # 100.times do |i|
 #   image = Image.new(
@@ -153,13 +154,14 @@
 #   image = Image.new(
 #     image: File.open(image_a.sample),
 #     item_id: 1,
+
 #     )
 #   image.save!
 # end
 
 
 
-# require "csv"
+require "csv"
 
 # CSV.foreach('db/sizetypes.csv', headers: true) do |row|
 #     Sizetype.create(
@@ -170,13 +172,13 @@
 #   )
 #   end
 
-# CSV.foreach('db/brands.csv', headers: true) do |row|
-#     Brand.create(
-#     name: row['name'],
-#     created_at: row['created_at'],
-#     updated_at: row['updated_at'],
-#     )
-# end
+# # CSV.foreach('db/brands.csv', headers: true) do |row|
+# #     Brand.create(
+# #     name: row['name'],
+# #     created_at: row['created_at'],
+# #     updated_at: row['updated_at'],
+# #     )
+# # end
 
 # CSV.foreach('db/categories.csv', headers: true) do |row|
 #     Category.create(
@@ -196,28 +198,28 @@
 
 require "csv"
 
-# CSV.foreach('db/sizetypes.csv', headers: true) do |row|
-#     Sizetype.create(
-#     id: row['id'],
-#     sizetype: row['sizetype'],
-#     created_at: row['created_at'],
-#     updated_at: row['updated_at'],
-#     ancestry: row['ancestry']
-#   )
-#   end
+CSV.foreach('db/sizetypes.csv', headers: true) do |row|
+    Sizetype.create(
+    # id: row['id'],
+    sizetype: row['sizetype'],
+    created_at: row['created_at'],
+    updated_at: row['updated_at'],
+    ancestry: row['ancestry']
+  )
+  end
 
-# CSV.foreach('db/brands.csv', headers: true) do |row|
-#     Brand.create(
-#     id: row['id'],
-#     name: row['name'],
-#     created_at: row['created_at'],
-#     updated_at: row['updated_at'],
-#     )
-# end
+CSV.foreach('db/brands.csv', headers: true) do |row|
+    Brand.create(
+    # id: row['id'],
+    name: row['name'],
+    created_at: row['created_at'],
+    updated_at: row['updated_at'],
+    )
+end
 
 CSV.foreach('db/categories.csv', headers: true) do |row|
     Category.create(
-    id: row['id'],
+    # id: row['id'],
     name: row['name'],
     created_at: row['created_at'],
     updated_at: row['updated_at'],

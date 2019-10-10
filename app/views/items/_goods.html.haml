@@ -1,5 +1,12 @@
-= link_to item_goods_path(item), method: :post, remote: true do
-  .detail__box__icon--good
-    = fa_icon "heart"
-    いいね! 
-    = @item.goods.count
+- unless item.good_user(current_user.id).blank?
+  = link_to item_good_path(item.id,current_user.id), method: :delete, remote: "true" do
+    .detail__box__icon--good
+      = fa_icon "heart"
+      いいね! 
+      = @item.goods.count
+- else
+  = link_to item_goods_path(item.id,current_user.id), method: :post, remote: "true" do
+    .detail__box__icon--good
+      = fa_icon "heart"
+      いいね! 
+      = @item.goods.count

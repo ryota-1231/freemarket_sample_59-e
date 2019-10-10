@@ -1,6 +1,7 @@
-$(function(){
-  $(".detail__box__icon--good").on('submit', function(e){
-    e.preventDefault();
-    console.log(this);
+$(function() {
+$("#good_good").click(function(e) {
+  e.preventDefault();
+  $('.detail__box__icon--good').css("color","red");
+  console.log("ok")
   })
-});
+})
