@@ -20,6 +20,7 @@ class Item < ApplicationRecord
   # # has_many :users, through: :goods
   # has_many :good_users, through: :goods, source: :user
   
+
   # belongs_to :user, optional: true
   # belongs_to :brand, optional: true
   # belongs_to :category, optional: true
@@ -46,8 +47,8 @@ class Item < ApplicationRecord
     Item.where(['title LIKE ?', "%#{search}%"])
   end
 
-  def good?(user)
-    good_users.include?(user)
+  def good_user(user_id)
+    goods.find_by(user_id: user_id)
   end
 
 end
