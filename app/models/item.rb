@@ -29,9 +29,7 @@ class Item < ApplicationRecord
   belongs_to :sizetype,optional: true
   belongs_to :status, optional: true
 
-  # def gooted? (good_user_id, good_item_id)
-  #   likes.where(user_id: good_user_id, item_id: good_item_id).exists?
-  # end
+  
 
 
   accepts_nested_attributes_for :images
@@ -46,8 +44,8 @@ class Item < ApplicationRecord
     Item.where(['title LIKE ?', "%#{search}%"])
   end
 
-  def good?(user)
-    good_users.include?(user)
+  def good_user(user_id)
+    goods.find_by(user_id: user_id)
   end
 
 end
