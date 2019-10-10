@@ -1,0 +1,255 @@
+#search-side-ber{
+  background-color: rgb(245, 245, 245);
+  .search-side-box{
+    margin-right: 40px;
+    span{
+      font-size:14px;
+      font-weight: bold;
+    }
+    .search-sort{
+      display: inline-block;
+      width: 280px;
+      select{
+        display: inline-block;
+        width: 280px;
+        height: 46px;
+        padding:0 16px;
+      }
+    }
+    .search-content{
+      background-color: #fff;
+      margin-top:40px;
+      padding: 16px;
+      width: 280px;
+      h3{
+        font-size:16px;
+        font-weight: bold;
+      }
+      &__keyword{
+        margin-top:24px;
+        input{
+          width: 230px;
+          height: 48px;
+          padding: 10px 16px 8px;
+          margin-top: 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+        }
+      }
+      &__category{
+        margin-top:40px;
+        select{
+          width: 230px;
+          height: 48px;
+          padding: 10px 16px 8px;
+          margin-top: 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+        }
+        .category_children{
+          display: none;
+        }
+        &__select{
+          display: none;
+          // display: flex;
+          flex-wrap: wrap;
+          input{
+            width: 14px;
+            height: 14px;
+            padding: 10px 16px 8px;
+            margin-top: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+          }
+          label{
+            font-size: 14px;
+            width: 100px;
+            line-height: 14px;
+          }
+        }
+      }
+      &__brand{
+        margin-top:40px;
+        input{
+          width: 230px;
+          height: 48px;
+          padding: 10px 16px 8px;
+          margin-top: 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+        }
+        .search-content__brand-area {
+          height: 48px;
+          width: 100%;
+          padding: 0px 16px;
+          border: 1px solid rgb(204, 204, 204);
+          border-radius: 5px;
+          margin-top: 8px;
+        }
+        .brands_area{
+          position: relative;
+          ul{
+            max-height: 280px;
+            overflow: auto;
+            position: absolute;
+            top: 0px;
+            background-color: #fff;
+            .brand_chose{
+              width: 376px;
+              padding: 8px 19px;
+              font-size:12px;
+              &:hover{
+                cursor: pointer;
+                background-color: rgb(216, 214, 214)
+              }
+            }
+          }
+        }
+      }
+      &__sizetype{
+        margin-top:40px;
+        select{
+          width: 230px;
+          height: 48px;
+          padding: 10px 16px 8px;
+          margin-top: 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+        }
+        &__select{
+          display: flex;
+          flex-wrap: wrap;
+          input{
+            width: 14px;
+            height: 14px;
+            padding: 10px 16px 8px;
+            margin-top: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+          }
+          label{
+            font-size: 14px;
+            width: 100px;
+            line-height: 14px;
+          }
+        }
+      }
+      &__price{
+        margin-top:40px;
+        
+        &__select{
+          select{
+            width: 230px;
+            height: 48px;
+            padding: 10px 16px 8px;
+            margin-top: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+          }
+        }
+        &__sub-select{
+          display: flex;
+          flex-wrap: wrap;
+          input{
+            width: 100px;
+            height: 48px;
+            padding: 10px 16px 8px;
+            margin-top: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+          }
+          span{
+            text-align: center;
+            display: inline-block !important;
+            font-size:14px!important;
+            width: 25px!important;
+            line-height: 56px;
+          }
+        }
+      }
+      &__status{
+        margin-top:40px;
+        select{
+          width: 230px;
+          height: 48px;
+          padding: 10px 16px 8px;
+          margin-top: 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+        }
+        &__select{
+          display: flex;
+          flex-wrap: wrap;
+          input{
+            width: 14px;
+            height: 14px;
+            padding: 10px 16px 8px;
+            margin-top: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+          }
+          label{
+            font-size: 14px;
+            width: 100px;
+            line-height: 14px;
+          }
+      }
+      }
+      &__delivery-fee{
+        margin-top:40px;
+        select{
+          width: 230px;
+          height: 48px;
+          padding: 10px 16px 8px;
+          margin-top: 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+        }
+        &__select{
+          display: flex;
+          flex-wrap: wrap;
+          input{
+            width: 14px;
+            height: 14px;
+            padding: 10px 16px 8px;
+            margin-top: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+          }
+          label{
+            font-size: 14px;
+            width: 100px;
+            line-height: 14px;
+          }
+        }
+      }
+      &__button{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 40px;
+        .clear__button{
+          font-size: 14px;
+          color: #fff;
+          height: 50px;
+          width: 110px;
+          background: #aaa;
+          border: 1px solid #aaa;
+          text-align: center;
+          line-height: 50px;
+        }
+        .submit__button{
+          input{
+          display: inline-block;
+          font-size: 14px;
+          color: #fff;
+          height: 50px;
+          width: 110px;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
