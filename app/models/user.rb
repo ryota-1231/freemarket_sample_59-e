@@ -6,8 +6,9 @@ class User < ApplicationRecord
   has_many :items
   has_many :comments
   has_many :messages
-  has_many :goods
-  has_many :items, through: :goods
+  has_many :goods, dependent: :destroy
+  # has_many :items, through: :goods
+  has_many :good_items, through: :goods, source: :item
   has_many :addresses
   has_many :cards
   has_many :sns_credentials, dependent: :destroy

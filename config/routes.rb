@@ -42,6 +42,7 @@ Rails.application.routes.draw do
       get 'sms_confirmation'
       get 'address_alter'
     end
+    
   end
   
   resources :signup, only:[:new, :create] do

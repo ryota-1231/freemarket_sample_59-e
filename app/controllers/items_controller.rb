@@ -22,7 +22,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(items_params)
 
+
     @item.user_id = current_user.id
+
 
     if @item.save
       redirect_to root_path
@@ -67,6 +69,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.build_delivery
     @item.images.build
+    
   end
 
   def confirm

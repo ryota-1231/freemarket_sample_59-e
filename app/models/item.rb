@@ -16,8 +16,9 @@ class Item < ApplicationRecord
   has_many :comments
   has_many :messages
   has_many :images, dependent: :destroy
-  has_many :goods
-  has_many :users, through: :goods
+  has_many :goods, dependent: :destroy
+  # has_many :users, through: :goods
+  has_many :good_users, through: :goods, source: :user
   
   belongs_to :user, optional: true
   belongs_to :brand, optional: true
@@ -43,6 +44,10 @@ class Item < ApplicationRecord
   def self.search(search)
     Item.all unless search
     Item.where(['title LIKE ?', "%#{search}%"])
+  end
+
+  def good?(user)
+    good_users.include?(user)
   end
 
 end
