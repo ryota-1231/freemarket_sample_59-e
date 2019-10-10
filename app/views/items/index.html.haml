@@ -97,7 +97,7 @@
           .content__all__category__list__mecha__items__1
             - @items_for_mecha.each do |item|
 
-              = link_to "#" do
+              = link_to "/items/#{item.id}" do
                 .item-box
                   .item-box__image
                     = image_tag "#{item.images.first.image}", :size =>'185x180'
