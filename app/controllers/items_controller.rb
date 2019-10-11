@@ -4,10 +4,10 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all.limit(10)
     @categories = Category.where(ancestry: nil)
-    @items_for_woman = Item.where(category_id: 1).limit(10)
-    @items_for_man = Item.where(category_id: 200).limit(10)
-    @items_for_mecha = Item.where(category_id: 893).limit(10)
-    @items_for_hobby = Item.where(category_id: 463).limit(10)
+    @items_for_woman = Item.where(category_id: 3..199).limit(10)
+    @items_for_man = Item.where(category_id: 202..343).limit(10)
+    @items_for_mecha = Item.where(category_id: 895..978).limit(10)
+    @items_for_hobby = Item.where(category_id: 682..792).limit(10)
     @items_for_chanel = Item.where(brand_id: 8385).limit(10)
     @items_for_viton = Item.where(brand_id: 764)
     @items_for_supreme = Item.where(brand_id: 8412)
@@ -21,11 +21,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(items_params)
-
-
     @item.user_id = current_user.id
-
-
     if @item.save
       redirect_to root_path
     else
@@ -73,7 +69,7 @@ class ItemsController < ApplicationController
 
   def confirm
     #id仮置きです
-    @item = Item.find(10)
+    @item = Item.find(2)
     @user = @item.user
     @cards = Card.find(1)
     @buyer = current_user
@@ -101,19 +97,18 @@ class ItemsController < ApplicationController
   # end
 
   def search_index
-    @q = Item.ransack(params[:q])
+    @search= Item.ransack(params[:q])
     @category = Category.where(ancestry:nil)
     @brands = Brand.all
     @sizetype = Sizetype.where(ancestry:nil)
     @status = Status.all
     @delivery = Delivery.all
-    @items = @q.result(distinct: true)
+    @items = @search.result(distinct: true)
   end
 
   def search
-    @q = Item.search(search_params)
-    @items = @q.result(distinct: true)
-    binding.pry
+    @search = Item.search(search_params)
+    @items = @search.result(distinct: true)
   end
 
   private
@@ -126,7 +121,7 @@ class ItemsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit( {:category_id_in => []})
+    params.require(:q).permit!
   end
 
 end

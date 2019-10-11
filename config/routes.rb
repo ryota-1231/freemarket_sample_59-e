@@ -18,8 +18,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy, :new]
   end
 
-  resources :category do
-  end
+  resources :category, only: [:index, :show]
+
 
   namespace :api do
       resources :categories, only: :index, defaults: { format: 'json' }

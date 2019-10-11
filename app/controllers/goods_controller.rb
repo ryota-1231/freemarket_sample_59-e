@@ -11,7 +11,9 @@ class GoodsController < ApplicationController
   def destroy
     @un_good = Good.find_by(item_id: params[:item_id], user_id: current_user.id)
     @un_good.destroy
+
     render 'un_goods_ajax.js.erb'
+
   end
 
   private

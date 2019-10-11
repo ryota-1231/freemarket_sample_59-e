@@ -4,7 +4,7 @@
       %h2 カテゴリー一覧
       .categories-button-group__box
         - @categories.each do |category|
-          = link_to "#{category.id}" do
+          = link_to "##{category.id}" do
             = category.name
     .categories__main
       - @categories.each do |category|
