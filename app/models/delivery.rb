@@ -7,7 +7,7 @@ class Delivery < ApplicationRecord
   validates :deliverymethod_id, presence: true, numericality: true
   validates :deliverydate_id,presence: true, numericality: true
 
- 
+
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :deliverysource
     belongs_to_active_hash :deliveryfee

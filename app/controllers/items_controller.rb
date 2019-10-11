@@ -43,8 +43,6 @@ class ItemsController < ApplicationController
   end
   
   def edit
-    #あとで使います
-    # @item = Item.find(params[:id])
   end
 
   def update
@@ -56,6 +54,7 @@ class ItemsController < ApplicationController
       end
       redirect_to action: :show
     end
+    
   end
   
   def destroy
@@ -120,8 +119,6 @@ class ItemsController < ApplicationController
   private
   def items_params
     params.require(:item).permit(:title, :explanation, :status_id, :price, :category_id, :brand_id, :sizetype_id, delivery_attributes:[:deliveryfee_id, :deliverysource_id, :deliverymethod_id, :deliverydate_id], images_attributes:[:image])
-    binding.pry
-   
   end
 
   def set_item
