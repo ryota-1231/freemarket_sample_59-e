@@ -50,4 +50,6 @@ class Item < ApplicationRecord
     goods.find_by(user_id: user_id)
   end
 
+  enum purchase: { exhibiting: 0, soldout: 1 }
+
 end

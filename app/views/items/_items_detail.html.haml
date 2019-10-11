@@ -87,7 +87,7 @@
           着払い
   - unless user_signed_in? && @item.user_id == current_user.id then
     .detail__box__money
-    = link_to confirm_items_path do
+    = link_to new_item_confirmation_path(@item) do
       .detail__box__btn
         購入画面へ進む
   .detail__box__explanation

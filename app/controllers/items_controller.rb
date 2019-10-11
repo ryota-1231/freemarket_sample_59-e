@@ -68,15 +68,6 @@ class ItemsController < ApplicationController
     
   end
 
-  def confirm
-    #id仮置きです
-    @item = Item.find(2)
-    @user = @item.user
-    @cards = Card.find(1)
-    @buyer = current_user
-
-  end
-
   def pay
     Payjp.api_key = 'sk_test_be508ed036c9c40e55488d6a'
     Payjp::Charge.create(
