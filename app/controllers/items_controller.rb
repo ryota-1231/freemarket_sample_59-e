@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
     @items_for_supreme = Item.where(brand_id: 8412).includes(:images)
     @items_for_nike = Item.where(brand_id: 3812).includes(:images)
 
+    @parents= Category.roots
   end
 
   def new

@@ -21,46 +21,58 @@
           = link_to "カテゴリーから探す","/category",class: "category"
           .header__box__bottom__left__search__category__hidden
             %ul.header__box__bottom__left__search__category__hidden__1
-              = link_to "" do
-                %li.menu
-                  1
-              = link_to "" do
-                %li.menu
-                  1
-              = link_to "" do
-                %li.menu
-                  1
-              = link_to "" do
-                %li.menu
-                  1    
+              - @parents.each do |parent|
+                = link_to "" do
+                  %li.menu{id: parent.id}
+                    =parent.name
+                    %ul.header__box__bottom__left__search__category__hidden__2
+                      -parent.children.each do |child|
+                        %li.menu2{id: child.id}
+                          = child.name
+                          %ul.header__box__bottom__left__search__category__hidden__3
+                            -child.children.each do |grandchild|
+                              %li.menu3{id: grandchild.id}
+                                = grandchild.name
+                          
+          
+        
 
-            %ul.header__box__bottom__left__search__category__hidden__2
-              = link_to "" do
-                %li.menu2
-                  2
-              = link_to "" do
-                %li.menu2
-                  2
-              = link_to "" do
-                %li.menu2
-                  2
-              = link_to "" do
-                %li.menu2
-                  2    
 
-            %ul.header__box__bottom__left__search__category__hidden__3
-              = link_to "" do
-                %li.menu3
-                  3
-              = link_to "" do
-                %li.menu3
-                  3
-              = link_to "" do
-                %li.menu3
-                  3
-              = link_to "" do
-                %li.menu3
-                  3
+            -# %ul.header__box__bottom__left__search__category__hidden__2
+            -#   = link_to "" do
+            -#     %li.menu2
+            -#       - @parents.each do |parent|
+            -#         = link_to "" do
+            -#           %li.menu2
+            -#             -parent.children.each do |child|
+            -#               =child.name  
+  
+              -# = link_to "" do
+              -#   %li.menu2
+              -#     2
+              -# = link_to "" do
+              -#   %li.menu2
+              -#     2
+              -# = link_to "" do
+              -#   %li.menu2
+              -#     2
+              -# = link_to "" do
+              -#   %li.menu2
+              -#     2    
+
+            -# %ul.header__box__bottom__left__search__category__hidden__3
+            -#   = link_to "" do
+            -#     %li.menu3
+            -#       3
+            -#   = link_to "" do
+            -#     %li.menu3
+            -#       3
+            -#   = link_to "" do
+            -#     %li.menu3
+            -#       3
+            -#   = link_to "" do
+            -#     %li.menu3
+            -#       3
 
         .header__box__bottom__left__search__brand 
           = link_to "#" do
