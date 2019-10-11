@@ -39,8 +39,6 @@ class ItemsController < ApplicationController
   end
   
   def edit
-    #あとで使います
-    # @item = Item.find(params[:id])
   end
 
   def update
@@ -52,6 +50,7 @@ class ItemsController < ApplicationController
       end
       redirect_to action: :show
     end
+    
   end
   
   def destroy

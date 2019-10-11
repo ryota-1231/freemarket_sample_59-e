@@ -76,10 +76,10 @@ ActiveRecord::Schema.define(version: 2019_10_06_161331) do
   create_table "deliveries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "deliveryfee_id", null: false
-    t.bigint "deliverymethod_id", null: false
-    t.bigint "deliverysource_id", null: false
-    t.bigint "deliverydate_id", null: false
+    t.bigint "deliveryfee_id"
+    t.bigint "deliverydate_id"
+    t.bigint "deliverysource_id"
+    t.bigint "deliverymethod_id"
   end
 
   create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
