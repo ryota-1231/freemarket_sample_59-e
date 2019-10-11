@@ -2,16 +2,16 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all.limit(10)
-    @categories = Category.where(ancestry: nil)
-    @items_for_woman = Item.where(category_id: 3..199).limit(10)
-    @items_for_man = Item.where(category_id: 202..343).limit(10)
-    @items_for_mecha = Item.where(category_id: 895..978).limit(10)
-    @items_for_hobby = Item.where(category_id: 682..792).limit(10)
-    @items_for_chanel = Item.where(brand_id: 8385).limit(10)
-    @items_for_viton = Item.where(brand_id: 764)
-    @items_for_supreme = Item.where(brand_id: 8412)
-    @items_for_nike = Item.where(brand_id: 3812)
+    @items = Item.all.limit(10).includes(:images)
+    @categories = Category.where(ancestry: nil).includes(:images)
+    @items_for_woman = Item.where(category_id: 3..199).includes(:images).limit(10)
+    @items_for_man = Item.where(category_id: 202..343).includes(:images).limit(10)
+    @items_for_mecha = Item.where(category_id: 895..978).includes(:images).limit(10)
+    @items_for_hobby = Item.where(category_id: 682..792).includes(:images).limit(10)
+    @items_for_chanel = Item.where(brand_id: 8385).limit(10).includes(:images)
+    @items_for_viton = Item.where(brand_id: 764).includes(:images)
+    @items_for_supreme = Item.where(brand_id: 8412).includes(:images)
+    @items_for_nike = Item.where(brand_id: 3812).includes(:images)
 
   end
 
@@ -65,15 +65,6 @@ class ItemsController < ApplicationController
     @item.build_delivery
     @item.images.build
     
-  end
-
-  def confirm
-    #id仮置きです
-    @item = Item.find(2)
-    @user = @item.user
-    @cards = Card.find(1)
-    @buyer = current_user
-
   end
 
   def pay
