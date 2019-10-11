@@ -116,27 +116,31 @@
 
 
 # 100.times do
-
 #   item = Item.new(
 #     title: Faker::Food.fruits,
 #     explanation: Faker::Food.dish,
 #     price: Faker::Number.within(range: 300..10000),
-
-#     status_id: Faker::Number.within(range: 0..5),
-#     postage: Faker::Number.within(range: 300..800),
-#     user_id: 1, 
-#     category_id: 1,
-#   )
-#   item.save!
-
 #     status_id: Faker::Number.within(range: 1..6), 
 #     postage: Faker::Number.within(range: 300..800),
 #     user_id: 1,
-#     category_id: Faker::Number.within(range: 1..1325)
+#     delivery_id: Faker::Number.within(range: 1..100),
+#     brand_id: Faker::Number.within(range: 1..15249),
+#     category_id: Faker::Number.within(range: 1..1325),
+#     sizetype_id: Faker::Number.within(range: 1..144),
+#     purchase: Faker::Number.within(range: 0..1)
 #   )
 #   item.save!
 # end
 
+# 100.times do
+#   delivery = Delivery.new(
+#     deliveryfee_id: Faker::Number.within(range: 1..2),
+#     deliverymethod_id: Faker::Number.within(range: 1..10),
+#     deliverysource_id: Faker::Number.within(range: 1..47),
+#     deliverydate_id: Faker::Number.within(range: 1..3)
+#   )
+#   delivery.save!
+# end
 
 
 # image_a = Dir.glob("/Users/makun/Desktop/freemarket_sample_59-e/app/assets/images/image/*")
@@ -149,15 +153,14 @@
 
 # end
 
-# image_a = Dir.glob("/Users/tooshimadaiki/Documents/GitHub/freemarket_sample_59-e/app/assets/images/*")
-# 100.times do |i|
-#   image = Image.new(
-#     image: File.open(image_a.sample),
-#     item_id: 1,
-
-#     )
-#   image.save!
-# end
+image_a = Dir.glob("/Users/ryotaaoyagi/freemarket_sample_59期チームe/app/assets/images/image/*")
+100.times do |i|
+  image = Image.new(
+    image: File.open(image_a.sample),
+    item_id: i + 2,
+    )
+  image.save!
+end
 
 
 
@@ -217,18 +220,18 @@ require "csv"
 #     )
 # end
 
-CSV.foreach('db/categories.csv', headers: true) do |row|
-    Category.create(
-    # id: row['id'],
-    name: row['name'],
-    created_at: row['created_at'],
-    updated_at: row['updated_at'],
-    ancestry: row['ancestry'],
-    sizetype_id: row['sizetype_id'],
-    title: row['title'],
-    text: row['text']
-    )
-end
+# CSV.foreach('db/categories.csv', headers: true) do |row|
+#     Category.create(
+#     # id: row['id'],
+#     name: row['name'],
+#     created_at: row['created_at'],
+#     updated_at: row['updated_at'],
+#     ancestry: row['ancestry'],
+#     sizetype_id: row['sizetype_id'],
+#     title: row['title'],
+#     text: row['text']
+#     )
+# end
 
 
 
