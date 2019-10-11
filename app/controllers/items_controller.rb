@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
 
 
     if @item.save
-      redirect_to root_path
+      redirect_to confirm_items_path
     else
       @item.images.build
       render action: '/exhibit'
