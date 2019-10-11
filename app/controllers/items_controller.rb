@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
 
 
     if @item.save
-      redirect_to confirm_items_path
+      redirect_to root_path
     else
       @item.images.build
       render action: '/exhibit'
@@ -74,7 +74,7 @@ class ItemsController < ApplicationController
 
   def confirm
     #id仮置きです
-    @item = Item.find(1)
+    @item = Item.find(2)
     @user = @item.user
     @cards = Card.find(1)
     @buyer = current_user
