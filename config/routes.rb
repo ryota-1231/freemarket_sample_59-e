@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :items do
     collection do
       get 'exhibit'
-      get 'confirm'
       get 'error'
       post 'pay'
       get 'search_index'
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
     resources :images, only: [:index, :create]
     resources :goods, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy, :new]
+    resources :confirmation, only: [:new, :create]
   end
 
   resources :category, only: [:index, :show]

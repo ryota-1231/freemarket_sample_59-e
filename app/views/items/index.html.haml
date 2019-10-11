@@ -34,7 +34,7 @@
         .content__all__category__list__rady__items
           .content__all__category__list__rady__items__1
             - @items_for_woman.each do |item|
-              = link_to "#" do
+              = link_to "items/#{item.id}" do
                 .item-box
                   .item-box__image
                     = image_tag "#{item.images.first.image}", :size =>'185x180'
@@ -68,8 +68,8 @@
         .content__all__category__list__men__items
           .content__all__category__list__men__items__1
             - @items_for_man.each do |item|
+              = link_to "items/#{item.id}" do
 
-              = link_to "#" do
                 .item-box
                   .item-box__image
                     = image_tag "#{item.images.first.image}", :size =>'186x180'
@@ -127,7 +127,7 @@
           .content__all__category__list__hobby__items__1
             - @items_for_hobby.each do |item|
 
-              = link_to "#" do
+              = link_to "items/#{item.id}" do
                 .item-box
                   .item-box__image
                     = image_tag "#{item.images.first.image}", :size =>'185x180'
@@ -167,7 +167,7 @@
           .content__all__brand__list__chanel__items__1 
             - @items_for_chanel.each do |item|
 
-              = link_to "#" do
+              = link_to "items/#{item.id}" do
                 .item-box
                   .item-box__image
                     = image_tag "#{item.images.first.image}", :size =>'185x180'
@@ -195,7 +195,7 @@
         .content__all__brand__list__viton__items  
           .content__all__brand__list__viton__items__1  
             - @items_for_viton.each do |item|
-              = link_to "#" do
+              = link_to "items/#{item.id}" do
                 .item-box
                   .item-box__image
                     = image_tag "#{item.images.first.image}", :size =>'185x180'
@@ -223,7 +223,7 @@
           .content__all__brand__list__supreme__items__1  
             - @items_for_supreme.each do |item|
 
-              = link_to "#" do
+              = link_to "items/#{item.id}" do
                 .item-box
                   .item-box__image
                     = image_tag "#{item.images.first.image}", :size =>'185x180'
@@ -251,7 +251,7 @@
           .content__all__brand__list__nike__items__1 
             - @items_for_nike.each do |item|
 
-              = link_to "#" do
+              = link_to "items/#{item.id}" do
                 .item-box
                   .item-box__image
                     = image_tag "#{item.images.first.image}", :size =>'185x180'
