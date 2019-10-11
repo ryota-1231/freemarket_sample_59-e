@@ -1,7 +1,7 @@
 class Deliverymethod < ActiveHash::Base
 
   include ActiveHash::Associations
-    has_many :deliverys
+    has_many :deliveries
 
   self.data = [
       {id: 1, name: '未定'}, {id: 2, name: 'らくらくメルカリ便'}, {id: 3, name: 'ゆうメール'},

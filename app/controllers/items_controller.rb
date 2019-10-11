@@ -21,11 +21,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(items_params)
-
-
     @item.user_id = current_user.id
-
-
     if @item.save
       redirect_to confirm_items_path
     else
@@ -102,18 +98,18 @@ class ItemsController < ApplicationController
   # end
 
   def search_index
-    @q = Item.ransack(params[:q])
+    @search= Item.ransack(params[:q])
     @category = Category.where(ancestry:nil)
     @brands = Brand.all
     @sizetype = Sizetype.where(ancestry:nil)
     @status = Status.all
     @delivery = Delivery.all
-    @items = @q.result(distinct: true)
+    @items = @search.result(distinct: true)
   end
 
   def search
-    @q = Item.search(search_params)
-    @items = @q.result(distinct: true)
+    @search = Item.search(search_params)
+    @items = @search.result(distinct: true)
   end
 
   private
@@ -126,7 +122,7 @@ class ItemsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit( {:category_id_in => []})
+    params.require(:q).permit!
   end
 
 end
