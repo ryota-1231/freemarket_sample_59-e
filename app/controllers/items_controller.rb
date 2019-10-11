@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
 
 
     if @item.save
-      redirect_to root_path
+      redirect_to confirm_items_path
     else
       @item.images.build
       render action: '/exhibit'
@@ -114,13 +114,11 @@ class ItemsController < ApplicationController
   def search
     @q = Item.search(search_params)
     @items = @q.result(distinct: true)
-    binding.pry
   end
 
   private
   def items_params
     params.require(:item).permit(:title, :explanation, :status_id, :price, :category_id, :brand_id, :sizetype_id, delivery_attributes:[:deliveryfee_id, :deliverysource_id, :deliverymethod_id, :deliverydate_id], images_attributes:[:image])
-    binding.pry
    
   end
 
