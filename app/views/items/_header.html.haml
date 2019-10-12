@@ -34,63 +34,36 @@
                               %li.menu3{id: grandchild.id}
                                 = grandchild.name
                           
-          
-        
 
-
-            -# %ul.header__box__bottom__left__search__category__hidden__2
-            -#   = link_to "" do
-            -#     %li.menu2
-            -#       - @parents.each do |parent|
-            -#         = link_to "" do
-            -#           %li.menu2
-            -#             -parent.children.each do |child|
-            -#               =child.name  
-  
-              -# = link_to "" do
-              -#   %li.menu2
-              -#     2
-              -# = link_to "" do
-              -#   %li.menu2
-              -#     2
-              -# = link_to "" do
-              -#   %li.menu2
-              -#     2
-              -# = link_to "" do
-              -#   %li.menu2
-              -#     2    
-
-            -# %ul.header__box__bottom__left__search__category__hidden__3
-            -#   = link_to "" do
-            -#     %li.menu3
-            -#       3
-            -#   = link_to "" do
-            -#     %li.menu3
-            -#       3
-            -#   = link_to "" do
-            -#     %li.menu3
-            -#       3
-            -#   = link_to "" do
-            -#     %li.menu3
-            -#       3
 
         .header__box__bottom__left__search__brand 
           = link_to "#" do
             %i.fas.fa-comment-dollar
             = link_to "ブランドから探す"
-            .header__box__bottom__left__search__brand__hidden      
+            .header__box__bottom__left__search__brand__hidden 
+              %ul.header__box__bottom__left__search__brand__hidden
+                -# -@brands.each do |parent|
+                -#   %li.menu
+                -#     =parent.name     
               = link_to "" do
                 %li.brand
-                  ホビー
+                  シャネル
               = link_to "" do
                 %li.brand
-                  ホビー
+                  ナイキ
               = link_to "" do
                 %li.brand
-                  ホビー
+                  ヴィトン
               = link_to "" do
                 %li.brand
-                  ホビー    
+                  シュプリーム 
+              = link_to "" do
+                %li.brand
+                  アディダス
+              = link_to "" do
+                %li.brand
+                  ブランド一覧         
+
 
             
     
@@ -108,16 +81,20 @@
               .header__box__bottom__right__news__hidden
                 = link_to "" do
                   %li.news
-                    1
+                    = image_tag "mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png",class: "neww" 
+                    お知らせは
                 = link_to "" do
                   %li.news
-                    2
+                    = image_tag "mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png",class: "neww"
+                    特に無いことを
                 = link_to "" do
                   %li.news
-                    3
+                    = image_tag "mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png",class: "neww"
+                    お知らせ致します
                 = link_to "" do
                   %li.news
-                    4   
+                    = image_tag "mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png",class: "neww"
+                    ＾＾
 
           .header__box__bottom__right__todo
             = link_to "#" do
@@ -125,6 +102,9 @@
               やることリスト
               .header__box__bottom__right__todo__hidden
                 .header__box__bottom__right__todo__hidden1
+                  = image_tag "mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png",class: "new"
+                  %p.new
+                    現在やることリストはありません
 
           .header__box__bottom__right__mypage
             = link_to "/users/#{current_user.id}" do

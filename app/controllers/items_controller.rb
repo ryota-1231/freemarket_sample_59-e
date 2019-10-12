@@ -36,7 +36,6 @@ class ItemsController < ApplicationController
     @good = Good.new
     @comments = @item.comments.includes(:user)
     @comment = Comment.new
-    
   end
   
   def edit

@@ -48,15 +48,15 @@
                 
                 
                 
-                -# .content__all__category__list__rady__items__1__ima
+                .content__all__category__list__rady__items__1__ima
 
 
-                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
-                -#   %p
-                -#     = "¥#{item.price}"
+                  = image_tag "#{item.images.first.image}", :size =>'185x180'
+                  %p
+                    = "¥#{item.price}"
 
-                -#   .content__all__category__list__rady__items__1__text
-                -#     = item.title
+                  .content__all__category__list__rady__items__1__text
+                    = item.title
 
 
       .content__all__category__list__men
@@ -72,7 +72,7 @@
 
                 .item-box
                   .item-box__image
-                    -# = image_tag "#{item.images.first.image}", :size =>'186x180'
+                    = image_tag "#{item.images.first.image}", :size =>'186x180'
                     -# = image_tag item.images.first.image.url, :size =>'186x180'
                   .item-box__title
                     %h3=item.title
@@ -271,6 +271,6 @@
                 -#   .content__all__brand__list__chanel__items__1__text
                 -#     = item.title 
 
-= render 'footer'
+  = render 'footer'
 
 

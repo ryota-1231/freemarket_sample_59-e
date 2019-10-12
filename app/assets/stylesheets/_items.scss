@@ -63,16 +63,16 @@ a:hover{
 
 .menu{
   display: none;
-  border: solid 2px black;
+  // border: solid 2px black;
 }
 .menu2{
   display: none;
-  border: solid 2px black;
+  // border: solid 2px black;
 }
 
 .menu3{
   display: none;
-  border: solid 2px black;
+  // border: solid 2px black;
 
 }
 
@@ -92,7 +92,7 @@ li.menu{
 li.menu2{
   height: 80px;
   width: 200px;
-  background-color: yellow;
+  // background-color: yellow;
 
 }
 
@@ -140,10 +140,11 @@ li.news{
   z-index: 3;
 }
 .header__box__bottom__left__search__category__hidden__2{
-  padding-left: 200px;
+  // padding-left: 200px;
   margin: 0px;
   padding-top: 10px;
   top: 0;
+  left: 200px;
   position: absolute;
 }
 .header__box__bottom__left__search__category__hidden__3{
@@ -151,6 +152,7 @@ li.news{
   padding-top: 10px;
   top: 0;
   margin: 0px;
+  left: 200px;
   position: absolute;
 }
 
@@ -356,8 +358,9 @@ h4{
 
 
 .content{
+  
   &__all{
-    // height: 6000px;
+    height: 6000px;
     // width: 1664px;
     width: 100vw;
     background-color: rgb(245, 245, 245);
