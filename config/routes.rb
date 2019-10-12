@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   namespace :api do
       resources :categories, only: :index, defaults: { format: 'json' }
-    end
+  end
   namespace :api do
     resources :sizetypes, only: :index, defaults: { format: 'json' }
   end
@@ -41,6 +41,9 @@ Rails.application.routes.draw do
       get 'sign_in'
       get 'sms_confirmation'
       get 'address_alter'
+      get 'exhibit'
+      get 'soldout'
+      get 'trading'
     end
     
   end

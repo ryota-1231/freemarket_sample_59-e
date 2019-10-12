@@ -1,17 +1,9 @@
-
-body {
-  flex-shrink: 0;
-  position: relative;
-  background-color:#f5f5f5;
-}
-
-
 .mypage-wrapper {
   .main{
     margin: 40px 210px 0;
     padding-bottom: 40px;
     display: flex;
-    .contents {
+    .mypage-contents {
       .top--content{
         width: 700px;
         background-color: #fff;
@@ -33,21 +25,23 @@ body {
             }
             .user__image__judges{
               margin-top: 8px;
-              height: 16px;
               text-align: center;
               display: flex;
               justify-content: center;
               flex-wrap: wrap;
               &__judge{
                 font-size: 14px;
+                line-height: 22.5px
               }
               &__num{
                 margin-left: 8px;
                 font-size: 14px;
+                line-height: 22.5px
               }
               &__count{
                 font-size: 14px;
                 margin-left: 16px;
+                line-height: 22.5px
               }
             }
           }
@@ -128,7 +122,7 @@ body {
       .bottom--content{
         width: 700px;
         height: 382px;
-        background-color: #fff;
+        background-color: #fafafa;
         margin-top:40px;
         &__header{
           width: 668px;
@@ -175,3 +169,5 @@ body {
     }
   }
 }
+
+
