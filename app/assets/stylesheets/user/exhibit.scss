@@ -1,0 +1,128 @@
+.users-exhibit-wrapper{
+  li{
+    background-color: #fff;
+  }
+  .user-exhibit-main{
+    margin: 40px auto 0;
+    padding-bottom: 40px;
+    display: flex;
+    width: 1020px;
+    .user-exhibit-content{
+      width: 700px;
+      .message{
+        .message-title{
+          background-color: #fafafa;
+          padding: 0 16px;
+          height: 72px;
+          line-height: 72px;
+          h3{
+            font-size:16px;
+          }
+        }
+        .mypage__tabs{
+          display: flex;
+          li{
+            width: 350px;
+            height: 72px;
+            text-align: center;
+            line-height: 72px;
+            background: #eee;
+            a{
+              display: block;
+            }
+            &:hover{
+              color: #333 !important;
+              opacity: 0.5;
+            }
+            }
+            .tag__changed{
+              border-top: 2px solid red;
+              background-color:#fff;
+            }
+          }
+        &__content{
+          &__tab{
+            display: none;
+            li{
+              border-bottom: 1px solid #eee; 
+              a{
+                display: inline-block;
+                padding: 16px;
+                display: flex;
+                &:hover{
+                  background-color: #ebe8e8;
+                }
+                .message__tab__body{
+                  margin: 0 40px 0 68px;
+                  width: 560px;
+                  font-size:14px;
+                  &__time{
+                    color: #888;
+                    &__icon{
+                      font-size:14px;
+                      display: flex;
+                      margin-top: 8px;
+                      .detail__box__icon--good{
+                        margin-right: 8px;
+                        font-size: 15px;
+                        line-height: 25px;
+                        color: #888;
+                      }
+                      .detail__box__icon--comment{
+                        margin-right: 8px;
+                        font-size: 15px;
+                        line-height: 25px;
+                        color: #888;
+                      }
+                      p{
+                        line-height: 17px;
+                        height: 25px;
+                        font-size: 15px;
+                        color: #FFF;
+                        display: inline-block;
+                        padding: 5px 6px;
+                        border-radius: 2px;
+                        font-weight: 600;
+                      }
+                      .exhibit-p{
+                        background-color: #0099e8;
+                      }
+                      .trading-p{
+                        background: #ea352d;
+                      }
+                      .soldout-p{
+                        background: #888;
+                      }
+                    }
+                  }
+                }
+                .message__tab__icon{
+                  line-height: 48px;
+                }
+              }
+            }
+            &__list{
+              text-align: center;
+              padding: 60px; 
+              P{
+              font-size: 16px;
+              color: #CCC;
+              }
+            }
+          }
+          .active{
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+
+  
+
+
+
+
+
+}

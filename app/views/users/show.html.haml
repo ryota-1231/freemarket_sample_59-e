@@ -4,7 +4,7 @@
 .mypage-wrapper
   .main
     = render 'sideber'
-    .contents
+    .mypage-contents
       .top--content
         .user__image
           =link_to do
@@ -15,7 +15,7 @@
               .user__image__judges__judge 評価
               %span.user__image__judges__num 0
               .user__image__judges__count 出品数
-              %span.user__image__judges__num 0
+              %span.user__image__judges__num=@items_exhibit.length
             
         .message
           %ul.mypage__tabs
@@ -58,7 +58,6 @@
                     %i.fa.fa-chevron-right
               
               %li.message__tab__index
-                -# サーバーサイドでき次第form_withに変更
                 = link_to '一覧を見る', 'http://google.co.jp'
             
             %ul.message__content__tab
@@ -104,16 +103,16 @@
         %h3.bottom--content__header 購入した商品
         %ul.bottom__mypage__tabs
           %li.tag__changed
-            = link_to '取引中'
+            取引中
           %li 
-            = link_to '過去の取引'
+            過去の取引
         .bottom--content__tab
           %ul.bottom--content__tab__item.active
             %li
-              = link_to '取引中の商品がありません'
+              取引中の商品がありません
           %ul.bottom--content__tab__item
             %li
-              = link_to '過去に取引した商品がありません'
+              過去に取引した商品がありません
 
   = render 'item__exhibit'
   = render 'items/footer'

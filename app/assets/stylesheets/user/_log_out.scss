@@ -1,18 +1,23 @@
-  .wrapper{
-    padding-top: 50px;
-  }
-
-.top--content{
-  padding: 64px;
-  .button {
-    width: 318px;
-    height: 48px;
-    margin: 0 auto;
-    text-align: center;
-    line-height: 48px;
-    background-color: #ea352d;
-    border: 1px solid #ea352d;
-    font-size: 14px;
-    color: #fff;
+.logout-wrapper{
+  .main {
+    margin: 40px 210px 0;
+    padding-bottom: 40px;
+    display: flex;
+    .top--content{
+      padding: 64px;
+      width: 700px;
+      background-color: #fff;
+      .button {
+        width: 318px;
+        height: 48px;
+        margin: 0 auto;
+        text-align: center;
+        line-height: 48px;
+        background-color: #ea352d;
+        border: 1px solid #ea352d;
+        font-size: 14px;
+        color: #fff;
+      }
+    }
   }
 }
