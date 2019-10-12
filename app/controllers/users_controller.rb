@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :header_category
 
   def new
   end
@@ -6,6 +7,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(current_user.id)
     @nickname = @user.nickname
+    @items_exhibit = @user.items.where(purchase: "exhibiting")
+    
   end
   
   def edit
@@ -30,6 +33,23 @@ class UsersController < ApplicationController
 
   def address_alter
     @user = current_user
+  end
+
+  def exhibit
+    @user = User.find(current_user.id)
+  end
+
+  def trading
+    @user = User.find(current_user.id)
+  end
+
+  def soldout
+    @user = User.find(current_user.id)
+  end
+
+
+  def header_category
+    @parents= Category.roots
   end
   
 end

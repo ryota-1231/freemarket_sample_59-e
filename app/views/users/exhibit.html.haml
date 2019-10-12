@@ -1,0 +1,43 @@
+=render '/items/header'
+.users-exhibit-wrapper
+  .user-exhibit-main
+    = render 'sideber'
+    .user-exhibit-content
+      .message
+        .message-title
+          %h3 出品した商品
+        %ul.mypage__tabs
+          %li#exhibiting.tag__changed 出品中
+          %li#trading 
+            = link_to  '取引中', 'trading'
+          %li#soldout
+            = link_to '売却済み', 'soldout'
+        .message__content
+          %ul.message__content__tab.exhibiting.active
+            - if @user.items.present?
+              - @user.items.each do |item|
+                - if item.purchase == "exhibiting"
+                  %li
+                    =link_to "/items/#{item.id}" do
+                      .message__tab__image
+                        =image_tag "#{item.images.first.image}", height:"48",width:"48"
+                      .message__tab__body
+                        .message__tab__body__text
+                          =item.title
+                        .message__tab__body__time
+                          .message__tab__body__time__icon
+                            .detail__box__icon--good
+                              = fa_icon "heart"
+                              = item.goods.count
+                            .detail__box__icon--comment
+                              = fa_icon "comment"
+                              = item.comments.count
+                            %p.exhibit-p 出品中
+                      .message__tab__icon
+                        %i.fa.fa-chevron-right
+            - else
+              %li.message__content__tab__list
+                = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464", size: "180"
+                %p 出品中の商品はありません
+= render 'item__exhibit'
+= render 'items/footer'

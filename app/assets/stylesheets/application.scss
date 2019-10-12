@@ -48,7 +48,13 @@
   @import "./user/user_edit";
   @import 'error_messages';
 
-
+  * {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    color: #333;
+  }
+  
 .breadcrumbs{
   height: 49px;
   line-height: 49px;
