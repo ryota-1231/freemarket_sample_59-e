@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
     @items_for_nike = Item.where(brand_id: 3812).includes(:images)
 
     @parents= Category.roots
+    # @brands= Brand.all
   end
 
   def new
@@ -37,6 +38,7 @@ class ItemsController < ApplicationController
     @good = Good.new
     @comments = @item.comments.includes(:user)
     @comment = Comment.new
+    @parents= Category.roots
   end
   
   def edit
