@@ -56,10 +56,11 @@
               line-height: 72px;
               background-color: rgb(216, 216, 216);
               &:hover{
+                cursor: pointer;
                 opacity: 0.5;
               }
               }
-              .tag__changed{
+              .tag__changed-top{
                 border-top: 2px solid red;
                 background-color:#fff;
               }
@@ -121,10 +122,9 @@
       }
       .bottom--content{
         width: 700px;
-        height: 382px;
-        background-color: #fafafa;
         margin-top:40px;
         &__header{
+          background-color: #fafafa;
           width: 668px;
           height: 72px;
           padding: 0 16px;
@@ -141,22 +141,30 @@
             line-height: 72px;
             background-color: rgb(216, 216, 216);
             &:hover{
+              cursor: pointer;
               opacity: 0.5;
             }
             }
-            .tag__changed{
+            .tag__changed-bottom{
               border-top: 2px solid red;
               background-color:#fff;
             }
           }
         &__tab {
-          height: 310px;
+          background-color: #fff;
           &__item {
             display: none;
+            .message__content__tab__list {
+                text-align: center;
+                padding: 60px; 
+                P{
+                font-size: 16px;
+                color: #CCC;
+                }
+            }
           }
           .active{
             display: block;
-            padding:160px 0 60px;
             li{
             text-align: center;
               a {
