@@ -1,0 +1,32 @@
+= render './items/header'
+.brand-details-wrapper
+  .brand-details__box
+    .brand-details__childeren
+      %ul.childeren-name
+        - @children.each do |child|
+          %li
+            =link_to "#{child.name}", brand_path(child.id) 
+        
+    .brand-details__container
+      .brand-details__name
+        %h1=@brand.name+"の商品一覧"
+      .brand-details__main
+        - @brand.items.each do |item|
+          = link_to "/items/#{item.id}" do
+            .item-box
+              - if item.purchase=="soldout"
+                .item-sold 
+                  %div="SOLD"
+              .item-box__image
+                = image_tag "#{item.images.first.image}", :size =>'185x180'
+              .item-box__title
+                %h3=item.title
+                .item-box__title__icon
+                  - if item.goods.present?
+                    %i.far.fa-heart
+                    = item.goods.length
+                .item-box__title__price
+                  ="¥"+item.price.to_s(:delimited)
+= render './items/footer'
+
+

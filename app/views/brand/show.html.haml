@@ -1,77 +1,40 @@
 = render './items/header'
-.brand-details-wrapper
-  .brand-details__box
-    .brand-details__childeren
-      %ul.childeren-name
-        - @children.each do |child|
-          %li
-            =link_to "#{child.name}", brand_path(child.id) 
-        
-    .brand-details__container
-      .brand-details__name
-        %h1=@brand.name+"の商品一覧"
-      .brand-details__main
-        - if @brand.parent==nil
-          - @children.each do |child|
-            - child.children.each do |ground_children|
-              - ground_children.items.each do |item|
-                = link_to "/items/#{item.id}" do
-                  .item-box
-                    - if item.purchase=="soldout"
-                      .item-sold 
-                        %div="SOLD"
-                    .item-box__image
-                      = image_tag "#{item.images.first.image}", :size =>'185x180'
-                    .item-box__title
-                      %h3=item.title
-                      .item-box__title__icon
-                        - if item.goods.present?
-                          %i.far.fa-heart
-                          = item.goods.length
-                      .item-box__title__price
-                        ="¥"+item.price.to_s(:delimited)
-
-        - elsif @brand.parent.present? && @brand.children.present?
-          - @children.each do |ground_child|
-            - ground_child.items.each do |item|
-              = link_to "/items/#{item.id}" do
-                .item-box
-                  - if item.purchase=="soldout"
-                    .item-sold 
-                      %div="SOLD"
-                  .item-box__image
-                    = image_tag "#{item.images.first.image}", :size =>'185x180'
-                  .item-box__title
-                    %h3=item.title
-                    .item-box__title__icon
-                      - if item.goods.present?
-                        %i.far.fa-heart
-                        = item.goods.length
-                    .item-box__title__price
-                      ="¥"+item.price.to_s(:delimited)
-        - else 
-          - @brand.items.each do |item|
-            = link_to "/items/#{item.id}" do
-              .item-box
-                - if item.purchase=="soldout"
-                  .item-sold 
-                    %div="SOLD"
-                .item-box__image
-                  = image_tag "#{item.images.first.image}", :size =>'185x180'
-                .item-box__title
-                  %h3=item.title
-                  .item-box__title__icon
-                    - if item.goods.present?
-                      %i.far.fa-heart
-                      = item.goods.length
-                  .item-box__title__price
-                    ="¥"+item.price.to_s(:delimited)
-
-      .brand-details__description
-        .brand-details__description__name
-          %h3=@brand.title
-        .brand-details__description__text
-          =@brand.text
-= render './items/footer'
+.brands-wrapper
+  .brands-container
+    #page-top.brands-button-group
+      %h2 ブランド一覧
+      .brands-button-group__box
+        - @brands.each do |brand|
+          - if "#{params[:id]}"=="#{brand.id}"
+            = link_to "#{brand.id}", class: "target" do
+              = brand.name
+          - else
+            = link_to "#{brand.id}" do
+              = brand.name
+      .brands-button-group__links
+        - @brand.children.each do |child|
+          .brands-button-group__link
+            = link_to "##{child.id}" do
+              %p{ class: "child_name"}=child.name
+    .brands__main
+      .brands__list
+        .brand__name
+          %h3{ id: "#{@brand.id}" }=@brand.name 
+        - @brand.children.each do |child|
+          .brand__child-name
+            %h4{ id: "#{child.id}" }=child.name
+          .brand__groups
+            .brand__groups__box
+              .brand__ground-children__groups
+                - child.children.each do |ground_child|
+                  .brand__groundchild-name
+                    %p
+                      = link_to "#{ground_child.id}/search" do
+                        = ground_child.name
+  = render './items/footer'                
+.top-button
+  =link_to '#page-top' do
+    %i.fa.fa-angle-double-up
+    %p Page-Top
 
 
