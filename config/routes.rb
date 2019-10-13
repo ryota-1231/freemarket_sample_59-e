@@ -18,22 +18,6 @@ Rails.application.routes.draw do
     resources :confirmation, only: [:new, :create]
   end
 
-  resources :category, only: [:index, :show]
-
-
-  namespace :api do
-      resources :categories, only: :index, defaults: { format: 'json' }
-  end
-  namespace :api do
-    resources :sizetypes, only: :index, defaults: { format: 'json' }
-  end
-  namespace :api do
-    resources :brands, only: :index, defaults: { format: 'json' }
-  end
-  namespace :api do
-    resources :items, only: :index, defaults: { format: 'json' }
-  end
-
   resources :users, only: [:new, :edit, :show, :destroy] do
     collection do
       get 'log_out'
@@ -59,7 +43,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   resources :cards do
     collection do
       post 'new'
@@ -67,6 +50,26 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :category, only: [:index, :show]
+
+  resources :brand, only: [:index, :show]
+
   resources :searches,only:[:index]
+
+  namespace :api do
+      resources :categories, only: :index, defaults: { format: 'json' }
+  end
+  namespace :api do
+    resources :sizetypes, only: :index, defaults: { format: 'json' }
+  end
+  namespace :api do
+    resources :brands, only: :index, defaults: { format: 'json' }
+  end
+  namespace :api do
+    resources :items, only: :index, defaults: { format: 'json' }
+  end
+
+
+
 
 end

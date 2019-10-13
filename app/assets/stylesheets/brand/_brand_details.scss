@@ -1,10 +1,10 @@
-.category-details-wrapper {
+.brand-details-wrapper {
   background-color: rgb(245, 245, 245);
-  .category-details__box{
+  .brand-details__box{
     margin: 40px auto 0px;
     padding-bottom: 40px;
     width: 1020px;
-    .category-details__childeren{
+    .brand-details__childeren{
       .childeren-name{
         display: flex;
         flex-wrap: wrap;
@@ -19,13 +19,13 @@
         }
       }
     }
-    .category-details__container{
-      .category-details__name{
+    .brand-details__container{
+      .brand-details__name{
         font-size:24px;
         font-weight: bold;
         margin: 24px 0 8px;
       }
-      .category-details__main{
+      .brand-details__main{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -105,7 +105,7 @@
           }
         }
       }
-      .category-details__description{
+      .brand-details__description{
         margin-top: 30px;
         &__name{
           border-top-left-radius: 4px;
