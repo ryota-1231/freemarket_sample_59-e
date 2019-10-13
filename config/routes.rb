@@ -52,7 +52,10 @@ Rails.application.routes.draw do
 
   resources :category, only: [:index, :show]
 
-  resources :brand, only: [:index, :show]
+  resources :brand, only: [:index, :show] do
+    resources :search, only: [:index]
+  end
+
 
   resources :searches,only:[:index]
 

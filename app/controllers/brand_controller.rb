@@ -7,6 +7,7 @@ class BrandController < ApplicationController
   end
 
   def show
+    @brands = Brand.where(ancestry: nil)
     @brand = Brand.find(params[:id])
     @children = @brand.children
   end

@@ -34,33 +34,31 @@
                               %li.menu3{id: grandchild.id}
                                 = grandchild.name
                           
-
-
         .header__box__bottom__left__search__brand 
-          = link_to "#" do
+          = link_to "/brand" do
             %i.fas.fa-comment-dollar
-            = link_to "ブランドから探す"
+            = link_to "ブランドから探す", "/brand"
             .header__box__bottom__left__search__brand__hidden 
               %ul.header__box__bottom__left__search__brand__hidden
                 -# -@brands.each do |parent|
                 -#   %li.menu
                 -#     =parent.name     
-              = link_to "" do
+              = link_to "/brand/2466/search" do
                 %li.brand
                   シャネル
-              = link_to "" do
+              = link_to "/brand/3848/search" do
                 %li.brand
                   ナイキ
-              = link_to "" do
+              = link_to "/brand/6220/search" do
                 %li.brand
                   ヴィトン
-              = link_to "" do
+              = link_to "/brand/8509/search" do
                 %li.brand
                   シュプリーム 
-              = link_to "" do
+              = link_to "/brand/6794/search" do
                 %li.brand
                   アディダス
-              = link_to "" do
+              = link_to "/brand" do
                 %li.brand
                   ブランド一覧         
 
