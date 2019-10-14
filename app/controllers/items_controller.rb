@@ -53,8 +53,6 @@ class ItemsController < ApplicationController
     
   end
 
-  
-  
   def destroy
     if @item.user_id == current_user.id
       @item.destroy
@@ -79,16 +77,6 @@ class ItemsController < ApplicationController
     @item = Item.find(7)
   end
 
-  # def pay
-  #   @item = Item.find(7)
-  #   Payjp.api_key = 'sk_test_be508ed036c9c40e55488d6a'
-  #   charge = Payjp::Charge.create(
-  #   :amount => @item.price,
-  #   :card => params['payjp-token'],
-  #   :currency => 'jpy',
-  #   )
-  # end
-
   def search_index
     if params[:q].present?
       @search = Item.ransack(params[:q])
@@ -99,6 +87,12 @@ class ItemsController < ApplicationController
       @delivery = Delivery.all
       @items = @search.result(distinct: true)
     else
+      @category = Category.where(ancestry: nil)
+      @brands = Brand.all
+      @sizetype = Sizetype.where(ancestry: nil)
+      @status = Status.all
+      @delivery = Delivery.all
+      @items = @search.result(distinct: true)
       params[:q] = { sorts: 'id desc' }
       @search = Item.ransack
       @items = Item.all

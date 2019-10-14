@@ -6,7 +6,8 @@
       %p 検索結果
       .search-content__items
         - @items.each do |item|
-          = link_to items_path(params[id:item.id]) do
+          - @item = item.id
+          = link_to item_path(@item) do
             .item-box
               - if item.purchase=="soldout"
                 .item-sold 
