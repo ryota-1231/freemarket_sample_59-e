@@ -14,7 +14,7 @@
                 = image_tag 'https://image.flaticon.com/icons/png/512/97/97895.png', class: "edit__profile--user--box--image--in"
                 = f.file_field :avatar, class: 'edit__profile--user--box--image--in--hidden'
               = f.text_field :nickname, class: "edit__profile--user--box--nickname",placeholder: 'ニックネームを入力(必須)'
-          = f.text_area :last_name, class: "edit__profile--text", placeholder: '買ったばかりのため比較的きれいです'
+          = f.text_area :introduction, class: "edit__profile--text", placeholder: '買ったばかりのため比較的きれいです'
           = f.submit '変更する', class: "edit__profile--submit"
   = render 'item__exhibit'
   = render 'items/footer'
