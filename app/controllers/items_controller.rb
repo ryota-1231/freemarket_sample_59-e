@@ -115,9 +115,9 @@ class ItemsController < ApplicationController
         end
       end
       params[:q][:delivery_id_in] = []
-        links.each do |link|
-          params[:q][:delivery_id_in] << link if link.present?
-        end
+      links.each do |link|
+        params[:q][:delivery_id_in] << link if link.present?
+      end
     end
     @category = Category.where(ancestry:nil)
     @brands = Brand.all
