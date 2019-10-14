@@ -1,8 +1,7 @@
   #image-box-1 {
     width:630px;
-    ul{
-      display: inline-block;
-      li{
+    display: inline-block;
+    .item-image{
         padding: 0 !important;
         display: inline-block;
         margin-bottom: 10px;
@@ -17,7 +16,6 @@
             top: 18px;
           }
         }
-       
         .item-image__operetion{
           display: flex;
           text-align: center;
@@ -26,34 +24,48 @@
             height: 44px;
             border-right: 1px solid rgb(238, 238, 238);
             line-height: 44px;
-            a{
-              color: #0099E8;
+            color: #0099E8;
+            &:hover{
+              cursor: pointer;
             }
           }
           &--delete{
             width: 56px;
             height: 44px;
             line-height: 44px;
-            a{
-              color: #0099E8;
+            color: #0099E8;
+            &:hover{
+              cursor: pointer;
             }
           }
         }
       }
-      .item-list-1{
+
+      [data-image="1"]{
         margin-right: 10px;
       }
-      .item-list-2{
+      [data-image="2"]{
         margin-right: 10px;
       }
-      .item-list-3{
+      [data-image="3"]{
         margin-right: 10px;
       }
-      .item-list-4{
+      [data-image="4"]{
+        margin-right: 10px;
+      }
+      [data-image="6"]{
+        margin-right: 10px;
+      }
+      [data-image="7"]{
+        margin-right: 10px;
+      }
+      [data-image="8"]{
+        margin-right: 10px;
+      }
+      [data-image="9"]{
         margin-right: 10px;
       }
 
-    }
     #image-box__container{
       display:block;
       height: 160px;
@@ -109,6 +121,46 @@
       } 
     }
     .item-num-4{
+      width: 114px;
+      float: right;
+      label{
+        padding: 27px 7px !important;
+        p{
+          word-break: break-all !important;
+        }
+      } 
+    }
+    .item-num-5{
+      width: 100%;
+    }
+    .item-num-6{
+      width: 481px;
+      float: right;
+      label{
+        padding: 58px 100px !important;
+      } 
+    }
+    .item-num-7{
+      width: 353px;
+      float: right;
+      label{
+        padding: 58px 36px !important;
+        p{
+          word-break: keep-all;
+        }
+      } 
+    }
+    .item-num-8{
+      width: 224px;
+      float: right;
+      label{
+        padding: 48px 34px !important;
+        p{
+          word-break: break-all !important;
+        }
+      } 
+    }
+    .item-num-9{
       width: 114px;
       float: right;
       label{
