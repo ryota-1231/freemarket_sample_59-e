@@ -23,8 +23,8 @@ class User < ApplicationRecord
 
   validates :nickname,                presence: true, length: {maximum: 20}
   validates :email,                   presence: true, uniqueness: true
-  validates :password,                presence: true, length: {minimum: 7, maximum: 128}
-  validates :password_confirmation,   presence: true, length: {minimum: 7, maximum: 128}
+  # validates :password,                presence: true, length: {minimum: 7, maximum: 128}
+  # validates :password_confirmation,   presence: true, length: {minimum: 7, maximum: 128}
   validates :last_name,               presence: true
   validates :first_name,              presence: true
   validates :last_name_kana,          presence: true

@@ -1,7 +1,7 @@
-body {
-  flex-shrink: 0;
-  position: relative;
-}
+// body {
+//   flex-shrink: 0;
+//   position: relative;
+// }
 .edit{
   height: 100vh;
   width: 100vw;
@@ -17,30 +17,41 @@ body {
       background-color: white;
       float: right;
       margin-left: 40px;
-      .edit__profile--profile{
+      &--profile{
         text-align: center;
         font-size: 25px;
         height: 50px;
         width: 700px;
         font-weight: bold;
       }
-      .edit__profile--user{
+      &--user{
         height: 150px;
         width: 700px;
         background-color: red;
-        .edit__profile--user--box{
+        &--box{
           height: 60px;
           width: 700px;
           padding: 45px 0px;
-          .edit__profile--user--box--image{
+          &--image{
               height: 60px;
               width: 60px;
               float:left;
               margin-left: 200px;
               background-color: white;
               border-radius: 50%;
+              &--in{
+                height: 60px;
+                width: 60px;
+                border-radius: 50%;
+              
+              &--hidden {
+                display: none;
+                height: 60px;
+                width: 60px;
+              }
             }
-          .edit__profile--user--box--nickname{
+            }
+          &--nickname{
               height: 40px;
               width: 250px;
               float:left;
