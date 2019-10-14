@@ -12,6 +12,7 @@ class CategoryController < ApplicationController
 
   def header_category
     @parents= Category.roots
+    @search= Item.ransack(params[:q])
   end
 
 end

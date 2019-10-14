@@ -15,6 +15,7 @@
           - @children.each do |child|
             - child.children.each do |ground_children|
               - ground_children.items.each do |item|
+                -# item表示
                 = link_to "/items/#{item.id}" do
                   .item-box
                     - if item.purchase=="soldout"
