@@ -16,6 +16,8 @@
             .item-num-0#image-box__container
               = f.fields_for :images do |i|
                 .input-area
+                  -# - @item.images.each do |image|
+                  -#   = image_tag "#{image.image}"
                   = i.label :image, for:nil do
                     =i.file_field :image, name:"item[images_attributes][][image]",type: "file", multiple:true
                     %p ドラッグアンドドロップ またはクリックしてファイルをアップロード

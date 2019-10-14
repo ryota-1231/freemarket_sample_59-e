@@ -11,6 +11,11 @@
           height: 200px;
           background-image: url("https://cdn.pixabay.com/photo/2017/10/05/10/59/background-2819026__480.jpg");
           position: relative;
+          .user__image--in{
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+          }
           a {
             display: inline-block;
             width: 100%;

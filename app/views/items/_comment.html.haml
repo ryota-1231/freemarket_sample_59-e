@@ -6,6 +6,10 @@
           .detail__comment__space__you
             .detail__comment__space__you__left
               .detail__comment__space__you__left--icon
+                - if comment.user.avatar.attached?
+                  = image_tag @user.avatar, class: "detail__comment__space__you__left--icon--in"
+                - else
+                  = image_tag 'https://image.flaticon.com/icons/png/512/97/97895.png', class: "detail__comment__space__you__left--icon--in"
             .detail__comment__space__you__right
               .detail__comment__space__you__right--nickname
                 = comment.user.nickname
@@ -20,6 +24,10 @@
                 = comment.comment
             .detail__comment__space__i__right
               .detail__comment__space__i__right--icon
+                - if current_user.avatar.attached?
+                  = image_tag current_user.avatar, class: "detail__comment__space__i__right--icon--in"
+                - else
+                  = image_tag 'https://image.flaticon.com/icons/png/512/97/97895.png', class: "detail__comment__space__i__right--icon--in"
     .detail__comment--warning
       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
   = form_for [@item, @comment] do |f|
