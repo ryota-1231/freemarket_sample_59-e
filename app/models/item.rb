@@ -52,4 +52,10 @@ class Item < ApplicationRecord
 
   enum purchase: { exhibiting: 0, soldout: 1, trading: 2 }
 
+  private
+  ransacker :goods_count do
+    query = '(SELECT COUNT(goods.item_id) FROM goods where goods.item_id = items.id GROUP BY goods.item_id)'
+    Arel.sql(query)
+  end
+
 end

@@ -7,10 +7,8 @@ $(function(){
   }
   function addHTML(g_children){
     var html = 
-      `<div class="category-select">
-      <input type="checkbox" value="${g_children.id}" name="q[category_id_in][]" id="q_category_name_eq_${g_children.id}">
-      <label for="q_category_id_eq_${g_children.id}">${g_children.name}</label>
-      </div>`
+      `<div class="check-box-default"><input type="checkbox" value="${g_children.id}" name="q[category_id_in][]" id="q_category_id_in_${g_children.id}">
+      <label for="q_category_id_in_${g_children.id}">${g_children.name}</label></div>`
     return html;
   }
   function brandAddHtml(brand){
@@ -21,13 +19,14 @@ $(function(){
   function sizeAddHTML(g_children){
     var html = 
       `<div class="sizetype-select">
-      <input type="checkbox" value="${g_children.id}" name="q[sizetype_id_eq][]" id="q_sizetype_id_eq_${g_children.id}">
-      <label for="q_sizetype_id_eq_1">${g_children.name}</label>
+        <input type="checkbox" value="${g_children.id}" name="q[sizetype_id_in][]" id="q_sizetype_id_in_${g_children.id}">
+        <label for="q_sizetype_id_in_${g_children.id}">${g_children.name}</label>
       </div>`
     return html;
   }
-  // #q_category_id_eqに配列でvalueに保存する処理を追加する
-  $('#q_category_name_eq').change(function(e){
+
+  // カテゴリーの検索
+  $('#q_category_id').change(function(e){
     e.preventDefault();
     $('.category_children').empty()
     $('.search-content__category__select').empty()
@@ -48,49 +47,31 @@ $(function(){
           var html = buildHTML(e);
           $('.category_children').append(html)
       })
-      
-        $('.category_children').change(function(e){
-          e.preventDefault();
-          $('.search-content__category__select').show()
-          var parent_id= this.options[this.options.selectedIndex].value
+    })
 
-          $.ajax({
-            type: 'get',
-            url: '/api/categories',
-            data: { parent_id: parent_id },
-            dataType: 'json'
-          })
+    $(document).on('change','.category_children',function(e){
+      e.preventDefault();
+      var parent_id= this.options[this.options.selectedIndex].value
 
-          .done(function(child_category){
-            $('.search-content__category__select').empty()
-            // $('.search-content__category__select').append(`<input type="hidden" name="q[category_id_eq][]" value="">`)
-            $.each(child_category, function(i, e) {
-                var html = addHTML(e);
-                $('.search-content__category__select').append(html)
-            })
-          })
+      $.ajax({
+        type: 'get',
+        url: '/api/categories',
+        data: { parent_id: parent_id },
+        dataType: 'json'
+      })
+
+      .done(function(child_category){
+        $('.search-content__category__select').empty()
+        $('.search-content__category__select').append(`<input name="q[category_id_in][]" type="hidden" value="">`)
+        $.each(child_category, function(i, e) {
+          var html = addHTML(e);
+          $('.search-content__category__select').append(html)
         })
+      })
     })
   })
-
-  var values = []
-  $(document).on('click','.category-select input',(function(e){
-    
-  if ($(this).prop("checked") == true) {
-    (values).push($(this).attr('value'))
-  } else {
-    var value = $(this).attr('value');
-    var idx = values.indexOf(value);
-    if(idx >= 0){
-      values.splice(idx, 1); 
-    }
-  }
-  // $('.search-content__category__select input[type="hidden"]').val(values)
-})
-  )
-
+  // ブランドの検索
   $('.search-content__brand-area').keyup(function(){
-
     var input = $(".search-content__brand-area").val();
     if (input == "") {
       $('.brand_area').css('border','none');
@@ -164,10 +145,11 @@ $(function(){
         })
 
   })
-
-  $('#q_sizetype_id_eq').change(function(e){
+  // サイズの検索
+  $('#q_sizetype_id').change(function(e){
     e.preventDefault();
     $('.search-content__sizetype__select').empty()
+    $('.search-content__sizetype__select').append(`<input name="q[sizetype_id_in][]" type="hidden" value="">`)
 
     var sizetype_id= this.options[this.options.selectedIndex].value
 
@@ -188,6 +170,4 @@ $(function(){
       })
     })
   })
-
-
 })
