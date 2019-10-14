@@ -5,13 +5,21 @@ class UsersController < ApplicationController
   end
   
   def show
+
     @user = User.find(current_user.id)
     @nickname = @user.nickname
     @items_exhibit = @user.items.where(purchase: "exhibiting")
   end
   
   def edit
-    @user = current_user.id
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update! params.require(:user).permit(:avatar, :nickname, :last_name)
+    redirect_to action: :show
+    
   end
 
   def destroy
@@ -33,6 +41,7 @@ class UsersController < ApplicationController
   def address_alter
     @user = current_user
   end
+
 
   def exhibit
     @user = User.find(current_user.id)

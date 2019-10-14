@@ -19,6 +19,9 @@ class Item < ApplicationRecord
   has_many :goods, dependent: :destroy
   # has_many :users, through: :goods
   has_many :good_users, through: :goods, source: :user
+
+  has_many :solds
+  has_many :users,  through:  :solds
   
 
   belongs_to :user, optional: true
