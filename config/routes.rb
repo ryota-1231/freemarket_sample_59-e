@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     resources :items, only: :index, defaults: { format: 'json' }
   end
 
-  resources :users, only: [:new, :edit, :show, :destroy] do
+  resources :users do
     collection do
       get 'log_out'
       get 'register'  
