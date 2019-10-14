@@ -1,9 +1,364 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.rady{
+  width: 185px;
+  height: 200px;
+}
+
+.lists{
+  background-color:rgb(239, 239, 239);
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 1em;
+}
+
+.search_form{
+  width: 780px;
+  height: 40px;
+  background-color: rgb(245, 245, 245);
+  border: 1px solid #ccc;
+  padding-left: 10px;
+  font-size: 16px;
+  border-bottom-left-radius:0.67em;
+  border-top-left-radius:0.67em;
+  margin-top: 10px;
+}
+.hogeho{
+  display: flex;
+}
+
+p.about{
+  font-weight: bold;
+  font-size: 16px;
+  padding-top: 20px;
+}
+
+p.about2{
+  padding-top: 15px;
+  color: gray;
+}
+
+
+
+.z{
+  width: 300px;
+  height: 260px;
+}
+
+
+
+a{
+  color: black;
+
+}
+.merukari{
+  padding-top: 10px;
+}
+
+
+a:hover{
+  color: lightskyblue;
+}
+
+.menu{
+  display: none;
+  // border: solid 2px black;
+}
+.menu2{
+  display: none;
+  // border: solid 2px black;
+}
+
+.menu3{
+  display: none;
+  // border: solid 2px black;
+
+}
+
+.news{
+  display: none;
+  border: solid 2px black;
+}
+
+
+
+li.menu{
+  height: 80px;
+  width: 200px;
+  background-color: red;
+}
+
+li.menu2{
+  height: 80px;
+  width: 200px;
+  // background-color: yellow;
+
+}
+
+li.menu3{
+  height: 80px;
+  width: 200px;
+  background-color: blue;
+}
+
+li.brand{
+  height: 80px;
+  width: 200px;
+  background-color: pink; 
+}
+
+li.news{
+  height: 80px;
+  width: 200px;
+  background-color: gold; 
+}
+
+.header__box__bottom__left__search__brand__hidden{
+  padding-top: 10px;
+  // width: 1000px;
+  z-index: 2;
+  position: relative;
+  margin: 0px;
+}
+
+.header__box__bottom__left__search__category__hidden{
+  // display: flex;
+  // height: 1px;
+  // width: 1px;
+  width: 100px;
+  height: 1px;
+  position: relative;
+  z-index: 2;
+}
+
+.header__box__bottom__left__search__category__hidden__1{
+  padding-left:0;
+  padding-top: 10px;
+  margin: 0px;
+  position: absolute;
+  z-index: 3;
+}
+.header__box__bottom__left__search__category__hidden__2{
+  // padding-left: 200px;
+  margin: 0px;
+  padding-top: 10px;
+  top: 0;
+  left: 200px;
+  position: absolute;
+}
+.header__box__bottom__left__search__category__hidden__3{
+  padding-left: 200px;
+  padding-top: 10px;
+  top: 0;
+  margin: 0px;
+  left: 200px;
+  position: absolute;
+}
+
+.header__box__bottom__right__news__hidden{
+  padding-left: 0;
+  padding-top: 10px;
+  position: relative;
+  z-index: 2;
+  margin: 0px;
+}
+.header__box__bottom__right__todo__hidden1{
+  width: 300px;
+  height: 200px;
+  background-color: brown;
+  display: none;
+  position: relative;
+  z-index: 2;
+  margin: 10px;
+}
+              
+
+.brand{
+  display: none;
+}
+
+h4{
+  display: inline;
+  background-color: lightgray;
+  border-radius: 0.67em;
+  z-index:1;
+}
+
+.merucari-icon{
+  height: 68px;
+  width: 68px;
+  margin-right: 15px;
+}
+.store-icon{
+  padding-bottom: 15px;
+  padding-right: 15px;
+}
+
+.fas.fa-align-justify{
+  color: red;
+}
+.fas.fa-comment-dollar{
+  color: red;
+}
+.far.fa-heart{
+  font-size: 18px;
+}
+.far.fa-bell{
+  font-size: 18px;
+}
+.fas.fa-check{
+  font-size: 18px;
+}
+.far.fa-smile{
+  font-size: 18px;
+}
+.fas.fa-search{
+  font-size: 15px;
+}
+
+.fab.fa-twitter.fa-2x{
+  padding-top: 30px;
+  padding-right: 20px;
+}
+
+
+
+
+
+.search_button{
+  padding-right: 10px;
+  border-bottom-right-radius:0.67em;
+  border-top-right-radius:0.67em;
+  border-left: none;
+  width: 50px;
+  background-color: whitesmoke;
+  margin-top: 10px;
+  font-size: 3px;
+}
+
+.list{
+  margin-left: 15px;
+  background-color: red;
+}
+
+.scroll1{
+  height: 390px;
+  width: 1680px;
+  float: left;
+  list-style-type:none;
+}
+
+.scroll2{
+  height: 390px;
+  width: 1680px;
+  float: left;
+  list-style-type:none;
+}
+
+.scroll3{
+  height: 390px;
+  width: 1680px;
+  float: left;
+  list-style-type:none;
+}
+
+.header{
+  width: 100%;
+  height: 100px;
+  top: 0;
+  background-color: white;
+  &__box{
+    margin: auto;
+    width: 1020px;
+    height: 100px;
+    &__top{
+      height: 40px;
+      padding-bottom: 20px;
+      &__left{
+        width: 134px;
+        height: 36px;
+        float: left;
+        padding-top: 5px;
+      }
+      &__right{
+        width: 841px;
+        height: 40px;
+        float: right;
+        &__content{
+          float: right;
+          width: 841px;
+          line-height: 30px;
+          display: flex;
+        }
+      }
+    }
+    &__bottom{
+      width: 1020px;
+      height: 40px;
+      display: flex;
+      position: relative;
+      padding-top: 20px;
+
+      &__left{
+        width: 308px;
+        height: 40px;
+        
+        &__search__category{
+          width: 149px;
+          height: 36px;
+          float: left;
+          padding-top:10px;
+          font-weight: 600;
+          font-size: 14px;
+          margin: 0px;
+        }
+        &__search__brand{
+          width: 149px;
+          height: 36px;
+          float: left;
+          padding-left: 1px;
+          padding-top:10px;
+          font-weight: 600;
+          font-size: 14px;
+        }
+      }
+      &__right{
+        width: 560px;
+        height: 40px;
+        display: flex;
+        text-align: center;
+        margin: 0 0 0 auto;
+        padding-top: 10px;
+        &__good{
+          width: 113px;
+          height: 32px;
+          margin: 0 0 0 auto;
+          font-size: 14px;
+        }
+        &__news{
+          width: 113px;
+          height: 32px;
+          font-size: 14px;
+        }
+        &__todo{
+          width: 129px;
+          height: 32px;
+          font-size: 14px;
+        }
+        &__mypage{
+          width: 113px;
+          height: 32px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
 
 
 .content{
+  
   &__all{
     height: 6000px;
     // width: 1664px;

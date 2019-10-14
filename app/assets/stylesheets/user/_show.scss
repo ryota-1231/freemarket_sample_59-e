@@ -1,17 +1,9 @@
-
-body {
-  flex-shrink: 0;
-  position: relative;
-  background-color:#f5f5f5;
-}
-
-
 .mypage-wrapper {
   .main{
     margin: 40px 210px 0;
     padding-bottom: 40px;
     display: flex;
-    .contents {
+    .mypage-contents {
       .top--content{
         width: 700px;
         background-color: #fff;
@@ -33,21 +25,23 @@ body {
             }
             .user__image__judges{
               margin-top: 8px;
-              height: 16px;
               text-align: center;
               display: flex;
               justify-content: center;
               flex-wrap: wrap;
               &__judge{
                 font-size: 14px;
+                line-height: 22.5px
               }
               &__num{
                 margin-left: 8px;
                 font-size: 14px;
+                line-height: 22.5px
               }
               &__count{
                 font-size: 14px;
                 margin-left: 16px;
+                line-height: 22.5px
               }
             }
           }
@@ -62,10 +56,11 @@ body {
               line-height: 72px;
               background-color: rgb(216, 216, 216);
               &:hover{
+                cursor: pointer;
                 opacity: 0.5;
               }
               }
-              .tag__changed{
+              .tag__changed-top{
                 border-top: 2px solid red;
                 background-color:#fff;
               }
@@ -127,10 +122,9 @@ body {
       }
       .bottom--content{
         width: 700px;
-        height: 382px;
-        background-color: #fff;
         margin-top:40px;
         &__header{
+          background-color: #fafafa;
           width: 668px;
           height: 72px;
           padding: 0 16px;
@@ -147,22 +141,30 @@ body {
             line-height: 72px;
             background-color: rgb(216, 216, 216);
             &:hover{
+              cursor: pointer;
               opacity: 0.5;
             }
             }
-            .tag__changed{
+            .tag__changed-bottom{
               border-top: 2px solid red;
               background-color:#fff;
             }
           }
         &__tab {
-          height: 310px;
+          background-color: #fff;
           &__item {
             display: none;
+            .message__content__tab__list {
+                text-align: center;
+                padding: 60px; 
+                P{
+                font-size: 16px;
+                color: #CCC;
+                }
+            }
           }
           .active{
             display: block;
-            padding:160px 0 60px;
             li{
             text-align: center;
               a {
@@ -175,3 +177,5 @@ body {
     }
   }
 }
+
+

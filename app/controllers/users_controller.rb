@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
+  before_action :header_category
 
   def new
   end
   
   def show
-    @user = User.find(params[:id])
+
+    @user = User.find(current_user.id)
+    @nickname = @user.nickname
+    @items_exhibit = @user.items.where(purchase: "exhibiting")
   end
   
   def edit
@@ -38,13 +42,23 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def profile
-    @user = current_user.id
-  end  
 
-  # private
-  # def user_params
-  #   params.permit(:nickname, :avatar, :last_name)
-  # end
+  def exhibit
+    @user = User.find(current_user.id)
+  end
+
+  def trading
+    @user = User.find(current_user.id)
+  end
+
+  def soldout
+    @user = User.find(current_user.id)
+  end
+
+
+  def header_category
+    @parents= Category.roots
+  end
+
   
 end

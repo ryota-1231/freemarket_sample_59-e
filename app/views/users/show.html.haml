@@ -4,7 +4,7 @@
 .mypage-wrapper
   .main
     = render 'sideber'
-    .contents
+    .mypage-contents
       .top--content
         .user__image
           =link_to do
@@ -15,14 +15,14 @@
               .user__image__judges__judge 評価
               %span.user__image__judges__num 0
               .user__image__judges__count 出品数
-              %span.user__image__judges__num 0
+              %span.user__image__judges__num=@items_exhibit.length
             
         .message
           %ul.mypage__tabs
-            %li.tag__changed お知らせ
-            %li やることリスト
+            %li#notice.tag__changed-top お知らせ
+            %li#todo やることリスト
           .message__content
-            %ul.message__content__tab.active
+            %ul.message__content__tab.notice.active
               %li
                 =link_to do
                   %img{src:'https://static.mercdn.net/images/mercari_profile.png', height:"48",width:"48"}
@@ -58,10 +58,9 @@
                     %i.fa.fa-chevron-right
               
               %li.message__tab__index
-                -# サーバーサイドでき次第form_withに変更
                 = link_to '一覧を見る', 'http://google.co.jp'
             
-            %ul.message__content__tab
+            %ul.message__content__tab.todo
               %li
                 =link_to do
                   %img{src:'https://static.mercdn.net/images/mercari_profile.png', height:"48",width:"48"}
@@ -103,17 +102,17 @@
       .bottom--content
         %h3.bottom--content__header 購入した商品
         %ul.bottom__mypage__tabs
-          %li.tag__changed
-            = link_to '取引中'
-          %li 
-            = link_to '過去の取引'
+          %li#trading.tag__changed-bottom 取引中
+          %li#trade 過去の取引
         .bottom--content__tab
-          %ul.bottom--content__tab__item.active
-            %li
-              = link_to '取引中の商品がありません'
-          %ul.bottom--content__tab__item
-            %li
-              = link_to '過去に取引した商品がありません'
+          %ul.bottom--content__tab__item.trading.active
+            %li.message__content__tab__list
+              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464", size: "180"
+              %p 取引中の商品はありません
+          %ul.bottom--content__tab__item.trade
+            %li.message__content__tab__list
+              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464", size: "180"
+              %p 過去の取引はありません
 
   = render 'item__exhibit'
   = render 'items/footer'

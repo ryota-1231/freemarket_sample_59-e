@@ -18,20 +18,46 @@
  */
 
 
-
-  @import "./reset";
+  @import "./reset/reset";
   @import 'font-awesome';
-  @import 'user_edit';
-  @import 'show';
-  @import 'side-ber';
-  @import 'item__exhibit';
-  @import 'person_confirm';
+  @import "./purchase/cards_index";
+  @import "./purchase/cards";
+  @import "./purchase/register";
+  @import "./brand/brand";
+  @import "./brand/brand_details";
+  @import "./brand/search";
+  @import "./category/category_details";
+  @import "./category/category";
+  @import "./items/comments";
+  @import "./items/edit_btn";
+  @import "./items/edit";
+  @import "./items/goods";
+  @import "./items/images";
+  @import "./items/item_detail";
+  @import "./items/item_exhibit";
+  @import "items";
+  @import "./layouts/footer";
+  @import "./layouts/header";
+  @import "./layouts/side-ber";
+  @import "./search/new_search";
+  @import "./search/search";
+  @import "./search/search";
+  @import "./user/log_out";
+  @import "./user/newusers";
+  @import "./user/person_confirm";
+  @import "./user/sessions";
+  @import "./user/show";
+  @import "./user/signup";
+  @import "./user/user_edit";
   @import 'error_messages';
-  @import 'header';
-  @import 'footer';
-  @import 'images';
-  @import 'category';
 
+  * {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    color: #333;
+  }
+  
 .breadcrumbs{
   height: 49px;
   line-height: 49px;

@@ -1,0 +1,47 @@
+.side__link{
+  margin-right:40px;
+  h3{
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+  li{
+    width: 280px;
+    background-color: white;
+    padding: 16px;
+    border-top: 1px solid #eee;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(238, 238, 238);
+    &:hover{
+      background-color: #fafafa;
+      i {
+        font-weight: bolder;
+        color: black;
+        transform: translate(3px,0px);
+      }
+      }
+    }
+  .side__link--box{
+      display: flex;
+      justify-content:space-between;
+      font-size: 14px;
+      color: #333;
+      i{
+        font-size: 20px;
+        color: #DDD;
+        transition: all 0.5s;
+        margin-right: 5px;
+      }
+  }
+  .side__link__merpay{
+    .side__link__merpaylist{
+      margin-top: 8px;
+    }
+  }
+  .side__link__edit{
+    .side__link__editlist{
+      margin-top: 8px;
+    }
+  }
+}

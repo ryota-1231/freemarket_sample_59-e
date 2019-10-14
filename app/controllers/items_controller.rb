@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :header_category
 
   def index
     @items = Item.all.limit(10).includes(:images)
@@ -12,7 +13,6 @@ class ItemsController < ApplicationController
     @items_for_viton = Item.where(brand_id: 764).includes(:images)
     @items_for_supreme = Item.where(brand_id: 8412).includes(:images)
     @items_for_nike = Item.where(brand_id: 3812).includes(:images)
-
   end
 
   def new
@@ -97,11 +97,16 @@ class ItemsController < ApplicationController
     @status = Status.all
     @delivery = Delivery.all
     @items = @search.result(distinct: true)
+    
   end
 
   def search
     @search = Item.search(search_params)
     @items = @search.result(distinct: true)
+  end
+
+  def header_category
+    @parents= Category.roots
   end
 
   private

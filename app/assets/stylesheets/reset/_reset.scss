@@ -20,6 +20,9 @@ html{
         - Fails on FF.
 */
 
+
+
+
 body,
 div,
 dl,
@@ -47,6 +50,7 @@ th,
 td {
     margin:0;
     padding:0;
+    font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
 table {
     border-collapse:collapse;
@@ -59,6 +63,13 @@ img {
 /*
     TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
 */
+
+body {
+  flex-shrink: 0;
+  position: relative;
+  background-color:#f5f5f5;
+}
+
 address,
 caption,
 cite,
@@ -126,3 +137,9 @@ legend {
 }
 /* YUI CSS Detection Stamp */
 #yui3-css-stamp.cssreset { display: none; }
+
+a{
+  &:hover{
+    color: #333;
+  }
+}
