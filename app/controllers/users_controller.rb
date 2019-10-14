@@ -48,8 +48,7 @@ class UsersController < ApplicationController
 
 
   def header_category
-    @parents= Category.roots
-    @search= Item.ransack(params[:q])
+    @parents = Category.roots
+    @search = Item.ransack(params[:q])
   end
-  
 end

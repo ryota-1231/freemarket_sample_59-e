@@ -89,52 +89,48 @@ class ItemsController < ApplicationController
 
   def search_index
     if params[:q].present?
-      @search= Item.ransack(params[:q])
-      @category = Category.where(ancestry:nil)
+      @search = Item.ransack(params[:q])
+      @category = Category.where(ancestry: nil)
       @brands = Brand.all
-      @sizetype = Sizetype.where(ancestry:nil)
+      @sizetype = Sizetype.where(ancestry: nil)
       @status = Status.all
       @delivery = Delivery.all
       @items = @search.result(distinct: true)
     else
       params[:q] = { sorts: 'id desc' }
-      @search = Item.ransack()
+      @search = Item.ransack
       @items = Item.all
     end
   end
 
   def search
     if params[:q][:delivery_id_in].present?
-      links =[]
+      links = []
       params[:q][:delivery_id_in].each do |fee|
         if fee.present?
-          @fee = Delivery.where(deliveryfee_id:fee)
+          @fee = Delivery.where(deliveryfee_id: fee)
           @fee.each do |f|
-          links << f.id
+            links << f.id
           end
         end
       end
-      params[:q][:delivery_id_in]=[]
-      links.each do |link|
-        if link.present?
-          params[:q][:delivery_id_in] << link
+      params[:q][:delivery_id_in] = []
+        links.each do |link|
+          params[:q][:delivery_id_in] << link if link.present?
         end
-      end
     end
-
     @category = Category.where(ancestry:nil)
     @brands = Brand.all
     @sizetype = Sizetype.where(ancestry:nil)
     @status = Status.all
     @delivery = Delivery.all
-    @search= Item.ransack(search_params)
-    # @search = Item.search()
+    @search = Item.ransack(search_params)
     @items = @search.result(distinct: true)
   end
 
   def header_category
-    @parents= Category.roots
-    @search= Item.ransack(params[:q])
+    @parents = Category.roots
+    @search = Item.ransack(params[:q])
   end
 
   private

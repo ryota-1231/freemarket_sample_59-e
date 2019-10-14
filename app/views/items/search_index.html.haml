@@ -2,7 +2,8 @@
   .search-main
     = render 'search_side_ber'
     - @items.each do |item|
-     .item-box
+     = link_to "/items/#{item.id}" do
+      .item-box
         - if item.purchase=="soldout"
           .item-sold 
             %div="SOLD"

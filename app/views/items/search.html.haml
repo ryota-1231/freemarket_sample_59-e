@@ -6,18 +6,19 @@
       %p 検索結果
       .search-content__items
         - @items.each do |item|
-          .item-box
-            - if item.purchase=="soldout"
-              .item-sold 
-                %div="SOLD"
-            .item-box__image
-              = image_tag "#{item.images.first.image}", :size =>'185x180'
-            .item-box__title
-              %h3=item.title
-              .item-box__title__icon
-                - if item.goods.present?
-                  %i.far.fa-heart
-                  = item.goods.length
-              .item-box__title__price
-                ="¥"+item.price.to_s(:delimited)
+          = link_to "/items/#{item.id}" do
+            .item-box
+              - if item.purchase=="soldout"
+                .item-sold 
+                  %div="SOLD"
+              .item-box__image
+                = image_tag "#{item.images.first.image}", :size =>'185x180'
+              .item-box__title
+                %h3=item.title
+                .item-box__title__icon
+                  - if item.goods.present?
+                    %i.far.fa-heart
+                    = item.goods.length
+                .item-box__title__price
+                  ="¥"+item.price.to_s(:delimited)
 = render 'footer'
