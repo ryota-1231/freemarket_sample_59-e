@@ -2,6 +2,8 @@ require_relative 'boot'
 
 require 'rails/all'
 
+# Rails.application.config.assets.unknown_asset_fallback = true
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

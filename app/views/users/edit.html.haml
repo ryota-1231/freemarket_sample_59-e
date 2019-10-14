@@ -11,7 +11,10 @@
           .edit__profile--user
             .edit__profile--user--box
               = f.label :avatar, class: "edit__profile--user--box--image" do
-                = image_tag 'https://image.flaticon.com/icons/png/512/97/97895.png', class: "edit__profile--user--box--image--in"
+                - if @user.avatar.attached?
+                  = image_tag @user.avatar, class: "edit__profile--user--box--image--in"
+                - else
+                  = image_tag 'https://image.flaticon.com/icons/png/512/97/97895.png', class: "edit__profile--user--box--image--in"
                 = f.file_field :avatar, class: 'edit__profile--user--box--image--in--hidden'
               = f.text_field :nickname, class: "edit__profile--user--box--nickname",placeholder: 'ニックネームを入力(必須)'
           = f.text_area :introduction, class: "edit__profile--text", placeholder: '買ったばかりのため比較的きれいです'

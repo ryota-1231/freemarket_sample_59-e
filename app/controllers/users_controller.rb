@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update! params.require(:user).permit(:avatar, :nickname, :last_name)
+    @user.update! params.require(:user).permit(:nickname, :introduction, :avatar)
     redirect_to action: :show
     
   end
