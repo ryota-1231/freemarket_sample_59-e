@@ -29,7 +29,7 @@
           = fa_icon "pinterest"
     .detail__otheritems
       .detail__otheritems__head
-        -# = link_to "#{@item.user.nickname}さんのその他の出品"
+        = link_to "#{@item.user.nickname}さんのその他の出品"
       .detail__otheritems__mass
         - @user.each do |item|
           .detail__otheritems__mass__one
