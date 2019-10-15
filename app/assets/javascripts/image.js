@@ -42,7 +42,7 @@ window.onload = function(){
 
         fr.onload = function() {
           var src = fr.result
-          var html =`<div class='item-image' data-image="${num}">
+          var html =`<div class='item-image' data-image="${file.name}">
                     <div class=' item-image__content'>
                       <div class='item-image__content--icon'>
                         <img src=${src} width="114" height="80" >
@@ -77,7 +77,7 @@ window.onload = function(){
 
       fr.onload = function() {
         var src = fr.result
-        var html =`<div class='item-image' data-image="${num}">
+        var html =`<div class='item-image' data-image="${file.name}">
                     <div class=' item-image__content'>
                       <div class='item-image__content--icon'>
                         <img src=${src} width="114" height="80" >
@@ -93,34 +93,30 @@ window.onload = function(){
       };
       $('#image-box__container').attr('class', `item-num-${num}`)
   })
-
 })
 
-  // $(document).on('click', '.item-image__operetion--delete', function(e) {
-  //   var target_image = $(this).parent().parent();
-  //   var num = $(target_image).data('image');
-
-  //   var files = e.dataTransfer.files;
+  $(document).on('click', '.item-image__operetion--delete', function(e) {
+    var target_image = $(this).parent().parent()
+    var input = doc.files
+    var target_name = $(target_image).data('image');
+    if (doc.files.length==1){
+      $('input[type=file]').val(null)
+      list.clearData()
+    }  else {
+    $.each(input, function(i,inp){
+     if (inp.name==target_name){
+      list.items.remove(i)
+     }
+    })
+      doc.files = list.files
+    }
     
-  //   inputs.splice(num-1, 1);
-  //   target_image.remove();
+    target_image.remove()
 
-  //   // list.splice(num-1,1)
-  //   // doc.files = list.files
+    var num = $('.item-image').length
+    $('#image-box__container').show()
+    $('#image-box__container').attr('class', `item-num-${num}`)
 
-  //   console.log(files)
-
-
-  //   // $('input[type= "file"]:first').attr({
-  //   //   'data-image': inputs.length
-  //   // })
-  //   // $.each(inputs, function(index, input) {
-  //   //   var input = $(this)
-  //   //   input.attr({
-  //   //     'data-image': index
-  //   //   })
-  //   //   $('input[type= "file"]:first').after(input)
-  //   //   })
-  // })
+  })
   }
 })

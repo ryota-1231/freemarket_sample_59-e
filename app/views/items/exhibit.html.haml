@@ -15,8 +15,9 @@
             .item-num-0#image-box__container
               = f.fields_for :images do |i|
                 .input-area
-                  =i.file_field :image, name:"item[images_attributes][][image]",type: "file", multiple:true
-                  %p ドラッグアンドドロップ またはクリックしてファイルをアップロード
+                  = i.file_field :image, name:"item[images_attributes][][image]",type: "file", multiple:true, value:"", style: "display:none", id:"img-file"
+                  %label{for:"img-file"}
+                    %p ドラッグアンドドロップ またはクリックしてファイルをアップロード
         .item-title
           .item-title__name
             .item-title__name__caution

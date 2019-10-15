@@ -1,183 +1,159 @@
-  #image-box-1 {
-    width:630px;
-    display: inline-block;
-    .item-image{
-        padding: 0 !important;
-        display: inline-block;
-        margin-bottom: 10px;
-        border: 1px solid #eee;
-        background-color: #F5F5F5;
-        .item-image__content{
-          height: 116px;
-          width: 114px;
-          position: relative;
-          &--icon{
-            position: absolute;
-            top: 18px;
-            width: 114px;
-            height: 80px;
-          }
-        }
-
-        .item-image__operetion{
-          display: flex;
-          text-align: center;
-          &--edit{
-            width: 57px;
-            height: 44px;
-            border-right: 1px solid rgb(238, 238, 238);
-            line-height: 44px;
-            color: #0099E8;
-            &:hover{
-              cursor: pointer;
-            }
-          }
-          &--delete{
-            width: 56px;
-            height: 44px;
-            line-height: 44px;
-            color: #0099E8;
-            &:hover{
-              cursor: pointer;
-            }
-          }
-        }
-      }
-
-      [data-image="1"]{
-        margin-right: 10px;
-      }
-      [data-image="2"]{
-        margin-right: 10px;
-      }
-      [data-image="3"]{
-        margin-right: 10px;
-      }
-      [data-image="4"]{
-        margin-right: 10px;
-      }
-      [data-image="6"]{
-        margin-right: 10px;
-      }
-      [data-image="7"]{
-        margin-right: 10px;
-      }
-      [data-image="8"]{
-        margin-right: 10px;
-      }
-      [data-image="9"]{
-        margin-right: 10px;
-      }
-
-    #image-box__container{
-      display:block;
-      height: 160px;
-      border: 1px dashed rgb(204, 204, 204);
-      font-size: 14px;
-      font-weight: 400;
-      color: rgb(51, 51, 51);
-      background-color: rgb(245, 245, 245);
+#image-box-1 {
+  width:630px;
+  display: inline-block;
+  .item-image{
+      padding: 0 !important;
+      display: inline-block;
+      margin-bottom: 10px;
+      border: 1px solid #eee;
+      background-color: #F5F5F5;
+      margin-right: 10px;
+    .item-image__content{
+      height: 116px;
+      width: 114px;
       position: relative;
-      text-align: center;
-      label{
+      &--icon{
         position: absolute;
-        top: 0;
-        left: 0;
-        padding: 58px 170px;
+        top: 18px;
+      }
+    }
+    .item-image__operetion{
+      display: flex;
+      text-align: center;
+      &--edit{
+        width: 57px;
+        height: 44px;
+        border-right: 1px solid rgb(238, 238, 238);
+        line-height: 44px;
+        color: #0099E8;
         &:hover{
           cursor: pointer;
         }
-        p{
-          word-break: keep-all;
-          font-size: 14px;
+      }
+      &--delete{
+        width: 56px;
+        height: 44px;
+        line-height: 44px;
+        color: #0099E8;
+        &:hover{
+          cursor: pointer;
         }
-      }  
+      }
     }
-    .item-num-0{
+    }
+  #image-box__container{
+    display:block;
+    height: 160px;
+    border: 1px dashed rgb(204, 204, 204);
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(51, 51, 51);
+    background-color: rgb(245, 245, 245);
+    position: relative;
+    text-align: center;
+    label{
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
+      height: 100%;
+      &:hover{
+        cursor: pointer;
+      }
+    }  
+    p{
+      word-break: break-all;
+      font-size: 14px;
     }
-    .item-num-1{
-      width: 481px;
-      float: right;
-      label{
-        padding: 58px 100px !important;
-      } 
-    }
-    .item-num-2{
-      width: 353px;
-      float: right;
-      label{
-        padding: 58px 36px !important;
-        p{
-          word-break: keep-all;
-        }
-      } 
-    }
-    .item-num-3{
-      width: 224px;
-      float: right;
-      label{
-        padding: 48px 34px !important;
-        p{
-          word-break: break-all !important;
-        }
-      } 
-    }
-    .item-num-4{
-      width: 114px;
-      float: right;
-      label{
-        padding: 27px 7px !important;
-        p{
-          word-break: break-all !important;
-        }
-      } 
-    }
-    .item-num-5{
-      width: 100%;
-    }
-    .item-num-6{
-      width: 481px;
-      float: right;
-      label{
-        padding: 58px 100px !important;
-      } 
-    }
-    .item-num-7{
-      width: 353px;
-      float: right;
-      label{
-        padding: 58px 36px !important;
-        p{
-          word-break: keep-all;
-        }
-      } 
-    }
-    .item-num-8{
-      width: 224px;
-      float: right;
-      label{
-        padding: 48px 34px !important;
-        p{
-          word-break: break-all !important;
-        }
-      } 
-    }
-    .item-num-9{
-      width: 114px;
-      float: right;
-      label{
-        padding: 27px 7px !important;
-        p{
-          word-break: break-all !important;
-        }
-      } 
-    }
-
   }
-
+  .item-num-0{
+    width: 100%;
+    label{
+      padding-top: 70px;
+    }
+  }
+  .item-num-1{
+    width: 481px;
+    float: right;
+    label{
+      padding-top: 70px;
+    }
+  }
+  .item-num-2{
+    width: 353px;
+    float: right;
+    label{
+      padding-top: 65px;
+    }
+    p{
+      word-break: keep-all;
+    }
   
-
+  }
+  .item-num-3{
+    width: 224px;
+    float: right;
+    label{
+      padding-top: 60px;
+    }
+      p{
+        word-break: break-all !important;
+      }
+  }
+  .item-num-4{
+    width: 114px;
+    float: right;
+    label{
+      padding-top: 35px;
+    }
+      p{
+        word-break: break-all !important;
+      }
+  }
+  .item-num-5{
+    width: 100%;
+    label{
+      padding-top: 70px;
+    }
+  }
+  .item-num-6{
+    width: 481px;
+    float: right;
+    label{
+      padding-top: 70px;
+    }
+  }
+  .item-num-7{
+    width: 353px;
+    float: right;
+    label{
+      padding-top: 65px;
+    }
+    p{
+      word-break: keep-all;
+    }
+  }
+  .item-num-8{
+    width: 224px;
+    float: right;
+    label{
+      padding-top: 60px;
+    }
+      p{
+        word-break: break-all !important;
+      }
+  }
+  .item-num-9{
+    width: 114px;
+    float: right;
+    label{
+      padding-top: 35px;
+    }
+      p{
+        word-break: break-all !important;
+      }
+  }
+}
 #preview {
   overflow: hidden;
 }
