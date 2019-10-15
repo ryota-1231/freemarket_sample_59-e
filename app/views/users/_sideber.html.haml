@@ -1,6 +1,6 @@
 .side__link
   %ul.side__link__top
-    = link_to user_path(@user), class:"mypage_show" do
+    = link_to user_path(current_user.id), class:"mypage_show" do
       %li 
         .side__link--box
           マイページ
@@ -86,17 +86,17 @@
   .side__link__edit
     %h3 設定
     %ul.side__link__editlist
-      = link_to edit_user_path(@user) do
+      = link_to edit_user_path(current_user.id) do
         %li 
           .side__link--box
             プロフィール
             = fa_icon 'angle-right'
-      = link_to address_alter_users_path(@user), class:"alteraddress" do
+      = link_to edit_user_signup_path(current_user.id, @user), class:"alteraddress" do
         %li 
           .side__link--box
             発送元・お届け先住所変更
             = fa_icon 'angle-right'
-      = link_to register_users_path(@user), class:"creditcard" do
+      = link_to register_users_path(current_user.id), class:"creditcard" do
         %li 
           .side__link--box
             支払い方法
@@ -106,7 +106,7 @@
           .side__link--box
             メール/パスワード
             = fa_icon 'angle-right'
-      = link_to new_item_path(@user), class:"edituser" do
+      = link_to edit_user_confirmation_path(current_user.id, @user), class:"edituser" do
         %li 
           .side__link--box
             本人情報
@@ -116,7 +116,7 @@
           .side__link--box
             電話番号
             = fa_icon 'angle-right'
-      = link_to log_out_users_path(@user), class: "logout" do
+      = link_to log_out_users_path(current_user.id), class: "logout" do
         %li 
           .side__link--box
             ログアウト
