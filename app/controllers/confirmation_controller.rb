@@ -1,5 +1,6 @@
 class ConfirmationController < ApplicationController
-
+  before_action :header_category
+  
   def new
     #id仮置きです
     @item = Item.find(params[:item_id])
@@ -23,6 +24,11 @@ class ConfirmationController < ApplicationController
       building: user_params[:addresses_attributes]["0"][:building]
     )
     redirect_to user_path
+  end
+
+  def header_category
+    @parents= Category.roots
+    @search= Item.ransack(params[:q])
   end
 
   private

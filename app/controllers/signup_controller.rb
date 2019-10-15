@@ -1,5 +1,6 @@
 class SignupController < ApplicationController
-
+  before_action :header_category
+  
   def new
   end
 
@@ -138,6 +139,11 @@ class SignupController < ApplicationController
         :password_confirmation,
         addresses_attributes: [:postcode, :city, :block, :building, :prefecture_id]
     )
+    end
+
+    def header_category
+      @parents= Category.roots
+      @search= Item.ransack(params[:q])
     end
 
   private
