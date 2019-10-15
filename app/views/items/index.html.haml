@@ -36,27 +36,41 @@
             - @items_for_woman.each do |item|
               = link_to "items/#{item.id}" do
                 .item-box
+                  - if item.purchase=="soldout"
+                    .item-sold
+                      %div="SOLD"
                   .item-box__image
-                    -# = image_tag "#{item.images.first.image}", :size =>'185x180'
-                  .item-box__title__price
-                    ="¥"+item.price.to_s(:delimited)
-                .item-box__title
-                  %h3=item.title
-                  .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
+                    = image_tag "#{item.images.first.image}", :size =>'185x180'
+                  .item-box__title
+                    %h3=item.title
+                    .item-box__title__icon
+                      - if item.goods.present?
+                        %i.far.fa-heart
+                        = item.goods.length
+                    .item-box__title__price
+                      ="¥"+item.price.to_s(:delimited)
+                -# .item-box
+                -#   .item-box__image
+                -#     -# = image_tag "#{item.images.first.image}", :size =>'185x180'
+                -#   .item-box__title__price
+                -#     ="¥"+item.price.to_s(:delimited)
+                -# .item-box__title
+                -#   %h3=item.title
+                -#   .item-box__title__icon
+                -#     -# if いいねがあればいいねアイコン、数をだす
                   
                 
                 
                 
-                .content__all__category__list__rady__items__1__ima
+                -# .content__all__category__list__rady__items__1__ima
 
 
-                  = image_tag "#{item.images.first.image}", :size =>'185x180'
-                  %p
-                    = "¥#{item.price}"
+                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
+                -#   %p
+                -#     = "¥#{item.price}"
 
-                  .content__all__category__list__rady__items__1__text
-                    = item.title
+                -#   .content__all__category__list__rady__items__1__text
+                -#     = item.title
 
 
       .content__all__category__list__men
@@ -69,17 +83,31 @@
           .content__all__category__list__men__items__1
             - @items_for_man.each do |item|
               = link_to "items/#{item.id}" do
-
                 .item-box
+                  - if item.purchase=="soldout"
+                    .item-sold
+                      %div="SOLD"
                   .item-box__image
-                    = image_tag "#{item.images.first.image}", :size =>'186x180'
-                    -# = image_tag item.images.first.image.url, :size =>'186x180'
+                    = image_tag "#{item.images.first.image}", :size =>'185x180'
                   .item-box__title
                     %h3=item.title
                     .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
+                      - if item.goods.present?
+                        %i.far.fa-heart
+                        = item.goods.length
                     .item-box__title__price
                       ="¥"+item.price.to_s(:delimited)
+
+                -# .item-box
+                -#   .item-box__image
+                -#     = image_tag "#{item.images.first.image}", :size =>'186x180'
+                -#     -# = image_tag item.images.first.image.url, :size =>'186x180'
+                -#   .item-box__title
+                -#     %h3=item.title
+                -#     .item-box__title__icon
+                -#     -# if いいねがあればいいねアイコン、数をだす
+                -#     .item-box__title__price
+                -#       ="¥"+item.price.to_s(:delimited)
                 -# .content__all__category__list__men__items__1__ima
                 -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
                 -#   %p 
@@ -97,17 +125,30 @@
         .contnet__all__category__list__mecha__items
           .content__all__category__list__mecha__items__1
             - @items_for_mecha.each do |item|
-
-              = link_to "/items/#{item.id}" do
-                .item-box
-                  .item-box__image
-                    -# = image_tag "#{item.images.first.image}", :size =>'185x180'
-                  .item-box__title
-                    %h3=item.title
-                    .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
-                    .item-box__title__price
-                      ="¥"+item.price.to_s(:delimited)
+              .item-box
+                - if item.purchase=="soldout"
+                  .item-sold
+                    %div="SOLD"
+                .item-box__image
+                  = image_tag "#{item.images.first.image}", :size =>'185x180'
+                .item-box__title
+                  %h3=item.title
+                  .item-box__title__icon
+                    - if item.goods.present?
+                      %i.far.fa-heart
+                      = item.goods.length
+                  .item-box__title__price
+                    ="¥"+item.price.to_s(:delimited)
+              -# = link_to "/items/#{item.id}" do
+              -#   .item-box
+              -#     .item-box__image
+              -#       -# = image_tag "#{item.images.first.image}", :size =>'185x180'
+              -#     .item-box__title
+              -#       %h3=item.title
+              -#       .item-box__title__icon
+              -#       -# if いいねがあればいいねアイコン、数をだす
+              -#       .item-box__title__price
+              -#         ="¥"+item.price.to_s(:delimited)
                 -# .content__all__category__list__mecha__items__1__ima
                 -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
                 -#   %p
@@ -130,14 +171,28 @@
 
               = link_to "items/#{item.id}" do
                 .item-box
+                  - if item.purchase=="soldout"
+                    .item-sold
+                      %div="SOLD"
                   .item-box__image
-                    -# = image_tag "#{item.images.first.image}", :size =>'185x180'
+                    = image_tag "#{item.images.first.image}", :size =>'185x180'
                   .item-box__title
                     %h3=item.title
                     .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
+                      - if item.goods.present?
+                        %i.far.fa-heart
+                        = item.goods.length
                     .item-box__title__price
                       ="¥"+item.price.to_s(:delimited)
+                -# .item-box
+                -#   .item-box__image
+                -#     -# = image_tag "#{item.images.first.image}", :size =>'185x180'
+                -#   .item-box__title
+                -#     %h3=item.title
+                -#     .item-box__title__icon
+                -#     -# if いいねがあればいいねアイコン、数をだす
+                -#     .item-box__title__price
+                -#       ="¥"+item.price.to_s(:delimited)
                 
                 -# .content__all__category__list__hobby__items__1__ima
                 -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
@@ -170,14 +225,28 @@
 
               = link_to "items/#{item.id}" do
                 .item-box
+                  - if item.purchase=="soldout"
+                    .item-sold
+                      %div="SOLD"
                   .item-box__image
-                    -# = image_tag "#{item.images.first.image}", :size =>'185x180'
+                    = image_tag "#{item.images.first.image}", :size =>'185x180'
                   .item-box__title
                     %h3=item.title
                     .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
+                      - if item.goods.present?
+                        %i.far.fa-heart
+                        = item.goods.length
                     .item-box__title__price
                       ="¥"+item.price.to_s(:delimited)
+                -# .item-box
+                -#   .item-box__image
+                -#     -# = image_tag "#{item.images.first.image}", :size =>'185x180'
+                -#   .item-box__title
+                -#     %h3=item.title
+                -#     .item-box__title__icon
+                -#     -# if いいねがあればいいねアイコン、数をだす
+                -#     .item-box__title__price
+                -#       ="¥"+item.price.to_s(:delimited)
                 -# .content__all__brand__list__chanel__items__1__ima
                 -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
                 -#   %p
@@ -198,14 +267,28 @@
             - @items_for_viton.each do |item|
               = link_to "items/#{item.id}" do
                 .item-box
+                  - if item.purchase=="soldout"
+                    .item-sold
+                      %div="SOLD"
                   .item-box__image
-                    -# = image_tag "#{item.images.first.image}", :size =>'185x180'
+                    = image_tag "#{item.images.first.image}", :size =>'185x180'
                   .item-box__title
                     %h3=item.title
                     .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
+                      - if item.goods.present?
+                        %i.far.fa-heart
+                        = item.goods.length
                     .item-box__title__price
                       ="¥"+item.price.to_s(:delimited)
+                -# .item-box
+                -#   .item-box__image
+                -#     -# = image_tag "#{item.images.first.image}", :size =>'185x180'
+                -#   .item-box__title
+                -#     %h3=item.title
+                -#     .item-box__title__icon
+                -#     -# if いいねがあればいいねアイコン、数をだす
+                -#     .item-box__title__price
+                -#       ="¥"+item.price.to_s(:delimited)
                 -# .content__all__brand__list__viton__items__1__ima
                 -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
                 -#   %p
@@ -226,14 +309,28 @@
 
               = link_to "items/#{item.id}" do
                 .item-box
+                  - if item.purchase=="soldout"
+                    .item-sold
+                      %div="SOLD"
                   .item-box__image
-                    -# = image_tag "#{item.images.first.image}", :size =>'185x180'
+                    = image_tag "#{item.images.first.image}", :size =>'185x180'
                   .item-box__title
                     %h3=item.title
                     .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
+                      - if item.goods.present?
+                        %i.far.fa-heart
+                        = item.goods.length
                     .item-box__title__price
                       ="¥"+item.price.to_s(:delimited)
+                -# .item-box
+                -#   .item-box__image
+                -#     -# = image_tag "#{item.images.first.image}", :size =>'185x180'
+                -#   .item-box__title
+                -#     %h3=item.title
+                -#     .item-box__title__icon
+                -#     -# if いいねがあればいいねアイコン、数をだす
+                -#     .item-box__title__price
+                -#       ="¥"+item.price.to_s(:delimited)
                 -# .content__all__brand__list__supreme__items__1__ima
                 -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
                 -#   %p
@@ -254,14 +351,28 @@
 
               = link_to "items/#{item.id}" do
                 .item-box
+                  - if item.purchase=="soldout"
+                    .item-sold
+                      %div="SOLD"
                   .item-box__image
-                    -# = image_tag "#{item.images.first.image}", :size =>'185x180'
+                    = image_tag "#{item.images.first.image}", :size =>'185x180'
                   .item-box__title
                     %h3=item.title
                     .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
+                      - if item.goods.present?
+                        %i.far.fa-heart
+                        = item.goods.length
                     .item-box__title__price
                       ="¥"+item.price.to_s(:delimited)
+                -# .item-box
+                -#   .item-box__image
+                -#     -# = image_tag "#{item.images.first.image}", :size =>'185x180'
+                -#   .item-box__title
+                -#     %h3=item.title
+                -#     .item-box__title__icon
+                -#     -# if いいねがあればいいねアイコン、数をだす
+                -#     .item-box__title__price
+                -#       ="¥"+item.price.to_s(:delimited)
                 -# .content__all__brand__list__nike__items__1__ima
 
                 -#   = image_tag "#{item.images.first.image}", :size =>'185x180'

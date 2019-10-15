@@ -18,7 +18,7 @@
                 = link_to "/items/#{item.id}" do
                   .item-box
                     - if item.purchase=="soldout"
-                      .item-sold 
+                      .item-sold
                         %div="SOLD"
                     .item-box__image
                       = image_tag "#{item.images.first.image}", :size =>'185x180'

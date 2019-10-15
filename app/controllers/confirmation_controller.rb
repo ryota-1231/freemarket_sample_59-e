@@ -7,5 +7,5 @@ class ConfirmationController < ApplicationController
     @cards = Card.find(1)
     @buyer = current_user
   end
-
+  
 end

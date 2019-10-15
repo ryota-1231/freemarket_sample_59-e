@@ -1,0 +1,90 @@
+.wrapper__buied{
+  width: 600px;
+  height: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.buied__all{
+  height: 750px;
+  background-color: white;
+  margin-top: 100px;
+}
+
+.confirm{
+  font-weight: bold;
+  font-size: 26px;
+  text-align: center;
+  height: 80px;
+  width: 100%;
+  background-color: white;
+  padding-top: 20px;
+}
+
+.notification{
+  height: 160px;
+  width: 100%;
+  background-color: burlywood;
+  text-align: center;
+  p.wait{
+    color: red;
+    font-size:22px;
+    font-weight: bold;
+    line-height: 100px;
+  }
+  p.waitt{
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+}
+
+.attention{
+  height: 80px;
+  background-color: white;
+  border-bottom: lightgray solid 1px;
+  text-align: right;
+  color: lightblue;
+  p.after{
+    padding-top: 20px;
+    font-size: 13px;
+  }
+  p.delivery{
+    font-size: 13px;
+  }
+}
+
+.status{
+  background-color: white;
+  p.delivery{
+    font-weight: bold;
+    font-size:23px;
+    padding-top: 40px;
+  }
+  &__bar{
+    padding-top: 80px;
+  }
+  &__number{
+    color: lightblue;
+    
+  }
+  &__address{
+    color: lightblue;
+    padding-top: 10px;
+  }
+  &__house{
+    color: lightblue;
+    padding-top: 10px;
+
+  }
+  &__name{
+    color: lightblue;
+    padding-top: 10px;
+  }
+  &__information{
+    padding-top: 20px;
+  }
+  &__link{
+  padding-top: 20px;
+  color: red;
+}
+}

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       post 'pay'
       get 'search_index'
       get 'search'
+      get 'buied'
     end
     resources :images, only: [:index, :create]
     resources :goods, only: [:create, :destroy]
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
     resources :confirmation, only: [:new, :create]
   end
 
-
+  get "/items/buied/:id" => "items#buied"
   resources :category, only: [:index, :show]
 
 
@@ -63,10 +64,12 @@ Rails.application.routes.draw do
 
   resources :cards do
     collection do
+      post 'index'
       post 'new'
       post 'create'
     end
   end
+
 
   resources :category, only: [:index, :show]
 
