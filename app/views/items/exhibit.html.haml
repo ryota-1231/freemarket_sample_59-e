@@ -12,7 +12,6 @@
               %span 必須
             %p 最大10枚までアップロードできます
           #image-box-1
-            %ul.item-images.active
             .item-num-0#image-box__container
               = f.fields_for :images do |i|
                 .input-area
@@ -140,4 +139,4 @@
             に同意したことになります。
           = f.submit '出品する', class: 'item-post__exhibit .btn'
           .item-post__return.btn
-            =link_to 'もどる', '/users/1'
+            =link_to 'もどる', '/users/:id'

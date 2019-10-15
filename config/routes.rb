@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :confirmation, only: [:new, :create]
   end
 
+
   resources :category, only: [:index, :show]
 
 
@@ -34,12 +35,16 @@ Rails.application.routes.draw do
     resources :items, only: :index, defaults: { format: 'json' }
   end
 
-  resources :users, only: [:new, :edit, :show, :destroy] do
+  resources :users do
+
     collection do
       get 'log_out'
       get 'register'  
       get 'sign_in'
       get 'sms_confirmation'
+      get 'exhibit'
+      get 'soldout'
+      get 'trading'
     end
     resources :confirmation
     resources :signup, only:[:edit, :update]
@@ -56,7 +61,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   resources :cards do
     collection do
       post 'new'
@@ -64,6 +68,29 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :category, only: [:index, :show]
+
+  resources :brand, only: [:index, :show] do
+    resources :search, only: [:index]
+  end
+
+
   resources :searches,only:[:index]
+
+  namespace :api do
+      resources :categories, only: :index, defaults: { format: 'json' }
+  end
+  namespace :api do
+    resources :sizetypes, only: :index, defaults: { format: 'json' }
+  end
+  namespace :api do
+    resources :brands, only: :index, defaults: { format: 'json' }
+  end
+  namespace :api do
+    resources :items, only: :index, defaults: { format: 'json' }
+  end
+
+
+
 
 end

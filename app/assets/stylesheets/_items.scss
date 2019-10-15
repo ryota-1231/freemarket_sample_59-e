@@ -1,12 +1,6 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-*{
-  box-sizing: border-box;
-  text-decoration: none;
-  list-style: none;
-}
-
 .rady{
   width: 185px;
   height: 200px;
@@ -18,7 +12,6 @@
   padding: 8px 16px;
   border-radius: 1em;
 }
-
 
 .search_form{
   width: 780px;
@@ -70,16 +63,17 @@ a:hover{
 
 .menu{
   display: none;
-  border: solid 2px black;
+  // border: solid 2px black;
 }
 .menu2{
   display: none;
-  border: solid 2px black;
+  // border: solid 2px black;
 }
 
 .menu3{
   display: none;
-  border: solid 2px black;
+  // border: solid 2px black;
+
 }
 
 .news{
@@ -98,7 +92,8 @@ li.menu{
 li.menu2{
   height: 80px;
   width: 200px;
-  background-color: yellow;
+  // background-color: yellow;
+
 }
 
 li.menu3{
@@ -121,15 +116,18 @@ li.news{
 
 .header__box__bottom__left__search__brand__hidden{
   padding-top: 10px;
-  width: 1000px;
+  // width: 1000px;
   z-index: 2;
   position: relative;
   margin: 0px;
 }
 
 .header__box__bottom__left__search__category__hidden{
-  display: flex;
-  width: 1000px;
+  // display: flex;
+  // height: 1px;
+  // width: 1px;
+  width: 100px;
+  height: 1px;
   position: relative;
   z-index: 2;
 }
@@ -138,16 +136,24 @@ li.news{
   padding-left:0;
   padding-top: 10px;
   margin: 0px;
+  position: absolute;
+  z-index: 3;
 }
 .header__box__bottom__left__search__category__hidden__2{
-  padding-left: 0;
+  // padding-left: 200px;
   margin: 0px;
   padding-top: 10px;
+  top: 0;
+  left: 200px;
+  position: absolute;
 }
 .header__box__bottom__left__search__category__hidden__3{
-  padding-left: 0;
+  padding-left: 200px;
   padding-top: 10px;
+  top: 0;
   margin: 0px;
+  left: 200px;
+  position: absolute;
 }
 
 .header__box__bottom__right__news__hidden{
@@ -352,6 +358,7 @@ h4{
 
 
 .content{
+  
   &__all{
     height: 6000px;
     // width: 1664px;
@@ -368,7 +375,6 @@ h4{
         width: 1680px;
         &__slider{
           position: absolute;
-
         }
         &__left{
           font-size: 40px;
@@ -807,75 +813,7 @@ h4{
 }
 
 
-.footer{
-  height: 649px;
-  margin-top: 5600px;
-  &__downroad{
-    height: 260px;
-    width: 100%;
-    background: url(https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg) !important;
-    
-    display: flex;
-    &__left{
-      width: 417px;
-      height: 260px;
-      margin-left: 465px;
-      &__top{
-        font-size: 24px;
-        font-weight: bold;
-        color: white;
-        margin-top: 30px;
-      }
-      &__middle{
-        font-size: 35px;
-        color: white;
-      }
-      &__bottom{
-        line-height: 200px;
-      }
-    }
-    &__right{
-      width: 300px;
-      height: 260px;
-    }
-  }
 
-  &__guide{
-    height: 389px;
-    background-color: rgb(34, 34, 34);
-    color: white;
-    
-    &__top{
-      display: flex;
-      width: 1020px;
-      height: 296px;
-      margin: auto;
-      
-      &__about{
-        padding-right: 40px;
-      }
-      &__help{
-        padding-right: 40px;
-      }
-      &__privacy__1{
-        padding-right: 40px;
-      }
-      &__privacy__2{
-        padding-top: 45px;
-        padding-right: 40px;
-      }
-      &__country{
-        padding-right: 40px;
-      }
-    }
-    &__bottom{
-      text-align: center;
-      q{
-        margin-right: 100px;
-      }
-    }
-  }
-}
 
 .header__box__bottom__right__newuser{
   display: inline-flex;

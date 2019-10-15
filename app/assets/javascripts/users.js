@@ -1,18 +1,26 @@
 $(function() {
-  $('.mypage__tabs').children('li').click(function(){
-    
-    $('.mypage__tabs').children('.tag__changed').removeClass('tag__changed');
-    $(this).addClass('tag__changed');
-
-    $('.message__content__tab').toggleClass('active');
+  $('#notice').click(function(){  
+    $('.tag__changed-top').removeClass('tag__changed-top');
+    $(this).addClass('tag__changed-top');
+    $('.todo.active').removeClass('active');
+    $('.notice').addClass('active');
   })
-
-
-  $('.bottom__mypage__tabs').children('li').click(function(){
-    
-    $('.bottom__mypage__tabs').children('.tag__changed').removeClass('tag__changed');
-    $(this).addClass('tag__changed');
-
-    $('.bottom--content__tab__item').toggleClass('active');
+  $('#todo').click(function(){  
+    $('.tag__changed-top').removeClass('tag__changed-top');
+    $(this).addClass('tag__changed-top');
+    $('.notice.active').removeClass('active');
+    $('.todo').addClass('active');
+  })
+  $('#trading').click(function(){
+    $('.tag__changed-bottom').removeClass('tag__changed-bottom');
+    $(this).addClass('tag__changed-bottom');
+    $('.trade.active').removeClass('active');
+    $('.trading').addClass('active');
+  })
+  $('#trade').click(function(){
+    $('.tag__changed-bottom').removeClass('tag__changed-bottom');
+    $(this).addClass('tag__changed-bottom');
+    $('.trading.active').removeClass('active');
+    $('.trade').addClass('active');
   })
 });

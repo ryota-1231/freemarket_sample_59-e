@@ -1,0 +1,37 @@
+= render './items/header'
+.brands-wrapper
+  .brands-container
+    #page-top.brands-button-group
+      %h2 ブランド一覧
+      .brands-button-group__box
+        - @brands.each do |brand|
+          = link_to "brand/#{brand.id}" do
+            = brand.name
+      .brands-button-group__links
+        - @brand.children.each do |child|
+          .brands-button-group__link
+            = link_to "##{child.id}" do
+              %p{ class: "child_name"}=child.name
+            |
+    .brands__main
+      .brands__list
+        .brand__name
+          %h3{ id: "#{@brand.id}" }=@brand.name 
+        - @brand.children.each do |child|
+          .brand__child-name
+            %h4{ id: "#{child.id}" }=child.name
+          .brand__groups
+            .brand__groups__box
+              .brand__ground-children__groups
+                - child.children.each do |ground_child|
+                  .brand__groundchild-name
+                    %p
+                      = link_to "brand/#{ground_child.id}/search" do
+                        = ground_child.name
+  = render './items/footer'                
+.top-button
+  =link_to '#page-top' do
+    %i.fa.fa-angle-double-up
+    %p Page-Top
+
+

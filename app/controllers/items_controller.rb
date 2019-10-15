@@ -1,18 +1,18 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :header_category
 
   def index
-    @items = Item.all.limit(10)
-    @categories = Category.where(ancestry: nil)
-    @items_for_woman = Item.where(category_id: 3..199).limit(10)
-    @items_for_man = Item.where(category_id: 202..343).limit(10)
-    @items_for_mecha = Item.where(category_id: 895..978).limit(10)
-    @items_for_hobby = Item.where(category_id: 682..792).limit(10)
-    @items_for_chanel = Item.where(brand_id: 8385).limit(10)
-    @items_for_viton = Item.where(brand_id: 764)
-    @items_for_supreme = Item.where(brand_id: 8412)
-    @items_for_nike = Item.where(brand_id: 3812)
-
+    @items = Item.all.limit(10).includes(:images)
+    @categories = Category.where(ancestry: nil).includes(:images)
+    @items_for_woman = Item.where(category_id: 3..199).includes(:images).limit(10)
+    @items_for_man = Item.where(category_id: 202..343).includes(:images).limit(10)
+    @items_for_mecha = Item.where(category_id: 895..978).includes(:images).limit(10)
+    @items_for_hobby = Item.where(category_id: 682..792).includes(:images).limit(10)
+    @items_for_chanel = Item.where(brand_id: 8385).limit(10).includes(:images)
+    @items_for_viton = Item.where(brand_id: 764).includes(:images)
+    @items_for_supreme = Item.where(brand_id: 8412).includes(:images)
+    @items_for_nike = Item.where(brand_id: 3812).includes(:images)
   end
 
   def new
@@ -52,7 +52,7 @@ class ItemsController < ApplicationController
     end
     
   end
-  
+
   def destroy
     if @item.user_id == current_user.id
       @item.destroy
@@ -77,29 +77,56 @@ class ItemsController < ApplicationController
     @item = Item.find(7)
   end
 
-  # def pay
-  #   @item = Item.find(7)
-  #   Payjp.api_key = 'sk_test_be508ed036c9c40e55488d6a'
-  #   charge = Payjp::Charge.create(
-  #   :amount => @item.price,
-  #   :card => params['payjp-token'],
-  #   :currency => 'jpy',
-  #   )
-  # end
-
   def search_index
-    @search= Item.ransack(params[:q])
+    if params[:q].present?
+      @search = Item.ransack(params[:q])
+      @category = Category.where(ancestry: nil)
+      @brands = Brand.all
+      @sizetype = Sizetype.where(ancestry: nil)
+      @status = Status.all
+      @delivery = Delivery.all
+      @items = @search.result(distinct: true)
+    else
+      @category = Category.where(ancestry: nil)
+      @brands = Brand.all
+      @sizetype = Sizetype.where(ancestry: nil)
+      @status = Status.all
+      @delivery = Delivery.all
+      @items = @search.result(distinct: true)
+      params[:q] = { sorts: 'id desc' }
+      @search = Item.ransack
+      @items = Item.all
+    end
+  end
+
+  def search
+    if params[:q][:delivery_id_in].present?
+      links = []
+      params[:q][:delivery_id_in].each do |fee|
+        if fee.present?
+          @fee = Delivery.where(deliveryfee_id: fee)
+          @fee.each do |f|
+            links << f.id
+          end
+        end
+      end
+      params[:q][:delivery_id_in] = []
+      links.each do |link|
+        params[:q][:delivery_id_in] << link if link.present?
+      end
+    end
     @category = Category.where(ancestry:nil)
     @brands = Brand.all
     @sizetype = Sizetype.where(ancestry:nil)
     @status = Status.all
     @delivery = Delivery.all
+    @search = Item.ransack(search_params)
     @items = @search.result(distinct: true)
   end
 
-  def search
-    @search = Item.search(search_params)
-    @items = @search.result(distinct: true)
+  def header_category
+    @parents = Category.roots
+    @search = Item.ransack(params[:q])
   end
 
   private

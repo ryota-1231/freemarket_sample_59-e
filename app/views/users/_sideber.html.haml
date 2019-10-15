@@ -2,72 +2,72 @@
   %ul.side__link__top
     = link_to user_path(current_user.id), class:"mypage_show" do
       %li 
-        .side__link__top--box
+        .side__link--box
           マイページ
           = fa_icon 'angle-right'
     = link_to "" do
       %li 
-        .side__link__top--box
+        .side__link--box
           お知らせ
           = fa_icon 'angle-right'
     = link_to "" do
       %li 
-        .side__link__top--box
+        .side__link--box
           やることリスト
           = fa_icon 'angle-right'
     = link_to "" do
       %li 
-        .side__link__top--box
+        .side__link--box
           いいね！一覧
           = fa_icon 'angle-right'
-    =link_to exhibit_items_path do
+    = link_to "/items/exhibit" do
       %li 
-        .side__link__top--box
+        .side__link--box
           出品する
           = fa_icon 'angle-right'
-    = link_to "" do
+    = link_to "/users/exhibit" do
       %li 
-        .side__link__top--box
+        .side__link--box
           出品した商品-出品中
           = fa_icon 'angle-right'
-    = link_to "" do
+    = link_to "trading" do
       %li 
-        .side__link__top--box
+        .side__link--box
           出品した商品-取引中
           = fa_icon 'angle-right'
-    = link_to "" do
+    = link_to "soldout" do
       %li 
-        .side__link__top--box
-          出品した商品-完済済み
+        .side__link--box
+          出品した商品-売却済み
           = fa_icon 'angle-right'
     = link_to "" do
       %li 
-        .side__link__top--box
+        .side__link--box
           購入した商品-取引中
           = fa_icon 'angle-right'
     = link_to "" do
       %li 
-        .side__link__top--box
+        .side__link--box
           購入した商品-過去の取引
           = fa_icon 'angle-right'
     = link_to "" do
       %li 
-        .side__link__top--box
+        .side__link--box
           ニュース一覧
           = fa_icon 'angle-right'
     = link_to "" do
       %li 
-        .side__link__top--box
+        .side__link--box
           評価一覧
           = fa_icon 'angle-right'
     = link_to "" do
       %li 
-        .side__link__top--box
+        .side__link--box
           ガイド
           = fa_icon 'angle-right'
     = link_to "" do
       %li 
-        .side__link__top--box
+        .side__link--box
           お問い合わせ
           = fa_icon 'angle-right'
   .side__link__merpay
@@ -75,12 +75,12 @@
     %ul.side__link__merpaylist
       = link_to "" do
         %li 
-          .side__link__top--box
+          .side__link--box
             売り上げ・振込申請
             = fa_icon 'angle-right'
       = link_to "" do
         %li 
-          .side__link__top--box
+          .side__link--box
             ポイント
             = fa_icon 'angle-right'
   .side__link__edit
@@ -88,37 +88,38 @@
     %ul.side__link__editlist
       = link_to edit_user_path(current_user.id) do
         %li 
-          .side__link__top--box
+          .side__link--box
             プロフィール
             = fa_icon 'angle-right'
       = link_to edit_user_signup_path(current_user.id, @user), class:"alteraddress" do
         %li 
-          .side__link__top--box
+          .side__link--box
             発送元・お届け先住所変更
             = fa_icon 'angle-right'
       = link_to register_users_path(current_user.id), class:"creditcard" do
         %li 
-          .side__link__top--box
+          .side__link--box
             支払い方法
             = fa_icon 'angle-right'
       = link_to "" do
         %li 
-          .side__link__top--box
+          .side__link--box
             メール/パスワード
             = fa_icon 'angle-right'
       = link_to edit_user_confirmation_path(current_user.id, @user), class:"edituser" do
         %li 
-          .side__link__top--box
+          .side__link--box
             本人情報
             = fa_icon 'angle-right'
       = link_to sms_confirmation_users_path, class:"sms_confirmation" do
         %li 
-          .side__link__top--box
+          .side__link--box
             電話番号
             = fa_icon 'angle-right'
       = link_to log_out_users_path(current_user.id), class: "logout" do
         %li 
-          .side__link__top--box
-            = fa_icon 'angle-right'
+          .side__link--box
             ログアウト
+            = fa_icon 'angle-right'
+            
            

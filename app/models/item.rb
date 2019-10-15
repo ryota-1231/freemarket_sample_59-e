@@ -19,6 +19,9 @@ class Item < ApplicationRecord
   has_many :goods, dependent: :destroy
   # has_many :users, through: :goods
   has_many :good_users, through: :goods, source: :user
+
+  has_many :solds
+  has_many :users,  through:  :solds
   
 
   belongs_to :user, optional: true
@@ -50,6 +53,12 @@ class Item < ApplicationRecord
     goods.find_by(user_id: user_id)
   end
 
-  enum purchase: { exhibiting: 0, soldout: 1 }
+  enum purchase: { exhibiting: 0, soldout: 1, trading: 2 }
 
+  private
+
+  ransacker :goods_count do
+    query = '(SELECT COUNT(goods.item_id) FROM goods where goods.item_id = items.id GROUP BY goods.item_id)'
+    Arel.sql(query)
+  end
 end

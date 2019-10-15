@@ -1,53 +1,105 @@
-
-
 $(function(){
   
   $(".header__box__bottom__left__search__category").hover(function(){
-
     $(".menu").stop().slideToggle(100);
-  });
+  $(document).on('hover','.menu1',function(e){
+    console.hoge('hogehoge')
+  })
+
+});
+
+  // $(".menu").hover(function(){
+  //   $(".menu2").stop().slideToggle(100);
+  // });
+
+  // $(".menu2").hover(function(){
+  //   $(".menu2").stop().slideToggle(100);
+  // });
 });
 
 
-$(function(){
+// $(function(){
   
+//   $(".menu2").hover(function(){
+//     $(".menu3").stop().slideToggle(100);
+//   });
+// });
+
+// $(function(){
+  
+//   $(".menu3").hover(function(){
+//     $(".menu3").stop().slideToggle(100);
+//   });
+// });
+
+// $(function(){
+  
+//   $(".menu3").hover(function(){
+//     $(".menu2").stop().slideToggle(100);
+//   });
+// });
+
+$(function(){
   $(".menu").hover(function(){
-    $(".menu2").stop().slideToggle(100);
+    // function(){
+    $($(this).children("ul")).css("display", "block");
+    $($(this).children("ul").children("li")).css("display", "block");
+    
+    },
+    function(){
+    $($(this).children("ul")).css("display", "none");
   });
-});
-
-$(function(){
-  
   $(".menu2").hover(function(){
-    $(".menu2").stop().slideToggle(100);
+    // function(){
+    $($(this).children("ul")).css("display", "block");
+    $($(this).children("ul").children("li")).css("display", "block");
+    
+    },
+    function(){
+    $($(this).children("ul")).css("display", "none");
   });
-});
-
-$(function(){
-  
-  $(".menu2").hover(function(){
-    $(".menu3").stop().slideToggle(100);
-  });
-});
-
-$(function(){
-  
   $(".menu3").hover(function(){
-    $(".menu3").stop().slideToggle(100);
+    // function(){
+    $($(this).ul).css("display", "block");
+    $($(this).ul.children("li")).css("display", "block");
+    
+    },
+    function(){
+    $($(this).ul).css("display", "none");
   });
-});
-
-$(function(){
+    // $(document).on({'mouseover': '.menu2',function(){
+    //   console.log('hoge')
+    //   $(this).parent("ul").css("display", "block");
+    //   $(this).children("ul").css("display", "block");
+    //   console.log($(this).children("ul"));
+    //   },
+    //   'mouseleave': function(){
+    //     $(this).children("ul").css("display", "none");
+    //   }
+    // },
+    // '.menu2')
+    // $('.menu2').hover(function(){
+    //   console.log('hoge')
+    //   $(this).parent("ul").css("display", "block");
+    //   $(this).children("ul").css("display", "block");
+    // })
   
-  $(".menu3").hover(function(){
-    $(".menu2").stop().slideToggle(100);
-  });
-});
+})
+  //   function(){
+  //   $(this).parent("ul").css("display", "block")
+  //   console.log($(this).parent("ul"));
+  //   $(this).children("ul").css("display", "block")
+  // },
+  //   function(){
+  //   $(this).children("ul").css("display", "none")
+  //   }
+//   )
+
+// })
 
 // ブランドのやつ
 
 $(function(){
-  
   $(".header__box__bottom__left__search__brand").hover(function(){
     $(".brand").stop().slideToggle(100);
   });
@@ -56,7 +108,6 @@ $(function(){
 // ニュースのやつ
 
 $(function(){
-  
   $(".header__box__bottom__right__news").hover(function(){
     $(".news").stop().slideToggle(100);
   });

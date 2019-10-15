@@ -8,78 +8,61 @@
           = image_tag "logo-acdd90ac4f472d5a6f7a330d33ab1225.svg",class: "merukari"
       .header__box__top__right
         .header__box__top__right__content 
-          = form_tag(searches_path,method: :get ,class:"hogeho") do
-            = text_field_tag :search ,"",class:"search_form",placeholder: "何かお探しですか？",style: "border-right: none"
+          = search_form_for(@search, url: search_items_path) do |f|
+            %label
+            = f.search_field :title_cont, class:"search_form",placeholder: "何かお探しですか？",style: "border-right: none"
             %button{type: "submit",class: "search_button"}
               %i.fas.fa-search
               
-
     .header__box__bottom
       .header__box__bottom__left
         .header__box__bottom__left__search__category
           = link_to "#" do
             %i.fas.fa-align-justify
-          = link_to "カテゴリーから探す",(),class: "category"
+          = link_to "カテゴリーから探す","/category",class: "category"
           .header__box__bottom__left__search__category__hidden
             %ul.header__box__bottom__left__search__category__hidden__1
-              = link_to "" do
-                %li.menu
-                  1
-              = link_to "" do
-                %li.menu
-                  1
-              = link_to "" do
-                %li.menu
-                  1
-              = link_to "" do
-                %li.menu
-                  1    
-
-            %ul.header__box__bottom__left__search__category__hidden__2
-              = link_to "" do
-                %li.menu2
-                  2
-              = link_to "" do
-                %li.menu2
-                  2
-              = link_to "" do
-                %li.menu2
-                  2
-              = link_to "" do
-                %li.menu2
-                  2    
-
-            %ul.header__box__bottom__left__search__category__hidden__3
-              = link_to "" do
-                %li.menu3
-                  3
-              = link_to "" do
-                %li.menu3
-                  3
-              = link_to "" do
-                %li.menu3
-                  3
-              = link_to "" do
-                %li.menu3
-                  3
-
+              - @parents.each do |parent|
+                = link_to "" do
+                  %li.menu{id: parent.id}
+                    =parent.name
+                    %ul.header__box__bottom__left__search__category__hidden__2
+                      -parent.children.each do |child|
+                        %li.menu2{id: child.id}
+                          = child.name
+                          %ul.header__box__bottom__left__search__category__hidden__3
+                            -child.children.each do |grandchild|
+                              %li.menu3{id: grandchild.id}
+                                = grandchild.name
+                          
         .header__box__bottom__left__search__brand 
-          = link_to "#" do
+          = link_to "/brand" do
             %i.fas.fa-comment-dollar
-            = link_to "ブランドから探す"
-            .header__box__bottom__left__search__brand__hidden      
-              = link_to "" do
+            = link_to "ブランドから探す", "/brand"
+            .header__box__bottom__left__search__brand__hidden 
+              %ul.header__box__bottom__left__search__brand__hidden
+                -# -@brands.each do |parent|
+                -#   %li.menu
+                -#     =parent.name     
+              = link_to "/brand/2466/search" do
                 %li.brand
-                  ホビー
-              = link_to "" do
+                  シャネル
+              = link_to "/brand/3848/search" do
                 %li.brand
-                  ホビー
-              = link_to "" do
+                  ナイキ
+              = link_to "/brand/6220/search" do
                 %li.brand
-                  ホビー
-              = link_to "" do
+                  ヴィトン
+              = link_to "/brand/8509/search" do
                 %li.brand
-                  ホビー    
+                  シュプリーム 
+              = link_to "/brand/6794/search" do
+                %li.brand
+                  アディダス
+              = link_to "/brand" do
+                %li.brand
+                  ブランド一覧         
+
 
             
     
@@ -97,16 +80,20 @@
               .header__box__bottom__right__news__hidden
                 = link_to "" do
                   %li.news
-                    1
+                    = image_tag "mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png",class: "neww" 
+                    お知らせは
                 = link_to "" do
                   %li.news
-                    2
+                    = image_tag "mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png",class: "neww"
+                    特に無いことを
                 = link_to "" do
                   %li.news
-                    3
+                    = image_tag "mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png",class: "neww"
+                    お知らせ致します
                 = link_to "" do
                   %li.news
-                    4   
+                    = image_tag "mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png",class: "neww"
+                    ＾＾
 
           .header__box__bottom__right__todo
             = link_to "#" do
@@ -114,6 +101,9 @@
               やることリスト
               .header__box__bottom__right__todo__hidden
                 .header__box__bottom__right__todo__hidden1
+                  = image_tag "mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png",class: "new"
+                  %p.new
+                    現在やることリストはありません
 
           .header__box__bottom__right__mypage
             = link_to "/users/#{current_user.id}" do
