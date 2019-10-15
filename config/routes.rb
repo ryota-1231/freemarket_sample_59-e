@@ -40,9 +40,9 @@ Rails.application.routes.draw do
       get 'register'  
       get 'sign_in'
       get 'sms_confirmation'
-      get 'address_alter'
     end
-    
+    resources :confirmation
+    resources :signup, only:[:edit, :update]
   end
   
   resources :signup, only:[:new, :create] do
