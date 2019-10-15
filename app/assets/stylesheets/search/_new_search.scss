@@ -1,7 +1,7 @@
 #search-side-ber{
   background-color: rgb(245, 245, 245);
   .search-side-box{
-    margin-right: 40px;
+    margin-right: 80px;
     span{
       font-size:14px;
       font-weight: bold;
@@ -50,8 +50,7 @@
           display: none;
         }
         &__select{
-          display: none;
-          // display: flex;
+          display: flex;
           flex-wrap: wrap;
           input{
             width: 14px;

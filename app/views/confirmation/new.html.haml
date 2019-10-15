@@ -38,9 +38,9 @@
     .comfirm-box__shipping-address
       .confirm-box__shipping-address__user
         %p4 配送先
-        %p5 〒100-8111
+        %p5 〒#{@buyer.addresses.first.postcode}
         %br
-        %p5 東京都千代田区千代田1-1
+        %p5 #{@buyer.addresses.first.prefecture.name}#{@buyer.addresses.first.city}#{@buyer.addresses.first.block}#{@buyer.addresses.first.building}
         %br
         %p6 #{@buyer.nickname}
         %br

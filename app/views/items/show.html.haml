@@ -29,12 +29,12 @@
           = fa_icon "pinterest"
     .detail__otheritems
       .detail__otheritems__head
-        -# = link_to "#{@item.user.nickname}さんのその他の出品"
+        = link_to "#{@item.user.nickname}さんのその他の出品"
       .detail__otheritems__mass
         - @user.each do |item|
           .detail__otheritems__mass__one
             .detail__otheritems__mass__one--photo
-              = image_tag "#{item.images.first.image}", class: "detail__otheritems__mass__one--photo--in"
+              = link_to image_tag("#{item.images.first.image}", class: "detail__otheritems__mass__one--photo--in"), "#{item.id}"
             .detail__otheritems__mass__one--explanation
               .detail__otheritems__mass__one--explanation--name
                 = "#{item.title}"

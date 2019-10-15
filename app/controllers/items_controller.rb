@@ -53,8 +53,6 @@ class ItemsController < ApplicationController
     
   end
 
-  
-  
   def destroy
     if @item.user_id == current_user.id
       @item.destroy
@@ -93,34 +91,57 @@ class ItemsController < ApplicationController
     @item.save
   end  
 
-  # def pay
-  #   @item = Item.find(7)
-  #   Payjp.api_key = 'sk_test_be508ed036c9c40e55488d6a'
-  #   charge = Payjp::Charge.create(
-  #   :amount => @item.price,
-  #   :card => params['payjp-token'],
-  #   :currency => 'jpy',
-  #   )
-  # end
 
   def search_index
-    @search= Item.ransack(params[:q])
+    if params[:q].present?
+      @search = Item.ransack(params[:q])
+      @category = Category.where(ancestry: nil)
+      @brands = Brand.all
+      @sizetype = Sizetype.where(ancestry: nil)
+      @status = Status.all
+      @delivery = Delivery.all
+      @items = @search.result(distinct: true)
+    else
+      @category = Category.where(ancestry: nil)
+      @brands = Brand.all
+      @sizetype = Sizetype.where(ancestry: nil)
+      @status = Status.all
+      @delivery = Delivery.all
+      @items = @search.result(distinct: true)
+      params[:q] = { sorts: 'id desc' }
+      @search = Item.ransack
+      @items = Item.all
+    end
+  end
+
+  def search
+    if params[:q][:delivery_id_in].present?
+      links = []
+      params[:q][:delivery_id_in].each do |fee|
+        if fee.present?
+          @fee = Delivery.where(deliveryfee_id: fee)
+          @fee.each do |f|
+            links << f.id
+          end
+        end
+      end
+      params[:q][:delivery_id_in] = []
+      links.each do |link|
+        params[:q][:delivery_id_in] << link if link.present?
+      end
+    end
     @category = Category.where(ancestry:nil)
     @brands = Brand.all
     @sizetype = Sizetype.where(ancestry:nil)
     @status = Status.all
     @delivery = Delivery.all
-    @items = @search.result(distinct: true)
-    
-  end
-
-  def search
-    @search = Item.search(search_params)
+    @search = Item.ransack(search_params)
     @items = @search.result(distinct: true)
   end
 
   def header_category
-    @parents= Category.roots
+    @parents = Category.roots
+    @search = Item.ransack(params[:q])
   end
 
   private

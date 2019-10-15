@@ -13,6 +13,7 @@ class BrandController < ApplicationController
   end
 
   def header_category
-    @parents= Category.roots
+    @parents = Category.roots
+    @search = Item.ransack(params[:q])
   end
 end

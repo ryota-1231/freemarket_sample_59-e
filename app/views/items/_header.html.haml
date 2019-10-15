@@ -8,8 +8,9 @@
           = image_tag "logo-acdd90ac4f472d5a6f7a330d33ab1225.svg",class: "merukari"
       .header__box__top__right
         .header__box__top__right__content 
-          = form_tag(searches_path,method: :get ,class:"hogeho") do
-            = text_field_tag :search ,"",class:"search_form",placeholder: "何かお探しですか？",style: "border-right: none"
+          = search_form_for(@search, url: search_items_path) do |f|
+            %label
+            = f.search_field :title_cont, class:"search_form",placeholder: "何かお探しですか？",style: "border-right: none"
             %button{type: "submit",class: "search_button"}
               %i.fas.fa-search
               

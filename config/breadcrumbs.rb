@@ -26,6 +26,15 @@ crumb :log_out do
   parent :mypage
 end  
 
+crumb :address_alter do
+  link "発送元・お届け先住所変更", "/users/:user_id/signup/:id/edit"
+  parent :mypage
+end  
+
+crumb :sms_confirmation do
+  link "電話番号の確認", "/users/sms_confirmation"
+  parent :mypage
+end 
 
 # crumb :projects do
 #   link "Projects", projects_path

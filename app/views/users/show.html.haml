@@ -8,7 +8,11 @@
       .top--content
         .user__image
           =link_to do
-            %img{src:'https://image.flaticon.com/icons/png/512/97/97895.png', height:"60",width:"60"}
+            - if current_user.avatar.attached?
+              = image_tag current_user.avatar, class: "user__image--in"
+            - else
+              = image_tag 'https://image.flaticon.com/icons/png/512/97/97895.png', class: "user__image--in"
+            -# %img{src:'https://image.flaticon.com/icons/png/512/97/97895.png', height:"60",width:"60"}
             .user__image__name
             = @user.nickname
             .user__image__judges

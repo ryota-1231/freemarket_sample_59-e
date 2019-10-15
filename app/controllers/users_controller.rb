@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update! params.require(:user).permit(:avatar, :nickname, :last_name)
+    @user.update! params.require(:user).permit(:nickname, :introduction, :avatar)
     redirect_to action: :show
     
   end
@@ -27,7 +27,8 @@ class UsersController < ApplicationController
   end
 
   def log_out
-    @user = current_user.id
+    @user = User.find(params[:format])
+
   end
 
   def register
@@ -37,11 +38,6 @@ class UsersController < ApplicationController
   def sms_confirmation
     @user = current_user
   end
-
-  def address_alter
-    @user = current_user
-  end
-
 
   def exhibit
     @user = User.find(current_user.id)
@@ -57,8 +53,7 @@ class UsersController < ApplicationController
 
 
   def header_category
-    @parents= Category.roots
+    @parents = Category.roots
+    @search = Item.ransack(params[:q])
   end
-
-  
 end
