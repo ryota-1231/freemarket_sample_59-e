@@ -1,0 +1,73 @@
+.back 
+  = render "items/header"
+  - breadcrumb :user_registe
+  = breadcrumbs separator: " &rsaquo; "
+  .main
+    = render "users/sideber"
+    .person
+      .person__header
+        本人の情報登録
+      .person__main
+        .person__bottom__box
+          .person__bottom__box--message 
+            %p お客さまの本人情報をご登録ください。
+            %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          .person__bottom__box--link1
+            = link_to "本人確認書類のアップロードについて＞", class: "link11"
+          .person__bottom__box--kanji
+            .person__bottom__box--kanji--first
+              お名前
+            .person__bottom__box--kanji--user
+              #{@user.last_name + " " + @user.first_name}
+          .person__bottom__box--kana
+            .person__bottom__box--kana--first
+              お名前カナ
+            .person__bottom__box--kana--user
+              #{@user.last_name_kana + " " + @user.first_name_kana}
+          .person__bottom__box--date
+            .person__bottom__box--date--first
+              生年月日
+            .person__bottom__box--date--user
+              #{@user.birthdate_year}/#{@user.birthdate_month}/#{@user.birthdate_day}
+          .person__bottom__box--address
+            .person__bottom__box--address--box
+              .person__bottom__box--address--box--first
+                郵便番号
+              .person__bottom__box--address--box--any
+                任意
+          = form_for(@user, url: user_confirmation_path, method: :patch) do |f|
+            = f.fields_for :addresses do |a|
+              = a.text_field :postcode, class: "person__bottom__box--address--text", autocomplete: "", placeholder: "例) 123-4567"
+              .person__bottom__box--prefecture
+                .person__bottom__box--prefecture--box
+                  .person__bottom__box--prefecture--box--first
+                    都道府県
+                  .person__bottom__box--prefecture--box--any
+                    任意
+                  = a.collection_select :prefecture_id, Prefecture.all, :id, :name, class: "person__bottom__box--prefecture--text--select"
+              .person__bottom__box--city
+                .person__bottom__box--city--box
+                  .person__bottom__box--city--box--first
+                    市区町村
+                  .person__bottom__box--city--box--any
+                    任意
+                  = a.text_field :city, class: "person__bottom__box--city--text", autocomplete: "", placeholder: "例）千代田区"
+              .person__bottom__box--number
+                .person__bottom__box--number--box
+                  .person__bottom__box--number--box--first
+                    番地
+                  .person__bottom__box--number--box--any
+                    任意
+                  = a.text_field :block, class: "person__bottom__box--number--text", autocomplete: "", placeholder: "例）青山1-1-1"
+              .person__bottom__box--building
+                .person__bottom__box--building--box
+                  .person__bottom__box--building--box--first
+                    建物
+                  .person__bottom__box--building--box--any
+                    任意
+                  = a.text_field :building, class: "person__bottom__box--building--text", autocomplete: "", placeholder: "例）河合荘"
+            = f.submit '登録する', class:"person__bottom__box--btn"
+          .person__bottom__box--link2
+            = link_to '本人情報の登録について＞', class: "link22"
+  = render 'users/item__exhibit'
+  = render "items/footer"

@@ -27,7 +27,8 @@ class UsersController < ApplicationController
   end
 
   def log_out
-    @user = current_user.id
+    @user = User.find(params[:format])
+
   end
 
   def register
@@ -37,11 +38,6 @@ class UsersController < ApplicationController
   def sms_confirmation
     @user = current_user
   end
-
-  def address_alter
-    @user = current_user
-  end
-
 
   def exhibit
     @user = User.find(current_user.id)
