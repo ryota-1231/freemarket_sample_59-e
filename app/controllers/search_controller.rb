@@ -10,4 +10,5 @@ class SearchController < ApplicationController
     @parents= Category.roots
     @search= Item.ransack(params[:q])
   end
+
 end
