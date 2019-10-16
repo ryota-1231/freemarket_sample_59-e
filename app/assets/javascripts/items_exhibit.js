@@ -156,6 +156,7 @@ $(function(){
   })
 
   $(document).on("click", ".brand_chose", function (e) {
+  console.log(this)
     chosen_text = $(this).text();
     choice_id = $(this).attr('id');
     
