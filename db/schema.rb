@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 2019_10_14_025109) do
     t.integer "price"
     t.string "postage"
     t.bigint "user_id"
-    t.bigint "category_id", null: false
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "brand_id"
@@ -209,7 +209,7 @@ ActiveRecord::Schema.define(version: 2019_10_14_025109) do
     t.string "address_last_name_kana", default: ""
     t.string "address_first_name_kana", default: ""
     t.string "email", default: ""
-    t.string "phone_number"
+    t.string "phone_number", default: ""
     t.string "cellphone_number", default: ""
     t.integer "birthdate_year"
     t.integer "birthdate_month"
