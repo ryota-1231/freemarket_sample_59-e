@@ -34,11 +34,13 @@ class CardsController < ApplicationController
     else
       customer = Payjp::Customer.create(
         description: 'test', 
-        email: "ponkotu2019@gmail.com",
-        card: params['payjp-token'] 
+        # email: "ponkotu2019@gmail.com",
+        card: params['payjp-token'],
+        metadata:{user_id: current_user.id}
       )
       #id仮置きです
-      @card = Card.new(user_id: 1, buyer_id: 1, card_id: 1,card_number: 4242424242424242, month: 3, year: 22, secure: 111, token: params['payjp-token'])
+      @card = Card.new(user_id: current_user.id, buyer_id: customer.id, card_number: customer.default_card)
+      binding.pry
       if @card.save
         
         redirect_to action: 'index'
@@ -52,7 +54,7 @@ class CardsController < ApplicationController
 
   def set_card
     #id仮置きです
-    @card = Card.where(user_id: 1).first if Card.where(user_id: 1).present?
+    @card = Card.where(user_id: 1).first if Card.where(user_id: current_user.id).present?
   end
 end
 

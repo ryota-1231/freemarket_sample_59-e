@@ -68,14 +68,29 @@ class ItemsController < ApplicationController
   end
 
   def pay
+    @item = Item.find(params[:id])
+    card = Card.where(user_id: current_user.id).first
     Payjp.api_key = 'sk_test_be508ed036c9c40e55488d6a'
     Payjp::Charge.create(
-      amount: 1000, # 決済する値段
+      amount: @item.price, # 決済する値段
       card: params['payjp-token'],
+      customer: card.buyer_id,
       currency: 'jpy'
     )
-    @item = Item.find(7)
+    @item = Item.find(params[:id])
+    @item.purchase = 1
+    @item.solds.new(user_id: @item.user_id,item_id: @item.id)
+    @item.save
+    redirect_to "/items/buied/#{params[:id]}"
   end
+
+  def buied 
+    @item = Item.find(params[:id])
+    
+    @item.purchase = 1
+    @item.save
+  end  
+
 
   def search_index
     if params[:q].present?

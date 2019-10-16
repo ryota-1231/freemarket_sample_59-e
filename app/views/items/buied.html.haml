@@ -1,0 +1,53 @@
+= render "header"
+
+.wrapper__buied 
+  .buied__all 
+    .confirm
+      取引画面
+    .notification
+      %p.wait
+
+        発送をお待ちください
+      %p.waitt
+        出品者からの発送通知をお待ちください
+    .attention
+      %p.after
+        =link_to "購入した後の流れ>"
+      %p.delivery
+        =link_to "出品者からの配送先の確認について>"   
+    .status
+      %p.delivery 
+        配送状況
+      .status__bar
+      .status__number
+        郵便番号
+      .status__address
+        住所
+      .status__house
+        家の名前
+      .status__name
+        名前
+      .status__information
+        らくらくメルカリ便に関するお問い合わせは
+        %span
+        =link_to "こちら"
+        からお願い致します
+      .status__link
+      = link_to "トップページへ",root_path               
+      .order-sign
+      %ol
+        %li.member-red
+          会員情報
+          .order-radius__red__first
+        %li.phone-number
+          電話番号認証
+          .order-radius
+        %li.address
+          お届け先住所入力
+          .order-radius
+        %li.pay-method
+          支払い方法
+          .order-radius
+        %li.complete
+          完了
+          .order-radius
