@@ -43,9 +43,9 @@ class User < ApplicationRecord
   validates :address_last_name_kana,  presence: true
   validates :address_first_name_kana, presence: true
 
-  validates :card_number,             presence: true
-  validates :expiration_year,         presence: true
-  validates :expiration_month,        presence: true
+  # validates :card_number,             presence: true
+  # validates :expiration_year,         presence: true
+  # validates :expiration_month,        presence: true
 
   def self.find_oauth(auth)
     uid = auth.uid

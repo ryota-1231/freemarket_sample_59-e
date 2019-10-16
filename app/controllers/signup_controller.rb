@@ -145,16 +145,4 @@ class SignupController < ApplicationController
       @parents= Category.roots
       @search= Item.ransack(params[:q])
     end
-
-  private
-  def user_params
-    params.require(:user).permit(
-      :address_last_name,
-      :address_first_name,
-      :address_last_name_kana,
-      :address_first_name_kana,
-      :phone_number,
-      addresses_attributes: [:postcode, :city, :block, :building, :prefecture_id]
-    )
-  end
 end
