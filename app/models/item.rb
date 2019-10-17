@@ -13,7 +13,7 @@ class Item < ApplicationRecord
 
   
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :messages
   has_many :images, dependent: :destroy
   has_many :goods, dependent: :destroy

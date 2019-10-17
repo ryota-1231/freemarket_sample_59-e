@@ -1,3 +1,5 @@
+
+
 .background
   = render 'header'
   .detail
@@ -48,7 +50,7 @@
         - @category.each do |category|
           .detail__samecategory__mass__one
             .detail__samecategory__mass__one--photo
-              = image_tag "#{category.images.first.image}", class: "detail__samecategory__mass__one--photo--in"
+              = link_to image_tag( "#{category.images.first.image}", class: "detail__samecategory__mass__one--photo--in"), "#{category.id}"
             .detail__samecategory__mass__one--explanation
               .detail__samecategory__mass__one--explanation--name
                 = "#{category.title}"
