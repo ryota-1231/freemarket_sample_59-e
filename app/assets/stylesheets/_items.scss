@@ -242,27 +242,6 @@ h4{
   background-color: red;
 }
 
-.scroll1{
-  height: 390px;
-  width: 1680px;
-  float: left;
-  list-style-type:none;
-}
-
-.scroll2{
-  height: 390px;
-  width: 1680px;
-  float: left;
-  list-style-type:none;
-}
-
-.scroll3{
-  height: 390px;
-  width: 1680px;
-  float: left;
-  list-style-type:none;
-}
-
 .header{
   width: 100%;
   height: 100px;
@@ -366,13 +345,13 @@ h4{
     background-color: rgb(245, 245, 245);
     &__scrol{
       height: 390px;
-      width: 1664px;
+      width: 100vw;
       background-image: url("himawari04.jpg");
       &__bar{
         position: relative;
         overflow: hidden;
         height: 390px;
-        width: 1680px;
+        width: 100vw;
         &__slider{
           position: absolute;
         }
@@ -403,7 +382,7 @@ h4{
       &__title{
         font-size: 28px;
         line-height: 39px;
-        width: 1680px;
+        width: 100vw;
         text-align: center;
         padding-top: 56px;
         font-weight: bold;
@@ -610,7 +589,7 @@ h4{
       &__title{
         font-size: 28px;
         line-height: 39px;
-        width: 1680px;
+        width: 100vw;
         text-align: center;
         padding-top: 56px;
         font-weight: bold;
