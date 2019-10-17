@@ -1,11 +1,18 @@
-# NAME
-
-## Mercari clone site
-
-Name
+Mercari clone site
 ====
+  Mercari, a large free market site in Japan, That clone site.
 
-Overview
+# Description
+  We were students of "TECH EXPERT", a Japanese engineer school, 
+  and challenged to make this as the last assignment.
+  You can register as a user and purchase or sell items.
+  
+# Demo
+
+# Usage
+  You can see the products listed on the top page, 
+  you can exhibit your products if you register as a user, 
+  and you can also purchase if you register your credit card (provisional) information.
 
 # Mercari DB設計
 
