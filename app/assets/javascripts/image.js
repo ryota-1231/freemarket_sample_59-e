@@ -4,8 +4,12 @@ $(function(){
   var list = new DataTransfer();
   var dropZone = document.getElementById("image-box-1");
   var doc = document.querySelector('input[type=file]')
+  // var img_file = $('.item-image__content--icon').attr('src')
 
-window.onload = function(){
+window.onload = function(e){
+ 
+  // console.log(img_file.dataTransfer.files)
+
   
   dropZone.addEventListener("dragover", function(e) {
     e.stopPropagation();
