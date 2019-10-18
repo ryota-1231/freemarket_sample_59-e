@@ -76,7 +76,6 @@
         }
       }
       .decision-btn {
-        margin: 24px auto 0;
         font-size: 14px;
         height: 50px;
         width: 343px;
@@ -92,10 +91,12 @@
       }
     }
     &__paymethod {
+      padding-top: 20px;
       &__user {
       border-top: 1px solid rgb(245, 245, 245);
       margin-top: 34px;
       padding-top: 12px;
+      text-align: right;
       }
     }
   }
@@ -156,8 +157,8 @@ p7 {
 }
 
 .paymethod-alter {
-  float: left;
-  margin-left: 230px;
+  float: right;
+  margin-right: 50px;
   margin-top: 40px;
 }
 
@@ -169,7 +170,6 @@ p7 {
 
 
 #payjp_checkout_box input[type=button]{
-  margin: 24px auto 0;
   font-size: 14px;
   height: 50px;
   width: 343px;
