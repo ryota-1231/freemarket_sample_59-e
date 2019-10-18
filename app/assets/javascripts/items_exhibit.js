@@ -14,7 +14,9 @@ $(function(){
   $('#item_category_id').change(function(e){
   e.preventDefault();
   $('.category_children').empty()
+  $('.category_children__block').empty()
   $('.category_g_children').empty()
+  $('.category_g_children__block').empty()
   $('.item-category__choice__size').css('display','none')
   $('.item-category__choice__brand').css('display','none')
   var parent_id= this.options[this.options.selectedIndex].value
@@ -29,15 +31,19 @@ $(function(){
 
     .done(function(child_category){
       $('.category_children').append(`<option value="">---</option>`)
+      $('.category_children__block').append(`<option value="">---</option>`)
       $.each(child_category, function(i, e) {
           var html = buildHTML(e);
           $('.category_children').append(html)
+          $('.category_children__block').append(html)
       })
 
-      
-        $('.category_children').change(function(e){
+       
+        $('.category_children, .category_children__block').change(function(e){
           e.preventDefault();
+          console.log('hoge')
           $('.category_g_children').empty()
+          $('.category_g_children__block').empty()
 
           var parent_id= this.options[this.options.selectedIndex].value
           $('.category_g_children').css('display','block')
@@ -51,13 +57,16 @@ $(function(){
           .done(function(child_category){
             $('.category_g_children').empty()
             $('.category_g_children').append(`<option value="">---</option>`)
+            $('.category_g_children__block').empty()
+            $('.category_g_children__block').append(`<option value="">---</option>`)
             $.each(child_category, function(i, e) {
                 var html = buildHTML(e);
                 $('.category_g_children').append(html)
+                $('.category_g_children__block').append(html)
             })
 
 
-            $('.category_g_children').change(function(e){
+            $('.category_g_children,.category_g_children__block').change(function(e){
               var parent_id= this.options[this.options.selectedIndex].value
               $('.item-category__choice__size-area').empty()
               $('.item-category__choice__size').css('display','none')
@@ -83,7 +92,7 @@ $(function(){
             }
           })
 
-            $('.category_g_children').change(function(e){
+            $('.category_g_children,.category_g_children__block').change(function(e){
               var parent_id= this.options[this.options.selectedIndex].value
               $('.item-category__choice__size-area').empty()
               $('.item-category__choice__size').css('display','none')
