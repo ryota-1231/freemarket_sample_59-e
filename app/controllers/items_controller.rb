@@ -40,6 +40,15 @@ class ItemsController < ApplicationController
   
   def edit
     @image = Image.new
+    @parents = Category.where(ancestry: nil )
+    @parent =  @item.category.root
+    @children = @parent.children
+    @child = @item.category.parent
+    
+
+    @g_child = @child.children
+  
+
   end
 
   def update
