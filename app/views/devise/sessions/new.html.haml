@@ -26,7 +26,6 @@
           = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "email-input"
           .field
           = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "password-input"
-          .g-recaptcha{class: "g-recaptcha", "data-sitekey" => "6LdFBroUAAAAAE5mCF3yc3ssUdAT5OnAD0r5LYsn"}
           = f.submit "ログイン", class: "login-btn"
         - if devise_mapping.rememberable?
           = render "devise/shared/links"

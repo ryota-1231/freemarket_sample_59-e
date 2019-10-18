@@ -87,9 +87,13 @@
           着払い
   - unless user_signed_in? && @item.user_id == current_user.id then
     .detail__box__money
-    = link_to new_item_confirmation_path(@item) do
-      .detail__box__btn
-        購入画面へ進む
+    - unless @item.purchase=="soldout"
+      = link_to new_item_confirmation_path(@item) do
+        .detail__box__btn
+          購入画面へ進む
+    - else
+      .detail__box__btnnn
+        売り切れました
   .detail__box__explanation
     = @item.explanation
   - unless user_signed_in? && @item.user_id == current_user.id then

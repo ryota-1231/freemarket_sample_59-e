@@ -3,7 +3,7 @@
     .title
       %h2 商品商品の情報を入力
     #form
-      = form_with model: @item, local: true do |f|
+      = form_for @item do |f|
         = render 'layouts/error_messages', model: f.object
         .item-img
           .item-img__sub-title
@@ -20,9 +20,9 @@
                   .item-image__operetion--edit 編集
                   .item-image__operetion--delete 削除
             %div{class:"item-num-#{@item.images.count}", id:"image-box__container"}
-              = f.fields_for :images do |i|
+              = f.fields_for :image do |i|
                 .input-area
-                  = i.file_field :image, name:"item[images_attributes][][image]",type: "file", multiple:true, value:"", style: "display:none", id:"img-file"
+                  = i.file_field :image, type: "file",name:"item[images_attributes][][image]", multiple:true, value:"", style: "display:none", id:"img-file"
                   %label{for:"img-file"}
                     %p ドラッグアンドドロップ またはクリックしてファイルをアップロード
         .item-title
@@ -44,10 +44,13 @@
               .item-category__choice__main-title
                 %h3 カテゴリー
                 %span 必須
-              = f.collection_select :category_id, Category.where(ancestry: nil ), :id, :name, prompt: "---"
+              = f.collection_select :category_id, @parents, :id, :name, {prompt: "___",selected: @item.category.root.id}
+              = f.collection_select :category_id, @children, :id, :name, {prompt: "___",selected: @item.category.parent.id},{class:"category_children__block"}
+              = f.collection_select :category_id, @g_child, :id, :name,{prompt: "___",selected: @item.category.id},{class:"category_g_children__block"}
               
-              %select.category_children
-              %select.category_g_children{name:"item[category_id]"}
+              -# %select.category_children__block
+              -#   %option{value:""} ---
+              -# %select.category_g_children__block{name:"item[category_id]"}
 
             .item-category__choice__size
               .item-category__choice__size-title

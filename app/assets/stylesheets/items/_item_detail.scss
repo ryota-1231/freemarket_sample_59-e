@@ -56,9 +56,11 @@ height: auto;
           width: 300px;
           background-color: rgb(245, 245, 245);
           float: left;
+          position: relative;
           &__big{
             height: 300px;
             width: 300px;
+            
             &--in{
               height: 300px;
               width: 300px;
@@ -265,6 +267,17 @@ height: auto;
         font-size: 27px;
         outline: none;
         
+      }
+      .detail__box__btnnn{
+        height: 60px;
+        width: 620px;
+        background-color: gray;
+        margin-top: 16px;
+        color: white;
+        line-height: 60px;
+        text-align: center;
+        font-size: 27px;
+        outline: none;
       }
       &__explanation{
         width: 620px;
@@ -600,5 +613,10 @@ height: auto;
 }
 }
 
+.icon-red{
+  color: red;
+}
 
-
+.icon-black{
+  color: black;
+}

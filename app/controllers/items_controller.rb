@@ -39,18 +39,28 @@ class ItemsController < ApplicationController
   end
   
   def edit
+    @image = Image.new
+    @parents = Category.where(ancestry: nil )
+    @parent =  @item.category.root
+    @children = @parent.children
+    @child = @item.category.parent
+    
+
+    @g_child = @child.children
+  
+
   end
 
   def update
+    
     if @item.user_id == current_user.id
-      if items_params[:sizetype_id]
+      if params[:item][:sizetype_id]
         @item.update(items_params)
       else
         @item.update(items_params.merge(sizetype_id: nil))
       end
       redirect_to action: :show
     end
-    
   end
 
   def destroy
@@ -157,7 +167,7 @@ class ItemsController < ApplicationController
 
   private
   def items_params
-    params.require(:item).permit(:title, :explanation, :status_id, :price, :category_id, :brand_id, :sizetype_id, delivery_attributes:[:deliveryfee_id, :deliverysource_id, :deliverymethod_id, :deliverydate_id], images_attributes:[:image])
+    params.require(:item).permit(:title, :explanation, :status_id, :price, :category_id, :brand_id, :sizetype_id, delivery_attributes:[:deliveryfee_id, :deliverysource_id, :deliverymethod_id, :deliverydate_id], images_attributes: [:image] )
   end
 
   def set_item
