@@ -1,6 +1,6 @@
-require 'mechanize'
+# require 'mechanize'
 
-  agent = Mechanize.new
+#   agent = Mechanize.new
 
   # カテゴリーの保存
   # current_page = agent.get("https://www.mercari.com/jp/category/")
@@ -155,39 +155,39 @@ require 'mechanize'
 
 
 
-# require "csv"
+require "csv"
 
-# CSV.foreach('db/sizetypes.csv', headers: true) do |row|
-#     Sizetype.create(
-#     # id: row['id'],
-#     sizetype: row['sizetype'],
-#     created_at: row['created_at'],
-#     updated_at: row['updated_at'],
-#     ancestry: row['ancestry']
-#   )
-#   end
+CSV.foreach('db/sizetypes.csv', headers: true) do |row|
+    Sizetype.create(
+    # id: row['id'],
+    sizetype: row['sizetype'],
+    created_at: row['created_at'],
+    updated_at: row['updated_at'],
+    ancestry: row['ancestry']
+  )
+  end
 
-# CSV.foreach('db/brands.csv', headers: true) do |row|
-#     Brand.create(
-#     # id: row['id'],
-#     name: row['name'],
-#     created_at: row['created_at'],
-#     updated_at: row['updated_at'],
-#     )
-# end
+CSV.foreach('db/brands.csv', headers: true) do |row|
+    Brand.create(
+    # id: row['id'],
+    name: row['name'],
+    created_at: row['created_at'],
+    updated_at: row['updated_at'],
+    )
+end
 
-# CSV.foreach('db/categories.csv', headers: true) do |row|
-#     Category.create(
-#     # id: row['id'],
-#     name: row['name'],
-#     created_at: row['created_at'],
-#     updated_at: row['updated_at'],
-#     ancestry: row['ancestry'],
-#     sizetype_id: row['sizetype_id'],
-#     title: row['title'],
-#     text: row['text']
-#     )
-# end
+CSV.foreach('db/categories.csv', headers: true) do |row|
+    Category.create(
+    # id: row['id'],
+    name: row['name'],
+    created_at: row['created_at'],
+    updated_at: row['updated_at'],
+    ancestry: row['ancestry'],
+    sizetype_id: row['sizetype_id'],
+    title: row['title'],
+    text: row['text']
+    )
+end
 
 
 

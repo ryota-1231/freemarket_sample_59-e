@@ -3,10 +3,19 @@ class ConfirmationController < ApplicationController
   
   def new
     #id仮置きです
-    @item = Item.find(params[:item_id])
-    @user = @item.user
-    @cards = Card.find(1)
+    if session[:item_id]
+      @item = Item.find(session[:item_id])
+    else
+      @item = Item.find(params[:item_id])
+    end
+
+    @user = @item.user   
+    if Card.where(user_id: current_user.id).present?
+      @card = Card.where(user_id: current_user.id)
+    end    
     @buyer = current_user
+    @cards = Card.where(user_id: current_user.id).last
+    session[:item_id] = params[:item_id]
   end
 
   def edit
