@@ -8,15 +8,11 @@ class User < ApplicationRecord
   has_many :comments
   has_many :messages
   has_many :goods, dependent: :destroy
-  # has_many :items, through: :goods
-  has_many :good_items, through: :goods, source: :item
   has_many :addresses
   has_many :cards
   has_many :sns_credentials, dependent: :destroy
-
   has_many :solds
   has_many :items,  through:  :solds
-
   accepts_nested_attributes_for :addresses
 
   extend ActiveHash::Associations::ActiveRecordExtensions
