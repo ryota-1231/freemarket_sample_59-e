@@ -4,10 +4,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable,omniauth_providers: [:facebook, :google_oauth2]
-  has_many :items
+  has_many :items,through:  :goods
   has_many :comments
   has_many :messages
-  has_many :goods, dependent: :destroy
+  has_many :goods
   has_many :addresses
   has_many :cards
   has_many :sns_credentials, dependent: :destroy
