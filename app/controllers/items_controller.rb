@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :header_category
+  
 
   def index
     @items = Item.all.limit(10).includes(:images)

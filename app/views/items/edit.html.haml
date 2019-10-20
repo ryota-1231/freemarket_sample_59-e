@@ -18,7 +18,7 @@
                   = image_tag "#{image.image}", class: "item-image__content--icon"
                 .item-image__operetion
                   .item-image__operetion--edit 編集
-                  .item-image__operetion--delete 削除
+                  .item-image__operetion--deletee
             %div{class:"item-num-#{@item.images.count}", id:"image-box__container"}
               = f.fields_for :image do |i|
                 .input-area
