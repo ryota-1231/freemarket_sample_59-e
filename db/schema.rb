@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_20_083125) do
+ActiveRecord::Schema.define(version: 2019_10_20_083536) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -56,8 +56,6 @@ ActiveRecord::Schema.define(version: 2019_10_20_083125) do
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "buyer_id", null: false
-    t.string "card_id", null: false
-    t.text "token", null: false
     t.string "card_number", null: false
     t.string "month", null: false
     t.string "year", null: false
