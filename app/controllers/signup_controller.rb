@@ -112,7 +112,8 @@ class SignupController < ApplicationController
       card: params['payjp-token']
     )
     if @user.save
-      @card = Card.create(buyer_id: customer.id, card_number: customer.default_card)
+      @card = Card.new(buyer_id: customer.id, card_number: customer.default_card)
+      binding.pry
       session[:id] = @user.id
       @card.user_id = session[:id]
       @card.save
