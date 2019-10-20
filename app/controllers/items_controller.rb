@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :header_category
+  
 
   def index
     @items = Item.all.limit(10).includes(:images)
@@ -44,8 +45,6 @@ class ItemsController < ApplicationController
     @parent =  @item.category.root
     @children = @parent.children
     @child = @item.category.parent
-    
-
     @g_child = @child.children
   
 
@@ -107,7 +106,6 @@ class ItemsController < ApplicationController
 
   def buied 
     @item = Item.find(params[:id])
-    
     @item.purchase = 1
     @item.save
   end  

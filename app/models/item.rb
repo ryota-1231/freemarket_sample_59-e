@@ -10,7 +10,8 @@ class Item < ApplicationRecord
   # validates :category_id, presence: true, numericality: true
   # validates :sizetype_id
 
-  
+  validates :category_id, presence: true, numericality: true
+ 
 
   has_many :comments, dependent: :destroy
   has_many :messages

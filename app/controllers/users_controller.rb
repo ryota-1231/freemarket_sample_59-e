@@ -5,10 +5,8 @@ class UsersController < ApplicationController
   end
   
   def show
-
-    @user = User.find(current_user.id)
-    @nickname = @user.nickname
-    @items_exhibit = @user.items.where(purchase: "exhibiting")
+    @items = Item.where(user_id: current_user.id)
+    @user = User.find(params[:id])
   end
   
   def edit
@@ -19,7 +17,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update! params.require(:user).permit(:nickname, :introduction, :avatar)
     redirect_to action: :show
-    
   end
 
   def destroy
@@ -28,7 +25,6 @@ class UsersController < ApplicationController
 
   def log_out
     @user = User.find(params[:format])
-
   end
 
   def register
