@@ -37,14 +37,20 @@ class UsersController < ApplicationController
 
   def exhibit
     @user = User.find(current_user.id)
+    @items = Item.where(user_id: current_user.id)
+    @items_purchase = @items.where(purchase: "exhibit")
   end
 
   def trading
     @user = User.find(current_user.id)
+    @items = Item.where(user_id: current_user.id)
+    @items_purchase = @items.where(purchase: "trading")
   end
 
   def soldout
     @user = User.find(current_user.id)
+    @items = Item.where(user_id: current_user.id)
+    @items_purchase = @items.where(purchase: "soldout")
   end
 
 

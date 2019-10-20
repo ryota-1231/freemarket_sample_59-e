@@ -14,8 +14,8 @@
             = link_to '売却済み', 'soldout'
         .message__content           
           %ul.message__content__tab.trading.active
-            - if @user.items.present?
-              - @user.items.each do |item|
+            - if  @items_purchase.present?
+              - @items.each do |item|
                 - if item.purchase == "trading"
                   %li
                     =link_to "/items/#{item.id}" do
