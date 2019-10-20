@@ -28,8 +28,9 @@
                   = image_tag current_user.avatar, class: "detail__comment__space__i__right--icon--in"
                 - else
                   = image_tag 'https://image.flaticon.com/icons/png/512/97/97895.png', class: "detail__comment__space__i__right--icon--in"
-    .detail__comment--warning
-      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-  = form_for [@item, @comment] do |f|
-    = f.text_area :comment, class: "detail__comment--text"
-    = f.submit "コメントを送る", class: "detail__comment--btn"
+    - if user_signed_in?
+      .detail__comment--warning
+        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      = form_for [@item, @comment] do |f|
+        = f.text_area :comment, class: "detail__comment--text"
+        = f.submit "コメントを送る", class: "detail__comment--btn"
