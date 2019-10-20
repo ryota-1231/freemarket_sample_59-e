@@ -44,20 +44,6 @@
                 .item-box__title
                   %h3=item.title
                   .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
-                  
-                
-                
-                
-                -# .content__all__category__list__rady__items__1__ima
-
-
-                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
-                -#   %p
-                -#     = "¥#{item.price}"
-
-                -#   .content__all__category__list__rady__items__1__text
-                -#     = item.title
 
 
       .content__all__category__list__men
@@ -74,20 +60,11 @@
                 .item-box
                   .item-box__image
                     = image_tag "#{item.images.first.image}", :size =>'186x180'
-                    -# = image_tag item.images.first.image.url, :size =>'186x180'
                   .item-box__title
                     %h3=item.title
                     .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
                     .item-box__title__price
                       ="¥"+item.price.to_s(:delimited)
-                -# .content__all__category__list__men__items__1__ima
-                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
-                -#   %p 
-
-                -#     = "¥#{item.price}"
-                -#   .content__all__category__list__men__items__1__text
-                -#     = item.title
 
       .content__all__category__list__mecha
         .content__all__category__list__mecha__new
@@ -106,17 +83,9 @@
                   .item-box__title
                     %h3=item.title
                     .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
                     .item-box__title__price
                       ="¥"+item.price.to_s(:delimited)
-                -# .content__all__category__list__mecha__items__1__ima
-                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
-                -#   %p
 
-                -#     = "¥#{item.price}"
-
-                -#   .content__all__category__list__mecha__items__1__text
-                -#     = item.title
 
 
       .content__all__category__list__hobby
@@ -136,17 +105,9 @@
                   .item-box__title
                     %h3=item.title
                     .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
                     .item-box__title__price
                       ="¥"+item.price.to_s(:delimited)
                 
-                -# .content__all__category__list__hobby__items__1__ima
-                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
-                -#   %p
-
-                -#     = "¥#{item.price}"
-                -#   .content__all__category__list__hobby__items__1__text
-                -#     = item.title
 
 
     .content__all__popular__brand
@@ -176,16 +137,8 @@
                   .item-box__title
                     %h3=item.title
                     .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
                     .item-box__title__price
                       ="¥"+item.price.to_s(:delimited)
-                -# .content__all__brand__list__chanel__items__1__ima
-                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
-                -#   %p
-
-                -#     = "¥#{item.price}"
-                -#   .content__all__brand__list__chanel__items__1__text
-                -#     = item.title 
 
       
       .content__all__brand__list__viton
@@ -204,15 +157,8 @@
                   .item-box__title
                     %h3=item.title
                     .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
                     .item-box__title__price
-                      ="¥"+item.price.to_s(:delimited)
-                -# .content__all__brand__list__viton__items__1__ima
-                  -# = image_tag "#{item.images.first.image}", :size =>'185x180'
-                -#   %p
-                -#     = "¥#{item.price}"
-                -#   .content__all__brand__list__viton__items__1__text
-                -#     = item.title        
+                      ="¥"+item.price.to_s(:delimited)     
 
   
       .content__all__brand__list__supreme
@@ -232,16 +178,8 @@
                   .item-box__title
                     %h3=item.title
                     .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
                     .item-box__title__price
                       ="¥"+item.price.to_s(:delimited)
-                -# .content__all__brand__list__supreme__items__1__ima
-                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
-                -#   %p
-                -#     = "¥#{item.price}"
-
-                -#   .content__all__brand__list__supreme__items__1__text
-                -#     = item.title  
 
       .content__all__brand__list__nike
         .content__all__brand__list__nike__new
@@ -260,17 +198,8 @@
                   .item-box__title
                     %h3=item.title
                     .item-box__title__icon
-                    -# if いいねがあればいいねアイコン、数をだす
                     .item-box__title__price
                       ="¥"+item.price.to_s(:delimited)
-                -# .content__all__brand__list__nike__items__1__ima
-
-                -#   = image_tag "#{item.images.first.image}", :size =>'185x180'
-                -#   %p
-                -#     = "¥#{item.price}"
-
-                -#   .content__all__brand__list__chanel__items__1__text
-                -#     = item.title 
 
   = render 'footer'
 

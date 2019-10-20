@@ -11,10 +11,10 @@ class ItemsController < ApplicationController
     @items_for_man = Item.where(category_id: 202..343).order('id ASC').includes(:images).limit(10)
     @items_for_mecha = Item.where(category_id: 895..978).order('id ASC').includes(:images).limit(10)
     @items_for_hobby = Item.where(category_id: 682..792).order('id ASC').includes(:images).limit(10)
-    @items_for_chanel = Item.where(brand_id: 8385).order('id ASC').limit(10).includes(:images)
-    @items_for_viton = Item.where(brand_id: 764).order('id ASC').includes(:images)
-    @items_for_supreme = Item.where(brand_id: 8412).order('id ASC').includes(:images)
-    @items_for_nike = Item.where(brand_id: 3812).order('id ASC').includes(:images)
+    @items_for_chanel = Item.where(brand_id: 8385).order('id ASC').includes(:images).limit(10)
+    @items_for_viton = Item.where(brand_id: 764).order('id ASC').includes(:images).limit(10)
+    @items_for_supreme = Item.where(brand_id: 8412).order('id ASC').includes(:images).limit(10)
+    @items_for_nike = Item.where(brand_id: 3812).order('id ASC').includes(:images).limit(10)
   end
 
   def new
@@ -84,19 +84,19 @@ class ItemsController < ApplicationController
     Payjp.api_key = 'sk_test_be508ed036c9c40e55488d6a'
     if @card.present?
       Payjp::Charge.create(
-        amount: @item.price, # 決済する値段
+        amount: @item.price, 
         card: params['payjp-token'],
         customer: @card.buyer_id, 
         currency: 'jpy'
       )
     else
       Payjp::Charge.create(
-        amount: @item.price, # 決済する値段
+        amount: @item.price,
         card: params['payjp-token'],
         currency: 'jpy'
       )
     end
-   
+  
       
     @item = Item.find(params[:id])
     @item.purchase = 1
