@@ -7,10 +7,8 @@ class Item < ApplicationRecord
   validates :status_id, presence: true, numericality: true
   validates :price,
   numericality:{greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
-  # validates :category_id, presence: true, numericality: true
-  # validates :sizetype_id
-
   validates :category_id, presence: true, numericality: true
+  validates :images, length: { minimum: 1, maximum: 10 }
  
 
   has_many :comments, dependent: :destroy

@@ -14,8 +14,8 @@
           %li#soldout.tag__changed  売却済み
         .message__content
           %ul.message__content__tab.soldout.active
-            - if @user.items.present?
-              - @user.items.each do |item|
+            - if @items_purchase.present?
+              - @items.each do |item|
                 - if item.purchase == "soldout"
                   %li
                     =link_to "/items/#{item.id}" do
