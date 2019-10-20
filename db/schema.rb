@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_14_025109) do
+ActiveRecord::Schema.define(version: 2019_10_20_083536) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -53,18 +53,9 @@ ActiveRecord::Schema.define(version: 2019_10_14_025109) do
     t.index ["ancestry"], name: "index_brands_on_ancestry"
   end
 
-  create_table "buyers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "judge_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["judge_id"], name: "index_buyers_on_judge_id"
-  end
-
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "buyer_id", null: false
-    t.string "card_id", null: false
-    t.text "token", null: false
     t.string "card_number", null: false
     t.string "month", null: false
     t.string "year", null: false
@@ -128,7 +119,7 @@ ActiveRecord::Schema.define(version: 2019_10_14_025109) do
     t.integer "price"
     t.string "postage"
     t.bigint "user_id"
-    t.bigint "category_id", null: false
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "brand_id"
@@ -148,13 +139,6 @@ ActiveRecord::Schema.define(version: 2019_10_14_025109) do
     t.index ["user_id"], name: "fk_rails_d4b6334db2"
   end
 
-  create_table "judges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "judge", null: false
-    t.text "judge_comment", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "message", null: false
     t.bigint "item_id", null: false
@@ -163,13 +147,6 @@ ActiveRecord::Schema.define(version: 2019_10_14_025109) do
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_messages_on_item_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
-  create_table "sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "judge_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["judge_id"], name: "index_sellers_on_judge_id"
   end
 
   create_table "sizetypes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -183,9 +160,10 @@ ActiveRecord::Schema.define(version: 2019_10_14_025109) do
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "solds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -199,29 +177,29 @@ ActiveRecord::Schema.define(version: 2019_10_14_025109) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.string "address_last_name", null: false
-    t.string "address_first_name", null: false
-    t.string "address_last_name_kana", null: false
-    t.string "address_first_name_kana", null: false
-    t.string "email", null: false
-    t.string "phone_number"
-    t.string "cellphone_number", null: false
-    t.integer "birthdate_year", null: false
-    t.integer "birthdate_month", null: false
-    t.integer "birthdate_day", null: false
-    t.string "card_number", null: false
-    t.integer "expiration_year", null: false
-    t.integer "expiration_month", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "last_name", default: ""
+    t.string "first_name", default: ""
+    t.string "last_name_kana", default: ""
+    t.string "first_name_kana", default: ""
+    t.string "address_last_name", default: ""
+    t.string "address_first_name", default: ""
+    t.string "address_last_name_kana", default: ""
+    t.string "address_first_name_kana", default: ""
+    t.string "email", default: ""
+    t.string "phone_number", default: ""
+    t.string "cellphone_number", default: ""
+    t.integer "birthdate_year"
+    t.integer "birthdate_month"
+    t.integer "birthdate_day"
+    t.string "card_number", default: ""
+    t.integer "expiration_year"
+    t.integer "expiration_month"
+    t.string "encrypted_password", default: ""
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.text "introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -229,7 +207,6 @@ ActiveRecord::Schema.define(version: 2019_10_14_025109) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "users"
-  add_foreign_key "buyers", "judges"
   add_foreign_key "cards", "users"
   add_foreign_key "categories", "sizetypes"
   add_foreign_key "comments", "items"
@@ -238,15 +215,13 @@ ActiveRecord::Schema.define(version: 2019_10_14_025109) do
   add_foreign_key "goods", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
-  add_foreign_key "items", "buyers"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "deliveries"
-  add_foreign_key "items", "sellers"
   add_foreign_key "items", "sizetypes"
   add_foreign_key "items", "users"
   add_foreign_key "messages", "items"
   add_foreign_key "messages", "users"
-  add_foreign_key "sellers", "judges"
+  add_foreign_key "sns_credentials", "users"
   add_foreign_key "solds", "items"
   add_foreign_key "solds", "users"
 end
