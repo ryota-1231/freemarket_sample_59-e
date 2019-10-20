@@ -91,7 +91,7 @@
           .side__link--box
             プロフィール
             = fa_icon 'angle-right'
-      = link_to edit_user_signup_path(current_user.id, @user), class:"alteraddress" do
+      = link_to edit_user_signup_path(current_user.id), class:"alteraddress" do
         %li 
           .side__link--box
             発送元・お届け先住所変更
@@ -106,7 +106,7 @@
           .side__link--box
             メール/パスワード
             = fa_icon 'angle-right'
-      = link_to edit_user_confirmation_path(current_user.id, @user), class:"edituser" do
+      = link_to edit_user_confirmation_path(current_user.id), class:"edituser" do
         %li 
           .side__link--box
             本人情報
