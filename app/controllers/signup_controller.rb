@@ -111,10 +111,11 @@ class SignupController < ApplicationController
       description: 'test', 
       card: params['payjp-token']
     )
-    @card = Card.create(user_id: 3, buyer_id: customer.id, card_number: customer.default_card, month: 3  ,year: 22)
+    @card = Card.new(buyer_id: customer.id, card_number: customer.default_card)
     if @user.save
       session[:id] = @user.id
-
+      @card.user_id = session[:id]
+      @card.save
       redirect_to done_signup_index_path
     else
       render '/users/new'
@@ -123,6 +124,7 @@ class SignupController < ApplicationController
 
   private
     def user_params
+
       params.require(:user).permit(
         :nickname,
         :last_name,

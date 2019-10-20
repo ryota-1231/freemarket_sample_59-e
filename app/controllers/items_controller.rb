@@ -11,10 +11,10 @@ class ItemsController < ApplicationController
     @items_for_man = Item.where(category_id: 202..343).order('id ASC').includes(:images).limit(10)
     @items_for_mecha = Item.where(category_id: 895..978).order('id ASC').includes(:images).limit(10)
     @items_for_hobby = Item.where(category_id: 682..792).order('id ASC').includes(:images).limit(10)
-    @items_for_chanel = Item.where(brand_id: 8385).order('id ASC').includes(:images).limit(10)
-    @items_for_viton = Item.where(brand_id: 764).order('id ASC').includes(:images).limit(10)
-    @items_for_supreme = Item.where(brand_id: 8412).order('id ASC').includes(:images).limit(10)
-    @items_for_nike = Item.where(brand_id: 3812).order('id ASC').includes(:images).limit(10)
+    @items_for_chanel = Item.where(brand_id: 2466).order('id ASC').includes(:images).limit(10)
+    @items_for_viton = Item.where(brand_id: 6220).order('id ASC').includes(:images).limit(10)
+    @items_for_supreme = Item.where(brand_id: 8509).order('id ASC').includes(:images).limit(10)
+    @items_for_nike = Item.where(brand_id: 3848).order('id ASC').includes(:images).limit(10)
   end
 
   def new
@@ -100,7 +100,7 @@ class ItemsController < ApplicationController
       
     @item = Item.find(params[:id])
     @item.purchase = 1
-    @item.solds.new(user_id: @item.user_id,item_id: @item.id)
+    Sold.create(user_id: @item.user_id,item_id: @item.id)
     @item.save
     redirect_to "/items/buied/#{params[:id]}"
   end

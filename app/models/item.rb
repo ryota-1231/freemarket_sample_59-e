@@ -15,7 +15,7 @@ class Item < ApplicationRecord
   has_many :messages
   has_many :images, dependent: :destroy
   has_many :goods, dependent: :destroy
-  has_many :solds,  through:  :users
+  has_one :solds
   belongs_to :user
   belongs_to :brand, optional: true
   belongs_to :category, optional: true

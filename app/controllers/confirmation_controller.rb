@@ -11,10 +11,13 @@ class ConfirmationController < ApplicationController
 
     @user = @item.user   
     if Card.where(user_id: current_user.id).present?
-      @card = Card.where(user_id: current_user.id)
+      # @card = Card.where(user_id: current_user.id)
+      @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
     end    
     @buyer = current_user
-    @cards = Card.where(user_id: current_user.id).last
+    Payjp.api_key = "sk_test_be508ed036c9c40e55488d6a"
+    customer = Payjp::Customer.retrieve(@card.buyer_id)
+    @card_information = customer.cards.retrieve(@card.card_number)
     session[:item_id] = params[:item_id]
   end
 

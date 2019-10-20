@@ -22,11 +22,9 @@ class CardsController < ApplicationController
     else
       customer = Payjp::Customer.create(
         description: 'test',
-        # email: "ponkotu2019@gmail.com",
         card: params['payjp-token'],
-        # metadata:{user_id: current_user.id}
       )
-      @card = Card.new(user_id: current_user.id, buyer_id: customer.id, card_number: customer.default_card, month: 3, year: 22)
+      @card = Card.new(user_id: current_user.id, buyer_id: customer.id, card_number: customer.default_card, month: 3, year: 22,secure: 123)
       if @card.save
         if session[:item_id].present?
           redirect_to new_user_confirmation_path(session[:item_id])
