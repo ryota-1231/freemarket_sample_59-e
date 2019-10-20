@@ -45,8 +45,6 @@ class ItemsController < ApplicationController
     @parent =  @item.category.root
     @children = @parent.children
     @child = @item.category.parent
-    
-
     @g_child = @child.children
   
 
@@ -108,7 +106,6 @@ class ItemsController < ApplicationController
 
   def buied 
     @item = Item.find(params[:id])
-    
     @item.purchase = 1
     @item.save
   end  
