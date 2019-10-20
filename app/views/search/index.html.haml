@@ -11,7 +11,7 @@
       .brand-details__name
         %h1=@brand.name+"の商品一覧"
       .brand-details__main
-        - @brand.items.each do |item|
+        - @brand.items.target.each do |item|
           = link_to "/items/#{item.id}" do
             .item-box
               - if item.purchase=="soldout"
