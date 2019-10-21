@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-
   validates :title, presence:true, 
   length:{ maximum:40 } 
   validates :explanation, presence: true, 
@@ -8,7 +7,6 @@ class Item < ApplicationRecord
   validates :price,
   numericality:{greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   validates :category_id, presence: true, numericality: true
-
   # validates :sizetype_id
 
   
