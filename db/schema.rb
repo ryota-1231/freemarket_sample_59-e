@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2019_10_21_093434) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "buyer_id", default: "", null: false
+    t.bigint "user_id", null: false
+    t.string "buyer_id", null: false
     t.string "card_number", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_093434) do
     t.integer "price"
     t.string "postage"
     t.bigint "user_id"
-    t.bigint "category_id", null: false
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "brand_id"
@@ -157,9 +157,10 @@ ActiveRecord::Schema.define(version: 2019_10_21_093434) do
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "solds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -172,7 +173,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_093434) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", default: ""
+    t.string "nickname", null: false
     t.string "last_name", default: ""
     t.string "first_name", default: ""
     t.string "last_name_kana", default: ""
@@ -182,7 +183,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_093434) do
     t.string "address_last_name_kana", default: ""
     t.string "address_first_name_kana", default: ""
     t.string "email", default: ""
-    t.string "phone_number"
+    t.string "phone_number", default: ""
     t.string "cellphone_number", default: ""
     t.integer "birthdate_year"
     t.integer "birthdate_month"
@@ -191,8 +192,8 @@ ActiveRecord::Schema.define(version: 2019_10_21_093434) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.text "introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -214,6 +215,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_093434) do
   add_foreign_key "items", "users"
   add_foreign_key "messages", "items"
   add_foreign_key "messages", "users"
+  add_foreign_key "sns_credentials", "users"
   add_foreign_key "solds", "items"
   add_foreign_key "solds", "users"
 end
