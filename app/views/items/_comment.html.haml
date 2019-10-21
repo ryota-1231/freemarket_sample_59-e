@@ -7,7 +7,7 @@
             .detail__comment__space__you__left
               .detail__comment__space__you__left--icon
                 - if comment.user.avatar.attached?
-                  = image_tag @user.avatar, class: "detail__comment__space__you__left--icon--in"
+                  = image_tag comment.user.avatar, class: "detail__comment__space__you__left--icon--in"
                 - else
                   = image_tag 'https://image.flaticon.com/icons/png/512/97/97895.png', class: "detail__comment__space__you__left--icon--in"
             .detail__comment__space__you__right
