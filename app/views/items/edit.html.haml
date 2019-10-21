@@ -18,7 +18,7 @@
                   = image_tag "#{image.image}", class: "item-image__content--icon"
                 .item-image__operetion
                   .item-image__operetion--edit 編集
-                  .item-image__operetion--delete 削除
+                  .item-image__operetion--deletee
             %div{class:"item-num-#{@item.images.count}", id:"image-box__container"}
               = f.fields_for :image do |i|
                 .input-area
@@ -44,10 +44,13 @@
               .item-category__choice__main-title
                 %h3 カテゴリー
                 %span 必須
-              = f.collection_select :category_id, Category.where(ancestry: nil ), :id, :name, {prompt: "___",selected: @item.category.root.id}
+              = f.collection_select :category_id, @parents, :id, :name, {prompt: "___",selected: @item.category.root.id}
+              = f.collection_select :category_id, @children, :id, :name, {prompt: "___",selected: @item.category.parent.id},{class:"category_children__block"}
+              = f.collection_select :category_id, @g_child, :id, :name,{prompt: "___",selected: @item.category.id},{class:"category_g_children__block"}
               
-              %select.category_children
-              %select.category_g_children{name:"item[category_id]"}
+              -# %select.category_children__block
+              -#   %option{value:""} ---
+              -# %select.category_g_children__block{name:"item[category_id]"}
 
             .item-category__choice__size
               .item-category__choice__size-title

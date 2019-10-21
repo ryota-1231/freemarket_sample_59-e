@@ -103,8 +103,8 @@ $(function(){
     })
   })
   $(document).on("click", ".brand_chose", function (e) {
-      chosen_text = $(this).text()
-      choice_id = $(this).attr('id')
+      var chosen_text = $(this).text()
+      var choice_id = $(this).attr('id')
       
       $('.brand_choice').val(choice_id)
       $('.search-content__brand-area').val(chosen_text)

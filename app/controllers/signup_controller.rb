@@ -94,10 +94,10 @@ class SignupController < ApplicationController
       address_first_name: session[:address_first_name],
       address_last_name_kana: session[:address_last_name_kana],
       address_first_name_kana: session[:address_first_name_kana],
-      phone_number: session[:phone_number],
-      card_number: user_params[:card_number],
-      expiration_year: user_params[:expiration_year],
-      expiration_month: user_params[:expiration_month]
+      phone_number: session[:phone_number]
+      # card_number: user_params[:card_number],
+      # expiration_year: user_params[:expiration_year],
+      # expiration_month: user_params[:expiration_month]
     )
     @user.addresses.build(
       postcode: session[:postcode],
@@ -106,8 +106,16 @@ class SignupController < ApplicationController
       block: session[:block],
       building: session[:building]
     )
+    Payjp.api_key = 'sk_test_be508ed036c9c40e55488d6a'
+    customer = Payjp::Customer.create(
+      description: 'test', 
+      card: params['payjp-token']
+    )
     if @user.save
       session[:id] = @user.id
+      @card = Card.create(user_id: session[:id],buyer_id: customer.id, card_number: customer.default_card)
+      @card.user_id = session[:id]
+      @card.save
       redirect_to done_signup_index_path
     else
       render '/users/new'
@@ -116,6 +124,7 @@ class SignupController < ApplicationController
 
   private
     def user_params
+
       params.require(:user).permit(
         :nickname,
         :last_name,
@@ -145,4 +154,5 @@ class SignupController < ApplicationController
       @parents= Category.roots
       @search= Item.ransack(params[:q])
     end
+
 end

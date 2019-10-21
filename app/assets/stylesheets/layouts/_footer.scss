@@ -42,9 +42,7 @@
       height: 296px;
       margin: auto;
       
-      &__about{
-        padding-right: 40px;
-      }
+      
       &__help{
         padding-right: 40px;
       }
@@ -66,4 +64,12 @@
       }
     }
   }
+}
+
+p.aboutt{
+  padding-right: 40px;
+  font-weight: bold;
+  font-size: 16px;
+  padding-top: 20px;
+  color:white;
 }

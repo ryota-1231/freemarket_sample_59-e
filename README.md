@@ -1,23 +1,94 @@
-# Mercari DB設計
+Mercari clone site
+====
+  Mercari, a large free market site in Japan, That clone site.
 
-## usersテーブル
+# Description
+  We were students of "TECH EXPERT", a Japanese engineer school, 
+  and challenged to make this as the last assignment.
+  You can register as a user and purchase or sell items.
+  
+# Demo
+
+# Usage
+  You can see the products listed on the top page, 
+  you can exhibit your products if you register as a user, 
+  and you can also purchase if you register your credit card (provisional) information.
+
+# Mercari DB
+
+## users
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|fullname|string|null: false|
-|kana|string|null: false|
+|last_name|text|null: false|
+|first_name|text|null: false|
+|last_name_kana|text|null: false|
+|first_name_kana|text|null: false|
+|address_last_name|text|null: false|
+|address_first_name|text|null: false|
+|address_last_name_kana|text|null: false|
+|address_first_name_kana|text|null: false|
 |email|string|null: false, unique: true|
-|password|string|null: false|
-|phone_number|integer|null: false, unique: true|
+|phone_number|integer|unique: true|
+|cellphone_number|integer|null: false|
+|birthdate_year|integer|null: false|
+|birthdate_month|integer|null: false|
+|birthdate_day|integer|null: false|
+|card_number|integer|null: false|
+|expiration_year|integer|null: false|
+|expiration_month|integer|null: false|
+|expiration_password|integer|null: false|
+|reset_password_token|integer||
+|reset_password_sent_at|DATETIME||
+|remember_created_at|DATETIME||
+|introduction|text||
+
 ### Association
 - has_many :items
 - has_many :comments
 - has_many :messages
-- has_many :goods
-- has_many :items, through: :goods
+- has_many :goods, dependent: :destroy
 - has_many :addresses
+- has_many :cards
+- has_many :sns_credentials, dependent: :destroy
+- has_many :solds
+- has_many :items,  through:  :solds
+- accepts_nested_attributes_for :addresses
 
-## addressesテーブル
+
+## items
+|Column|Type|Options|
+|------|----|-------|
+|title|string|null: false, add_index|
+|explanation|text|null: false|
+|price|integer|null: false|
+|postage|string|null: false|
+|user|references|null: false, foreign_key: true|
+|brand|references|null: false, foreign_key: true|
+|category|references|null: false, foreign_key: true|
+|delivery|references|null: false, foreign_key: true|
+|status|bigint|null: false|
+|sizetype|bigint||
+|purchase|integer|null: false|
+
+### Association
+- has_many :comments, dependent: :destroy
+- has_many :messages
+- has_many :images, dependent: :destroy
+- has_many :goods, through: :users, dependent: :destroy
+- has_many :solds,  through:  :users
+- belongs_to :user, optional: true
+- belongs_to :brand, optional: true
+- belongs_to :category, optional: true
+- belongs_to :buyer, optional: true
+- belongs_to :delivery, optional: true
+- belongs_to :sizetype,optional: true
+- belongs_to :status, optional: true
+- accepts_nested_attributes_for :images
+- accepts_nested_attributes_for :delivery
+
+
+## addresses
 |Column|Type|Options|
 |------|----|-------|
 |postcode|integer|null: false|
@@ -29,7 +100,7 @@
 ### Association
 - belongs_to :user
 
-## goodsテーブル
+## goods
 |Column|Type|Options|
 |------|----|-------|
 |item|references|null: false, foreign_key: true|
@@ -38,7 +109,7 @@
 - belongs_to :item
 - belongs_to :user
 
-## judgesテーブル
+## judges
 |Column|Type|Options|
 |------|----|-------|
 |judge|integer|null: false|
@@ -47,7 +118,7 @@
 - has_many :salers
 - has_many :buyers
 
-## commentsテーブル
+## comments
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null: false|
@@ -57,7 +128,7 @@
 - belongs_to :item
 - belongs_to :user
 
-## messagesテーブル
+## messages
 |Column|Type|Options|
 |------|----|-------|
 |message|text|null: false|
@@ -67,34 +138,9 @@
 - belongs_to :item
 - belongs_to :user
 
-## itemsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|title|string|null: false, add_index|
-|explanation|text|null: false|
-|price|integer|null: false|
-|state|integer|null: false|
-|postage|string|null: false|
-|user|references|null: false, foreign_key: true|
-|brand|references|null: false, foreign_key: true|
-|category|references|null: false, foreign_key: true|
-|seller|references|null: false, foreign_key: true|
-|buyer|references|null: false, foreign_key: true|
-|delivery|references|null: false, foreign_key: true|
-### Association
-- has_many :comments
-- has_many :messages
-- has_many :images
-- has_many :goods
-- has_many :users, through: :goods
-- belongs_to :user
-- belongs_to :brand
-- belongs_to :category
-- belongs_to :saler
-- belongs_to :buyer
-- belongs_to :delivery
 
-## deliveriesテーブル
+
+## deliveries
 |Column|Type|Options|
 |------|----|-------|
 |delivery_fee|integer|null: false|
@@ -104,14 +150,14 @@
 ### Association
 - has_many :items
 
-## brandsテーブル
+## brands
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false, unique: true|
 ### Association
 - has_many :items
 
-## categoriesテーブル
+## categories
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false, unique: true|
@@ -121,7 +167,7 @@
 - belongs_to :size
 - has_ancestry
 
-## salersテーブル
+## salers
 |Column|Type|Options|
 |------|----|-------|
 |judge|references|null: false, foreign_key: true|
@@ -129,7 +175,7 @@
 - has_many :items
 - belongs_to :judge
 
-## buyersテーブル
+## buyers
 |Column|Type|Options|
 |------|----|-------|
 |judge|references|null: false, foreign_key: true|
@@ -137,7 +183,7 @@
 - has_many :items
 - belongs_to :judge
 
-## imagesテーブル
+## images
 |Column|Type|Options|
 |------|----|-------|
 |image|text|null: false|
@@ -145,7 +191,7 @@
 ### Association
 - belongs_to :item
 
-## sizeTypesテーブル
+## sizeTypes
 |Column|Type|Options|
 |------|----|-------|
 |size|text|null: false|

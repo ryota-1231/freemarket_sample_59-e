@@ -15,7 +15,7 @@
           出品者
         %td.detail__box__items__detail__exhibitor--left
           %li
-            -# = link_to @item.user.nickname
+            = link_to @item.user.nickname
           %li
             = fa_icon "cog"
             0
@@ -87,13 +87,18 @@
           着払い
   - unless user_signed_in? && @item.user_id == current_user.id then
     .detail__box__money
-    - unless @item.purchase=="soldout"
-      = link_to new_item_confirmation_path(@item) do
+    - if user_signed_in?
+      - unless @item.purchase=="soldout"
+        = link_to new_item_confirmation_path(@item) do
+          .detail__box__btn
+            購入画面へ進む
+      - else
+        .detail__box__btnnn
+          売り切れました
+    - else
+      = link_to sign_in_users_path do
         .detail__box__btn
           購入画面へ進む
-    - else
-      .detail__box__btnnn
-        売り切れました
   .detail__box__explanation
     = @item.explanation
   - unless user_signed_in? && @item.user_id == current_user.id then

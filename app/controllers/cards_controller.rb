@@ -4,26 +4,21 @@ class CardsController < ApplicationController
 
   def index 
     #id仮置きです
-    @cards = Card.find(1)
+    if Card.where(user_id: current_user.id).present?
+      @card = Card.where(user_id: current_user.id).first 
+    end    
+    @buyer = current_user
+    Payjp.api_key = "sk_test_be508ed036c9c40e55488d6a"
+    customer = Payjp::Customer.retrieve(@card.buyer_id)
+    @card_information = customer.cards.retrieve(@card.card_number)
+    session[:item_id] = params[:item_id]
+    # @cards = Card.where(user_id: current_user.id).last
   end
-
-#後から削除ボタンを実装したくなったら使います。
-  # def destroy
-  #   Payjp.api_key = "sk_test_be508ed036c9c40e55488d6a"
-  #   buyer = Payjp::Customer.retrieve(@card.buyer_id)
-  #   buyer.delete
-  #   if @card.destroy
-  #     redirect_to action: "index", notice: "削除しました"
-  #   else 
-  #     redirect_to action: "index", alert: "削除できませんでした"
-  #   end
-  # end
 
 
   def new 
-    #id仮置きです
-    card = Card.where(user_id: 2)
-    redirect_to action: "index" if card.present?
+    card = Card.where(user_id: current_user.id).last
+    # redirect_to action: "index" if card.present?
   end
 
 
@@ -33,17 +28,17 @@ class CardsController < ApplicationController
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
-        description: 'test', 
-        # email: "ponkotu2019@gmail.com",
+        description: 'test',
         card: params['payjp-token'],
-        metadata:{user_id: current_user.id}
       )
-      #id仮置きです
-      @card = Card.new(user_id: current_user.id, buyer_id: customer.id, card_number: customer.default_card)
-      binding.pry
+      # @card = Card.new(user_id: current_user.id, buyer_id: customer.id, card_number: customer.default_card, month: 3, year: 22,secure: 123)
+      @card = Card.create(user_id: current_user.id,buyer_id: customer.id, card_number: customer.default_card)
       if @card.save
-        
-        redirect_to action: 'index'
+        if session[:item_id].present?
+          redirect_to new_user_confirmation_path(session[:item_id])
+        else  
+          redirect_to "/cards"
+        end
       else
         redirect_to action: "create"
       end
@@ -53,7 +48,6 @@ class CardsController < ApplicationController
   private
 
   def set_card
-    #id仮置きです
     @card = Card.where(user_id: 1).first if Card.where(user_id: current_user.id).present?
   end
 end

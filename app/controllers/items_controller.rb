@@ -1,18 +1,20 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :header_category
+  
+  
 
   def index
     @items = Item.all.limit(10).includes(:images)
     @categories = Category.where(ancestry: nil).includes(:images)
-    @items_for_woman = Item.where(category_id: 3..199).includes(:images).limit(10)
-    @items_for_man = Item.where(category_id: 202..343).includes(:images).limit(10)
-    @items_for_mecha = Item.where(category_id: 895..978).includes(:images).limit(10)
-    @items_for_hobby = Item.where(category_id: 682..792).includes(:images).limit(10)
-    @items_for_chanel = Item.where(brand_id: 8385).limit(10).includes(:images)
-    @items_for_viton = Item.where(brand_id: 764).includes(:images)
-    @items_for_supreme = Item.where(brand_id: 8412).includes(:images)
-    @items_for_nike = Item.where(brand_id: 3812).includes(:images)
+    @items_for_woman = Item.where(category_id: 3..199).order('id ASC').includes(:images).limit(10)
+    @items_for_man = Item.where(category_id: 202..343).order('id ASC').includes(:images).limit(10)
+    @items_for_mecha = Item.where(category_id: 895..978).order('id ASC').includes(:images).limit(10)
+    @items_for_hobby = Item.where(category_id: 682..792).order('id ASC').includes(:images).limit(10)
+    @items_for_chanel = Item.where(brand_id: 2466).order('id ASC').includes(:images).limit(10)
+    @items_for_viton = Item.where(brand_id: 6220).order('id ASC').includes(:images).limit(10)
+    @items_for_supreme = Item.where(brand_id: 8509).order('id ASC').includes(:images).limit(10)
+    @items_for_nike = Item.where(brand_id: 3848).order('id ASC').includes(:images).limit(10)
   end
 
   def new
@@ -40,6 +42,13 @@ class ItemsController < ApplicationController
   
   def edit
     @image = Image.new
+    @parents = Category.where(ancestry: nil )
+    @parent =  @item.category.root
+    @children = @parent.children
+    @child = @item.category.parent
+    @g_child = @child.children
+  
+
   end
 
   def update
@@ -69,25 +78,35 @@ class ItemsController < ApplicationController
   end
 
   def pay
+
     @item = Item.find(params[:id])
-    card = Card.where(user_id: current_user.id).first
+    @card = Card.where(user_id: current_user.id).first
     Payjp.api_key = 'sk_test_be508ed036c9c40e55488d6a'
-    Payjp::Charge.create(
-      amount: @item.price, # 決済する値段
-      card: params['payjp-token'],
-      customer: card.buyer_id,
-      currency: 'jpy'
-    )
+    if @card.present?
+      Payjp::Charge.create(
+        amount: @item.price, 
+        card: params['payjp-token'],
+        customer: @card.buyer_id, 
+        currency: 'jpy'
+      )
+    else
+      Payjp::Charge.create(
+        amount: @item.price,
+        card: params['payjp-token'],
+        currency: 'jpy'
+      )
+    end
+  
+      
     @item = Item.find(params[:id])
     @item.purchase = 1
-    @item.solds.new(user_id: @item.user_id,item_id: @item.id)
+    Sold.create(user_id: @item.user_id,item_id: @item.id)
     @item.save
     redirect_to "/items/buied/#{params[:id]}"
   end
 
   def buied 
     @item = Item.find(params[:id])
-    
     @item.purchase = 1
     @item.save
   end  

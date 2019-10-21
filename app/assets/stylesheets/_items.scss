@@ -337,7 +337,6 @@ h4{
 
 
 .content{
-  
   &__all{
     height: 6000px;
     // width: 1664px;
@@ -831,4 +830,78 @@ h4{
   background-color: lightgray;
   border-radius: 12px;
   padding-right: 10px;
+}
+
+
+
+.item-box{
+  margin-bottom: 20px;
+  display: inline-block;
+  .item-sold{
+    div{
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    z-index: 10;
+    color: #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 600;
+    }
+    &:after{
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      width: 0;
+      height: 0;
+      border-width: 80px 80px 0 0;
+      border-style: solid;
+      border-color: #ea352d transparent transparent transparent;
+    }
+  }
+  box-shadow: 0 2px 4px rgba(0,0,0,.18);
+  .item-box__image{
+    height: 180px;
+    width: 185px;
+  }
+  .item-box__title{
+    background-color: #fff;
+    padding: 8px 12px;
+    position: relative;
+    height: 58px;
+    width: 185px;
+    h3{
+      font-size: 14px;
+      overflow: hidden;
+      height: 3.6em; /* 2em（行）x line-heightの1.8 */
+      line-height: 1.8;
+    }
+    &__icon{
+      font-size:14px;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      i{
+        font-size: 13px;
+        color: #888;
+      }
+    }
+    &__price {
+      position: absolute;
+      left: 0;
+      top: -35px;
+      display: inline-block;
+      height: 24px;
+      padding:4px 12px 4px 8px;
+      font-size: 14px;
+      color: #fff;
+      background-color: rgba(0,0,0,0.3);
+      border-radius: 0 16px 16px 0;
+    }
+  }
 }

@@ -1,10 +1,10 @@
 class Category < ApplicationRecord
 
   has_ancestry
-  has_many :items
-  belongs_to :sizetype
+  # has_many :items
+  # belongs_to :sizetype
 
-  accepts_nested_attributes_for :sizetype
+  # accepts_nested_attributes_for :sizetype
 
   class<<self
     def take

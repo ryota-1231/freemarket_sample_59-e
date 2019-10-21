@@ -14,12 +14,12 @@
               = image_tag 'https://image.flaticon.com/icons/png/512/97/97895.png', class: "user__image--in"
             -# %img{src:'https://image.flaticon.com/icons/png/512/97/97895.png', height:"60",width:"60"}
             .user__image__name
-            = @user.nickname
+            = current_user.nickname
             .user__image__judges
               .user__image__judges__judge 評価
               %span.user__image__judges__num 0
               .user__image__judges__count 出品数
-              %span.user__image__judges__num=@items_exhibit.length
+              %span.user__image__judges__num=@items.length
             
         .message
           %ul.mypage__tabs

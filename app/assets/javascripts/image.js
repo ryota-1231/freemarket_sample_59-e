@@ -1,16 +1,12 @@
 $(function(){
-  var images = []
   var inputs = []
   var list = new DataTransfer();
   var dropZone = document.getElementById("image-box-1");
   var doc = document.querySelector('input[type=file]')
-  // var img_file = $('.item-image__content--icon').attr('src')
+
 
 window.onload = function(e){
- 
-  // console.log(img_file.dataTransfer.files)
-
-  
+   
   dropZone.addEventListener("dragover", function(e) {
     e.stopPropagation();
     e.preventDefault();
@@ -53,7 +49,6 @@ window.onload = function(e){
                       </div>
                     </div>
                     <div class='item-image__operetion'>
-                      <div class='item-image__operetion--edit'>編集</div>
                       <div class='item-image__operetion--delete'>削除</div>
                     </div>
                   </div>`
@@ -88,7 +83,6 @@ window.onload = function(e){
                       </div>
                     </div>
                     <div class='item-image__operetion'>
-                      <div class='item-image__operetion--edit'>編集</div>
                       <div class='item-image__operetion--delete'>削除</div>
                     </div>
                   </div>`

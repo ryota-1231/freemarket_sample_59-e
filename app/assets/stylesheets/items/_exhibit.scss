@@ -125,9 +125,15 @@
               }
               .category_children{
                 display: none;
+                &__block{
+                  display: block !important;
+                }
               }
               .category_g_children{
                 display: none;
+                &__block{
+                  display: block !important;
+                }
               }
           }
           &__size{
