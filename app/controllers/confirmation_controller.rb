@@ -11,8 +11,7 @@ class ConfirmationController < ApplicationController
 
     @user = @item.user   
     if Card.where(user_id: current_user.id).present?
-      # @card = Card.where(user_id: current_user.id)
-      @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+      @card = Card.where(user_id: current_user.id).last
     end    
     @buyer = current_user
     Payjp.api_key = "sk_test_be508ed036c9c40e55488d6a"
