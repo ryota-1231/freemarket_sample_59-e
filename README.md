@@ -9,6 +9,10 @@ Mercari clone site
   
 # Demo
 
+[![Image from Gyazo](https://i.gyazo.com/cb1e53f8843ea815858504626711d666.jpg)](https://gyazo.com/cb1e53f8843ea815858504626711d666)
+
+[![Image from Gyazo](https://i.gyazo.com/b9cfe913d35620f90f26c28b09554d99.jpg)](https://gyazo.com/b9cfe913d35620f90f26c28b09554d99)
+
 # Usage
   You can see the products listed on the top page, 
   you can exhibit your products if you register as a user, 
