@@ -29,6 +29,9 @@ class UsersController < ApplicationController
 
   def register
     @user = current_user.id
+    @card = Card.where(user_id: current_user.id).last if Card.where(user_id: current_user.id).present?
+    customer = Payjp::Customer.retrieve(@card.buyer_id)
+    @card_information = customer.cards.retrieve(@card.card_number)
   end 
 
   def sms_confirmation

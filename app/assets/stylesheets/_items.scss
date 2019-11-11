@@ -92,8 +92,6 @@ li.menu{
 li.menu2{
   height: 80px;
   width: 200px;
-  // background-color: yellow;
-
 }
 
 li.menu3{
@@ -116,16 +114,12 @@ li.news{
 
 .header__box__bottom__left__search__brand__hidden{
   padding-top: 10px;
-  // width: 1000px;
   z-index: 2;
   position: relative;
   margin: 0px;
 }
 
 .header__box__bottom__left__search__category__hidden{
-  // display: flex;
-  // height: 1px;
-  // width: 1px;
   width: 100px;
   height: 1px;
   position: relative;
@@ -140,7 +134,6 @@ li.news{
   z-index: 3;
 }
 .header__box__bottom__left__search__category__hidden__2{
-  // padding-left: 200px;
   margin: 0px;
   padding-top: 10px;
   top: 0;
@@ -339,7 +332,6 @@ h4{
 .content{
   &__all{
     height: 6000px;
-    // width: 1664px;
     width: 100vw;
     background-color: rgb(245, 245, 245);
     &__scrol{

@@ -20,7 +20,10 @@ Rails.application.routes.draw do
   end
 
   get "/items/buied/:id" => "items#buied"
-  resources :category, only: [:index, :show]
+
+  resources :category, only: [:index, :show] do
+    resources :search, only: [:new]
+  end  
 
 
   namespace :api do

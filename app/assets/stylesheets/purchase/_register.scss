@@ -1,7 +1,6 @@
 .pay-wrapper{
   height: auto;
   width: 100%;
-  // background-color: gray;
 }  
 .main{
   margin: 40px 210px 0;
@@ -12,6 +11,7 @@
     width: 700px;
     background-color: white;
     margin-left: 40px;
+    position: relative;
     &__header{
       height: 50px;
       border-bottom: 2px solid #f5f5f5;
@@ -24,13 +24,20 @@
     &__footer{
       height: 308px;
       &__inner{
-        padding: 64px;
+        
         &__top{
         }
         &__middle{
-          padding-top: 24px;
+          height: 150px;
           padding-bottom: 32px;
-          border-bottom: 2px solid #eee;
+          height: 10px;
+          &__cash{
+            height: 150px;
+            margin-top: 50px;
+            position: absolute;
+            left: 2%;
+            top: 25%;
+          }
           &__border{
             height: 50px;
             width: 320px;
@@ -39,7 +46,9 @@
             padding: 15px;
             color: white;
             margin-bottom: 15px;
-            margin: auto;
+            position: absolute;
+            left: 28%;
+            bottom: 15%;
             .card{
               color: white;
               font-size: 14px;
@@ -49,8 +58,11 @@
           }
         }
         &__bottom{
-          margin-top: 40px;
+          position: absolute;
+          bottom: 0;
+          right: 0;
           text-align: right;
+
           .pay{
             color: #0099e8;
             font-size: 14px;

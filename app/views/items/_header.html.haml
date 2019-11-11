@@ -23,18 +23,20 @@
           .header__box__bottom__left__search__category__hidden
             %ul.header__box__bottom__left__search__category__hidden__1
               - @parents.each do |parent|
-                = link_to "" do
-                  %li.menu{id: parent.id}
+                %li.menu{id: parent.id}
+                  = link_to "/category/#{parent.id}/search/new" do
                     =parent.name
-                    %ul.header__box__bottom__left__search__category__hidden__2
-                      -parent.children.each do |child|
-                        %li.menu2{id: child.id}
+                  %ul.header__box__bottom__left__search__category__hidden__2
+                    -parent.children.each do |child|
+                      %li.menu2{id: child.id}
+                        = link_to "/category/#{child.id}/search/new" do
                           = child.name
-                          %ul.header__box__bottom__left__search__category__hidden__3
-                            -child.children.each do |grandchild|
-                              %li.menu3{id: grandchild.id}
+                        %ul.header__box__bottom__left__search__category__hidden__3
+                          -child.children.each do |grandchild|
+                            %li.menu3{id: grandchild.id}
+                              = link_to "/category/#{grandchild.id}/search/new" do
                                 = grandchild.name
-                          
+                        
         .header__box__bottom__left__search__brand 
           = link_to "/brand" do
             %i.fas.fa-comment-dollar

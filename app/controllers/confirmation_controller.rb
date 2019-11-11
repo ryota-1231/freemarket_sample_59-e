@@ -3,11 +3,7 @@ class ConfirmationController < ApplicationController
   
   def new
     #id仮置きです
-    if session[:item_id]
-      @item = Item.find(session[:item_id])
-    else
       @item = Item.find(params[:item_id])
-    end
 
     @user = @item.user   
     if Card.where(user_id: current_user.id).present?
@@ -17,7 +13,6 @@ class ConfirmationController < ApplicationController
     Payjp.api_key = "sk_test_be508ed036c9c40e55488d6a"
     customer = Payjp::Customer.retrieve(@card.buyer_id)
     @card_information = customer.cards.retrieve(@card.card_number)
-    session[:item_id] = params[:item_id]
   end
 
   def edit
